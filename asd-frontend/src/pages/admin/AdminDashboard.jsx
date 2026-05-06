@@ -79,6 +79,9 @@ import {
 import { RxCross1 } from "react-icons/rx";
 import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 
+import RolesPermission from "./RolesPermission";
+import Settings from './Settings'
+
 const revenueLineData = [
   { name: "Jun", value: 40 },
   { name: "Feb", value: 70 },
@@ -1684,6 +1687,8 @@ export default function AdminDashboard() {
   const [showNotice, setShowNotice] = useState(false);
   const [showAddPlan, setShowAddPlan] = useState(false);
 
+  console.log('ac', activeNav)
+  
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
       {/* Overlay for mobile */}
@@ -2065,12 +2070,18 @@ export default function AdminDashboard() {
             <UsersSection setShowNotice={setShowNotice} />
           )}
 
+          {activeNav === "Roles & Permissions" && <RolesPermission/>}
+
           {activeNav === "Plans/ Subscription" && (
             <PlanSection
               showAddPlan={showAddPlan}
               setShowAddPlan={setShowAddPlan}
             />
           )}
+
+           {activeNav === "Settings" && <Settings/>}
+
+
         </main>
       </div>
 

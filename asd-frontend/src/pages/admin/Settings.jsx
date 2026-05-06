@@ -1,6 +1,12 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { FiSettings, FiGlobe, FiMail, FiCreditCard, FiFileText, FiSliders, FiShield, FiMoreHorizontal, FiBell, FiMessageCircle, FiX, FiUpload, FiUser } from "react-icons/fi";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
+
+import { FiChevronDown } from "react-icons/fi";
+
+import { FaCcStripe, FaPaypal } from "react-icons/fa";
+import { SiRazorpay } from "react-icons/si";
+ 
 
 const tabs = [
   { id: "general", label: "General Settings", icon: <FiSettings /> },
@@ -304,10 +310,488 @@ function PlaceholderTab({ label }) {
   return (
     <div className="p-4 sm:p-6">
       <h2 className="text-base sm:text-lg font-semibold text-gray-800 mb-4">{label}</h2>
-      <p className="text-sm text-gray-400">Settings for {label} will appear here.</p>
+        this is default text
     </div>
   );
 }
+
+
+function CustomDropdown({ value, onChange, options }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef();
+
+  useEffect(() => {
+    const handler = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center justify-between border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-700 bg-white focus:outline-none"
+      >
+
+        <span>{value}</span>
+        <FiChevronDown className="text-gray-500" size={16} />
+      </button>
+      {open && (
+        <div className="absolute z-50 top-full left-0 right-0 bg-white border border-gray-200 rounded-b-lg shadow-md overflow-hidden">
+          {options.map((opt) => (
+            <button
+              key={opt}
+              onClick={() => { onChange(opt); setOpen(false); }}
+              className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${value === opt ? "bg-blue-100 text-gray-800" : "text-gray-600 hover:bg-gray-50"}`}
+            >
+              {opt}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+const providerOptions = ["Open AI", "Anthropic(Claude)", "Google AI"];
+
+const modelsByProvider = {
+  "Open AI": ["GPT-4", "GPT-3.5 Turbo", "Claude 3 Opus"],
+  "Anthropic(Claude)": ["Claude 3 Opus", "Claude 3 Sonnet", "Claude 3 Haiku"],
+  "Google AI": ["Gemini Pro", "Gemini Ultra", "PaLM 2"],
+};
+
+ function AISettingsPanel() {
+  const [enabled, setEnabled] = useState(true);
+  const [provider, setProvider] = useState("Open AI");
+  const [model, setModel] = useState("GPT-4");
+  const [aiKey, setAiKey] = useState("");
+  const [instructions, setInstructions] = useState("");
+  const [forceInstructions, setForceInstructions] = useState(true);
+
+  const handleProviderChange = (val) => {
+    setProvider(val);
+    setModel(modelsByProvider[val][0]);
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-start justify-center px-3 py-6 sm:px-6 sm:py-8 ">
+      <div className="w-full max-w-6xl space-y-5 ">
+
+        <div className="bg-white border border-gray-200 rounded-2xl overflow-visible shadow-sm">
+          <div className="px-5 pt-5 pb-2">
+            <h2 className="text-lg font-bold text-gray-800">AI Settings</h2>
+          </div>
+
+          <div className="mx-5 mb-5 bg-blue-50 rounded-xl px-4 py-3 flex items-center justify-between">
+            <div>
+              <p className="text-sm font-semibold text-gray-800">Enable AI Chatbot</p>
+              <p className="text-xs text-gray-500 mt-0.5">Activate</p>
+            </div>
+            <Toggle checked={enabled} onChange={setEnabled} />
+          </div>
+
+          <div className="px-5 pb-5 space-y-4">
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">AI Provider</label>
+              <CustomDropdown value={provider} onChange={handleProviderChange} options={providerOptions} />
+            </div>
+
+            <div>
+              <label className="block text-sm font-semibold text-gray-700 mb-1.5">Model</label>
+              <CustomDropdown value={model} onChange={setModel} options={modelsByProvider[provider]} />
+            </div>
+
+            <div>
+              <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+                Test Connection
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-lg font-bold text-gray-800 mb-3">AI Knowledge Base (Admin Control)</h2>
+          <div className="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm space-y-4">
+            <div>
+              <p className="text-sm font-semibold text-gray-800 mb-2">Custom AI Instructions</p>
+              <textarea
+                value={instructions}
+                onChange={(e) => setInstructions(e.target.value)}
+                placeholder="Enter legal updates, rules, or instruction that AI should when answering users..."
+                rows={4}
+                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300 resize-none"
+              />
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Toggle checked={forceInstructions} onChange={setForceInstructions} />
+              <span className="text-sm text-gray-600">Force AI to follow admin instructions strictly</span>
+            </div>
+
+            <div>
+              <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+                Save Instructions
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  );
+}
+
+
+
+ 
+ function EmailSMSSetup() {
+  const [form, setForm] = useState({
+    smtpHost: "",
+    port: "",
+    encryption: "TLS",
+    username: "",
+    password: "",
+    provider: "Twilio",
+    accountSID: "",
+    authToken: "",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+  
+const encryptionOptions = ["TLS", "SSL", "None"];
+const providerOptions = ["Twilio", "Nexmo", "Plivo", "MSG91"];
+
+
+ 
+  return (
+    <div className="min-h-screen bg-gray-50 flex items-start justify-center px-3 py-6 sm:px-6 sm:py-8">
+      <div className="w-full max-w-6xl bg-white border border-gray-200 rounded-2xl shadow-sm p-5 sm:p-6">
+ 
+        <h2 className="text-base font-bold text-gray-800 mb-4">Email & SMS Setup</h2>
+ 
+        <p className="text-sm font-semibold text-gray-700 mb-3">SMTP Email Configuration</p>
+ 
+        <div className="space-y-4">
+          <div>
+            <label className="block text-xs sm:text-sm text-gray-700 mb-1">SMTP Host</label>
+            <input
+              type="text"
+              value={form.smtpHost}
+              onChange={(e) => handleChange("smtpHost", e.target.value)}
+              placeholder="smpt.gmail.com"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+            />
+          </div>
+ 
+          <div className="flex gap-3">
+            <div className="flex-1">
+              <label className="block text-xs sm:text-sm text-gray-700 mb-1">Port</label>
+              <input
+                type="text"
+                value={form.port}
+                onChange={(e) => handleChange("port", e.target.value)}
+                placeholder="587"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+              />
+            </div>
+            <div className="flex-1">
+              <label className="block text-xs sm:text-sm text-gray-700 mb-1">Encryption</label>
+              <CustomDropdown value={form.encryption} onChange={(val) => handleChange("encryption", val)} options={encryptionOptions} />
+            </div>
+          </div>
+ 
+          <div>
+            <label className="block text-xs sm:text-sm text-gray-700 mb-1">Username</label>
+            <input
+              type="text"
+              value={form.username}
+              onChange={(e) => handleChange("username", e.target.value)}
+              placeholder="your-email@domain.com"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+            />
+          </div>
+ 
+          <div>
+            <label className="block text-xs sm:text-sm text-gray-700 mb-1">Password</label>
+            <input
+              type="password"
+              value={form.password}
+              onChange={(e) => handleChange("password", e.target.value)}
+              placeholder="Enter SMPT password"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+            />
+          </div>
+ 
+          <div className="pt-1">
+            <p className="text-sm font-semibold text-gray-700 mb-3">SMS Gateway Setup</p>
+ 
+            <div className="space-y-4">
+              <div>
+                <label className="block text-xs sm:text-sm text-gray-700 mb-1">Provider</label>
+                <CustomDropdown value={form.provider} onChange={(val) => handleChange("provider", val)} options={providerOptions} />
+              </div>
+ 
+              <div>
+                <label className="block text-xs sm:text-sm text-gray-700 mb-1">Account SID</label>
+                <input
+                  type="text"
+                  value={form.accountSID}
+                  onChange={(e) => handleChange("accountSID", e.target.value)}
+                  placeholder="Enter Account SID"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                />
+              </div>
+ 
+              <div>
+                <label className="block text-xs sm:text-sm text-gray-700 mb-1">Auth Token</label>
+                <input
+                  type="text"
+                  value={form.authToken}
+                  onChange={(e) => handleChange("authToken", e.target.value)}
+                  placeholder="Enter Auth Token"
+                  className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                />
+              </div>
+            </div>
+          </div>
+ 
+          <div className="pt-2">
+            <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+              Save Changes
+            </button>
+          </div>
+        </div>
+ 
+      </div>
+    </div>
+  );
+}
+
+
+function SubscriptionSettings() {
+  const [form, setForm] = useState({
+    autoRenewal: true,
+    trialPeriod: "14",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <h2 className="text-base font-bold text-gray-800 mb-4">Subscription Settings</h2>
+ 
+      <div className="bg-blue-50 rounded-xl px-4 py-3 flex items-center justify-between mb-5">
+        <div>
+          <p className="text-sm font-semibold text-blue-600">Auto-renewal</p>
+          <p className="text-xs text-blue-500 mt-0.5">Automatically renew subscriptions</p>
+        </div>
+        <Toggle checked={form.autoRenewal} onChange={(val) => handleChange("autoRenewal", val)} />
+      </div>
+ 
+      <div>
+        <label className="block text-sm text-gray-700 mb-1.5">Trial Period (days)</label>
+        <input
+          type="number"
+          value={form.trialPeriod}
+          onChange={(e) => handleChange("trialPeriod", e.target.value)}
+          className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-300"
+        />
+      </div>
+    </div>
+  );
+}
+
+
+
+const gateways = [
+  { key: "stripe", label: "Stipe", icon: <FaCcStripe className="text-indigo-600" size={26} /> },
+  { key: "razorpay", label: "Rezorpay", icon: <SiRazorpay className="text-blue-500" size={22} /> },
+  { key: "paypal", label: "Paypal", icon: <FaPaypal className="text-blue-700" size={22} /> },
+];
+ 
+ function PaymentGateway() {
+  const [form, setForm] = useState({
+    stripe: true,
+    razorpay: true,
+    paypal: true,
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <h2 className="text-base font-bold text-gray-800 mb-4">Payment Gateway</h2>
+ 
+      <div className="space-y-3 mb-6">
+        {gateways.map(({ key, label, icon }) => (
+          <div key={key} className="bg-blue-50 rounded-xl px-4 py-3.5 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              {icon}
+              <span className="text-sm font-medium text-gray-700">{label}</span>
+            </div>
+            <Toggle checked={form[key]} onChange={(val) => handleChange(key, val)} />
+          </div>
+        ))}
+      </div>
+ 
+      <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+        Save Changes
+      </button>
+    </div>
+  );
+}
+
+
+
+
+const templateOptions = ["Template 1 - Modern", "Template 2 - Classic", "Template 3 - Minimal"];
+ 
+function Documents() {
+  const [form, setForm] = useState({
+    invoiceTemplate: "Template 1 - Modern",
+    documentPrefix: "INV-",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6 flex flex-col justify-between min-h-64">
+      <div>
+        <h2 className="text-base font-bold text-gray-800 mb-5">
+          Invoice / Proposal / Estimate / Credit Notes
+        </h2>
+ 
+        <div className="space-y-4">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">Invoice Template</label>
+            <CustomDropdown
+              value={form.invoiceTemplate}
+              onChange={(val) => handleChange("invoiceTemplate", val)}
+              options={templateOptions}
+            />
+          </div>
+ 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">Document Prefix</label>
+            <input
+              type="text"
+              value={form.documentPrefix}
+              onChange={(e) => handleChange("documentPrefix", e.target.value)}
+              className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+            />
+          </div>
+        </div>
+      </div>
+ 
+      <div className="mt-8">
+        <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+          Save Changes
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
+const featureList = ["customers", "tasks", "support", "leads"];
+ 
+ function ConfigureFeatures() {
+  const [form, setForm] = useState({
+    customers: true,
+    tasks: true,
+    support: true,
+    leads: true,
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <h2 className="text-base font-bold text-gray-800 mb-4">Configure Features</h2>
+ 
+      <div className="space-y-3 mb-6">
+        {featureList.map((key) => (
+          <div key={key} className="bg-blue-50 rounded-xl px-4 py-3.5 flex items-center justify-between">
+            <span className="text-sm font-medium text-gray-700 capitalize">{key}</span>
+            <Toggle checked={form[key]} onChange={(val) => handleChange(key, val)} />
+          </div>
+        ))}
+      </div>
+ 
+      <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+        Save Changes
+      </button>
+    </div>
+  );
+}
+
+
+
+const cronOptions = [
+  "Every 5 minutes",
+  "Every 10 minutes",
+  "Every 15 minutes",
+  "Every 30 minutes",
+  "Every 1 hour",
+];
+ 
+ function Miscellaneous() {
+  const [form, setForm] = useState({
+    cronInterval: "Every 5 minutes",
+    enableMailbox: true,
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <h2 className="text-base font-bold text-gray-800 mb-4">Miscellaneous</h2>
+ 
+      <div className="space-y-4 mb-6">
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Cron Job Interval</label>
+          <CustomDropdown
+            value={form.cronInterval}
+            onChange={(val) => handleChange("cronInterval", val)}
+            options={cronOptions}
+          />
+        </div>
+ 
+        <div className="bg-blue-50 rounded-xl px-4 py-3 flex items-center justify-between">
+          <div>
+            <p className="text-sm font-semibold text-gray-800">Enable Mailbox</p>
+            <p className="text-xs text-gray-500 mt-0.5">Allow internal messaging system</p>
+          </div>
+          <Toggle checked={form.enableMailbox} onChange={(val) => handleChange("enableMailbox", val)} />
+        </div>
+      </div>
+ 
+      <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+        Save Changes
+      </button>
+    </div>
+  );
+}
+
+
 
 export default function Settings() {
   const [activeTab, setActiveTab] = useState("general");
@@ -315,8 +799,22 @@ export default function Settings() {
 
   const renderContent = () => {
     switch (activeTab) {
-      case "general": return <GeneralSettings />;
-      case "social": return <SocialLoginSettings />;
+      case "general": return <GeneralSettings/>;
+      case "social": return <SocialLoginSettings/>;
+      case "ai": return <AISettingsPanel/>;
+      case "email": return <EmailSMSSetup /> ;
+      case "subscription": return <SubscriptionSettings/>;
+      case "payment": return <PaymentGateway/>;
+      case "documents": return <Documents/>;
+      case "features": return <ConfigureFeatures />;
+                                                // <-  pending
+      case "misc": return <Miscellaneous />;
+      // case "notice": return <Miscellaneous />; <-  pending
+
+
+
+      
+
       default: return <PlaceholderTab label={tabs.find(t => t.id === activeTab)?.label || ""} />;
     }
   };
@@ -380,3 +878,9 @@ export default function Settings() {
     </div>
   );
 }
+
+
+
+
+
+

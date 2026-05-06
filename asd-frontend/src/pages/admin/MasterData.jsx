@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { FaDatabase, FaPlus, FaTimes, FaPen } from "react-icons/fa6";
-
+import { FaDatabase, FaPlus, FaPen } from "react-icons/fa6";
+import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 const initialCategories = [
   { id: 1, name: "Product Categories", subtitle: "Supported product categories", items: Array.from({ length: 45 }, (_, i) => ({ id: i + 1, code: `PRO-${String(i + 1).padStart(3, "0")}`, name: "Sample Product 01", status: "Active" })) },
   { id: 2, name: "Shipment Types", subtitle: "Supported shipment types", items: Array.from({ length: 12 }, (_, i) => ({ id: i + 1, code: `Ship-${String(i + 1).padStart(3, "0")}`, name: "Sample Product 01", status: "Active" })) },

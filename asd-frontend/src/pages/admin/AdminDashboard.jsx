@@ -81,6 +81,7 @@ import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 
 import RolesPermission from "./RolesPermission";
 import Settings from './Settings'
+import MasterData from "./MasterData";
 
 const revenueLineData = [
   { name: "Jun", value: 40 },
@@ -2078,6 +2079,8 @@ export default function AdminDashboard() {
               setShowAddPlan={setShowAddPlan}
             />
           )}
+          
+           {activeNav === "Master Data" && <MasterData/>}
 
            {activeNav === "Settings" && <Settings/>}
 

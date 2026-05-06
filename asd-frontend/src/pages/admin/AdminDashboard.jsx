@@ -80,6 +80,8 @@ import { RxCross1 } from "react-icons/rx";
 import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 
 import RolesPermission from "./RolesPermission";
+import Settings from './Settings'
+
 const revenueLineData = [
   { name: "Jun", value: 40 },
   { name: "Feb", value: 70 },
@@ -2076,6 +2078,9 @@ export default function AdminDashboard() {
               setShowAddPlan={setShowAddPlan}
             />
           )}
+
+           {activeNav === "Settings" && <Settings/>}
+
 
         </main>
       </div>

@@ -81,6 +81,10 @@ import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 
 import RolesPermission from "./RolesPermission";
 import Settings from './Settings'
+import MasterData from "./MasterData";
+import HSRules from "./HsRules";
+import CountryRules from "./CountryRules";
+import DGFTSchemes from "./DgftScheme";
 
 const revenueLineData = [
   { name: "Jun", value: 40 },
@@ -2079,8 +2083,14 @@ export default function AdminDashboard() {
             />
           )}
 
-           {activeNav === "Settings" && <Settings/>}
+           {activeNav === "Master Data" && <MasterData/>}
+           {activeNav === "HS Rules" && <HSRules/>}
+           {activeNav === "Country Rules" && <CountryRules/>}
+           {activeNav === "DGFT Schemes" && <DGFTSchemes/>}
 
+           
+           {activeNav === "Settings" && <Settings/>}
+   
 
         </main>
       </div>

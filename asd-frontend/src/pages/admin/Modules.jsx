@@ -1,16 +1,3 @@
-// import React from 'react'
-
-// const Modules = () => {
-
-//   return (
-//     <div>
-      
-//     </div>
-//   )
-// }
-
-// export default Modules
-
 import { useState, useRef } from "react";
 import { FiTrash2, FiUpload, FiSearch, FiX, FiPackage } from "react-icons/fi";
 import { FaStar } from "react-icons/fa";

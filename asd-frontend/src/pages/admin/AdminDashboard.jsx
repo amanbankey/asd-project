@@ -90,6 +90,7 @@ import VendorsPartners from "./VendorsPartners";
 import AiAssistant from "./AiAssistant";
 import TradeIntelligence from "./TradeIntelligence";
 import Modules from "./Modules";
+import Support from "./Support";
 
 const revenueLineData = [
   { name: "Jun", value: 40 },
@@ -2099,7 +2100,10 @@ export default function AdminDashboard() {
            {activeNav === "Vendors/ Partners" && <VendorsPartners /> }
            {activeNav === "AI Assistant" && <AiAssistant /> }
            {activeNav === "Trade Intelligence" && <TradeIntelligence /> }
-             {activeNav === "Modules" && <Modules /> }
+           {activeNav === "Support" && <Support /> }
+           {activeNav === "Modules" && <Modules /> }
+             
+
             {/* {activeNav === "Vendors/ Partners" && <VendorsPartners /> } */}
            {activeNav === "Settings" && <Settings/>}
    

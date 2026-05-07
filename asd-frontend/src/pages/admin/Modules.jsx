@@ -153,13 +153,6 @@ export default function Modules() {
             </div>
           ))}
         </div>
-
-        <button
-          onClick={() => setShowModal(true)}
-          className="fixed bottom-6 right-6 w-12 h-12 bg-teal-400 hover:bg-teal-500 text-white rounded-full shadow-lg flex items-center justify-center text-2xl transition-colors z-20"
-        >
-          +
-        </button>
       </div>
 
       {showModal && (
@@ -210,7 +203,7 @@ export default function Modules() {
                       </div>
                       <div>
                         <p className="text-xs font-semibold text-gray-800">{m.name}</p>
-                        <p className="text-xs text-gray-400 mt-0.5 leading-tight">{m.desc}</p>
+                        <p className="text-[0.65rem] text-gray-400 mt-0.5 leading-tight">{m.desc}</p>
                       </div>
                     </div>
                     <span className={`inline-block text-xs px-2 py-0.5 rounded-full mb-2 font-medium ${m.premium ? "bg-yellow-100 text-yellow-600" : "bg-teal-50 text-teal-600"}`}>

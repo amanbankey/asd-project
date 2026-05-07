@@ -6,6 +6,10 @@ import { FiChevronDown } from "react-icons/fi";
 
 import { FaCcStripe, FaPaypal } from "react-icons/fa";
 import { SiRazorpay } from "react-icons/si";
+import { FiClock, FiMonitor, FiSmartphone, FiLogOut } from "react-icons/fi";
+
+import { FiRotateCcw } from "react-icons/fi";
+
  
 
 const tabs = [
@@ -793,6 +797,326 @@ const cronOptions = [
 
 
 
+
+const displayModeOptions = ["List", "Grid", "Carousel"];
+const expiryOptions = ["Never Expire", "After 7 days", "After 15 days", "After 30 days"];
+const priorityOptions = ["Priority", "Pin", "Both"];
+ 
+ function NoticeBoardSetting() {
+  const [form, setForm] = useState({
+    enabled: true,
+    displayMode: "List",
+    expirySystem: "Never Expire",
+    visibilityControl: "Staff",
+    priorityPinSystem: "Priority",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  const handleReset = () => {
+    setForm({
+      enabled: true,
+      displayMode: "List",
+      expirySystem: "Never Expire",
+      visibilityControl: "Staff",
+      priorityPinSystem: "Priority",
+    });
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h2 className="text-base font-bold text-gray-800">Notice Board Setting</h2>
+        <button onClick={handleReset} className="flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 transition-colors">
+          <span>Reset</span>
+          <FiRotateCcw size={14} />
+        </button>
+      </div>
+ 
+      <div className="space-y-4">
+        <div className="flex items-center justify-between">
+          <label className="text-sm text-gray-700">Enable/Disable</label>
+          <Toggle checked={form.enabled} onChange={(val) => handleChange("enabled", val)} />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Display Mode</label>
+          <CustomDropdown
+            value={form.displayMode}
+            onChange={(val) => handleChange("displayMode", val)}
+            options={displayModeOptions}
+          />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Expiry System</label>
+          <CustomDropdown
+            value={form.expirySystem}
+            onChange={(val) => handleChange("expirySystem", val)}
+            options={expiryOptions}
+          />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Visibility Control</label>
+          <input
+            type="text"
+            value={form.visibilityControl}
+            onChange={(e) => handleChange("visibilityControl", e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Priority & Pin System</label>
+          <CustomDropdown
+            value={form.priorityPinSystem}
+            onChange={(val) => handleChange("priorityPinSystem", val)}
+            options={priorityOptions}
+          />
+        </div>
+ 
+        <button className="w-full py-3 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors mt-2">
+          Save
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+ function WhatsAppAPI() {
+  const [form, setForm] = useState({
+    enabled: true,
+    phoneNumberId: "",
+    accessToken: "",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6">
+      <div className="flex items-start justify-between mb-5">
+        <div>
+          <h2 className="text-base font-bold text-gray-800">WhatsApp API</h2>
+          <p className="text-xs text-gray-500 mt-0.5">Edit your WhatsApp API Settings</p>
+        </div>
+        <Toggle checked={form.enabled} onChange={(val) => handleChange("enabled", val)} />
+      </div>
+ 
+      <div className="flex flex-col sm:flex-row gap-3 mb-5">
+        <div className="flex-1">
+          <label className="block text-sm text-gray-700 mb-1.5">WhatsApp Phone number ID</label>
+          <input
+            type="text"
+            value={form.phoneNumberId}
+            onChange={(e) => handleChange("phoneNumberId", e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+        </div>
+        <div className="flex-1">
+          <label className="block text-sm text-gray-700 mb-1.5">WhatsApp Access Token</label>
+          <input
+            type="text"
+            value={form.accessToken}
+            onChange={(e) => handleChange("accessToken", e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+        </div>
+      </div>
+ 
+      <button className="px-6 py-2.5 text-sm font-medium text-white bg-teal-400 hover:bg-teal-500 rounded-lg transition-colors">
+        Save Changes
+      </button>
+    </div>
+  );
+}
+
+
+
+
+const logoutTimeOptions = ["1 day", "3 days", "7 days", "14 days", "30 days"];
+const maxSessionOptions = ["1", "2", "3", "5", "10"];
+ 
+const devices = [
+  { id: 1, name: "Chrome on Windows", sub: "Windows 11  Chrome 124", location: "Mumbai, India", ip: "IP 103.21.344.xx", lastActive: "Just now", status: "Active", icon: <FiMonitor size={16} /> },
+  { id: 2, name: "Mobile App on Android", sub: "Android 14 App 2.4.1", location: "Mumbai, India", ip: "IP 103.21.344.xx", lastActive: "Just now", status: "Active", icon: <FiSmartphone size={16} /> },
+  { id: 3, name: "Mobile App on Android", sub: "Android 14 App 2.4.1", location: "Mumbai, India", ip: "IP 103.21.344.xx", lastActive: "Just now", status: "Active", icon: <FiSmartphone size={16} /> },
+];
+ 
+ function SecurityTokens() {
+  const [form, setForm] = useState({
+    authToken: "",
+    captchaToken: "",
+    reservedUsernames: "admin, support, help, root",
+    rememberMe: true,
+    autoLogin: true,
+    logoutOnPasswordChange: true,
+    autoLogoutTime: "7 days",
+    maxActiveSessions: "3",
+  });
+ 
+  const handleChange = (key, value) => {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  };
+ 
+  return (
+    <div className="p-4 sm:p-6 space-y-5">
+ 
+      <div className="border border-gray-200 rounded-xl p-4 sm:p-5 space-y-4">
+        <h2 className="text-base font-bold text-gray-800">Security & Tokens</h2>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Authentication Token</label>
+          <input
+            type="text"
+            value={form.authToken}
+            onChange={(e) => handleChange("authToken", e.target.value)}
+            placeholder="Enter authentication token"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">CAPCHA Token</label>
+          <input
+            type="text"
+            value={form.captchaToken}
+            onChange={(e) => handleChange("captchaToken", e.target.value)}
+            placeholder="Enter CAPCHA token"
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+        </div>
+ 
+        <div>
+          <label className="block text-sm text-gray-700 mb-1.5">Reserved Usernames (comma-separated)</label>
+          <input
+            type="text"
+            value={form.reservedUsernames}
+            onChange={(e) => handleChange("reservedUsernames", e.target.value)}
+            className="w-full border border-gray-300 rounded-lg px-3 py-2.5 text-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+          />
+          <p className="text-xs text-gray-400 mt-1">These usernames cannot be used during registration</p>
+        </div>
+ 
+        <div>
+          <p className="text-sm font-semibold text-gray-800 mb-3">Session Settings</p>
+          <div className="flex flex-col sm:flex-row gap-3 mb-4">
+            <div className="flex-1 bg-blue-50 rounded-xl px-3 py-2.5 flex items-start gap-2">
+              <Toggle checked={form.rememberMe} onChange={(val) => handleChange("rememberMe", val)} />
+              <div>
+                <p className="text-xs font-semibold text-gray-700">Enable Remember Me on Login</p>
+                <p className="text-xs text-gray-500 mt-0.5">Allow users to stay logged in on this device</p>
+              </div>
+            </div>
+            <div className="flex-1 bg-blue-50 rounded-xl px-3 py-2.5 flex items-start gap-2">
+              <Toggle checked={form.autoLogin} onChange={(val) => handleChange("autoLogin", val)} />
+              <div>
+                <p className="text-xs font-semibold text-gray-700">Allow Auto Login (Stay Logged In)</p>
+                <p className="text-xs text-gray-500 mt-0.5">Keep users logged in across browser sessions</p>
+              </div>
+            </div>
+          </div>
+ 
+          <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex-1">
+              <label className="flex items-center gap-1.5 text-sm text-gray-700 mb-1.5">
+                <FiClock size={14} className="text-gray-500" />
+                Auto Logout Time
+              </label>
+              <CustomDropdown value={form.autoLogoutTime} onChange={(val) => handleChange("autoLogoutTime", val)} options={logoutTimeOptions} />
+            </div>
+            <div className="flex-1">
+              <label className="block text-sm text-gray-700 mb-1.5">Max Active Sessions</label>
+              <CustomDropdown value={form.maxActiveSessions} onChange={(val) => handleChange("maxActiveSessions", val)} options={maxSessionOptions} />
+            </div>
+          </div>
+        </div>
+      </div>
+ 
+      <div className="border border-gray-200 rounded-xl p-4 sm:p-5">
+        <p className="text-sm font-semibold text-gray-800 mb-3">Security Controls</p>
+        <div className="flex flex-col sm:flex-row gap-3 items-start">
+          <div className="flex-1 bg-blue-50 rounded-xl px-3 py-2.5 flex items-start gap-2">
+            <Toggle checked={form.logoutOnPasswordChange} onChange={(val) => handleChange("logoutOnPasswordChange", val)} />
+            <div>
+              <p className="text-xs font-semibold text-gray-700">Logout on Password Change</p>
+              <p className="text-xs text-gray-500 mt-0.5">Automatically logout all sessions when password is changed</p>
+            </div>
+          </div>
+          <div className="flex-1 border border-yellow-400 rounded-xl px-3 py-2.5">
+            <p className="text-sm font-semibold text-yellow-500">Force Logout from All Devices</p>
+            <p className="text-xs text-gray-500 mt-0.5">Immediately sign out from all active sessions</p>
+          </div>
+        </div>
+      </div>
+ 
+      <div className="border border-gray-200 rounded-xl p-4 sm:p-5">
+        <p className="text-sm font-semibold text-gray-800">Device management</p>
+        <p className="text-xs text-gray-500 mb-4 mt-0.5">These are the devices currently logged in to your account</p>
+ 
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[480px]">
+            <thead>
+              <tr className="text-left text-xs text-gray-500 border-b border-gray-100">
+                <th className="pb-2 font-medium">Device</th>
+                <th className="pb-2 font-medium">Location</th>
+                <th className="pb-2 font-medium">Last Active</th>
+                <th className="pb-2 font-medium">Status</th>
+                <th className="pb-2 font-medium">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {devices.map((d) => (
+                <tr key={d.id} className="border-b border-gray-50 last:border-0">
+                  <td className="py-3 pr-3">
+                    <div className="flex items-start gap-2">
+                      <span className="text-gray-500 mt-0.5">{d.icon}</span>
+                      <div>
+                        <p className="text-xs font-medium text-gray-700">{d.name}</p>
+                        <p className="text-xs text-gray-400">{d.sub}</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-3 pr-3">
+                    <p className="text-xs text-gray-700">{d.location}</p>
+                    <p className="text-xs text-gray-400">{d.ip}</p>
+                  </td>
+                  <td className="py-3 pr-3 text-xs text-gray-600">{d.lastActive}</td>
+                  <td className="py-3 pr-3">
+                    <span className="px-2 py-0.5 text-xs font-medium text-green-600 bg-green-100 rounded-full">{d.status}</span>
+                  </td>
+                  <td className="py-3">
+                    <button className="px-3 py-1 text-xs border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition-colors">
+                      Logout
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+ 
+        <button className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 border border-red-400 rounded-lg text-sm text-red-500 hover:bg-red-50 transition-colors">
+          <FiLogOut size={15} />
+          <span className="font-medium">Logout from All Devices</span>
+        </button>
+        <p className="text-xs text-gray-400 text-center mt-1">Sign out from all active sessions on all devices</p>
+      </div>
+ 
+    </div>
+  );
+}
+
+
+
+
 export default function Settings() {
   const [activeTab, setActiveTab] = useState("general");
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -807,9 +1131,13 @@ export default function Settings() {
       case "payment": return <PaymentGateway/>;
       case "documents": return <Documents/>;
       case "features": return <ConfigureFeatures />;
-                                                // <-  pending
+
+      case "security": return <SecurityTokens />;
+
       case "misc": return <Miscellaneous />;
-      // case "notice": return <Miscellaneous />; <-  pending
+      case "notice": return <NoticeBoardSetting />; 
+      case "whatsapp": return <WhatsAppAPI />; 
+
 
 
 

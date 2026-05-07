@@ -85,6 +85,10 @@ import MasterData from "./MasterData";
 import HSRules from "./HsRules";
 import CountryRules from "./CountryRules";
 import DGFTSchemes from "./DgftScheme";
+import Shipment from "./Shipment";
+import VendorsPartners from "./VendorsPartners";
+import AiAssistant from "./AiAssistant";
+import TradeIntelligence from "./TradeIntelligence";
 
 const revenueLineData = [
   { name: "Jun", value: 40 },
@@ -2088,7 +2092,14 @@ export default function AdminDashboard() {
            {activeNav === "Country Rules" && <CountryRules/>}
            {activeNav === "DGFT Schemes" && <DGFTSchemes/>}
 
-           
+           {activeNav === "Shipment" && <Shipment /> }
+
+
+           {activeNav === "Vendors/ Partners" && <VendorsPartners /> }
+           {activeNav === "AI Assistant" && <AiAssistant /> }
+           {activeNav === "Trade Intelligence" && <TradeIntelligence /> }
+           {/*    {activeNav === "Modules" && <Modules /> }
+           {activeNav === "Vendors/ Partners" && <VendorsPartners /> } */}
            {activeNav === "Settings" && <Settings/>}
    
 

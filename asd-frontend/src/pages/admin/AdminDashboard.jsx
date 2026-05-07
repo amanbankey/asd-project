@@ -95,6 +95,18 @@ import APIIntegrations from "./ApiIntegrations";
 import AdManagement from "./AdManagement";
 import UsersSection from './Users'
 import PlanSection from "./PlansSubscriptions";
+import WhatsappBot from "./WhatsappBot";
+import { BsCalendarCheck, BsPersonPlus, BsGraphUp } from "react-icons/bs";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { RiWhatsappLine } from "react-icons/ri";
+import { FiX, } from "react-icons/fi";
+const fabActions = [
+  { label: "New Booking", icon: <BsCalendarCheck size={22} className="text-teal-600" /> },
+  { label: "Add Vendor", icon: <BsPersonPlus size={22} className="text-teal-600" /> },
+  { label: "Report", icon: <HiOutlineDocumentText size={22} className="text-teal-600" /> },
+  { label: "WhatsApp Bot", icon: <RiWhatsappLine size={22} className="text-teal-600" /> },
+];
+
 
 const revenueLineData = [
   { name: "Jun", value: 40 },
@@ -366,12 +378,18 @@ function CreateNotice({ setShowNotice }) {
 
 export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState("Plans/ Subscription");
+  const [activeNav, setActiveNav] = useState("Admin Dashboard");
   const [showNotice, setShowNotice] = useState(false);
   const [showAddPlan, setShowAddPlan] = useState(false);
-
+   const [showBot, setShowBot] = useState(false);
+     const [fabOpen, setFabOpen] = useState(false);
   // console.log('ac', activeNav)
   
+  const handleFabAction = (label) => {
+    if (label === "WhatsApp Bot") { setShowBot(true); setFabOpen(false); }
+    else setFabOpen(false);
+  };
+
   return (
     <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
       {/* Overlay for mobile */}
@@ -782,16 +800,35 @@ export default function AdminDashboard() {
            {activeNav === "Support" && <Support /> }
            {activeNav === "Modules" && <Modules /> } 
            {activeNav === "Settings" && <Settings/>}
-   
+            {showBot && <WhatsappBot showBot={showBot} setShowBot={setShowBot} fabOpen={fabOpen} setFabOpen={setFabOpen}/>  }
 
         </main>
       </div>
 
-      <button className="fixed bottom-5 right-5 w-11 h-11 bg-teal-500 hover:bg-teal-600 text-white rounded-full flex items-center justify-center shadow-lg transition-colors z-10">
-        <FiPlus size={20} />
-      </button>
 
       {showNotice && <CreateNotice setShowNotice={setShowNotice} />}
+      
+
+        {fabOpen && <div className="fixed inset-0 z-30" onClick={() => setFabOpen(false)} />}
+          
+      <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-40">
+        {fabOpen && (
+          <div className="flex flex-col gap-2 items-end mb-1">
+            {fabActions.map((a, i) => (
+              <button key={i} onClick={() => {
+                handleFabAction(a.label)
+                setActiveNav("")
+              }} className="flex items-center gap-3 bg-white rounded-full shadow-lg px-4 py-2.5 hover:bg-gray-50 transition-all">
+                <span className="text-sm font-medium text-gray-700">{a.label}</span>
+                <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center">{a.icon}</div>
+              </button>
+            ))}
+          </div>
+        )}
+        <button onClick={() => setFabOpen(!fabOpen)} className={`w-14 h-14 rounded-full shadow-xl flex items-center justify-center text-white transition-all ${fabOpen ? "bg-gray-600" : "bg-teal-500 hover:bg-teal-600"}`}>
+          {fabOpen ? <FiX size={22} /> : <FiPlus size={24} />}
+        </button>
+      </div>
     </div>
   );
 }

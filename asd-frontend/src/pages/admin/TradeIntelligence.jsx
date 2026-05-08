@@ -185,8 +185,8 @@ function BuyersSellerTable({ data }) {
           <span className="text-xs">May 1 - May 31, 2026</span>
           <FaCalendar className="text-gray-400 text-xs" />
         </div>
-        <div className="flex flex-col">
-          <span className="text-xs text-gray-400 mb-1">Trade Volume</span>
+        <div className="flex flex-col  ">
+          <span className="text-xs text-gray-400 mb-1 ">Trade Volume</span>
           <select className="border border-gray-200 rounded-xl px-3 py-2 text-sm outline-none focus:border-teal-500 bg-white transition-all"
             value={volume} onChange={e => setVolume(e.target.value)}>
             {["Any", "$0-$10M", "$10M-$50M", "$50M+"].map(o => <option key={o}>{o}</option>)}
@@ -198,7 +198,7 @@ function BuyersSellerTable({ data }) {
         <table className="w-full min-w-[700px]">
           <thead>
             <tr className="bg-gray-50">
-              <th className="text-left text-xs font-semibold text-gray-500 px-3 py-3 rounded-l-xl w-8">#</th>
+              <th className="text-left text-xs font-semibold text-gray-500 px-3 py-3 rounded-l-xl w-8">ID</th>
               {["Company Name", "Location", "Product", "Trade Frequency", "Trade Volume", "Last Activity", "Actions"].map((h, i) => (
                 <th key={h} className={`text-left text-xs font-semibold text-gray-500 px-3 py-3 ${i === 6 ? "rounded-r-xl" : ""}`}>{h}</th>
               ))}
@@ -210,14 +210,14 @@ function BuyersSellerTable({ data }) {
                 <td className="px-3 py-3 text-xs text-gray-400">{(page - 1) * ROWS_PER_PAGE + idx + 1}</td>
                 <td className="px-3 py-3">
                   <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="hidden sm:flex w-7 h-7 bg-red-100 rounded-lg  items-center justify-center flex-shrink-0">
                       <span className="text-red-500 text-xs font-bold">K</span>
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5 flex-wrap">
-                        <p className="text-xs font-bold text-gray-800">{row.company}</p>
+                        <p className="text-xs font-bold text-gray-800 whitespace-nowrap">{row.company}</p>
                         {row.verified && (
-                          <span className="text-xs bg-teal-50 text-teal-600 px-1.5 py-0.5 rounded font-medium flex items-center gap-0.5">
+                          <span className="text-xs bg-teal-50 text-teal-600 px-1.5 py-0.5 pr-1 rounded font-medium flex items-center gap-0.5 ">
                             <FaCircleCheck className="text-xs" /> Verified
                           </span>
                         )}
@@ -229,7 +229,7 @@ function BuyersSellerTable({ data }) {
                 <td className="text-xs text-gray-600 px-3 py-3">{row.location}</td>
                 <td className="text-xs text-gray-600 px-3 py-3">{row.product}</td>
                 <td className="px-3 py-3">
-                  <span className={`text-xs px-2.5 py-1 rounded-lg font-medium ${freqColors[row.freq] || "bg-gray-100 text-gray-500"}`}>{row.freq}</span>
+                  <span className={`text-xs px-[0.25rem] py-[0.15rem] rounded-lg font-medium whitespace-nowrap ${freqColors[row.freq] || "bg-gray-100 text-gray-500"}`}>{row.freq}</span>
                 </td>
                 <td className="text-xs font-semibold text-gray-800 px-3 py-3">{row.volume}</td>
                 <td className="text-xs text-gray-600 px-3 py-3 whitespace-nowrap">{row.lastActivity}</td>

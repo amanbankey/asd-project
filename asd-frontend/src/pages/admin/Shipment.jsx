@@ -564,7 +564,7 @@ export default function Shipment() {
                     <td className="px-3 py-3"><span className="text-xs bg-teal-100 text-teal-600 px-2 py-1 rounded-lg font-medium">{row.hsCode}</span></td>
                     <td className="text-xs text-gray-700 px-3 py-3">{row.carrier}</td>
                     <td className="text-xs text-gray-700 px-3 py-3">{row.mode}</td>
-                    <td className="px-3 py-3">
+                    <td className="px-3 py-3 flex">
                       <p className="text-xs text-gray-600">{row.etd}</p>
                       <p className="text-xs text-gray-400">{row.eta}</p>
                     </td>

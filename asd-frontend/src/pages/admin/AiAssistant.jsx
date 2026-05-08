@@ -314,7 +314,7 @@ export default function AiAssistant() {
                         <div className="flex items-center gap-2">
                           <div>
                             <div className="flex items-center gap-1.5">
-                              <p className="text-xs font-bold text-gray-800">{b.company}</p>
+                              <p className="text-xs font-bold text-gray-800 whitespace-nowrap">{b.company}</p>
                               {b.verified && <span className="text-xs bg-teal-50 text-teal-600 px-1.5 py-0.5 rounded font-medium flex items-center gap-0.5"><FaCircleCheck className="text-xs" /> Verified</span>}
                             </div>
                             <p className="text-xs text-gray-400">{b.subtitle}</p>

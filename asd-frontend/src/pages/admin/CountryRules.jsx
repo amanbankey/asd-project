@@ -603,7 +603,7 @@ function CountryRulesPage({ onAddClick }) {
                     <td className="text-sm text-gray-500 px-3 py-3">{row.code}</td>
                     <td className="text-sm font-semibold text-gray-800 px-3 py-3">{row.vat}</td>
                     <td className="text-sm text-gray-600 px-3 py-3">{row.customDuty}</td>
-                    <td className="text-sm text-gray-600 px-3 py-3">{row.restriction}</td>
+                    <td className="text-xs sm:text-sm text-gray-600 px-3 py-3">{row.restriction}</td>
                     <td className="px-3 py-3">
                       <span className="text-xs bg-teal-100 text-teal-600 px-2.5 py-1 rounded-lg font-medium">{row.status}</span>
                     </td>

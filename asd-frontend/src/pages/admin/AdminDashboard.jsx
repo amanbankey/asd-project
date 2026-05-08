@@ -404,7 +404,7 @@ export default function AdminDashboard() {
       {/* Sidebar */}
       <aside
         className={`
-          fixed lg:static inset-y-0 left-0 z-30 w-52 xl:w-56
+          fixed lg:static inset-y-0 left-0 z-30 w-52 xl:w-60
           bg-gray-900 text-white flex flex-col
           transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
@@ -442,7 +442,7 @@ export default function AdminDashboard() {
                 }`}
             >
               <Icon size={13} className="flex-shrink-0" />
-              <span className="truncate">{label}</span>
+              <span className="truncate text-[0.9rem] ">{label}</span>
             </button>
           ))}
         </nav>

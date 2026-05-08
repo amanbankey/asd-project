@@ -272,18 +272,11 @@ export default function AiAssistant() {
           {/* COUNTRY BREAKDOWN */}
           <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5">
             <h2 className="text-sm font-bold text-gray-800 mb-4">Export Value Trend</h2>
-            <div className="flex flex-col sm:flex-row gap-4 items-start">
-              <div className="flex-1">
-                <div className="grid grid-cols-5 gap-1 h-32 items-end">
-                  {countryData.map((c, i) => (
-                    <div key={c.name} className="flex flex-col items-center gap-1">
-                      <div className={`w-full rounded-t-lg ${c.color} opacity-80`} style={{ height: `${(parseFloat(c.pct) / 25) * 100}%` }} />
-                      <span className="text-xs text-gray-400 text-center leading-tight">{c.name}</span>
-                    </div>
-                  ))}
+            <div className="flex flex-col sm:flex-row gap-10 justify-evenly items-start ">
+                  <div className="w-96">
+                    <img src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp" alt="map"/>
                 </div>
-              </div>
-              <div className="w-full sm:w-48 flex flex-col gap-2">
+                <div className="w-full sm:w-48 flex flex-col gap-2">
                 {countryData.map(c => (
                   <div key={c.name} className="flex items-center justify-between">
                     <div className="flex items-center gap-2">

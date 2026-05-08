@@ -492,9 +492,9 @@ export default function Shipment() {
         <div className="flex items-start justify-between mb-5 gap-3">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Shipment</h1>
-            <p className="text-xs sm:text-sm text-gray-400 mt-1">Government schemes list, benefits and policies</p>
+            <p className="text-[0.8rem] sm:text-sm text-gray-400 mt-1">Government schemes list, benefits and policies</p>
           </div>
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <button className="flex items-center gap-2 border border-gray-200 text-gray-600 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
               <FaDownload className="text-xs" /> Export CSV
             </button>

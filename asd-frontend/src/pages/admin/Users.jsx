@@ -452,14 +452,14 @@ export default function UsersSection({ setShowNotice }) {
       <div className="flex justify-between items-center mb-4">
         <div>
           <h2 className="text-xl font-semibold">Users</h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-gray-500">
             Manage user accounts and access
           </p>
         </div>
 
         <button
           onClick={() => setShowModal(true)}
-          className="bg-teal-500 text-white px-4 py-2 rounded-md text-sm"
+          className="bg-teal-500 text-white px-4 py-2 rounded-md  text-xs sm:text-sm"
         >
           + Add users
         </button>
@@ -481,7 +481,7 @@ export default function UsersSection({ setShowNotice }) {
         </div>
 
         <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+          <table className="w-full text-xs sm:text-sm">
             <thead className="text-gray-500 text-left">
               <tr>
                 <th className="py-2">Name</th>
@@ -498,14 +498,14 @@ export default function UsersSection({ setShowNotice }) {
               {currentData.map((u) => (
                 <tr key={u.id} className="border-t">
                   <td className="py-2 flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xs">
+                    <span className="w-7 h-7 hidden rounded-full bg-teal-100 text-teal-600 sm:flex items-center justify-center text-xs">
                       {u.name[0]}
                     </span>
                     {u.name}
                   </td>
                   <td>{u.email}</td>
                   <td>{u.phone}</td>
-                  <td>{u.company}</td>
+                  <td className=" text-xs sm:text-sm">{u.company}</td>
                   <td>{u.password}</td>
                   <td>
                     <span

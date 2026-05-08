@@ -105,13 +105,13 @@ function HSRulesPage({ onAddClick }) {
                 ) : pageItems.map((row) => (
                   <tr key={row.id} className="border-t border-gray-100">
                     <td className="text-sm text-gray-700 px-3 py-3 font-medium">{row.hsCode}</td>
-                    <td className="text-sm text-gray-600 px-3 py-3 max-w-[180px]">{row.name}</td>
+                    <td className="text-xs sm:text-sm text-gray-600 px-3 py-3 max-w-[180px]">{row.name}</td>
                     <td className="px-3 py-3">
                       <span className="text-xs bg-purple-100 text-purple-600 px-2.5 py-1 rounded-lg font-medium">{row.category}</span>
                     </td>
                     <td className="text-sm text-gray-700 px-3 py-3">{row.importDuty}</td>
                     <td className="px-3 py-3">
-                      <span className={`text-xs px-2.5 py-1 rounded-lg font-medium ${row.exportRestriction === "None" ? "bg-teal-100 text-teal-600" : "bg-orange-100 text-orange-500"}`}>
+                      <span className={`text-xs whitespace-nowrap px-2.5 py-1 rounded-lg font-medium ${row.exportRestriction === "None" ? "bg-teal-100 text-teal-600" : "bg-orange-100 text-orange-500"}`}>
                         {row.exportRestriction}
                       </span>
                     </td>
@@ -180,12 +180,12 @@ function AddHSCodePage({ onCancel }) {
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
       <div className="max-w-6xl mx-auto">
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+        <div className="flex  flex-row sm:items-center justify-between gap-3 mb-6">
           <div>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-800">Add Hs Code</h1>
             <p className="text-xs text-gray-400 mt-0.5">Add hs code.</p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center sm:flex-row flex-col gap-2">
             <button onClick={() => csvRef.current.click()}
               className="flex items-center gap-2 border border-gray-200 text-gray-600 px-3 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium hover:bg-gray-50 transition-colors whitespace-nowrap">
               <FaFileImport className="text-sm" /> Import CSV

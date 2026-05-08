@@ -483,15 +483,15 @@ export default function AdminDashboard() {
             <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600">
               <FiSun size={16} />
             </button>
-            <div className="flex items-center gap-2 ml-1 pl-2 border-l border-gray-200">
+            <div className="flex items-center gap-2 ml-1 pl-2 py-2 border-l border-gray-200">
               <div className="w-7 h-7 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
                 A
               </div>
               <div className="hidden sm:block leading-tight">
-                <p className="text-xs font-semibold text-gray-800">
+                <p className="text-xs sm:text-sm font-semibold text-gray-800">
                   Admin Panel
                 </p>
-                <p className="text-gray-400" style={{ fontSize: "9px" }}>
+                <p className="text-gray-400 text-xs sm:text-sm" >
                   admin@gmail.com
                 </p>
               </div>

@@ -216,7 +216,7 @@ export default function PlanSection({ showAddPlan, setShowAddPlan }) {
             {plans.map((plan, i) => (
               <div
                 key={i}
-                className="bg-white rounded-xl border flex flex-col gap-10  p-5 w-full max-w-xs h-full "
+                className="bg-white rounded-xl border flex flex-col gap-10  p-5 w-full max-w-xs min-h-[420px] "
               >
                 <div className="pb-28">
                   <div className="flex justify-between items-center mb-2">
@@ -246,7 +246,7 @@ export default function PlanSection({ showAddPlan, setShowAddPlan }) {
                   </div>
                 </div>
 
-                <div className="border-t pt-3 text-sm">
+                <div className="border-t pt-3 text-sm mt-auto">
                   <div className="flex justify-between">
                     <span className="text-gray-500">Subscriber</span>
                     <span>{plan.subscriber}</span>

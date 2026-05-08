@@ -24,17 +24,17 @@ const Navbar = ({show, setShow}) => {
   };
 
   const onDashboard = () => {
-    navigate("/dashboard");
+    navigate("/admin-dashboard");
     setMobileMenuOpen(false);
   };
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "Features ", path: "/features" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Resources", path: "/resources" },
-    { name: "About", path: "/about" },
-    { name: "Contact", path: "/contact" },
+    { name: "Features ", path: "/#" },
+    { name: "Pricing", path: "/#" },
+    { name: "Resources", path: "/#" },
+    { name: "About", path: "/#" },
+    { name: "Contact", path: "/#" },
   ];
 
   return (
@@ -73,8 +73,8 @@ const Navbar = ({show, setShow}) => {
             <div className="flex items-center gap-2 sm:gap-3">
             {/* {!isLoggedIn && ( */}
                 <NavLink
-                  to="/login"
-                  className="hidden sm:block px-4 py-2  hover:bg-[#c] hover:text-white border border-[#0A2540]   text-[#0A2540]  rounded-lg cursor-pointer "
+                  to="/admin-login"
+                  className="hidden sm:block px-4 py-2  hover:bg-[#0A2540] hover:text-white border border-[#0A2540]   text-[#0A2540]  rounded-lg cursor-pointer "
                 >
                   Login
                 </NavLink>
@@ -136,110 +136,36 @@ const Navbar = ({show, setShow}) => {
             ].join(" ")}
           >
             <div className="flex flex-col px-6 py-4 gap-4 text-[15px] font-medium border-t border-gray-100">
-            <NavLink
-                  to="/"
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={({ isActive }) =>
-                        `text-gray-800 transition
-                        ${isActive ? "text-gray-400" : ""}`
-                      }
-                    >
-                      {({ isActive }) => (
-                        <span
-                          className={`inline-block pb-1 ${
-                            isActive ? "border-b-2 border-green-700" : ""
-                          }`}
-                        >
-                          Home
-                        </span>
-                      )}
-              </NavLink>
-
+              {navItems.map((item, index) => (
               <NavLink
-                to="/property"
+                to={item.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={({ isActive }) =>
-                  `text-gray-800 transition ${
-                    isActive ? "text-green-700" : "hover:text-green-700"
+                  `text-gray-800 transition-all duration-100 ${
+                    isActive ? "text-gray-700" : "hover:text-[#0A2540]"
                   }`
                 }
               >
-                {({ isActive }) => (
-                  <span className={`inline-block pb-1 ${isActive ? "border-b-2 border-green-700" : ""}`}>
-                    Property
+               
+                {({ isActive }) => ( 
+                  <span className={`inline-block  ${isActive ? "border-[#0A2540] duration-100 transform-all" : ""}`}>
+                    {item.name}
                   </span>
                 )}
-              </NavLink>
+              </NavLink> ))}              
 
-              <NavLink
-                to="/portfolio"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `text-gray-800 transition ${
-                    isActive ? "text-green-700" : "hover:text-green-700"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <span className={`inline-block pb-1 ${isActive ? "border-b-2 border-green-700" : ""}`}>
-                    Portfolio
-                  </span>
-                )}
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `text-gray-800 transition ${
-                    isActive ? "text-green-700" : "hover:text-green-700"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <span className={`inline-block pb-1 ${isActive ? "border-b-2 border-green-700" : ""}`}>
-                    About
-                  </span>
-                )}
-              </NavLink>
-
-              <NavLink
-                to="/contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className={({ isActive }) =>
-                  `text-gray-800 transition ${
-                    isActive ? "text-green-700" : "hover:text-green-700"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <span className={`inline-block pb-1 ${isActive ? "border-b-2 border-green-700" : ""}`}>
-                    Contact
-                  </span>
-                )}
-              </NavLink>
 
               <div className="flex flex-col items-start gap-3 mb-1 ">
                 <button
-                  className="text-white bg-[#0F766E] hover:bg-[#0F766E] px-3 py-2  rounded-lg "
+                  className="hover:text-white text-[#30A2540] bg-white  hover:bg-[#0A2540] border border-[#0A2540] px-3 py-2  rounded-lg "
                   onClick={onDashboard}
                 >
                   Dashboard
                 </button>
 
-                {/* Watchlist */}
-                <button
-                  onClick={() => {
-                    navigate("/watchlist");
-                  }}
-                  className="text-white bg-[#0F766E] hover:bg-[#0F766E] px-3 py-2  rounded-lg "
-                >
-                  Watchlist
-                </button>
-
                 {isLoggedIn && (
                   <button
-                    className="text-white bg-[#0F766E] hover:bg-[#0F766E] px-3 py-2  rounded-lg "
+                    className="text-white bg-[#0A2540] px-3 py-2  rounded-lg "
                     onClick={handleLogout}
                   >
                     Logout
@@ -248,29 +174,29 @@ const Navbar = ({show, setShow}) => {
               </div>
             </div>
 
-            <div className="flex justify-center gap-3 pb-5">
+            <div className="flex    flex-col items-start ml-6  mb-1 gap-3 pb-5">
               {!isLoggedIn && (
                 <NavLink
                   onClick={() => {
                     setMobileMenuOpen((prev) => !prev);
                   }}
                   to="/signup"
-                  className="sm:hidden w-40 text-center block  px-4 py-2 bg-[#0F766E] hover:bg-[#0F766E] text-white rounded-lg  cursor-pointer"
+                  className="sm:hidden w-40 text-center block  px-4 py-2 bg-[#0A2540] hover:bg-[#0A2540] text-white rounded-lg  cursor-pointer"
                 >
                   Get Started
                 </NavLink>
               )}
-              {!isLoggedIn && (
+              {/* {!isLoggedIn && (
                 <NavLink
                   onClick={() => {
                     setMobileMenuOpen((prev) => !prev);
                   }}
-                  to="/login"
-                  className="sm:hidden w-40 text-center block px-4 py-2 bg-[#0F766E] hover:bg-[#0F766E] border-2 text-white  rounded-lg cursor-pointer "
+                  to="/admin-login"
+                  className="sm:hidden w-40 px-4 py-2  hover:bg-[#0A2540] hover:text-white border border-[#0A2540]   text-[#0A2540]  rounded-lg cursor-pointer "
                 >
                   Login
                 </NavLink>
-              )}
+              )} */}
 
              
             </div>

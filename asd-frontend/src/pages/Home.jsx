@@ -9,8 +9,10 @@ import { BsBuilding, BsGlobe2, BsPeopleFill } from "react-icons/bs";
 import { RiMedalLine, RiShieldCheckLine, RiAwardLine } from "react-icons/ri";
 import { BsStars, BsTwitterX, BsLinkedin, BsFacebook, BsInstagram } from "react-icons/bs";
 import homeImg from '../assets/Images/image.png';
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const navigate = useNavigate()
   return (
     <section className="bg-white min-h-screen flex items-center px-4 sm:px-8 md:px-12 lg:px-20 py-12 overflow-hidden">
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
@@ -31,7 +33,7 @@ function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-3">
-            <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+            <button onClick={() => navigate('/admin-dashboard')} className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
               Get Started
             </button>
             <button className="flex items-center gap-2 border border-gray-300 hover:bg-gray-50 text-gray-700 text-sm font-medium px-5 py-2.5 rounded-lg transition-colors">

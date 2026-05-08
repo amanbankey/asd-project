@@ -431,6 +431,7 @@ export default function AdminDashboard() {
               key={label}
               onClick={() => {
                 setActiveNav(label);
+                setShowBot(false)
                 setSidebarOpen(false);
               }}
               className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs transition-colors text-left
@@ -792,11 +793,9 @@ export default function AdminDashboard() {
            {activeNav === "AI Assistant" && <AiAssistant /> }
            {activeNav === "Trade Intelligence" && <TradeIntelligence /> }
 
-
-
            {activeNav === "API Integrations" && <APIIntegrations/> }
+           
            {activeNav === "Ad Managment" && <AdManagement/> }
-
            {activeNav === "Support" && <Support /> }
            {activeNav === "Modules" && <Modules /> } 
            {activeNav === "Settings" && <Settings/>}

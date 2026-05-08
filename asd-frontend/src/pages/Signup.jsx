@@ -34,10 +34,10 @@ export default function Signup() {
   // console.log('oepn', open )
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4 sm:p-6 md:p-10">
-      <div className="w-full max-w-5xl border p-10  bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+      <div className="w-full max-w-3xl border p-2  bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
         {/* LEFT IMAGE */}
-        <div className="w-full md:w-1/2 flex items-center justify-center">
-          <div className="h-56 sm:h-96 w-full max-w-sm rounded-lg  flex items-center justify-center bg-white p-4">
+        <div className="w-full md:w-1/2 flex items-center justify-center p-4 sm:p-0 mt-10 sm:mt-0">
+          <div className="h-full sm:h-96 w-full max-w-sm rounded-lg  flex items-center justify-center bg-white p-4">
             <img
               src={ship}
               className="rotate-90 max-w-full max-h-full object-contain rounded-lg"
@@ -48,7 +48,7 @@ export default function Signup() {
         {/* RIGHT CONTENT */}
         <div className="w-full md:w-1/2 flex flex-col justify-center  py-8">
           {/* LOGO */}
-          <div className="flex items-center gap-2 mb-8 justify-center">
+          <div className="flex items-center gap-2 mb-8 justify-center mt-4 sm:mt-0">
             <img src={logo} className="object-contain w-36  " />
           </div>
 

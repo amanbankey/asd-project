@@ -107,14 +107,14 @@ function EditModal({ title, fields, values, onClose, onSave }) {
 function StepBar({ step }) {
   const steps = ["Select and Integration", "Configure", "Review"];
   return (
-    <div className="flex items-center gap-2 mb-6 overflow-x-auto pb-1">
+    <div className="flex items-center justify-center gap-2 mb-6 overflow-x-auto pb-1">
       {steps.map((s, i) => (
         <div key={s} className="flex items-center gap-2 flex-shrink-0">
           <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold border-2 transition-all ${i < step ? "bg-teal-500 border-teal-500 text-white" : i === step ? "border-teal-500 text-teal-500 bg-white" : "border-gray-300 text-gray-400 bg-white"}`}>
             {i < step ? <FaCheck className="text-xs" /> : i + 1}
           </div>
-          <span className={`text-xs font-medium ${i <= step ? "text-teal-500" : "text-gray-400"}`}>{s}</span>
-          {i < steps.length - 1 && <div className={`w-12 sm:w-20 h-0.5 ${i < step ? "bg-teal-500" : "bg-gray-200"}`} />}
+          <span className={`text-xs hidden sm:block font-medium ${i <= step ? "text-teal-500" : "text-gray-400"}`}>{s}</span>
+          {i < steps.length - 1 && <div className={`w-14 sm:w-16 md:w-20 lg:w-40 xl:w-60 h-0.5 ${i < step ? "bg-teal-500" : "bg-gray-200"}`} />}
         </div>
       ))}
     </div>
@@ -507,7 +507,7 @@ export default function APIIntegrations() {
     return (
       <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex items-start justify-between mb-6 gap-3">
+          <div className="flex items-center justify-between mb-6 gap-3">
             <div>
               <h1 className="text-xl sm:text-2xl font-bold text-gray-800">
                 {addStep === 0 ? "API Integrations" : addStep === 1 ? "Configure Integration" : "Review Integration"}
@@ -520,7 +520,7 @@ export default function APIIntegrations() {
               <FaPlus className="text-xs" /> Add Integration
             </button>
           </div>
-
+          <div> 
           {addStep === 0 && (
             <Step1 onNext={(api) => { setSelectedApi(api); setAddStep(1); }} />
           )}
@@ -530,6 +530,7 @@ export default function APIIntegrations() {
           {addStep === 2 && (
             <Step3 selectedApi={selectedApi} configData={configData} onBack={() => setAddStep(1)} onConnect={() => { setView("list"); setAddStep(0); }} />
           )}
+          </div>
         </div>
       </div>
     );
@@ -553,13 +554,13 @@ export default function APIIntegrations() {
           {apiCards.map(card => <APICard key={card.id} card={card} />)}
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-10">
           {[
             { label: "Total Integration", value: "12", color: "text-gray-800" },
             { label: "Active Connection", value: "8", color: "text-teal-500" },
             { label: "API Calls Today", value: "15,400", color: "text-teal-500" },
           ].map(s => (
-            <div key={s.label} className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4">
+            <div key={s.label} className="bg-white rounded-2xl border gap-5  border-gray-100 shadow-sm p-4">
               <p className="text-xs text-gray-400 mb-1">{s.label}</p>
               <p className={`text-2xl font-bold ${s.color}`}>{s.value}</p>
             </div>

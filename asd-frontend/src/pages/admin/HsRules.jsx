@@ -93,9 +93,9 @@ function HSRulesPage({ onAddClick }) {
                 <tr className="bg-teal-50">
                   <th className="text-left text-xs font-semibold text-teal-600 px-3 py-3 rounded-l-xl">HS CODE</th>
                   <th className="text-left text-xs font-semibold text-teal-600 px-3 py-3">COMMODITY NAME</th>
-                  <th className="text-left text-xs font-semibold text-teal-600 px-3 py-3">CATEGORY</th>
-                  <th className="text-left text-xs font-semibold text-teal-600 px-3 py-3">IMPORT DUTY</th>
-                  <th className="text-left text-xs font-semibold text-teal-600 px-3 py-3">EXPORT RESTRICTIONS</th>
+                  <th className="text-center text-xs font-semibold text-teal-600 px-3 py-3">CATEGORY</th>
+                  <th className="text-center text-xs font-semibold text-teal-600 px-3 py-3">IMPORT DUTY</th>
+                  <th className="text-center text-xs font-semibold text-teal-600 px-3 py-3">EXPORT RESTRICTIONS</th>
                   <th className="text-center text-xs font-semibold text-teal-600 px-3 py-3 rounded-r-xl">ACTIONS</th>
                 </tr>
               </thead>
@@ -106,12 +106,12 @@ function HSRulesPage({ onAddClick }) {
                   <tr key={row.id} className="border-t border-gray-100">
                     <td className="text-sm text-gray-700 px-3 py-3 font-medium">{row.hsCode}</td>
                     <td className="text-xs sm:text-sm text-gray-600 px-3 py-3 max-w-[180px]">{row.name}</td>
-                    <td className="px-3 py-3">
-                      <span className="text-xs bg-purple-100 text-purple-600 px-2.5 py-1 rounded-lg font-medium">{row.category}</span>
+                    <td className="px-3 py-3 text-center">
+                      <span className="text-xs  bg-purple-100 text-purple-600 px-2.5 py-1 rounded-lg font-medium">{row.category}</span>
                     </td>
-                    <td className="text-sm text-gray-700 px-3 py-3">{row.importDuty}</td>
-                    <td className="px-3 py-3">
-                      <span className={`text-xs whitespace-nowrap px-2.5 py-1 rounded-lg font-medium ${row.exportRestriction === "None" ? "bg-teal-100 text-teal-600" : "bg-orange-100 text-orange-500"}`}>
+                    <td className="text-sm text-center text-gray-700 px-3 py-3">{row.importDuty}</td>
+                    <td className="px-3 py-3 text-center">
+                      <span className={`text-xs whitespace-nowrap  px-2.5 py-1 rounded-lg font-medium ${row.exportRestriction === "None" ? "bg-teal-100 text-teal-600" : "bg-orange-100 text-orange-500"}`}>
                         {row.exportRestriction}
                       </span>
                     </td>

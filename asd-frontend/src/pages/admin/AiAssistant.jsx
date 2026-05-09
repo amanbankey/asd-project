@@ -46,7 +46,6 @@ const messages = [
   { id: 2, type: "ai", text: "Here are the top cotton buyers in india based on latest trade data", sub: "Showing 1-5 of 128 buyers", time: "10:31 AM" },
   { id: 3, type: "user", text: "Find a cotton buyers", time: "10:31 AM" },
   { id: 4, type: "ai", text: "Here are the top cotton buyers in india based on latest trade data", sub: "Showing 1-5 of 128 buyers", time: "10:31 AM" },
-  { id: 5, type: "ai", text: "Here are the top cotton buyers in india based on latest trade data", sub: "Showing 1-5 of 128 buyers", time: "10:38 AM" },
 ];
 
 function ExportTrendChart() {
@@ -158,8 +157,8 @@ export default function AiAssistant() {
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-4">
 
         {/* LEFT - AI CHAT */}
-        <div className="w-full lg:w-72 flex-shrink-0">
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col h-full min-h-[500px] lg:h-[calc(100vh-3rem)] lg:sticky lg:top-6">
+        <div className="w-full lg:w-80 flex-shrink-0">
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm flex flex-col h-full min-h-[500px] lg:h-[calc(100vh-3rem)] ">
             <div className="flex items-center justify-between px-4 py-3 border-b border-gray-100">
               <div className="flex items-center gap-2">
                 <FaRobot className="text-teal-500 text-base" />
@@ -270,7 +269,7 @@ export default function AiAssistant() {
           </div>
 
           {/* COUNTRY BREAKDOWN */}
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5">
+          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-4 sm:p-5 mb-6">
             <h2 className="text-sm font-bold text-gray-800 mb-4">Export Value Trend</h2>
             <div className="flex flex-col sm:flex-row gap-10 justify-evenly items-start ">
                   <div className="w-96">
@@ -297,7 +296,13 @@ export default function AiAssistant() {
           </div>
 
           {/* BUYERS TABLE */}
-          <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+        
+
+        </div>
+        
+      </div>
+
+        <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
             <div className="overflow-x-auto">
               <table className="w-full min-w-[600px]">
                 <thead>
@@ -345,9 +350,6 @@ export default function AiAssistant() {
               </button>
             </div>
           </div>
-
-        </div>
-      </div>
     </div>
   );
 }

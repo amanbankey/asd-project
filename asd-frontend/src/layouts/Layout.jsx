@@ -10,13 +10,13 @@ const Layout = () => {
 
   const hideNavbar = 
   location.pathname === "/admin-dashboard" ||
-  location.pathname === "/b2b-dashboard" 
-  // location.pathname ===  '/broker-signup' ||
+  location.pathname === "/b2b-dashboard" ||
+  location.pathname ===  '/user-dashboard' 
   // location.pathname === '/broker-login';
 
 
   const hideFooter = location.pathname === '/admin-dashboard' ||
-  location.pathname === "/b2b-dashboard" ;
+  location.pathname === "/b2b-dashboard" || location.pathname === "/user-dashboard"  ;
 
   return (
     <>

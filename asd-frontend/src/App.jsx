@@ -12,6 +12,8 @@ import B2BAuth from './Auth/B2BAuth'
 import AdminDashboard from './pages/admin/AdminDashboard'
 import AdminLogin from './pages/admin/auth/AdminLogin'
 import B2BDashboard from './pages/b2bDashboard/B2BDashboard'
+import UserDashboard from './pages/userDashboard/UserDashboard'
+
 function App() {
 
   return (
@@ -27,6 +29,8 @@ function App() {
           <Route path='admin-login' element={<AdminLogin/>} />
 
            <Route path='b2b-dashboard' element={<B2BDashboard/>} />
+            <Route path='user-dashboard' element={<UserDashboard/>} />
+
           
 
         </Route>

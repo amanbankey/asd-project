@@ -412,175 +412,257 @@ const notifications = [
             </div>
           ))}
         </div>
- 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4">
- 
-          <div className="lg:col-span-1 bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="font-bold text-gray-900 text-sm sm:text-base">Live Shipment Tracking</h2>
-              <span className="bg-teal-50 text-teal-600 text-xs font-semibold px-2 py-0.5 rounded-full border border-teal-200">In Transit</span>
-            </div>
- 
-            <div className="relative bg-blue-50 rounded-xl h-28 sm:h-32 mb-4 overflow-hidden flex items-center justify-center border border-blue-100">
-              <BsGlobe2 size={60} className="text-blue-200" />
-              <div className="absolute top-2 left-3 flex flex-col gap-1">
-                <div className="flex items-center gap-1.5">
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500 border-2 border-white shadow" />
-                  <span className="text-xs font-semibold text-gray-700">Shanghai CN</span>
-                </div>
-                <span className="text-xs text-gray-400 ml-4">Shanghai Port</span>
-              </div>
-              <div className="absolute bottom-4 right-4 flex items-center gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-orange-400 border-2 border-white shadow" />
-                <div>
-                  <p className="text-xs font-semibold text-gray-700">Rotterdam, NL</p>
-                  <p className="text-xs text-gray-400">Rotterdam port</p>
-                </div>
-              </div>
-              <TbShip size={22} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-teal-500 opacity-70" />
-            </div>
- 
-            <div className="mb-3 px-1">
-              <p className="text-xs font-bold text-gray-700">SINAR BINTAN</p>
-              <p className="text-xs text-gray-400">CONTAINER: TCLU 122781</p>
-            </div>
- 
-            <div className="space-y-2 mb-3">
-              {trackingSteps.map((step, i) => (
-                <div key={i} className="flex items-start gap-2">
-                  <div className="flex flex-col items-center">
-                    <div className={`w-3 h-3 rounded-full mt-0.5 flex-shrink-0 ${step.orange ? "bg-orange-400" : step.done ? "bg-green-500" : "bg-gray-300"}`} />
-                    {i < trackingSteps.length - 1 && <div className="w-0.5 h-4 bg-gray-200 mt-0.5" />}
-                  </div>
-                  <div>
-                    <p className={`text-xs font-semibold ${step.done ? "text-gray-800" : "text-gray-400"}`}>{step.label}</p>
-                    <p className="text-xs text-gray-400 whitespace-pre-line leading-tight">{step.sub}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
- 
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs text-gray-400">ETA</p>
-                <p className="text-xs font-bold text-gray-800">24 May 2026</p>
-                <p className="text-xs text-gray-400">3 days left</p>
-              </div>
-              <button className="border border-gray-300 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-lg hover:bg-gray-50 transition-colors">
-                View Shipment Details
-              </button>
-            </div>
-          </div>
- 
-          <div className="lg:col-span-1 bg-white rounded-xl p-4 shadow-md border border-gray-100">
-            <div className="flex items-center justify-between mb-3">
-              <h2 className="font-bold text-gray-900 text-sm sm:text-base">AI Trade Insights</h2>
-              <button className="text-xs text-gray-500 flex items-center gap-0.5 hover:text-teal-600 transition-colors">View All <FiChevronRight size={12} /></button>
-            </div>
- 
-            <div className="grid grid-cols-2 gap-2 mb-2 ">
-              <div className=" border-gray-200 rounded-xl p-3  border-2 shadow-md">
-                <p className="text-xs font-bold text-gray-800 mb-0.5">High Demand Products</p>
-                <p className="text-xs text-gray-400 mb-2">This Month</p>
-                {highDemand.map((item) => (
-                  <div key={item.name} className="flex items-center justify-between py-0.5">
-                    <span className="text-xs text-gray-600">{item.name}</span>
-                    <span className="text-xs text-green-500 font-medium flex items-center gap-0.5"><FiArrowUpRight size={10} />{item.val}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="border-2 border-gray-200 rounded-xl shadow-md p-3">
-                <p className="text-xs font-bold text-gray-800 mb-0.5">Best Import Countries</p>
-                <p className="text-xs text-gray-400 mb-2">This Month</p>
-                {bestCountries.map((item) => (
-                  <div key={item.name} className="flex items-center justify-between py-0.5">
-                    <span className="text-xs text-gray-600">{item.name}</span>
-                    <span className="text-xs text-green-500 font-medium flex items-center gap-0.5"><FiArrowUpRight size={10} />{item.val}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
- 
-            <div className="grid grid-cols-2 gap-2">
-              <div className="border-2 border-gray-200 rounded-xl p-3 shadow-md">
-                <p className="text-xs font-bold text-gray-800 mb-0.5">Risk Alerts</p>
-                <p className="text-xs text-gray-400 mb-2">This Month</p>
-                {riskAlerts.map((item) => (
-                  <div key={item.name} className="flex items-center justify-between py-0.5">
-                    <span className="text-xs text-gray-600 flex items-center gap-1">{item.icon} {item.name}</span>
-                    <span className="text-xs text-green-500 font-medium flex items-center gap-0.5"><FiArrowUpRight size={10} />{item.val}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="border-2 border-gray-200  shadow-md rounded-xl p-3 flex flex-col justify-between">
-                <div>
-                  <p className="text-xs font-bold text-gray-800 mb-0.5">AI Recommendation</p>
-                  <p className="text-xs text-gray-400 mb-2">For Your Business</p>
-                  <p className="text-xs text-gray-600 mb-1">Increase imports from</p>
-                  <p className="text-xs font-semibold text-gray-800 flex items-center gap-1">🇻🇳 Vietnam</p>
-                  <p className="text-xs text-gray-500 mt-1">Electronics demand is</p>
-                  <p className="text-sm font-bold text-teal-600">29% this month</p>
-                </div>
-                <button className="mt-2 w-full bg-teal-50 hover:bg-teal-100 text-teal-600 text-xs font-semibold py-1.5 rounded-lg border border-teal-200 transition-colors">
-                  View Opportunities
-                </button>
-              </div>
-            </div>
-          </div>
- 
-          <div className="lg:col-span-1 flex flex-col gap-3 border-2">
- 
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 flex-1">
-              <div className="flex items-center justify-between mb-3">
-                <div>
-                  <p className="text-sm font-bold text-gray-900">AI Trade Assistant</p>
-                  <p className="text-xs text-green-500 font-medium flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" /> Online
-                  </p>
-                </div>
-                <FiMaximize2 size={14} className="text-gray-400" />
-              </div>
-              <div className="space-y-2 mb-4">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="h-3 bg-gray-100 rounded-full w-full" />
-                ))}
-              </div>
-              <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2">
-                <input
-                  type="text"
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  placeholder="Ask anything about trade..."
-                  className="flex-1 text-xs text-gray-600 placeholder-gray-400 outline-none bg-transparent"
-                />
-                <button className="bg-teal-500 hover:bg-teal-600 text-white p-1.5 rounded-lg transition-colors">
-                  <FiSend size={12} />
-                </button>
-              </div>
-            </div>
- 
-            <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-              <div className="flex items-center justify-between mb-3">
-                <p className="text-sm font-bold text-gray-900">Notification</p>
-                <button className="text-xs text-gray-500 flex items-center gap-0.5 hover:text-teal-600 transition-colors">View All <FiChevronRight size={12} /></button>
-              </div>
-              <div className="space-y-3">
-                {notifications.map((n, i) => (
-                  <div key={i} className="flex items-start gap-2">
-                    <div className="w-7 h-7 rounded-full bg-teal-50 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <FiBell size={13} className="text-teal-500" />
+        
+
+    {/* <div className="w-full bg-gray-100  border-2 border-black"> */}
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-4 items-start ">
+
+         <div className="bg-white rounded-3xl h-full shadow-md p-5 ">
+                    
+                    <div className="flex  justify-between beween py-3 max-h-40"><h2 className="text-lg sm:text-xl font-semibold text-black mb-4">
+                     Live Shipment Tracking 
+                    </h2> 
+                    <button className="border bg-[#D1FAF5] text-[#0F8A7D] px-2 py-1 rounded-lg font-medium">
+                      In Transit</button></div>
+                    
+                    <WorldMap />
+
+                    <div className="flex justify-around gap-3 mt-6">
+                     <div></div>
+                     <div></div>
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-semibold text-gray-800 truncate">{n.title}</p>
-                      <p className="text-xs text-gray-400 truncate">{n.sub}</p>
-                    </div>
-                    <span className="text-xs text-gray-400 flex-shrink-0">{n.time}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
+        
+
+         <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4">
+
+  {/* LEFT SIDE */}
+  <div className="bg-white rounded-3xl border border-gray-200 shadow-md p-4">
+
+    {/* Header */}
+    <div className="flex justify-between items-center mb-4">
+      <h2 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg">
+        AI Trade Insights
+      </h2>
+
+      <button className="text-xs text-gray-500 flex items-center gap-1 hover:text-teal-600 transition-colors">
+        View All
+        <FiChevronRight size={12} />
+      </button>
+    </div>
+
+    {/* 4 CARDS */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+      {/* Card 1 */}
+      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+        <p className="text-xs font-bold text-gray-800 mb-1">
+          High Demand Products
+        </p>
+
+        <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
+          This Month
+        </p>
+
+        {highDemand.map((item) => (
+          <div
+            key={item.name}
+            className="flex items-center justify-between py-1"
+          >
+            <span className="text-[10px] sm:text-xs text-gray-600">
+              {item.name}
+            </span>
+
+            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
+              <FiArrowUpRight size={10} />
+              {item.val}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Card 2 */}
+      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+        <p className="text-xs font-bold text-gray-800 mb-1">
+          Best Import Countries
+        </p>
+
+        <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
+          This Month
+        </p>
+
+        {bestCountries.map((item) => (
+          <div
+            key={item.name}
+            className="flex items-center justify-between py-1"
+          >
+            <span className="text-[10px] sm:text-xs text-gray-600">
+              {item.name}
+            </span>
+
+            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
+              <FiArrowUpRight size={10} />
+              {item.val}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Card 3 */}
+      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+        <p className="text-xs font-bold text-gray-800 mb-1">
+          Risk Alerts
+        </p>
+
+        <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
+          This Month
+        </p>
+
+        {riskAlerts.map((item) => (
+          <div
+            key={item.name}
+            className="flex items-center justify-between py-1"
+          >
+            <span className="text-[10px] sm:text-xs text-gray-600 flex items-center gap-1">
+              {item.icon}
+              {item.name}
+            </span>
+
+            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
+              <FiArrowUpRight size={10} />
+              {item.val}
+            </span>
+          </div>
+        ))}
+      </div>
+
+      {/* Card 4 */}
+      <div className="border border-gray-200 rounded-xl p-3 shadow-sm flex flex-col justify-between">
+        <div>
+          <p className="text-xs font-bold text-gray-800 mb-1">
+            AI Recommendation
+          </p>
+
+          <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
+            For Your Business
+          </p>
+
+          <p className="text-[10px] sm:text-xs text-gray-600 mb-1">
+            Increase imports from
+          </p>
+
+          <p className="text-xs font-semibold text-gray-800">
+            🇻🇳 Vietnam
+          </p>
+
+          <p className="text-[10px] sm:text-xs text-gray-500 mt-2">
+            Electronics demand is
+          </p>
+
+          <p className="text-sm lg:text-base font-semibold text-teal-600">
+            29% this month
+          </p>
         </div>
+
+        <button className="mt-3 w-full bg-teal-50 hover:bg-teal-100 text-teal-600 text-xs font-semibold py-2 rounded-lg border border-teal-200 transition-colors">
+          View Opportunities
+        </button>
+      </div>
+    </div>
+  </div>
+
+  {/* RIGHT SIDE */}
+  <div className="flex flex-col gap-4">
+
+    {/* AI ASSISTANT */}
+    <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+
+      <div className="flex items-center justify-between mb-3">
+        <div>
+          <p className="text-sm font-bold text-gray-900">
+            AI Trade Assistant
+          </p>
+
+          <p className="text-xs text-green-500 font-medium flex items-center gap-1">
+            <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" />
+            Online
+          </p>
+        </div>
+
+        <FiMaximize2
+          size={14}
+          className="text-gray-400"
+        />
+      </div>
+
+      <div className="space-y-2 mb-4">
+        {[1, 2, 3].map((i) => (
+          <div
+            key={i}
+            className="h-3 bg-gray-100 rounded-full w-full"
+          />
+        ))}
+      </div>
+
+      <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2">
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Ask anything about trade..."
+          className="flex-1 text-xs text-gray-600 placeholder-gray-400 outline-none bg-transparent"
+        />
+
+        <button className="bg-teal-500 hover:bg-teal-600 text-white p-2 rounded-lg transition-colors">
+          <FiSend size={12} />
+        </button>
+      </div>
+    </div>
+
+    {/* NOTIFICATION */}
+    <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+
+      <div className="flex items-center justify-between mb-4">
+        <p className="text-sm font-bold text-gray-900">
+          Notification
+        </p>
+
+        <button className="text-xs text-gray-500 flex items-center gap-1 hover:text-teal-600 transition-colors">
+          View All
+          <FiChevronRight size={12} />
+        </button>
+      </div>
+
+      <div className="space-y-3">
+        {notifications.map((n, i) => (
+          <div
+            key={i}
+            className="flex items-start gap-3"
+          >
+            <div className="flex-1 min-w-0">
+              <p className="text-xs font-semibold text-gray-800 break-words">
+                {n.title}
+              </p>
+
+              <p className="text-[10px] sm:text-xs text-gray-400 break-words">
+                {n.sub}
+              </p>
+            </div>
+
+            <span className="text-[10px] sm:text-xs text-gray-400 flex-shrink-0">
+              {n.time}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      </div>
+        {/* </div> */}
+
       </div>
     </div>
   );
@@ -694,10 +776,10 @@ export default function UserDashboard() {
               </div>
               <div className="hidden sm:block leading-tight">
                 <p className="text-xs sm:text-sm font-semibold text-gray-800">
-                  Admin Panel
+                  Abhishek
                 </p>
                 <p className="text-gray-400 text-xs sm:text-sm">
-                  admin@gmail.com
+                 user@gmail.com
                 </p>
               </div>
             </div>

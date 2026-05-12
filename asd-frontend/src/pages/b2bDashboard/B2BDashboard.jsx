@@ -610,39 +610,45 @@ export default function B2BDashboard() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md px-4 py-3">
-                        <h2 className="text-xs sm:text-sm font-semibold text-black">
+                        <h2 className="text-xs sm:text-sm  lg:text-[16px] font-semibold text-black">
                           Price Fluctuations
                         </h2>
 
-                        <p className="text-gray-400 text-[0.7rem] sm:text-xs mb-2">
+                        <p className="text-gray-600 text-[0.7rem] sm:text-xs mb-2">
                           Electronics (30Days)
                         </p>
 
-                        <p className="text-xs sm:text-sm font-bold text-red-500">
+                        <p className="text-xs sm:text-sm lg:text-[20px] font-medium text-red-500">
                           -3.2%
                         </p>
 
-                        <p className="text-red-500 text-[0.7rem] sm:text-xs mt-1">
+                        <p className="text-red-500 text-[0.7rem] font-semibold sm:text-xs mt-1">
                           vs last month
                         </p>
                       </div>
 
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md px-4 py-3">
-                        <h2 className="text-xs sm:text-sm font-semibold text-black">
+                        <h2 className="text-xs sm:text-sm  lg:text-[16px] font-semibold text-black">
                           Supply Chain Risk
                         </h2>
 
-                        <p className="text-gray-400 text-[0.7rem] sm:text-xs mb-2">
+                        <p className="text-gray-600 text-[0.7rem] sm:text-xs mb-2">
                           Global Risk Index
                         </p>
 
-                        <p className="text-xs sm:text-sm font-bold text-orange-500">
+                        <p className="text-xs sm:text-sm lg:text-[20px] font-medium text-orange-500">
                           Medium
                         </p>
 
-                        <p className="text-red-500 text-[0.7rem] sm:text-xs mt-1">
-                          8.2% vs last month
+                       <div className="flex gap-2">
+                        <p className="text-red-500 text-[0.7rem] font-semibold sm:text-xs mt-1">
+                          8.2% 
                         </p>
+                        <p className="text-[0.7rem] text-gray-600 font-medium sm:text-xs mt-1">
+                          vs last month
+                        </p>
+                         </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -683,17 +689,17 @@ export default function B2BDashboard() {
                         </thead>
                         <tbody>
                           {suppliers.map((s, i) => (
-                            <tr key={i} className="border-t border-gray-100  ">
-                              <td className="px-3 py-3 text-xs sm:text-lg text-start font-normal text-gray-500">
+                            <tr key={i} className="border-t border-gray-100 text-center  ">
+                              <td className="px-3 py-3 text-xs sm:text-lg text-start font-normal text-black">
                                 {s.name}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
                                 {s.reliability}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
                                 {s.quality}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
                                 {s.ontime}
                               </td>
                               <td className="px-3 py-3 text-center">
@@ -756,10 +762,11 @@ export default function B2BDashboard() {
                 {/* BUYER PERFORMANCE */}
                 <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-4 sm:p-5">
                   <div className="flex items-center justify-between mb-4">
-                    <h2 className="text-sm sm:text-lg font-semibold text-gray-800">
+                    <h2 className="text-sm sm:text-lg xl:text-xl font-semibold text-gray-800">
                       Buyer Performance
                     </h2>
-                    <button className="text-xs text-teal-500 font-medium flex items-center gap-0.5 hover:text-teal-600">
+                    <button className="text-xs sm:text-lg xl:text-xl text-teal-500 
+                    font-normal flex items-center gap-0.5 hover:text-teal-600">
                       View All <FaChevronRight className="text-xs" />
                     </button>
                   </div>
@@ -776,7 +783,7 @@ export default function B2BDashboard() {
                           ].map((h, i) => (
                             <th
                               key={h}
-                              className={`text-left text-xs font-semibold text-gray-500 px-3 py-3 ${
+                              className={`text-left text-xs sm:text-lg xl:text-xl font-normal text-black px-3 py-3 ${
                                 i === 0 ? "rounded-l-xl" : ""
                               } ${i === 4 ? "rounded-r-xl" : ""}`}
                             >
@@ -787,20 +794,20 @@ export default function B2BDashboard() {
                       </thead>
                       <tbody>
                         {buyers.map((b, i) => (
-                          <tr key={i} className="border-t border-gray-100">
-                            <td className="px-3 py-3 text-xs font-semibold text-gray-500">
+                          <tr key={i} className="border-t border-gray-100 w-20 ">
+                            <td className="px-3 py-3 text-xs  sm:text-lg xl:text-xl font-normal text-black  ">
                               {b.name}
                             </td>
-                            <td className="px-3 py-3 text-xs text-gray-600">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black text-start ">
                               {b.order}
                             </td>
-                            <td className="px-3 py-3 text-xs text-gray-600">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black">
                               {b.ontime}
                             </td>
-                            <td className="px-3 py-3 text-xs text-gray-600">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black">
                               {b.payment}
                             </td>
-                            <td className="px-3 py-3 text-xs text-[#31FF07] font-semibold flex items-center gap-0.5">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#31FF07] font-normal flex items-center gap-0.5">
                               <FaArrowUp className="text-xs" />
                               {b.growth}
                             </td>

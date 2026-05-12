@@ -90,7 +90,31 @@ import { BsCalendarCheck, BsPersonPlus, BsGraphUp } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiWhatsappLine } from "react-icons/ri";
 import { FiX } from "react-icons/fi";
+
 import map from "../../assets/Images/logo.png";
+
+import home from "../../assets/icon/home.png";
+import user from "../../assets/icon/user.png";
+import exportInt from "../../assets/icon/orders.png";
+import supplier from "../../assets/icon/suppliers.png";
+
+import buyer from "../../assets/icon/Buyers.png";
+
+import analytical from "../../assets/icon/analytical.png";
+
+import document from "../../assets/icon/document.png";
+
+import payment from "../../assets/icon/payment.png";
+import ai from "../../assets/icon/ai.png";
+
+import support from "../../assets/icon/supportCenter.png";
+import setting from "../../assets/icon/setting.png";
+
+import report from "../../assets/icon/report.png";
+import insight from "../../assets/icon/insight.png";
+
+import risk from "../../assets/icon/risk.png";
+import settings from "../../assets/icon/settings.png";
 
 const trendingProducts = [
   { name: "Electronics", pct: "38.4%" },
@@ -230,25 +254,25 @@ const mapRegions = [
 ];
 
 const navItems = [
-  { icon: FiHome, label: "Dashboard" },
-  { icon: FiUsers, label: "Import Intelligence" },
-  { icon: FiShield, label: "Export Intelligence" },
-  { icon: FiCreditCard, label: "Shipment Database" },
+  { icon: home, label: "Dashboard" },
+  { icon: user, label: "Import Intelligence" },
+  { icon: exportInt, label: "Export Intelligence" },
+  { icon: supplier, label: "Shipment Database" },
 
-  { icon: FiFileText, label: "HS Code Intelligence" },
+  { icon: buyer, label: "HS Code Intelligence" },
 
-  { icon: FiTruck, label: "Supplier Discovery" },
-  { icon: FiGlobe, label: "Buyer Intelligence" },
-  { icon: FiDatabase, label: "Company Intelligence" },
-  { icon: FiPackage, label: "Trade map" },
+  { icon: analytical, label: "Supplier Discovery" },
+  { icon: document, label: "Buyer Intelligence" },
+  { icon: payment, label: "Company Intelligence" },
+  { icon: ai, label: "Trade map" },
 
-  { icon: FiCpu, label: "Market Trends " },
-  { icon: FiPieChart, label: "Competitor Tracking" },
+  { icon: support, label: "Market Trends " },
+  { icon: settings, label: "Competitor Tracking" },
 
-  { icon: FiHelpCircle, label: "Risk Analysis" },
-  { icon: FiLink, label: "AI Insights" },
-  { icon: FiGrid, label: "Reports" },
-  { icon: FiSettings, label: "Settings" },
+  { icon: risk, label: "Risk Analysis" },
+  { icon: insight, label: "AI Insights" },
+  { icon: report, label: "Reports" },
+  { icon: setting, label: "Settings" },
 ];
 
 const statCards = [
@@ -285,7 +309,7 @@ const globalTrade = [
 
 function WorldMap() {
   return (
-    <div className="relative w-full h-44 bg-blue-50 rounded-xl overflow-hidden">
+    <div className="relative w-full h-44 flex justify-center bg-blue-50 rounded-xl overflow-hidden">
       <img src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp" />
     </div>
   );
@@ -337,14 +361,15 @@ export default function B2BDashboard() {
                 setShowBot(false);
                 setSidebarOpen(false);
               }}
-              className={`w-full flex items-center gap-2 pl-10 py-2 rounded-r-lg text-xs transition-colors text-left
+              className={`w-full flex items-center gap-2 pl-10 py-1 rounded-r-lg text-xs transition-colors text-left
                 ${
                   activeNav === label
                     ? "bg-teal-500 text-white"
                     : "text-gray-400 hover:bg-gray-700 hover:text-white"
                 }`}
             >
-              <Icon size={13} className="flex-shrink-0" />
+              {/* <Icon size={13} className="flex-shrink-0" /> */}
+              <img src={Icon} className="text-xs" />
               <span className="truncate text-[0.9rem] ">{label}</span>
             </button>
           ))}
@@ -395,7 +420,7 @@ export default function B2BDashboard() {
                   Admin Panel
                 </p>
                 <p className="text-gray-400 text-xs sm:text-sm">
-                  admin@gmail.com
+                  b2b@gmail.com
                 </p>
               </div>
             </div>
@@ -404,10 +429,10 @@ export default function B2BDashboard() {
 
         {/* Page Content */}
 
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-3 sm:p-10 ">
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-3 lg:p-6 xl:p-10 ">
           {activeNav === "Dashboard" && (
             <div
-              className="min-h-screen bg-gray-50 p-4 sm:p-6"
+              className="min-h-screen bg-gray-50 p-4 lg:p-1 xl:p-6 "
               style={{ fontFamily: "'Poppins', sans-serif" }}
             >
               <link
@@ -416,10 +441,10 @@ export default function B2BDashboard() {
               />
               <div className="max-w-7xl mx-auto ">
                 <div className="mb-5">
-                  <h1 className="text-xl sm:text-2xl font-bold text-gray-800 underline">
+                  <h1 className="text-xl sm:text-2xl font-bold text-gray-800 ">
                     Dashboard
                   </h1>
-                  <p className="text-xs text-gray-400 mt-0.5">
+                  <p className="text-xs text-gray-600 mt-0.5">
                     Real-time global performance and intelligence
                   </p>
                 </div>
@@ -431,11 +456,11 @@ export default function B2BDashboard() {
                       key={s.label}
                       className="bg-white rounded-2xl border border-gray-100 shadow-md p-3"
                     >
-                      <p className="text-xs text-gray-400 mb-1 leading-tight">
+                      <p className="text-xs sm:text-sm text-gray-400 mb-1 leading-tight">
                         {s.label}
                       </p>
                       <div className="flex items-center justify-between">
-                        <p className="text-lg font-bold text-gray-800">
+                        <p className="text:xs md:text-sm xl:text-xl font-semibold whitespace-nowrap text-gray-800">
                           {s.value}
                         </p>
                         <p className="text-xs text-[#31FF07] flex items-center gap-0.5 mt-0.5 font-medium">
@@ -447,9 +472,9 @@ export default function B2BDashboard() {
                   ))}
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
-                  <div className="bg-white rounded-3xl max-h-96 border border-gray-200 shadow-md p-5">
-                    <h2 className="text-lg sm:text-xl font-semibold text-black mb-4">
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 mb-4  ">
+                  <div className="bg-white rounded-3xl  max-h-96 xl:max-h-80 shadow-md p-5 ">
+                    <h2 className="text-lg sm:text-xl font-medium text-black mb-4">
                       Global Trade Intelligence Map
                     </h2>
 
@@ -459,13 +484,15 @@ export default function B2BDashboard() {
                       {globalTrade.map((val, id) => (
                         <div
                           key={id}
-                          className="border border-gray-200 rounded-xl p-3"
+                          className="border border-gray-200 rounded-xl p-2"
                         >
-                          <p className={`text-[0.4rem] sm:text-[0.6rem]  font-medium ${val.color}`}>
+                          <p
+                            className={`text-[0.4rem] sm:text-[0.5rem] whitespace-nowrap font-medium ${val.color}`}
+                          >
                             {val.name}
                           </p>
 
-                          <p className="text-xs sm:text-sm font-bold text-black">
+                          <p className="text-xs sm:text-[0.8rem] font-bold text-black">
                             {val.no}
                           </p>
                         </div>
@@ -473,15 +500,15 @@ export default function B2BDashboard() {
                     </div>
                   </div>
 
-                  <div className="lg:col-span-2 flex flex-col gap-4">
-                    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] max-h-64 gap-4  ">
+                  <div className="lg:col-span-2 col-span-1 flex flex-col gap-4   ">
+                    <div className="grid grid-cols-1 md:grid-cols-[2fr_1fr] md:max-h-64 xl:max-h-72 gap-4  ">
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md p-3">
                         <div className="flex items-center gap-3 mb-2">
-                          <h2 className="text-lg sm:text-xl font-semibold text-black">
+                          <h2 className="text-sm sm:text-lg lg:text-xl font-semibold text-black">
                             Market Intelligence
                           </h2>
 
-                          <p className="text-gray-400 text-sm">
+                          <p className="text-gray-400 text-xs sm:text-sm ">
                             AI Powered Insights
                           </p>
                         </div>
@@ -491,24 +518,25 @@ export default function B2BDashboard() {
                             <p className="text-xs sm:text-sm font-semibold text-black">
                               Trending Products
                             </p>
-
                             <p className="text-gray-400 text-[0.7rem] sm:text-xs mb-4">
                               This Month
                             </p>
-
                             {trendingProducts.map((p) => (
                               <div
                                 key={p.name}
                                 className="flex justify-between "
                               >
-                                <span className="text-gray-700 text-[0.8rem] sm:text-xs pb-1">
+                                <span className="text-gray-700 text-[0.6rem] sm:text-xs pb-1">
                                   {p.name}
                                 </span>
 
-                                <span className="text-green-500 flex text-[0.8rem] sm:text-xs items-center gap-1">
-                                  <FaArrowUp />
+                                <div className="w-14">
+                                <span className="text-[#31FF07] flex text-[0.6rem] sm:text-xs items-center gap-1 ">
+                                  <FaArrowUp  />
                                   {p.pct}
                                 </span>
+                                
+                              </div>
                               </div>
                             ))}
                           </div>
@@ -527,25 +555,27 @@ export default function B2BDashboard() {
                                 key={c.name}
                                 className="flex justify-between "
                               >
-                                <span className="text-gray-700 text-[0.8rem] sm:text-xs pb-1">
+                                <span className="text-gray-700 text-[0.6rem] sm:text-xs pb-1">
                                   {c.name}
                                 </span>
 
-                                <span className="text-green-500 flex text-[0.8rem] sm:text-xs items-center gap-1">
+                              <div className="w-14"> 
+                                <span className="text-[#31FF07] flex text-[0.6rem] sm:text-xs items-center gap-1">
                                   <FaArrowUp />
                                   {c.pct}
                                 </span>
+                                </div>
                               </div>
                             ))}
                           </div>
                         </div>
                       </div>
 
-                      <div className="bg-white rounded-3xl border border-gray-200 shadow-md p-3 flex flex-col justify-between">
+                      <div className="bg-white h-full rounded-3xl border border-gray-200 shadow-md p-3 flex flex-col justify-between">
                         <div>
                           <div className="flex items-center justify-between mb-2">
                             <div>
-                              <h2 className="text-xs sm:text-sm font-semibold leading-tight">
+                              <h2 className="text-xs sm:text-sm font-medium leading-tight">
                                 AI Trade Assistant
                               </h2>
 
@@ -553,11 +583,9 @@ export default function B2BDashboard() {
                                 Online
                               </p>
                             </div>
-
-                            {/* <FaExpandAlt className="text-gray-400" /> */}
                           </div>
 
-                          <div className="space-y-2">
+                          <div className="space-y-2 ">
                             <div className="bg-gray-100 rounded-lg h-7 w-3/5"></div>
                             <div className="bg-gray-100 rounded-lg h-6 w-2/5"></div>
                             <div className="bg-gray-100 rounded-lg h-6 w-2/5"></div>
@@ -565,21 +593,22 @@ export default function B2BDashboard() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2 mt-4">
+                        <div className="flex  items-center gap-2 border border-gray-200 rounded-xl px-3 py-2 mt-4">
                           <input
                             type="text"
                             placeholder="Ask anything about trade..."
-                            className="flex-1 outline-none text-sm placeholder-"
+                            className="flex-1 outline-none text-xs placeholder-"
                           />
-
-                          <button>
+                         <button>
                             <FaPaperPlane className="text-green-500 text-xl" />
                           </button>
                         </div>
+                          
+
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md px-4 py-3">
                         <h2 className="text-xs sm:text-sm font-semibold text-black">
                           Price Fluctuations
@@ -617,15 +646,16 @@ export default function B2BDashboard() {
                       </div>
                     </div>
                   </div>
+
                 </div>
 
-                <div className="flex max-w-7xl justify-between ">
+                <div className="flex max-w-7xl justify-between flex-col lg:flex-row  ">
                   <div className="bg-white rounded-2xl max-w-3xl w-full  shadow-md p-4 sm:p-5 mb-4">
                     <div className="flex items-center justify-between mb-4">
-                      <h2 className="text-sm sm:text-lg font-semibold text-gray-800">
+                      <h2 className="text-sm sm:text-lg xl:text-xl font-semibold text-gray-800">
                         Top Suppliers
                       </h2>
-                      <button className="text-xs text-teal-500 font-medium flex items-center gap-0.5 hover:text-teal-600">
+                      <button className="text-xs sm:text-lg xl:text-xl text-black font-normal flex items-center gap-0.5 ">
                         View All <FaChevronRight className="text-xs" />
                       </button>
                     </div>
@@ -642,7 +672,7 @@ export default function B2BDashboard() {
                             ].map((h, i) => (
                               <th
                                 key={h}
-                                className={`text-left text-xs font-semibold text-gray-500 px-3 py-3 ${
+                                className={`text-left text-xs sm:text-lg  font-normal text-black px-3 py-3 ${
                                   i === 0 ? "rounded-l-xl" : ""
                                 } ${i === 4 ? "rounded-r-xl" : ""}`}
                               >
@@ -653,22 +683,22 @@ export default function B2BDashboard() {
                         </thead>
                         <tbody>
                           {suppliers.map((s, i) => (
-                            <tr key={i} className="border-t border-gray-100">
-                              <td className="px-3 py-3 text-xs font-semibold text-gray-500">
+                            <tr key={i} className="border-t border-gray-100  ">
+                              <td className="px-3 py-3 text-xs sm:text-lg text-start font-normal text-gray-500">
                                 {s.name}
                               </td>
-                              <td className="px-3 py-3 text-xs text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
                                 {s.reliability}
                               </td>
-                              <td className="px-3 py-3 text-xs text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
                                 {s.quality}
                               </td>
-                              <td className="px-3 py-3 text-xs text-gray-600">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-gray-600">
                                 {s.ontime}
                               </td>
-                              <td className="px-3 py-3">
+                              <td className="px-3 py-3 text-center">
                                 <span
-                                  className={`text-xs px-2.5 py-1 rounded-lg font-medium ${
+                                  className={`text-xs sm:text-lg text-center px-2.5 py-1 rounded-lg font-normal ${
                                     riskColor[s.risk]
                                   }`}
                                 >
@@ -705,7 +735,7 @@ export default function B2BDashboard() {
                           <div key={k} className="flex justify-between">
                             <span className="text-xs text-gray-400">{k}</span>
                             <span
-                              className={`text-xs font-medium ${
+                              className={`text-xs font-medium  ${
                                 k === "Reliability Score"
                                   ? "text-yellow-400"
                                   : "text-gray-700"

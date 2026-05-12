@@ -83,6 +83,7 @@ import {
 } from "recharts";
 import { RxCross1 } from "react-icons/rx";
 import { FaCalendarAlt, FaTimes } from "react-icons/fa";
+import up from "../../assets/icon/up.png"
 
 import logo from "../../assets/Images/logo.png";
 
@@ -417,7 +418,7 @@ export default function B2BDashboard() {
               </div>
               <div className="hidden sm:block leading-tight">
                 <p className="text-xs sm:text-sm font-semibold text-gray-800">
-                  Admin Panel
+                 Abhishek
                 </p>
                 <p className="text-gray-400 text-xs sm:text-sm">
                   b2b@gmail.com
@@ -464,7 +465,8 @@ export default function B2BDashboard() {
                           {s.value}
                         </p>
                         <p className="text-xs text-[#31FF07] flex items-center gap-0.5 mt-0.5 font-medium">
-                          <FaArrowUp className="text-xs " />
+                          
+                          <img src={up} alt="arrow" className="text-xs" />
                           {s.change}
                         </p>{" "}
                       </div>
@@ -532,7 +534,7 @@ export default function B2BDashboard() {
 
                                 <div className="w-14">
                                 <span className="text-[#31FF07] flex text-[0.6rem] sm:text-xs items-center gap-1 ">
-                                  <FaArrowUp  />
+                                <img src={up} alt="arrow" className="text-xs" />
                                   {p.pct}
                                 </span>
                                 
@@ -561,7 +563,7 @@ export default function B2BDashboard() {
 
                               <div className="w-14"> 
                                 <span className="text-[#31FF07] flex text-[0.6rem] sm:text-xs items-center gap-1">
-                                  <FaArrowUp />
+                                <img src={up} alt="arrow" className="text-xs" />
                                   {c.pct}
                                 </span>
                                 </div>
@@ -720,15 +722,15 @@ export default function B2BDashboard() {
 
                   <div className="min-w-44  gap-4 mb-4">
                     <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-4">
-                      <div className="flex items-center justify-between mb-3">
-                        <h2 className="text-xs font-bold text-gray-800">
+                      <div className="flex items-center justify-between mb-3 xl:gap-5">
+                        <h2 className="text-xs xl:text-sm font-bold text-gray-800">
                           AI Supplier Recommendation
                         </h2>
-                        <button className="text-xs text-teal-500 font-medium flex items-center gap-0.5 hover:text-teal-600">
+                        <button className="text-xs xl:text-sm text-teal-500 font-medium flex items-center gap-0.5 hover:text-teal-600">
                           View All <FaChevronRight className="text-xs" />
                         </button>
                       </div>
-                      <p className="text-sm font-bold text-gray-800 mb-2">
+                      <p className="text-sm  xl:text-base font-bold text-gray-800 mb-2">
                         New Asia Exports
                       </p>
                       <div className="flex flex-col gap-1.5 mb-3">
@@ -739,9 +741,9 @@ export default function B2BDashboard() {
                           ["Est. Lead Time", "12 - 18 Days"],
                         ].map(([k, v]) => (
                           <div key={k} className="flex justify-between">
-                            <span className="text-xs text-gray-400">{k}</span>
+                            <span className="text-xs sm:text-sm text-gray-600">{k}</span>
                             <span
-                              className={`text-xs font-medium  ${
+                              className={`text-xs sm:text-sm font-medium  ${
                                 k === "Reliability Score"
                                   ? "text-yellow-400"
                                   : "text-gray-700"
@@ -752,7 +754,7 @@ export default function B2BDashboard() {
                           </div>
                         ))}
                       </div>
-                      <button className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-xl text-xs font-medium transition-colors">
+                      <button className="w-full bg-teal-500 hover:bg-teal-600 text-white py-2 rounded-xl text-xs xl:text-sm font-medium transition-colors">
                         Connect Now
                       </button>
                     </div>
@@ -808,7 +810,7 @@ export default function B2BDashboard() {
                               {b.payment}
                             </td>
                             <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#31FF07] font-normal flex items-center gap-0.5">
-                              <FaArrowUp className="text-xs" />
+                            <img src={up} alt="arrow" className="text-xs" />
                               {b.growth}
                             </td>
                           </tr>

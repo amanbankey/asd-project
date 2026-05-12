@@ -115,8 +115,15 @@ import ai from "../../assets/icon/ai.png";
 import support from "../../assets/icon/supportCenter.png";
 import setting from "../../assets/icon/settings.png";
 
-// import payment from "../../assets/icon/payment.png";
+import up from "../../assets/icon/up.png";
 
+import Us from "../../assets/icon/us.png";
+import european from "../../assets/icon/european.png";
+
+import sea from "../../assets/icon/sea.png";
+import vietnam from "../../assets/icon/vietnam.png";
+
+import truck from "../../assets/icon/truck.png";
 
 import dashboard from '../../assets/icon/home.png'
 import { BsCalendarCheck, BsPersonPlus, BsGraphUp } from "react-icons/bs";
@@ -311,17 +318,6 @@ const globalTrade = [
   },
 ];
 
-function WorldMap() {
-  return (
-    <div className="relative w-full h-44 bg-blue-50 rounded-xl overflow-hidden">
-      <img src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp" />
-    </div>
-  );
-}
-
-
-
-
 const stats = [
   { label: "Active Shipment", value: "128", change: "28.4%" },
   { label: "Pending Orders", value: "45", change: "28.4%" },
@@ -356,9 +352,9 @@ const bestCountries = [
 ];
  
 const riskAlerts = [
-  { name: "Red Sea Route", val: "28.4%", icon: "🌊" },
-  { name: "European Delays", val: "22.1%", icon: "🇪🇺" },
-  { name: "Us Customs", val: "18.2", icon: "🇺🇸" },
+  { name: "Red Sea Route", val: "28.4%", icon: sea },
+  { name: "European Delays", val: "22.1%", icon: european },
+  { name: "Us Customs", val: "18.2", icon: Us },
 ];
  
 const notifications = [
@@ -381,11 +377,11 @@ const notifications = [
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
           <div>
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Welcome Abhishek</h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">Here&apos;s your global trade overview</p>
+            <p className="text-xs sm:text-base text-gray-500 mt-0.5">Here&apos;s your global trade overview</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <button className="flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
-              <MdOutlineTrackChanges size={15} /> Track Shipment
+              <img src={truck} size={15} /> Track Shipment
             </button>
             <button className="flex items-center gap-1.5 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
               <FiUpload size={13} /> Upload Documents
@@ -401,14 +397,17 @@ const notifications = [
  
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-5">
           {stats.map((s) => (
-            <div key={s.label} className="bg-white rounded-xl p-3 sm:p-4 shadow-sm border border-gray-100">
-              <p className="text-xs text-gray-500 mb-1 leading-tight">{s.label}</p>
+            <div key={s.label} className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
+             
+              <p className="text-xs sm:text-base  text-gray-500 mb-1 leading-[100%]">{s.label}</p>
+               <div className="flex justify-between"> 
               <p className="text-lg sm:text-xl font-bold text-gray-900">{s.value}</p>
               {s.change && (
-                <p className="text-xs text-green-500 font-medium flex items-center gap-0.5 mt-0.5">
-                  <FiArrowUpRight size={12} /> {s.change}
+                <p className="text-xs  text-[#31FF07] font-medium flex items-center gap-0.5 mt-0.5">
+                  <img src={up} size={12} /> {s.change}
                 </p>
               )}
+              </div>
             </div>
           ))}
         </div>
@@ -417,19 +416,204 @@ const notifications = [
     {/* <div className="w-full bg-gray-100  border-2 border-black"> */}
       <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-4 items-start ">
 
-         <div className="bg-white rounded-3xl h-full shadow-md p-5 ">
+         <div className="bg-white rounded-3xl h-full max-h-96 shadow-md p-5 ">
                     
                     <div className="flex  justify-between beween py-3 max-h-40"><h2 className="text-lg sm:text-xl font-semibold text-black mb-4">
                      Live Shipment Tracking 
                     </h2> 
-                    <button className="border bg-[#D1FAF5] text-[#0F8A7D] px-2 py-1 rounded-lg font-medium">
+                    <button className="border bg-[#D1FAF5] text-[#0F8A7D] px-[10px] py-[4px ]  rounded-lg font-medium">
                       In Transit</button></div>
                     
-                    <WorldMap />
+                    {/* <div className="relative w-full h-44 bg-blue-50 rounded-xl overflow-hidden">
+                      <img src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp" />
+                    </div> */}
 
-                    <div className="flex justify-around gap-3 mt-6">
-                     <div></div>
-                     <div></div>
+                   <div className="relative w-full h-[320px] bg-[#F7F9FC] rounded-2xl overflow-hidden flex items-center justify-between px-4">
+
+                    {/* LEFT SIDE */}
+                    <div className="w-[32%] bg-[#ECECEC] rounded-2xl p-4 h-[92%] flex flex-col justify-between z-10">
+
+                      {/* TOP */}
+                      <div className="flex gap-3">
+
+                        {/* CIRCLE + LINE */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-green-500 z-10"></div>
+                          <div className="w-[2px] h-16 bg-gray-300"></div>
+                        </div>
+
+                        {/* TEXT */}
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Shanghai CN
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            Shanghai Port
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* CENTER */}
+                      <div className="flex gap-3">
+
+                        {/* CIRCLE + LINE */}
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-gray-300 z-10"></div>
+                          <div className="w-[2px] h-16 bg-gray-300"></div>
+                        </div>
+
+                        {/* TEXT */}
+                        <div>
+                          <p className="font-semibold text-sm text-black uppercase">
+                            SINAR BINTAN
+                          </p>
+
+                          <p className="text-[10px] text-gray-500 uppercase">
+                            Container: TCLU 122781
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* BOTTOM */}
+                      <div className="flex gap-3">
+
+                        {/* CIRCLE */}
+                        <div className="w-4 h-4 rounded-full bg-orange-400 mt-1"></div>
+
+                        {/* TEXT */}
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Rotterdam, NL
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            Rotterdam port
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* MAP IMAGE */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <img
+                        src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp"
+                        alt="map"
+                        className="w-[55%] object-contain"
+                      />
+                    </div>
+
+                    {/* RIGHT SIDE */}
+                    <div className="relative z-10 flex flex-col justify-between h-[92%]">
+
+                      {/* ITEM */}
+                      <div className="flex gap-3">
+
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-green-500 z-10"></div>
+                          <div className="w-[2px] h-12 bg-green-500"></div>
+                        </div>
+
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Departed
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            Shanghai Port
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            10 May 2026
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* ITEM */}
+                      <div className="flex gap-3">
+
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-green-500 z-10"></div>
+                          <div className="w-[2px] h-12 bg-green-500"></div>
+                        </div>
+
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Customs Clearance
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            12 May 2025
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* ITEM */}
+                      <div className="flex gap-3">
+
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-green-500 z-10"></div>
+                          <div className="w-[2px] h-12 bg-gray-300"></div>
+                        </div>
+
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            In Transit
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            On The Way
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* ITEM */}
+                      <div className="flex gap-3">
+
+                        <div className="flex flex-col items-center">
+                          <div className="w-4 h-4 rounded-full bg-gray-300 z-10"></div>
+                          <div className="w-[2px] h-12 bg-gray-300"></div>
+                        </div>
+
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Rotterdam, NL
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            Rotterdam port
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* LAST */}
+                      <div className="flex gap-3">
+
+                        <div className="w-4 h-4 rounded-full bg-orange-400 mt-1"></div>
+
+                        <div>
+                          <p className="font-semibold text-sm text-black">
+                            Delivered
+                          </p>
+
+                          <p className="text-xs text-gray-500">
+                            Pending
+                          </p>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+                    <div className="flex items-center justify-between mt-3"> 
+                    <div className="flex flex-col  justify-around">
+                     <div className="border text-xs font-medium text-[#A20000]" >ETA</div>
+                     <div className="border text-xs font-semibold">24 may 2026</div>
+                      <div className="border text-xs">3 days left</div>
+                    </div>
+
+                    <div ><button className="rounded-lg border text-xs  sm:text-sm border-gray-200 py-2 px-3 font-normal">View Shipment details</button></div>
                     </div>
           </div>
         
@@ -455,7 +639,7 @@ const notifications = [
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
 
       {/* Card 1 */}
-      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+      <div className="border border-gray-200 rounded-xl p-3 shadow-md">
         <p className="text-xs font-bold text-gray-800 mb-1">
           High Demand Products
         </p>
@@ -473,8 +657,8 @@ const notifications = [
               {item.name}
             </span>
 
-            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
-              <FiArrowUpRight size={10} />
+            <span className="text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
+              <img src={up} size={12} />
               {item.val}
             </span>
           </div>
@@ -482,7 +666,7 @@ const notifications = [
       </div>
 
       {/* Card 2 */}
-      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+      <div className="border border-gray-200 rounded-xl p-3 shadow-md">
         <p className="text-xs font-bold text-gray-800 mb-1">
           Best Import Countries
         </p>
@@ -500,8 +684,8 @@ const notifications = [
               {item.name}
             </span>
 
-            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
-              <FiArrowUpRight size={10} />
+            <span className="text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
+               <img src={up} size={12} />
               {item.val}
             </span>
           </div>
@@ -509,7 +693,7 @@ const notifications = [
       </div>
 
       {/* Card 3 */}
-      <div className="border border-gray-200 rounded-xl p-3 shadow-sm">
+      <div className="border border-gray-200 rounded-xl p-3 shadow-md">
         <p className="text-xs font-bold text-gray-800 mb-1">
           Risk Alerts
         </p>
@@ -524,12 +708,12 @@ const notifications = [
             className="flex items-center justify-between py-1"
           >
             <span className="text-[10px] sm:text-xs text-gray-600 flex items-center gap-1">
-              {item.icon}
+               <img src={item.icon} />
               {item.name}
             </span>
 
-            <span className="text-[10px] sm:text-xs text-green-500 font-medium flex items-center gap-1">
-              <FiArrowUpRight size={10} />
+            <span className="text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
+               <img src={up} size={12} />
               {item.val}
             </span>
           </div>
@@ -537,7 +721,7 @@ const notifications = [
       </div>
 
       {/* Card 4 */}
-      <div className="border border-gray-200 rounded-xl p-3 shadow-sm flex flex-col justify-between">
+      <div className="border border-gray-200 rounded-xl p-3 shadow-md flex flex-col justify-between">
         <div>
           <p className="text-xs font-bold text-gray-800 mb-1">
             AI Recommendation
@@ -551,8 +735,9 @@ const notifications = [
             Increase imports from
           </p>
 
-          <p className="text-xs font-semibold text-gray-800">
-            🇻🇳 Vietnam
+          <p className="text-xs font-semibold flex items-center gap-2 text-gray-800">
+             <img src={vietnam} />
+          <span>   Vietnam</span>
           </p>
 
           <p className="text-[10px] sm:text-xs text-gray-500 mt-2">
@@ -575,7 +760,7 @@ const notifications = [
   <div className="flex flex-col gap-4">
 
     {/* AI ASSISTANT */}
-    <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+    <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-100">
 
       <div className="flex items-center justify-between mb-3">
         <div>
@@ -620,7 +805,7 @@ const notifications = [
     </div>
 
     {/* NOTIFICATION */}
-    <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100">
+    <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-100">
 
       <div className="flex items-center justify-between mb-4">
         <p className="text-sm font-bold text-gray-900">

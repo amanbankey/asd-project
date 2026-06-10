@@ -37,6 +37,7 @@ import {
 } from "react-icons/fi";
 import {
   FaTrash,
+  FaAngleDown ,
   FaCheck,
   FaBox,
   FaBell,
@@ -58,6 +59,7 @@ import {
   FaStar,
   FaChevronRight,
   FaRobot,
+  FaAngleUp 
 } from "react-icons/fa6";
 
 import {
@@ -82,7 +84,7 @@ import {
   CartesianGrid,
 } from "recharts";
 import { RxCross1 } from "react-icons/rx";
-import { FaCalendarAlt, FaTimes } from "react-icons/fa";
+import { FaAngleRight, FaCalendarAlt, FaTimes } from "react-icons/fa";
 import up from "../../assets/icon/up.png"
 
 import logo from "../../assets/Images/logo.png";
@@ -115,7 +117,22 @@ import report from "../../assets/icon/report.png";
 import insight from "../../assets/icon/insight.png";
 
 import risk from "../../assets/icon/risk.png";
+
+
+import globe from "../../assets/icon/globe.png";
+import compass from "../../assets/icon/compass.png";
+
+import discovery from "../../assets/icon/discovery.png";
+
 import settings from "../../assets/icon/settings.png";
+import TradeIntelligenceImport from "./TradeIntelligenceImport";
+import ExportIntelligence from "./ExportIntelligence"
+import ShipmentDatabase from "./ShipmentDatabase";
+import alert from '../../assets/icon/alert.png'
+
+import graph from '../../assets/icon/graph.png'
+import file from '../../assets/icon/file.png'
+import android from '../../assets/icon/android.png'
 
 const trendingProducts = [
   { name: "Electronics", pct: "38.4%" },
@@ -195,85 +212,24 @@ const buyers = [
   },
 ];
 
-const mapPins = [
-  { top: "28%", left: "18%", label: "🇺🇸", value: "$2.8M", bg: "bg-blue-200" },
-  { top: "22%", left: "46%", label: "🇩🇪", value: "$1.4M", bg: "bg-teal-200" },
-  { top: "35%", left: "60%", label: "🇮🇳", value: "$4.3M", bg: "bg-purple-200" },
-  { top: "55%", left: "27%", label: "🇧🇷", value: "$2.4M", bg: "bg-green-300" },
-  { top: "62%", left: "72%", label: "🇦🇺", value: "$1.4M", bg: "bg-yellow-200" },
-];
 
-const mapRegions = [
-  {
-    top: "22%",
-    left: "12%",
-    w: "w-20",
-    h: "h-14",
-    color: "bg-blue-200",
-    opacity: "opacity-70",
-  },
-  {
-    top: "48%",
-    left: "18%",
-    w: "w-14",
-    h: "h-20",
-    color: "bg-green-300",
-    opacity: "opacity-80",
-  },
-  {
-    top: "18%",
-    left: "42%",
-    w: "w-20",
-    h: "h-12",
-    color: "bg-teal-200",
-    opacity: "opacity-70",
-  },
-  {
-    top: "36%",
-    left: "46%",
-    w: "w-10",
-    h: "h-14",
-    color: "bg-yellow-100",
-    opacity: "opacity-60",
-  },
-  {
-    top: "26%",
-    left: "58%",
-    w: "w-24",
-    h: "h-14",
-    color: "bg-purple-100",
-    opacity: "opacity-60",
-  },
-  {
-    top: "60%",
-    left: "68%",
-    w: "w-12",
-    h: "h-8",
-    color: "bg-yellow-300",
-    opacity: "opacity-70",
-  },
-];
+
 
 const navItems = [
-  { icon: home, label: "Dashboard" },
-  { icon: user, label: "Import Intelligence" },
-  { icon: exportInt, label: "Export Intelligence" },
-  { icon: supplier, label: "Shipment Database" },
+  { icon: home, label: "Dashboard",subTab:[],    },
+  { icon: globe, label: "Global Search",subTab:[],    },
+ 
+  { icon: graph, label: "Trade Intelligence", subTab:[{label: "Import Intelligence"},{label: "Export Intelligence"}, {label: "Shipment Database"},  {label: "HS Code"},] },
+ { icon: discovery, label: "Discovery",subTab:[],    },
+ { icon: compass, label: "Market Intelligence",subTab:[],    },
 
-  { icon: buyer, label: "HS Code Intelligence" },
+  { icon: settings, label: "AI Intelligence" , subTab:[]},
+  { icon: report, label: "Analytics" , subTab:[]},
+  { icon: alert, label: "Alert & Monitoring" , subTab:[]},
 
-  { icon: analytical, label: "Supplier Discovery" },
-  { icon: document, label: "Buyer Intelligence" },
-  { icon: payment, label: "Company Intelligence" },
-  { icon: ai, label: "Trade map" },
-
-  { icon: support, label: "Market Trends " },
-  { icon: settings, label: "Competitor Tracking" },
-
-  { icon: risk, label: "Risk Analysis" },
-  { icon: insight, label: "AI Insights" },
-  { icon: report, label: "Reports" },
-  { icon: setting, label: "Settings" },
+  { icon: insight, label: "Integration" , subTab:[]},
+  { icon:  file, label: "Reports" , subTab:[]},
+  { icon: android, label: "Settings" , subTab:[]},
 ];
 
 const statCards = [
@@ -317,8 +273,12 @@ function WorldMap() {
 }
 
 export default function B2BDashboard() {
+  const [openTrade, setOpenTrade] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [activeNav, setActiveNav] = useState("Dashboard");
+  const [activeSubTab, setActiveSubTab] = useState('Import Intelligence');
+  const [openMenu, setOpenMenu] = useState("Import Intelligence"); // null
+
   const [chatInput, setChatInput] = useState("");
   const riskColor = {
     Low: "bg-teal-100 text-teal-600",
@@ -326,8 +286,9 @@ export default function B2BDashboard() {
     High: "bg-red-100 text-red-500",
   };
 
+  // console.log('sbut', activeSubTab , activeNav)
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
+    <div className="flex h-screen bg-gray-100 overflow-hidden font-sans ">
       {/* Overlay for mobile */}
 
       {sidebarOpen && (
@@ -354,25 +315,59 @@ export default function B2BDashboard() {
 
         {/* Nav */}
         <nav className="flex-1 bg-gray-900 overflow-y-auto  pr-3 py-7 space-y-0.5">
-          {navItems.map(({ icon: Icon, label }) => (
+          {navItems.map(({ icon: Icon, label, subTab }) => (
+            <div   key={label}> 
             <button
-              key={label}
               onClick={() => {
                 setActiveNav(label);
-                setShowBot(false);
-                setSidebarOpen(false);
+                // setSidebarOpen(false);
+                setOpenMenu(openMenu === label ? null : label);
+                if(subTab.length > 0) {
+                }else{
+                  setSidebarOpen(false);
+                }
               }}
-              className={`w-full flex items-center gap-2 pl-10 py-1 rounded-r-lg text-xs transition-colors text-left
+              className={`w-full flex items-center gap-2 pl-6 sm:pl-8 py-2 pr-2 rounded-r-lg text-xs transition-colors text-left
                 ${
                   activeNav === label
                     ? "bg-teal-500 text-white"
                     : "text-gray-400 hover:bg-gray-700 hover:text-white"
                 }`}
             >
-              {/* <Icon size={13} className="flex-shrink-0" /> */}
-              <img src={Icon} className="text-xs" />
-              <span className="truncate text-[0.9rem] ">{label}</span>
+             
+              <img src={Icon} className="text-xs"  />
+              <span className="truncate text-[0.9rem] font-semibold text-base ">{label}</span>
+              {subTab?.length > 0 && (
+                  openMenu === label ? <FaAngleDown className="" /> :  <FaAngleRight />
+                )}
             </button>
+
+                {label === "Trade Intelligence" &&
+                  activeNav === "Trade Intelligence" && openMenu === label  && (
+                    <div className="ml-16 flex flex-col mt-1">
+                      {subTab.map((tab, id) => (
+                        <button
+                          key={id}
+                          onClick={(e) => {
+                            setSidebarOpen(false);
+                            setOpenMenu(null)
+                            e.stopPropagation();
+                            setActiveSubTab(tab.label)}}
+                          className={`text-left py-1 text-xs ${
+                            activeSubTab === tab.label
+                              ? "text-teal-300"
+                              : "text-gray-400 hover:text-teal-300"
+                          }`}
+                        >
+                          {tab.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  
+                </div>
+            
           ))}
         </nav>
       </aside>
@@ -428,9 +423,9 @@ export default function B2BDashboard() {
           </div>
         </header>
 
-        {/* Page Content */}
+        
 
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-3 lg:p-6 xl:p-10 ">
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-3  ">
           {activeNav === "Dashboard" && (
             <div
               className="min-h-screen bg-gray-50 p-4 lg:p-1 xl:p-6 "
@@ -445,7 +440,7 @@ export default function B2BDashboard() {
                   <h1 className="text-xl sm:text-2xl font-bold text-gray-800 ">
                     Dashboard
                   </h1>
-                  <p className="text-xs text-gray-600 mt-0.5">
+                  <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
                     Real-time global performance and intelligence
                   </p>
                 </div>
@@ -602,7 +597,7 @@ export default function B2BDashboard() {
                             className="flex-1 outline-none text-xs placeholder-"
                           />
                          <button>
-                            <FaPaperPlane className="text-green-500 text-xl" />
+                            <FaPaperPlane className="text-green-500 text-base" />
                           </button>
                         </div>
                           
@@ -612,15 +607,15 @@ export default function B2BDashboard() {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md px-4 py-3">
-                        <h2 className="text-xs sm:text-sm  lg:text-[16px] font-semibold text-black">
+                        <h2 className="text-xs sm:text-sm  lg:text-lg font-semibold text-black">
                           Price Fluctuations
                         </h2>
 
-                        <p className="text-gray-600 text-[0.7rem] sm:text-xs mb-2">
+                        <p className="text-gray-600 text-xs  mb-2">
                           Electronics (30Days)
                         </p>
 
-                        <p className="text-xs sm:text-sm lg:text-[20px] font-medium text-red-500">
+                        <p className="text-xs sm:text-sm lg:text-xl font-medium text-red-500">
                           -3.2%
                         </p>
 
@@ -630,20 +625,20 @@ export default function B2BDashboard() {
                       </div>
 
                       <div className="bg-white rounded-3xl border border-gray-200 shadow-md px-4 py-3">
-                        <h2 className="text-xs sm:text-sm  lg:text-[16px] font-semibold text-black">
+                        <h2 className="text-xs sm:text-sm  lg:text-lg font-semibold text-black">
                           Supply Chain Risk
                         </h2>
 
-                        <p className="text-gray-600 text-[0.7rem] sm:text-xs mb-2">
+                        <p className="text-gray-600 text-xs  mb-2">
                           Global Risk Index
                         </p>
 
-                        <p className="text-xs sm:text-sm lg:text-[20px] font-medium text-orange-500">
+                        <p className="text-xs sm:text-sm lg:text-xl font-medium text-orange-500">
                           Medium
                         </p>
 
                        <div className="flex gap-2">
-                        <p className="text-red-500 text-[0.7rem] font-semibold sm:text-xs mt-1">
+                        <p className="text-red-500 text-[0.7rem] font-semibold sm:text-sm mt-1">
                           8.2% 
                         </p>
                         <p className="text-[0.7rem] text-gray-600 font-medium sm:text-xs mt-1">
@@ -663,8 +658,8 @@ export default function B2BDashboard() {
                       <h2 className="text-sm sm:text-lg xl:text-xl font-semibold text-gray-800">
                         Top Suppliers
                       </h2>
-                      <button className="text-xs sm:text-lg xl:text-xl text-black font-normal flex items-center gap-0.5 ">
-                        View All <FaChevronRight className="text-xs" />
+                      <button className="text-xs sm:text-lg xl:text-xl text-[#353535] font-normal flex items-center gap-0.5 ">
+                        View All  
                       </button>
                     </div>
                     <div className="overflow-x-auto">
@@ -680,7 +675,7 @@ export default function B2BDashboard() {
                             ].map((h, i) => (
                               <th
                                 key={h}
-                                className={`text-left text-xs sm:text-lg  font-normal text-black px-3 py-3 ${
+                                className={`text-left text-xs sm:text-lg  font-normal text-[#353535] px-3 py-3 ${
                                   i === 0 ? "rounded-l-xl" : ""
                                 } ${i === 4 ? "rounded-r-xl" : ""}`}
                               >
@@ -692,16 +687,16 @@ export default function B2BDashboard() {
                         <tbody>
                           {suppliers.map((s, i) => (
                             <tr key={i} className="border-t border-gray-100 text-center  ">
-                              <td className="px-3 py-3 text-xs sm:text-lg text-start font-normal text-black">
+                              <td className="px-3 py-3 text-xs sm:text-lg text-start font-normal text-[#353535]">
                                 {s.name}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-[#353535]">
                                 {s.reliability}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-[#353535]">
                                 {s.quality}
                               </td>
-                              <td className="px-3 py-3 text-xs sm:text-lg  text-black">
+                              <td className="px-3 py-3 text-xs sm:text-lg  text-[#353535]">
                                 {s.ontime}
                               </td>
                               <td className="px-3 py-3 text-center">
@@ -785,7 +780,7 @@ export default function B2BDashboard() {
                           ].map((h, i) => (
                             <th
                               key={h}
-                              className={`text-left text-xs sm:text-lg xl:text-xl font-normal text-black px-3 py-3 ${
+                              className={`text-left text-xs sm:text-lg xl:text-xl font-normal text-[#353535] px-3 py-3 ${
                                 i === 0 ? "rounded-l-xl" : ""
                               } ${i === 4 ? "rounded-r-xl" : ""}`}
                             >
@@ -797,16 +792,16 @@ export default function B2BDashboard() {
                       <tbody>
                         {buyers.map((b, i) => (
                           <tr key={i} className="border-t border-gray-100 w-20 ">
-                            <td className="px-3 py-3 text-xs  sm:text-lg xl:text-xl font-normal text-black  ">
+                            <td className="px-3 py-3 text-xs  sm:text-lg xl:text-xl font-normal text-[#353535]  ">
                               {b.name}
                             </td>
-                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black text-start ">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#353535] text-start ">
                               {b.order}
                             </td>
-                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#353535]">
                               {b.ontime}
                             </td>
-                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-black">
+                            <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#353535]">
                               {b.payment}
                             </td>
                             <td className="px-3 py-3 text-xs sm:text-lg xl:text-xl text-[#31FF07] font-normal flex items-center gap-0.5">
@@ -822,39 +817,22 @@ export default function B2BDashboard() {
               </div>
             </div>
           )}
+        </main>
 
-          {/* {activeNav === "Users" && (
-            <UsersSection setShowNotice={setShowNotice} />
+          {activeNav === "Trade Intelligence" && activeSubTab === "Import Intelligence" && (
+           <TradeIntelligenceImport   />
           )}
 
-          {activeNav === "Roles & Permissions" && <RolesPermission/>}
-
-          {activeNav === "Plans/ Subscription" && (
-            <PlanSection
-              showAddPlan={showAddPlan}
-              setShowAddPlan={setShowAddPlan}
-            />
-          )} */}
-
-          {/* {activeNav === "Master Data" && <MasterData/>}
-           {activeNav === "HS Rules" && <HSRules/>}
-           {activeNav === "Country Rules" && <CountryRules/>}
-           {activeNav === "DGFT Schemes" && <DGFTSchemes/>}
-
-           {activeNav === "Shipment" && <Shipment /> }
+          {activeNav === "Trade Intelligence" && activeSubTab === "Export Intelligence" && (
+           <ExportIntelligence   />
+          )}
 
 
-           {activeNav === "Vendors/ Partners" && <VendorsPartners /> }
-           {activeNav === "AI Assistant" && <AiAssistant /> }
-           {activeNav === "Trade Intelligence" && <TradeIntelligence /> }
+         {activeNav === "Trade Intelligence" && activeSubTab === "Shipment Database" && (
+           <ShipmentDatabase   />
+          )}
 
-           {activeNav === "API Integrations" && <APIIntegrations/> }
-           
-           {activeNav === "Ad Managment" && <AdManagement/> }
-           {activeNav === "Support" && <Support /> }
-           {activeNav === "Modules" && <Modules /> } 
-           {activeNav === "Settings" && <Settings/>} */}
-        </main>
+
       </div>
     </div>
   );

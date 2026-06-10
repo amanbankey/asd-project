@@ -76,6 +76,24 @@ import {
   ResponsiveContainer,
   CartesianGrid,
 } from "recharts";
+import {
+  MdDashboard,
+  MdPeople,
+  MdSecurity,
+  MdSubscriptions,
+  MdStorage,
+  MdDescription,
+  MdPublic,
+  MdBusiness,
+  MdLocalShipping,
+  MdSmartToy,
+  MdInsights,
+  MdApi,
+  MdCampaign,
+  MdSupportAgent,
+  MdWidgets,
+  MdSettings,
+} from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
 import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 
@@ -100,6 +118,18 @@ import { BsCalendarCheck, BsPersonPlus, BsGraphUp } from "react-icons/bs";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { RiWhatsappLine } from "react-icons/ri";
 import { FiX, } from "react-icons/fi";
+import ai from '../../assets/icon/ai.png'
+import user from '../../assets/icon/user.png'
+import suppliers from '../../assets/icon/suppliers.png'
+import linear from '../../assets/icon/linear.png'
+import anal from '../../assets/icon/analytical.png'
+import vector from '../../assets/icon/vector.png'
+import time from '../../assets/icon/time.png'
+import document from '../../assets/icon/document.png'
+import order from '../../assets/icon/orders.png'
+
+import logo from "../../assets/Images/logo.png";
+
 const fabActions = [
   { label: "New Booking", icon: <BsCalendarCheck size={22} className="text-teal-600" /> },
   { label: "Add Vendor", icon: <BsPersonPlus size={22} className="text-teal-600" /> },
@@ -133,74 +163,80 @@ const userGrowthData = [
   { name: "Aug", value: 60 },
 
   { name: "Sep", value: 50 },
-  { name: "Oct", value: 140 },
+  { name: "Oct", value: 150 },
 ];
 
 const navItems = [
-  { icon: FiHome, label: "Admin Dashboard" },
-  { icon: FiUsers, label: "Users" },
-  { icon: FiShield, label: "Roles & Permissions" },
-  { icon: FiCreditCard, label: "Plans/ Subscription" },
-  { icon: FiDatabase, label: "Master Data" },
-  { icon: FiFileText, label: "HS Rules" },
-  { icon: FiGlobe, label: "Country Rules" },
-  { icon: FiGrid, label: "DGFT Schemes" },
-  { icon: FiPackage, label: "Shipment" },
-  { icon: FiTruck, label: "Vendors/ Partners" },
-  { icon: FiCpu, label: "AI Assistant" },
-  { icon: FiPieChart, label: "Trade Intelligence" },
-  { icon: FiLink, label: "API Integrations" },
-  { icon: FiMonitor, label: "Ad Managment" },
-  { icon: FiHelpCircle, label: "Support" },
-  { icon: FiGrid, label: "Modules" },
-  { icon: FiSettings, label: "Settings" },
+  { icon: MdDashboard, label: "Admin Dashboard", color: "text-orange-400" },
+  { icon: MdPeople, label: "Users", color: "text-yellow-400" },
+  { icon: MdSecurity, label: "Roles & Permissions", color: "text-purple-400" },
+  { icon: MdSubscriptions, label: "Plans/ Subscription", color: "text-teal-400" },
+  { icon: MdStorage, label: "Master Data", color: "text-blue-400" },
+  { icon: MdDescription, label: "HS Rules", color: "text-red-400" },
+  { icon: MdPublic, label: "Country Rules", color: "text-indigo-400" },
+  { icon: MdBusiness, label: "DGFT Schemes", color: "text-pink-400" },
+  { icon: MdLocalShipping, label: "Shipment", color: "text-cyan-400" },
+  { icon: MdPeople, label: "Vendors/ Partners", color: "text-green-400" },
+  { icon: MdSmartToy, label: "AI Assistant", color: "text-blue-500" },
+  { icon: MdInsights, label: "Trade Intelligence", color: "text-rose-400" },
+  { icon: MdApi, label: "API Integrations", color: "text-emerald-400" },
+  { icon: MdCampaign, label: "Ad Managment", color: "text-yellow-500" },
+  { icon: MdSupportAgent, label: "Support", color: "text-orange-500" },
+  { icon: MdWidgets, label: "Modules", color: "text-indigo-500" },
+  { icon: MdSettings, label: "Settings", color: "text-gray-400" },
 ];
 
 const statCards = [
   {
     label: "Total Users",
     value: "12,450",
-    icon: FiUsers,
+    icon: user,
+    bg:"bg-orange-100", 
     color: "text-orange-400",
   },
   {
     label: "Total Subscription",
     value: "860",
-    icon: FiCreditCard,
+    icon: suppliers,
+    bg:"bg-orange-100", 
     color: "text-yellow-500",
   },
   {
     label: "Total Shipment",
     value: "4,320",
-    icon: FiPackage,
+    icon: ai,
+    bg:"bg-sky-100", 
     color: "text-blue-500",
   },
   {
     label: "Revenue",
     value: "128,500",
-    icon: FiPieChart,
+    icon: linear,
+    bg:"bg-green-100", 
     color: "text-green-500",
   },
   {
     label: "Pending Approvals",
     value: "15",
-    icon: FiAlertCircle,
-    color: "text-teal-500",
+    icon: time,
+    bg:"bg-yellow-100", 
+    color: "text-yellow-500",
   },
   {
     label: "Active Vendors",
     value: "32",
-    icon: FiUserCheck,
-    color: "text-purple-500",
+    icon: vector,
+    bg:"bg-green-100", 
+    color: "text-green-500",
   },
 ];
 
 const quickActions = [
-  { icon: FiUserPlus, label: "Add User" },
-  { icon: FiUserCheck, label: "Add Vendor" },
-  { icon: FiPlusCircle, label: "Add Plan" },
-  { icon: FiFileText, label: "Add Hs Rule" },
-  { icon: FiGlobe, label: "Add Country Rule" },
+  { icon: user, label: "Add User" },
+  { icon: order, label: "Add Vendor" },
+  { icon: suppliers, label: "Add Plan" },
+  { icon: anal, label: "Add Hs Rule" },
+  { icon: document, label: "Add Country Rule" },
 ];
 
 const alerts = [
@@ -283,7 +319,7 @@ function CreateNotice({ setShowNotice }) {
             }`}
           />
           {errors.title && (
-            <p className="text-red-500 text-xs mt-1">{errors.title}</p>
+            <p className="text-red-500 text-sm mt-1">{errors.title}</p>
           )}
         </div>
 
@@ -301,7 +337,7 @@ function CreateNotice({ setShowNotice }) {
             }`}
           />
           {errors.desc && (
-            <p className="text-red-500 text-xs mt-1">{errors.desc}</p>
+            <p className="text-red-500 text-sm mt-1">{errors.desc}</p>
           )}
         </div>
 
@@ -327,7 +363,7 @@ function CreateNotice({ setShowNotice }) {
               />
               <button
                 onClick={removeImage}
-                className="absolute -top-2 -right-2 bg-black text-white p-1 rounded-full text-xs"
+                className="absolute -top-2 -right-2 bg-black text-white p-1 rounded-full text-sm"
               >
                 <FaTimes />
               </button>
@@ -351,7 +387,7 @@ function CreateNotice({ setShowNotice }) {
             {/* <FaCalendarAlt className="absolute right-3 top-3 text-gray-400 text-sm pointer-events-none" /> */}
           </div>
           {errors.date && (
-            <p className="text-red-500 text-xs mt-1">{errors.date}</p>
+            <p className="text-red-500 text-sm mt-1">{errors.date}</p>
           )}
         </div>
 
@@ -378,7 +414,7 @@ function CreateNotice({ setShowNotice }) {
 
 export default function AdminDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [activeNav, setActiveNav] = useState("Admin Dashboard");
+  const [activeNav, setActiveNav] = useState("Users");
   const [showNotice, setShowNotice] = useState(false);
   const [showAddPlan, setShowAddPlan] = useState(false);
    const [showBot, setShowBot] = useState(false);
@@ -391,12 +427,12 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
+    <div className="flex min-h-screen bg-gray-100 font-sans">
       {/* Overlay for mobile */}
 
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
+          className="fixed inset-0 bg-black/40 bg-opacity-50 z-20 lg:hidden"
           onClick={() => setSidebarOpen(false)}
         />
       )}
@@ -405,28 +441,21 @@ export default function AdminDashboard() {
       <aside
         className={`
           fixed lg:static inset-y-0 left-0 z-30 w-52 xl:w-60
-          bg-gray-900 text-white flex flex-col
+            text-white bg-white flex flex-col
           transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0 flex-shrink-0
         `}
       >
         {/* Logo */}
-        <div className="flex items-center gap-2 px-4 py-4 border-b border-gray-700">
-          <div className="w-8 h-8 bg-teal-500 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0">
-            ASD
-          </div>
-          <div className="leading-tight">
-            <p className="text-xs font-bold text-white">ASDCargoMate</p>
-            <p className="text-gray-400" style={{ fontSize: "9px" }}>
-              Ask Plan Ship
-            </p>
-          </div>
+        <div className="flex items-center gap-2 px-4 py-2 justify-center border-b border-gray-700">
+
+           <img src={logo} className="h-12" />
         </div>
 
         {/* Nav */}
-        <nav className="flex-1 overflow-y-auto px-3 py-2 space-y-0.5">
-          {navItems.map(({ icon: Icon, label }) => (
+        <nav className="flex-1 overflow-y-auto pr-3 py-7 space-y-0.5 bg-gray-900">
+          {navItems.map(({ icon: Icon, label, color }) => (
             <button
               key={label}
               onClick={() => {
@@ -434,21 +463,21 @@ export default function AdminDashboard() {
                 setShowBot(false)
                 setSidebarOpen(false);
               }}
-              className={`w-full flex items-center gap-2 px-3 py-2 rounded-lg text-xs transition-colors text-left
+              className={`w-full flex items-center gap-2 py-3 pl-10 rounded-r-lg  text-md font-semibold transition-colors text-left
                 ${
                   activeNav === label
                     ? "bg-teal-500 text-white"
                     : "text-gray-400 hover:bg-gray-700 hover:text-white"
                 }`}
             >
-              <Icon size={13} className="flex-shrink-0" />
+              <Icon size={18} className={`${color} flex-shrink-0`} />
               <span className="truncate text-[0.9rem] ">{label}</span>
             </button>
           ))}
         </nav>
       </aside>
 
-      <div className="flex-1 flex flex-col min-w-0 overflow-hidden  ">
+      <div className="flex-1 flex flex-col w-full">
         {/* Topbar */}
         <header className="bg-white border-b border-gray-200 px-3 sm:px-4 py-1 flex items-center gap-3 flex-shrink-0">
           <button
@@ -501,36 +530,43 @@ export default function AdminDashboard() {
 
         {/* Page Content */}
 
-        <main className="flex-1 overflow-y-auto bg-gray-50 p-3 sm:p-10 ">
+        <main className="flex-1 overflow-y-auto bg-gray-50 p-6 sm:p-10 lg:p-12">
           {activeNav === "Admin Dashboard" && (
             <div className="">
               <div
                 className="flex justify-end mb-3  "
-                onClick={() => setShowNotice(true)}
               >
-                <button
+                <button onClick={() => setShowNotice(true)}
                   className="flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white 
-            text-xs font-semibold px-3 py-2 rounded-lg transition-colors"
+            text-sm font-semibold px-3 py-2 rounded-lg transition-colors"
                 >
                   <FiPlus size={13} />
                   <span> Create Notice</span>
                 </button>
               </div>
 
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-4">
-                {statCards.map(({ label, value, icon: Icon, color }) => (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6 gap-2 sm:gap-3 mb-4">
+                {statCards.map(({ label, value, icon: Icon, color, bg }) => (
                   <div
                     key={label}
-                    className="bg-white rounded-xl p-3 shadow-sm border border-gray-100 flex flex-col gap-1"
+                    className="bg-white rounded-xl p-3 shadow-md border border-gray-100 flex flex-col gap-1"
                   >
-                    <p className="text-gray-500 text-xs leading-tight">
+                    <p className="text-gray-500 text-sm font-medium  leading-tight">
                       {label}
                     </p>
                     <div className="flex items-center justify-between">
-                      <p className="text-gray-800 font-bold text-sm sm:text-base">
+                      <p className="text-gray-800 font-bold text-sm sm:text-base"> 
                         {value}
                       </p>
-                      <Icon className={color} size={16} />
+                      <div className={`${bg} w-7 h-7 flex items-center justify-center rounded-md`}> 
+                      {
+                        typeof Icon === "string" ? (
+                          <img src={Icon} alt="icon" className="w-4 h-4" />
+                        ) : (
+                          <Icon className={color} size={16} />
+                        )
+                      } </div>
+                     
                     </div>
                   </div>
                 ))}
@@ -540,7 +576,7 @@ export default function AdminDashboard() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-3">
                 {/* Area Chart */}
                 <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md border-2 border-gray-100 ">
-                  <p className="text-xs font-semibold text-gray-700 mb-3">
+                  <p className="text-xs sm:text-base  xl:text-lg font-semibold text-gray-500 mb-3">
                     Revenue Growth
                   </p>
                   <ResponsiveContainer width="100%" height={140}>
@@ -565,7 +601,12 @@ export default function AdminDashboard() {
                           />
                         </linearGradient>
                       </defs>
-                      <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                      <CartesianGrid
+                        strokeDasharray="4 4"
+                        stroke="#d1d5db"
+                        strokeOpacity={0.8}
+                        vertical={false}
+                      />
                       <XAxis
                         dataKey="name"
                         tick={{ fontSize: 10 }}
@@ -586,12 +627,17 @@ export default function AdminDashboard() {
 
                 {/* Bar Chart */}
                 <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
-                  <p className="text-xs font-semibold text-gray-700 mb-3">
+                  <p className="text-xs sm:text-base xl:text-lg font-semibold text-gray-500 mb-3">
                     Revenue Growth
                   </p>
                   <ResponsiveContainer width="100%" height={140}>
                     <BarChart data={revenueBarData} barCategoryGap="30%">
-                      <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                    <CartesianGrid
+                        strokeDasharray="4 4"
+                        stroke="#d1d5db"
+                        strokeOpacity={0.8}
+                        vertical={false}
+                      />
                       <XAxis
                         dataKey="name"
                         tick={{ fontSize: 10 }}
@@ -608,83 +654,101 @@ export default function AdminDashboard() {
               </div>
 
               {/* Bottom Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                 {/* Quick Actions */}
-                <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
-                  <p className="text-sm font-bold text-gray-800 mb-3">
+                <div className="bg-white rounded-xl p-3 sm:p-5 shadow-md border border-gray-100 h-fit ">
+                  <p className="text-sm sm:text-base xl:text-lg  border-b-2 font-medium text-gray-800 mb-3">
                     Quick Action
                   </p>
                   <div className="space-y-2">
                     {quickActions.map(({ icon: Icon, label }) => (
                       <button
                         key={label}
-                        className="w-full flex items-center gap-2 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-xs text-gray-700 transition-colors"
+                        className="w-full flex items-center shadow-sm  gap-2 px-3 py-2 border border-gray-200 rounded-lg hover:bg-gray-50 text-sm text-gray-700 transition-colors"
                       >
-                        <Icon
-                          size={13}
-                          className="text-teal-500 flex-shrink-0"
-                        />
-                        <span>{label}</span>
+                         {
+                        typeof Icon === "string" ? (
+                          <img src={Icon} alt="icon" className="w-4 h-4" />
+                        ) : (
+                          <Icon  size={13} className="text-teal-500 flex-shrink-0" />
+                        )
+                      }
+                    
+                        <span className="font-medium">{label}</span>
                       </button>
                     ))}
                   </div>
                 </div>
 
                 {/* User Growth */}
-                <div className="bg-white rounded-xl p-3 sm:p-4  flex flex-col">
-                  <div className="shadow-md border p-3 rounded-xl sm:p-4 border-gray-100">
-                    <p className="text-xs font-semibold text-gray-700 mb-3">
+                <div className="rounded-xl p-0 flex flex-col">
+                  <div className="shadow-md border p-3 rounded-xl sm:p-4 border-gray-100 bg-white">
+                    <p className="text-xs sm:text-base  xl:text-lg font-semibold text-[#787B7F] mb-3">
                       User Growth
                     </p>
                     <div className="flex-1">
-                      <ResponsiveContainer width="100%" height={160}>
-                        <AreaChart data={userGrowthData}>
-                          <defs>
-                            <linearGradient
-                              id="ugGrad"
-                              x1="0"
-                              y1="0"
-                              x2="0"
-                              y2="1"
-                            >
-                              <stop
-                                offset="5%"
-                                stopColor="#3b82f6"
-                                stopOpacity={0.25}
-                              />
-                              <stop
-                                offset="95%"
-                                stopColor="#3b82f6"
-                                stopOpacity={0}
-                              />
-                            </linearGradient>
-                          </defs>
-                          <CartesianGrid
-                            strokeDasharray="3 3"
-                            stroke="#f0f0f0"
-                          />
-                          <XAxis
-                            dataKey="name"
-                            tick={{ fontSize: 10 }}
-                            axisLine={false}
-                            tickLine={false}
-                          />
-                          <Tooltip contentStyle={{ fontSize: 11 }} />
-                          <Area
-                            type="monotone"
-                            dataKey="value"
-                            stroke="#3b82f6"
-                            strokeWidth={2}
-                            fill="url(#ugGrad)"
-                          />
-                        </AreaChart>
-                      </ResponsiveContainer>
+                    <ResponsiveContainer width="100%" height={160}>
+                          <AreaChart
+                            data={userGrowthData}
+                            margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
+                          >
+                            <defs>
+                              <linearGradient
+                                id="ugGrad"
+                                x1="0"
+                                y1="0"
+                                x2="0"
+                                y2="1"
+                              >
+                                <stop
+                                  offset="5%"
+                                  stopColor="#3b82f6"
+                                  stopOpacity={0.25}
+                                />
+                                <stop
+                                  offset="95%"
+                                  stopColor="#3b82f6"
+                                  stopOpacity={0}
+                                />
+                              </linearGradient>
+                            </defs>
+
+                            <CartesianGrid
+                              strokeDasharray="6 6"
+                              stroke="#d1d5db"
+                              vertical={false}
+                              strokeOpacity={0.8}
+                            />
+
+                            <XAxis
+                              dataKey="name"
+                              tick={{ fontSize: 10 }}
+                              axisLine={false}
+                              tickLine={false}
+                            />
+
+                            <YAxis
+                              hide
+                              domain={['auto', 'auto']}
+                            />
+
+                            <Tooltip contentStyle={{ fontSize: 11 }} />
+
+                            <Area
+                              type="monotone"
+                              dataKey="value"
+                              stroke="#3b82f6"
+                              strokeWidth={2}
+                              fill="url(#ugGrad)"
+                            />
+                          </AreaChart>
+                        </ResponsiveContainer>
                     </div>
                   </div>
 
                   {/* Recent Activity below on mobile / same card medium+ */}
-                  <div className="mt-3 pt-3 border-t border-gray-100 shadow-md rounded-xl p-3 sm:p-4">
-                    <p className="text-xs font-semibold text-gray-700 mb-2">
+                  <div className="mt-3 pt-3 border-t border-gray-100 shadow-md rounded-xl p-3 sm:p-4 bg-white">
+                    <p className="text-sm sm:text-base border-b-2  xl:text-lg font-semibold text-[#787B7F] mb-2">
                       Recent Activity
                     </p>
                     <div className="space-y-1.5">
@@ -693,12 +757,12 @@ export default function AdminDashboard() {
                           key={i}
                           className="flex justify-between items-start gap-2"
                         >
-                          <p className="text-xs text-gray-600 leading-snug">
+                          <p className="text-[0.8rem]  sm:text-sm font-medium text-[#4D4D4D]  leading-snug">
                             {text}
                           </p>
                           <p
-                            className="text-gray-400 flex-shrink-0"
-                            style={{ fontSize: "9px" }}
+                            className=" text-xs sm:text-sm text-[#9A9A9A]    font-medium flex-shrink-0"
+                            
                           >
                             {time}
                           </p>
@@ -711,7 +775,7 @@ export default function AdminDashboard() {
                 {/* Alerts + System Status */}
                 <div className="flex flex-col gap-3">
                   <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
-                    <p className="text-xs font-semibold text-gray-700 mb-3">
+                    <p className="text-xs sm:text-base border-b-2  xl:text-lg font-semibold text-[#787B7F] mb-3">
                       Alert & Notification
                     </p>
                     <div className="space-y-2">
@@ -722,43 +786,52 @@ export default function AdminDashboard() {
                         >
                           <div className="flex items-center gap-2">
                             <span
-                              className={`${color} text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0`}
+                              className={`${color} text-white text-sm font-bold w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0`}
                             >
                               {count}
                             </span>
-                            <span className="text-xs text-gray-700">
+                            <span className="text-xs sm:text-base  font-medium text-gray-700">
                               {label}
                             </span>
                           </div>
-                          <FiChevronRight size={13} className="text-gray-400" />
+                          <FiChevronRight size={20} className="text-xs sm:text-sm font-mediumtext-gray-400" />
                         </div>
                       ))}
                     </div>
                   </div>
 
                   <div className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
-                    <p className="text-xs font-semibold text-gray-700 mb-3">
+                    <p className="text-xs sm:text-sm border-b-2  xl:text-lg font-semibold text-[#787B7F] mb-3">
                       System Status
                     </p>
                     <div className="space-y-2">
-                      <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-600">
+                      <div className="flex items-center  justify-between ">
+                        <div className="flex items-center gap-2">
+                        <span className="w-2 h-2 bg-green-400 rounded-full" />
+                          <span className="text-xs sm:text-sm font-medium text-gray-600">
+                        
                           API Status
                         </span>
+                         </div>
+                       
                         <div className="flex items-center gap-1.5">
-                          <span className="text-xs text-green-600 font-medium">
+                          <span className="text-xs sm:text-sm text-green-400 font-medium">
                             Active
                           </span>
-                          <span className="w-2 h-2 bg-green-500 rounded-full" />
+                          <span className="w-2 h-2 bg-green-400 rounded-full" />
                         </div>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-xs text-gray-600">
+                        <div className="flex items-center gap-2"> 
+                          <span className="w-2 h-2 bg-green-400 rounded-full" />
+
+                        <span className="text-xs sm:text-sm  font-medium text-gray-600">
                           Server Status
-                        </span>
-                        <span className="w-2 h-2 bg-green-500 rounded-full" />
+                        </span> </div>
+                      
+                        {/* <span className="w-2 h-2 bg-green-400 rounded-full" /> */}
                       </div>
-                      <p className="text-green-600 text-xs font-medium">
+                      <p className="text-xs  text-[#787B7F] font-medium">
                         All System Operational
                       </p>
                     </div>

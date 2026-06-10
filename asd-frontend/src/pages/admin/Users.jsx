@@ -144,7 +144,7 @@ function EditDrawer({ user, setEditUser, setUsers }) {
     <div className="fixed inset-0 bg-black/30 z-50 flex justify-end">
       <div className="w-full sm:w-[420px] bg-white h-full overflow-y-auto transform transition-transform duration-300 translate-x-0 p-5">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold">Edit User</h2>
+          <h2 className="text-lg lg:text-xl font-semibold">Edit User</h2>
           <RxCross1
             onClick={() => setEditUser(null)}
             className="text-xl cursor-pointer"
@@ -156,7 +156,7 @@ function EditDrawer({ user, setEditUser, setUsers }) {
             {form.name?.[0]}
           </div>
           <div>
-            <p className="font-medium">{form.name}</p>
+            <p className="font-medium text-sm lg:text-lg">{form.name}</p>
             <p className="text-xs text-gray-500">Last updated 2 days ago</p>
           </div>
         </div>
@@ -164,41 +164,62 @@ function EditDrawer({ user, setEditUser, setUsers }) {
         <form onSubmit={handleSubmit} className="space-y-5">
           <div className="border-t pt-4">
             <p className="text-sm font-medium mb-2">Basic Info</p>
-
-            <div className="flex gap-4 items-center mb-3">
-              <div className="w-14 h-14 border rounded-md flex items-center justify-center text-gray-400">
-                <FiCamera />
+             <div className="flex items-center"> 
+            <div className="flex  flex-col gap-2 w-full mx-auto max-w-36  items-center mb-3">
+              <div className="w-14 h-14 border  rounded-full flex items-center justify-center text-gray-400">
+                <FiCamera  className="text-xl"/> 
               </div>
-              <p className="text-xs text-gray-400">
-                Upload Photo JPG, PNG up to 2 MB
+              <div > 
+              <p className="text-xs text-gray-400 flex flex-col items-center whitespace-nowrap">
+                <span>Upload Photo </span>
+                <span>JPG, PNG up to 2 MB </span> 
               </p>
+              </div>
             </div>
 
-            <input
+            <div className="flex flex-col"> 
+            <div className="flex flex-col"> 
+              <label className="text-[#6D6D6D]" >Full Name</label>
+                <input
               value={form.name}
               onChange={(e) => setForm({ ...form, name: e.target.value })}
               placeholder="Full Name"
-              className="w-full border px-3 py-2 rounded mb-2"
+              className="w-full border px-3 py-1 rounded mb-2 text-[#6D6D6D]"
             />
 
-            <input
+            </div>
+            
+           <div className="flex-col"> 
+            <label className="text-[#6D6D6D]" > Email Address </label>
+              <input
               value={form.email}
               onChange={(e) => setForm({ ...form, email: e.target.value })}
               placeholder="Email Address"
-              className="w-full border px-3 py-2 rounded mb-2"
+              className="w-full border px-3 py-1 rounded mb-2 text-[#6D6D6D]"
             />
 
-            <input
+           </div>
+          
+           <div className="flex-col">
+             <label className="text-[#6D6D6D]" > Phone number </label>
+             <input
               value={form.phone}
               onChange={(e) => setForm({ ...form, phone: e.target.value })}
               placeholder="Phone Number"
-              className="w-full border px-3 py-2 rounded"
+              className="w-full border px-3 py-1 rounded text-[#6D6D6D]"
             />
+           </div>
+            
+            </div>
+
+            </div>
           </div>
 
           <div className="border-t pt-4">
             <p className="text-sm font-medium mb-2">Account Type</p>
-
+            <div> 
+              <label className="text-[#6D6D6D] text-sm"> Account Type</label>
+            </div>
             <select
               value={form.accountType}
               onChange={(e) =>
@@ -212,42 +233,60 @@ function EditDrawer({ user, setEditUser, setUsers }) {
           </div>
 
           <div className="border-t pt-4">
-            <p className="text-sm font-medium mb-2">Company Info</p>
 
+            <p className="text-sm font-medium mb-2">Company Info</p>
+            <div className="flex gap-2">
+            <div className="flex flex-col ">
+               <label className="text-[#727272]">Company Info </label>
             <input
               value={form.company}
               onChange={(e) => setForm({ ...form, company: e.target.value })}
               placeholder="Company Name"
               className="w-full border px-3 py-2 rounded mb-2"
-            />
-
+            /></div>
+           
+           <div> 
+             <label className="text-[#727272]"> GST No</label>
             <input
               value={form.gst}
               onChange={(e) => setForm({ ...form, gst: e.target.value })}
               placeholder="GST Number"
               className="w-full border px-3 py-2 rounded mb-2"
             />
+            </div>
+            </div>
 
-            <select
-              value={form.business}
-              onChange={(e) => setForm({ ...form, business: e.target.value })}
-              className="w-full border px-3 py-2 rounded"
-            >
-              <option>Exporter</option>
-              <option>Manufacturer</option>
-            </select>
+           <div> 
+            <label className="text-[#727272]">Business Type</label>
+              <select
+                  value={form.business}
+                  onChange={(e) => setForm({ ...form, business: e.target.value })}
+                  className="w-full border px-3 py-2 rounded"
+                >
+                  <option>Exporter</option>
+                  <option>Manufacturer</option>
+                </select>
+            </div>
+         
           </div>
 
-          <div className="border-t pt-4">
+          <div className="border-t pt-4 flex flex-col">
             <p className="text-sm font-medium mb-2">Status</p>
-
-            <div className="flex items-center gap-3">
+           
+            <div className="flex flex-col    gap-3">
+              <label className="text-[#727272]">Account status</label>
+              <div className="flex gap-4"> 
               <input
                 type="checkbox"
                 checked={form.status}
                 onChange={(e) => setForm({ ...form, status: e.target.checked })}
               />
-              <span className="text-sm">Active</span>
+              <div className="flex flex-col">
+                 <span className="text-sm">Active</span>
+                 <span className="text-[#727272] text-xs">Users can access the plateform</span>
+              </div>
+              </div>
+             
             </div>
           </div>
 
@@ -255,6 +294,8 @@ function EditDrawer({ user, setEditUser, setUsers }) {
             <p className="text-sm font-medium mb-2">Subscription</p>
 
             <div className="grid grid-cols-2 gap-2">
+              <div className=" flex flex-col"> 
+              <label className="text-[#727272]">Plan</label>
               <select
                 value={form.plan}
                 onChange={(e) => setForm({ ...form, plan: e.target.value })}
@@ -263,26 +304,28 @@ function EditDrawer({ user, setEditUser, setUsers }) {
                 <option>Pro</option>
                 <option>Basic</option>
               </select>
-
-              <input
+</div>
+            <div className="flex flex-col"> <label className="text-[#727272]"> Expiry date</label> <input
                 type="date"
                 value={form.expiry}
                 onChange={(e) => setForm({ ...form, expiry: e.target.value })}
                 className="border px-3 py-2 rounded"
-              />
+              /></div>
+             
             </div>
           </div>
 
-          <div className="border-t pt-4 space-y-2">
+          <div className="flex  border-t pt-4 gap-2">
+              
             <button
               type="button"
               className="w-full border py-2 rounded flex items-center justify-center gap-2"
             >
-              <FiLock /> Reset Password
+             <FiLock /> Reset Password
             </button>
 
             <button
-              type="button"
+              type="button" 
               className="w-full border py-2 rounded flex items-center justify-center gap-2"
             >
               <FiSend /> Send Invite Link
@@ -451,7 +494,7 @@ export default function UsersSection({ setShowNotice }) {
     <div className="p-4 w-full sm:p-6 bg-gray-50 min-h-screen">
       <div className="flex justify-between items-center mb-4">
         <div>
-          <h2 className="text-xl font-semibold">Users</h2>
+          <h1 className="text-lg sm:text-xl xl:text-3xl font-semibold">Users</h1>
           <p className="text-xs sm:text-sm text-gray-500">
             Manage user accounts and access
           </p>
@@ -496,20 +539,20 @@ export default function UsersSection({ setShowNotice }) {
 
             <tbody>
               {currentData.map((u) => (
-                <tr key={u.id} className="border-t">
-                  <td className="py-2 flex items-center gap-2">
+                <tr key={u.id} className="border-t text-[#707071]">
+                  <td className="py-2 flex font-medium items-center gap-2">
                     <span className="w-7 h-7 hidden rounded-full bg-teal-100 text-teal-600 sm:flex items-center justify-center text-xs">
                       {u.name[0]}
                     </span>
                     {u.name}
                   </td>
-                  <td>{u.email}</td>
-                  <td>{u.phone}</td>
-                  <td className=" text-xs sm:text-sm">{u.company}</td>
-                  <td>{u.password}</td>
-                  <td>
+                  <td className="font-medium  ">{u.email}</td>
+                  <td className="font-medium">{u.phone}</td>
+                  <td  className="font-medium text-xs sm:text-sm">{u.company}</td>
+                  <td className="font-medium">{u.password}</td>
+                  <td className="font-medium">
                     <span
-                      className={`px-2 py-1 rounded-full text-xs ${
+                      className={`px-2 py-1 rounded-lg text-xs ${
                         u.status === "active"
                           ? "bg-green-100 text-green-600"
                           : "bg-gray-200 text-gray-600"

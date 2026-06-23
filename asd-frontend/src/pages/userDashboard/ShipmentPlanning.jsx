@@ -187,7 +187,7 @@ export default function ShipmentPlanning() {
         </div>
 
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 ">
-          <div className="flex flex-col gap-4 min-w-0 border-2 border-black">
+          <div className="flex flex-col gap-4 min-w-0 ">
             <div className="bg-white border border-gray-200 rounded-xl overflow-hidden ">
               <div className="flex overflow-x-auto border-b border-gray-200">
                 {tabs.map((tab) => (
@@ -330,7 +330,7 @@ export default function ShipmentPlanning() {
           
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 border-2 border-black">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 ">
             <div className="bg-white border border-gray-200 rounded-xl p-4 h-auto ">
               <p className="text-sm sm:text-lg font-semibold text-gray-800 mb-3">Route & Schedule (Summary)</p>
               <div className="flex items-center justify-between gap-2 mb-4">
@@ -438,7 +438,7 @@ export default function ShipmentPlanning() {
         
       </div>
 
-        <div className="flex gap-1"> 
+        <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-4 mx-4"> 
          <div className="bg-white border border-gray-200 rounded-xl p-4">
               <p className="text-sm sm:text-lg font-semibold text-gray-800 mb-4">What's Next?</p>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -457,9 +457,9 @@ export default function ShipmentPlanning() {
                   </div>
                 ))}
               </div>
-            </div>
+         </div>
 
-            <div>
+       <div>
                 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2">
               <div className="bg-white border border-gray-200 rounded-xl p-4">
@@ -516,10 +516,16 @@ export default function ShipmentPlanning() {
 
             </div>
 
-            <div className="flex justify-center">
-              <button className="flex items-center gap-2 bg-teal-500 hover:bg-teal-600 text-white text-sm font-semibold px-8 py-3 rounded-xl">
+            <div className="flex justify-between items-center px-5 mx-3 py-3  my-4 rounded-lg bg-white border border-gray-200">
+                <div>
+                    <p className="text-sm">All plans and calculations are saved in <span className="text-base font-semibold "> Saved Reports. </span>  You can access, download, or share them anytime </p>
+                </div>
+                <div>
+  <button className="flex items-center gap-2  text-black text-xs sm:text-sm border border-gray-200font-medium px-4 py-2 rounded-lg">
                 <FiSave size={15} /> Save to Saved Reports
               </button>
+                </div>
+            
             </div>
     </div>
   );

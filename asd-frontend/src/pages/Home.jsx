@@ -18,10 +18,20 @@ function HeroSection() {
       <div className="w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-0">
         <div className="flex-1 z-10 ">
           <span className="inline-flex items-center gap-2 border border-teal-400 text-teal-600 text-xs font-medium py-4 px-2 rounded-xl mb-6">
+         
             <span className="w-1.5 h-1.5 bg-teal-500  sm:text-xl rounded-full " />
             AI Powered Platform
-          </span>
+          </span> 
 
+          <div className="flex gap-3">
+             <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+              onClick={() => navigate("/b2b-dashboard")}>
+                 B2b Dashboard </button>
+              <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+               onClick={() => navigate("/user-dashboard")}> User Dashboard</button>
+             
+             </div>
+          
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 leading-tight mb-4">
             <span className="text-teal-500">AI-Powered</span> Global
             <br className="hidden sm:block" /> Trade & Logistics

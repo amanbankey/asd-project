@@ -1,969 +1,3 @@
-// import { useState } from "react";
-
-// import {
-//   FiMenu,
-//   FiSearch,
-//   FiBell,
-//   FiMail,
-//   FiSun,
-//   FiMoon,
-//   FiPlus,
-//   FiUsers,
-//   FiShield,
-//   FiCreditCard,
-//   FiDatabase,
-//   FiFileText,
-//   FiGlobe,
-//   FiPackage,
-//   FiTruck,
-//   FiCpu,
-//   FiPieChart,
-//   FiLink,
-//   FiMonitor,
-//   FiHelpCircle,
-//   FiGrid,
-//   FiSettings,
-//   FiChevronRight,
-//   FiUserPlus,
-//   FiUserCheck,
-//   FiPlusCircle,
-//   FiAlertCircle,
-//   FiCheckCircle,
-//   FiXCircle,
-//   FiHome,
-//   FiCamera,
-//   FiLock,
-//   FiSend,
-// } from "react-icons/fi";
-// import {
-//   FaTrash,
-//   FaCheck,
-//   FaBox,
-//   FaBell,
-//   FaChevronLeft,
-//   FaFileLines,
-//   FaListCheck,
-//   FaGripVertical,
-//   FaPlus,
-//   FaSliders,
-//   FaEye,
-//   FaClock,
-//   FaUser,
-//   FaFloppyDisk,
-//   FaPaperPlane,
-//   FaUsers,
-//   FaIndianRupeeSign,
-//   FaRotate,
-//   FaArrowUp,
-//   FaStar,
-//   FaChevronRight,
-//   FaRobot,
-// } from "react-icons/fa6";
-
-// import {
-//   FiEdit,
-//   FiTrash2,
-//   FiCheck,
-//   FiDollarSign,
-//   FiRefreshCw,
-//   FiUser,
-// } from "react-icons/fi";
-// import {
-//   LineChart,
-//   Line,
-//   AreaChart,
-//   Area,
-//   BarChart,
-//   Bar,
-//   XAxis,
-//   YAxis,
-//   Tooltip,
-//   ResponsiveContainer,
-//   CartesianGrid,
-// } from "recharts";
-// import { RxCross1 } from "react-icons/rx";
-// import { FaCalendarAlt, FaTimes } from "react-icons/fa";
-
-// import {
-//    FiUpload, FiPhone,
-//   FiArrowUpRight,  FiMaximize2,
-//   FiAlertTriangle, } from "react-icons/fi";
-// import {
-//   MdOutlineTrackChanges, MdOutlineLocalShipping
-// } from "react-icons/md";
-// import { BsGlobe2, BsBoxSeam } from "react-icons/bs";
-// import { TbShip } from "react-icons/tb";
-
-// import user from "../../assets/icon/user.png";
-// import order from "../../assets/icon/orders.png";
-// import supplier from "../../assets/icon/suppliers.png";
-
-// import buyer from "../../assets/icon/Buyers.png";
-
-// import analytical from "../../assets/icon/analytical.png";
-
-// import document from "../../assets/icon/document.png";
-
-// import payment from "../../assets/icon/payment.png";
-// import ai from "../../assets/icon/ai.png";
-
-// import support from "../../assets/icon/supportCenter.png";
-// import setting from "../../assets/icon/settings.png";
-
-// import up from "../../assets/icon/up.png";
-
-// import Us from "../../assets/icon/us.png";
-// import european from "../../assets/icon/european.png";
-
-// import sea from "../../assets/icon/sea.png";
-// import vietnam from "../../assets/icon/vietnam.png";
-
-// import truck from "../../assets/icon/truck.png";
-
-// import dashboard from '../../assets/icon/home.png'
-// import { BsCalendarCheck, BsPersonPlus, BsGraphUp } from "react-icons/bs";
-// import { HiOutlineDocumentText } from "react-icons/hi";
-// import { RiWhatsappLine } from "react-icons/ri";
-// import { FiX } from "react-icons/fi";
-// import map from "../../assets/Images/logo.png";
-
-// const trendingProducts = [
-//   { name: "Electronics", pct: "38.4%" },
-//   { name: "Machinery", pct: "29.1%" },
-//   { name: "Pharmaceuticals", pct: "18.2%" },
-//   { name: "Chemicals", pct: "15.33%" },
-//   { name: "Textiles", pct: "12.4" },
-// ];
-
-// const fastCountries = [
-//   { name: "India", pct: "28.4%" },
-//   { name: "Vietnam", pct: "32.0%" },
-//   { name: "Mexico", pct: "18.3" },
-//   { name: "Indonesia", pct: "12.53" },
-//   { name: "UAE", pct: "12.4" },
-// ];
-
-// const suppliers = [
-//   {
-//     name: "Shenzhan Tech Ltd.",
-//     reliability: "90%",
-//     quality: "90%",
-//     ontime: "90%",
-//     risk: "Low",
-//   },
-//   {
-//     name: "Global Machinery Co.",
-//     reliability: "90%",
-//     quality: "90%",
-//     ontime: "90%",
-//     risk: "Low",
-//   },
-//   {
-//     name: "Global Machinery Co.",
-//     reliability: "90%",
-//     quality: "90%",
-//     ontime: "90%",
-//     risk: "Medium",
-//   },
-//   {
-//     name: "Global Machinery Co.",
-//     reliability: "90%",
-//     quality: "90%",
-//     ontime: "90%",
-//     risk: "Medium",
-//   },
-// ];
-
-// const buyers = [
-//   {
-//     name: "Amazon Retail",
-//     order: 256,
-//     ontime: "90%",
-//     payment: "98/100",
-//     growth: "28.4%",
-//   },
-//   {
-//     name: "Walmart Inc",
-//     order: 189,
-//     ontime: "90%",
-//     payment: "95/100",
-//     growth: "28.4%",
-//   },
-//   {
-//     name: "Best Buy Co.",
-//     order: 142,
-//     ontime: "90%",
-//     payment: "92/100",
-//     growth: "28.4%",
-//   },
-//   {
-//     name: "Costco Wholesale",
-//     order: 76,
-//     ontime: "90%",
-//     payment: "90/100",
-//     growth: "28.4%",
-//   },
-// ];
-
-// const mapPins = [
-//   { top: "28%", left: "18%", label: "🇺🇸", value: "$2.8M", bg: "bg-blue-200" },
-//   { top: "22%", left: "46%", label: "🇩🇪", value: "$1.4M", bg: "bg-teal-200" },
-//   { top: "35%", left: "60%", label: "🇮🇳", value: "$4.3M", bg: "bg-purple-200" },
-//   { top: "55%", left: "27%", label: "🇧🇷", value: "$2.4M", bg: "bg-green-300" },
-//   { top: "62%", left: "72%", label: "🇦🇺", value: "$1.4M", bg: "bg-yellow-200" },
-// ];
-
-// const mapRegions = [
-//   {
-//     top: "22%",
-//     left: "12%",
-//     w: "w-20",
-//     h: "h-14",
-//     color: "bg-blue-200",
-//     opacity: "opacity-70",
-//   },
-//   {
-//     top: "48%",
-//     left: "18%",
-//     w: "w-14",
-//     h: "h-20",
-//     color: "bg-green-300",
-//     opacity: "opacity-80",
-//   },
-//   {
-//     top: "18%",
-//     left: "42%",
-//     w: "w-20",
-//     h: "h-12",
-//     color: "bg-teal-200",
-//     opacity: "opacity-70",
-//   },
-//   {
-//     top: "36%",
-//     left: "46%",
-//     w: "w-10",
-//     h: "h-14",
-//     color: "bg-yellow-100",
-//     opacity: "opacity-60",
-//   },
-//   {
-//     top: "26%",
-//     left: "58%",
-//     w: "w-24",
-//     h: "h-14",
-//     color: "bg-purple-100",
-//     opacity: "opacity-60",
-//   },
-//   {
-//     top: "60%",
-//     left: "68%",
-//     w: "w-12",
-//     h: "h-8",
-//     color: "bg-yellow-300",
-//     opacity: "opacity-70",
-//   },
-// ];
-
-// const navItems = [
-//   { icon: dashboard, label: "Dashboard" },
-//   { icon: user, label: "My Shipment" },
-//   { icon: order, label: "Orders" },
-//   { icon: supplier, label: "Suppliers" },
-
-//   { icon: buyer, label: "Buyers" },
-
-//   { icon: analytical, label: "Analytics" },
-//   { icon: document, label: "Documents" },
-//   { icon: payment, label: "Payments" },
-//   { icon: ai, label: "Ai Insights" },
-
-//   { icon: support, label: "Support Center " },
-//   { icon: setting, label: "Settings" },
-// ];
-
-// const statCards = [
-//   { label: "Global Trade Volume", value: "12,450", change: "28.4%" },
-//   { label: "Active Containers", value: "24,875", change: "28.4%" },
-//   { label: "Revenue (YTD)", value: "4,320", change: "28.4%" },
-//   { label: "Trade Growth", value: "$ 2.48B", change: "28.4%" },
-//   { label: "AI Market Forecast", value: "23", change: "28.4%" },
-//   { label: "Supplier Network Score", value: "$ 1.26M", change: "28.4%" },
-// ];
-
-// const globalTrade = [
-//   {
-//     name: "Live Shipment",
-//     color: "text-red-600",
-//     no: "1246",
-//   },
-//   {
-//     name: "In Transit",
-//     color: "text-green-500",
-//     no: "892",
-//   },
-//   {
-//     name: "Port",
-//     color: "text-black",
-//     no: "184",
-//   },
-//   {
-//     name: "Delivered",
-//     color: "text-black",
-//     no: "171",
-//   },
-// ];
-
-// const stats = [
-//   { label: "Active Shipment", value: "128", change: "28.4%" },
-//   { label: "Pending Orders", value: "45", change: "28.4%" },
-//   { label: "Total Imports", value: "₹2.5Cr", change: "28.4%" },
-//   { label: "Total Exports", value: "$ 2.48B", change: "28.4%" },
-//   { label: "Monthly Revenue", value: "23", change: "28.4%" },
-//   { label: "AI Trade Score", value: "87/100", change: null },
-// ];
-
-// const trackingSteps = [
-//   { label: "Departed", sub: "Shanghai Port\n10 may 2026", done: true },
-//   { label: "Customs Clearance", sub: "12 May 2025", done: true },
-//   { label: "In Transit", sub: "On The way", done: true },
-//   { label: "Rotterdam, NL", sub: "Rotterdam port", done: false },
-//   { label: "Delivered", sub: "Pending", done: false, orange: true },
-// ];
-
-// const highDemand = [
-//   { name: "Electronics", val: "28.4%" },
-//   { name: "Machinery", val: "22.1%" },
-//   { name: "Pharmaceuticals", val: "18.2" },
-//   { name: "Chemicals", val: "16.33" },
-//   { name: "Textiles", val: "12.4" },
-// ];
-
-// const bestCountries = [
-//   { name: "India", val: "28.4%" },
-//   { name: "Vietnam", val: "22.1%" },
-//   { name: "Mexico", val: "18.2" },
-//   { name: "Indonesia", val: "16.33" },
-//   { name: "UAE", val: "12.4" },
-// ];
-
-// const riskAlerts = [
-//   { name: "Red Sea Route", val: "28.4%", icon: sea },
-//   { name: "European Delays", val: "22.1%", icon: european },
-//   { name: "Us Customs", val: "18.2", icon: Us },
-// ];
-
-// const notifications = [
-//   { title: "Shipment TCLU 1234567", sub: "Departed from Shanghai Port", time: "10m ago" },
-//   { title: "Invoice INV-2025-0456", sub: "Payment received successfully", time: "1h ago" },
-//   { title: "Customs Clearance update", sub: "Your Shipment is cleared", time: "3h ago" },
-//   { title: "New AI Insight available", sub: "Check your trade recommendations", time: "5h ago" },
-// ];
-
-//  function Dashboard() {
-//   const [message, setMessage] = useState("");
-
-//   return (
-//     <div className="min-h-screen bg-gray-50 font-sans">
-//       <div className="max-w-screen-2xl mx-auto px-3 sm:px-5 lg:px-8 py-4 sm:py-6">
-
-//         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-5">
-//           <div>
-//             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900">Welcome Abhishek</h1>
-//             <p className="text-xs sm:text-base text-gray-500 mt-0.5">Here&apos;s your global trade overview</p>
-//           </div>
-//           <div className="flex flex-wrap gap-2">
-//             <button className="flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
-//               <img src={truck} size={15} /> Track Shipment
-//             </button>
-//             <button className="flex items-center gap-1.5 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
-//               <FiUpload size={13} /> Upload Documents
-//             </button>
-//             <button className="flex items-center gap-1.5 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
-//               <FiPlusCircle size={13} /> Create Inquiry
-//             </button>
-//             <button className="flex items-center gap-1.5 border border-gray-300 bg-white hover:bg-gray-50 text-gray-700 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition-colors">
-//               <FiPhone size={13} /> Contact Supplier
-//             </button>
-//           </div>
-//         </div>
-
-//         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 mb-5">
-//           {stats.map((s) => (
-//             <div key={s.label} className="bg-white rounded-xl p-3 sm:p-4 shadow-md border border-gray-100">
-
-//               <p className="text-xs sm:text-base  text-gray-500 mb-1 leading-[100%]">{s.label}</p>
-//                <div className="flex justify-between">
-//               <p className="text-lg sm:text-xl font-bold text-gray-900">{s.value}</p>
-//               {s.change && (
-//                 <p className="text-xs  text-[#31FF07] font-medium flex items-center gap-0.5 mt-0.5">
-//                   <img src={up} size={12} /> {s.change}
-//                 </p>
-//               )}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//       <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-4 items-start ">
-
-//          <div className="bg-white rounded-3xl h-full max-h-svh shadow-md p-3 ">
-
-//                     <div className="flex  justify-between beween py-3 max-h-40"><h2 className="text-lg sm:text-xl font-semibold text-black mb-4">
-//                      Live Shipment Tracking
-//                     </h2>
-//                     <button className="border bg-[#D1FAF5] text-[#0F8A7D] px-[10px] py-[4px]  rounded-lg font-medium">
-//                       In Transit</button></div>
-
-//                    <div className="relative w-full  h-[320px] bg-[#F7F9FC] rounded-2xl overflow-hidden flex items-center justify-between px-4">
-
-//                     {/* LEFT SIDE */}
-//                     <div className="w-[32%] xl:w-[36%] bg-[#ECECEC] rounded-2xl p-4 h-[60%] xl:h-[70%] flex flex-col justify-between z-10">
-
-//                       {/* TOP */}
-//                       <div className="flex gap-1">
-
-//                         {/* CIRCLE + LINE */}
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-green-500 z-10"></div>
-//                           <div className="w-[2px] h-12 xl:h-14 bg-gray-300"></div>
-//                         </div>
-
-//                         {/* TEXT */}
-//                         <div>
-//                           <p className="font-semibold text-xs text-black">
-//                             Shanghai CN
-//                           </p>
-
-//                           <p className="text-[0.6rem] xl:text-xs text-gray-500">
-//                             Shanghai Port
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* CENTER */}
-//                       <div className="flex gap-1">
-
-//                         {/* CIRCLE + LINE */}
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-gray-400 z-10"></div>
-//                           <div className="w-[2px] h-12 xl:h-14 bg-gray-300"></div>
-//                         </div>
-
-//                         {/* TEXT */}
-//                         <div>
-//                           <p className="font-semibold text-xs text-black uppercase">
-//                             SINAR BINTAN
-//                           </p>
-
-//                           <p className="text-[0.5rem] xl:text-[0.6rem] text-gray-500 uppercase">
-//                             Container: TCLU 122781
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* BOTTOM */}
-//                       <div className="flex gap-1">
-
-//                         {/* CIRCLE */}
-//                           <div className="flex flex-col items-center">
-//                         <div className="w-3 h-3 rounded-full bg-orange-400 mt-1"></div>
-//                          </div>
-//                         {/* TEXT */}
-//                         <div>
-//                           <p className="font-semibold text-[0.6rem] xl:text-xs text-black">
-//                             Rotterdam, NL
-//                           </p>
-
-//                           <p className="text-[0.6rem] xl:text-xs  text-gray-500">
-//                             Rotterdam port
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                     </div>
-
-//                     {/* MAP IMAGE */}
-//                     <div className="absolute inset-0 flex items-center justify-center">
-//                       <img
-//                         src="https://res.cloudinary.com/dhuabv2it/image/upload/v1778229817/Map_hhooem.webp"
-//                         alt="map"
-//                         className="w-[55%] object-contain"
-//                       />
-//                     </div>
-
-//                     {/* RIGHT SIDE */}
-//                     <div className="relative z-10 flex flex-col justify-between h-[70%]">
-
-//                       {/* ITEM */}
-//                       <div className="flex gap-1">
-
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-green-500 z-10"></div>
-//                           <div className="w-[2px] h-10 bg-green-500"></div>
-//                         </div>
-
-//                         <div>
-//                           <p className="font-semibold text-xs text-black">
-//                             Departed
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             Shanghai Port
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             10 May 2026
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* ITEM */}
-//                       <div className="flex gap-1 ">
-
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-green-500 z-10"></div>
-//                           <div className="w-[2px] h-9 bg-green-500"></div>
-//                         </div>
-
-//                         <div>
-//                           <p className="font-semibold text-xs text-black">
-//                             Customs Clearance
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             12 May 2025
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* ITEM */}
-//                       <div className="flex gap-1">
-
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-green-500 z-10"></div>
-//                           <div className="w-[2px] h-8 bg-gray-300"></div>
-//                         </div>
-
-//                         <div>
-//                           <p className="font-semibold text-xs text-black">
-//                             In Transit
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             On The Way
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* ITEM */}
-//                       <div className="flex gap-1">
-
-//                         <div className="flex flex-col items-center">
-//                           <div className="w-3 h-3 rounded-full bg-gray-300 z-10"></div>
-//                           <div className="w-[2px] h-8 bg-gray-300"></div>
-//                         </div>
-
-//                         <div>
-//                           <p className="font-semibold text-xs text-black">
-//                             Rotterdam, NL
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             Rotterdam port
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                       {/* LAST */}
-//                       <div className="flex gap-1">
-
-//                         <div className="w-3 h-3 rounded-full bg-orange-400 mt-1"></div>
-
-//                         <div>
-//                           <p className="font-semibold text-sm xl:text-[0.6rem] text-black">
-//                             Delivered
-//                           </p>
-
-//                           <p className="text-[0.65rem] text-gray-500">
-//                             Pending
-//                           </p>
-//                         </div>
-//                       </div>
-
-//                     </div>
-//                   </div>
-
-//                     <div className="flex items-center justify-between mt-3">
-//                     <div className="flex border px-2 py-1 rounder-md flex-col  justify-around">
-//                      <div className="  text-xs font-medium text-[#A20000]" >ETA</div>
-//                      <div className="  text-xs font-semibold">24 may 2026</div>
-//                       <div className="  text-xs">3 days left</div>
-//                     </div>
-
-//                     <div ><button className="rounded-lg border text-xs  sm:text-sm border-gray-200 py-2 px-3 font-normal">View Shipment details</button></div>
-//                     </div>
-//           </div>
-
-//          <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4">
-
-//   {/* LEFT SIDE */}
-//   <div className="bg-white rounded-3xl border border-gray-200 shadow-md p-4">
-
-//     {/* Header */}
-//     <div className="flex justify-between items-center mb-4">
-//       <h2 className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg">
-//         AI Trade Insights
-//       </h2>
-
-//       <button className="text-xs text-gray-500 flex items-center gap-1 hover:text-teal-600 transition-colors">
-//         View All
-//         <FiChevronRight size={12} />
-//       </button>
-//     </div>
-
-//     {/* 4 CARDS */}
-//     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-
-//       {/* Card 1 */}
-//       <div className="border border-gray-200 rounded-xl p-3 shadow-md">
-//         <p className="text-xs font-bold text-gray-800 mb-1">
-//           High Demand Products
-//         </p>
-
-//         <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
-//           This Month
-//         </p>
-
-//         {highDemand.map((item) => (
-//           <div
-//             key={item.name}
-//             className="flex items-center justify-between py-1"
-//           >
-//             <span className="text-[10px] sm:text-xs text-gray-600">
-//               {item.name}
-//             </span>
-
-//             <span className="  w-14 text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
-//               <img src={up} size={12} />
-//               {item.val}
-//             </span>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Card 2 */}
-//       <div className="border border-gray-200 rounded-xl p-3 shadow-md">
-//         <p className="text-xs font-bold text-gray-800 mb-1">
-//           Best Import Countries
-//         </p>
-
-//         <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
-//           This Month
-//         </p>
-
-//         {bestCountries.map((item) => (
-//           <div
-//             key={item.name}
-//             className="flex items-center justify-between py-1"
-//           >
-//             <span className="text-[10px] sm:text-xs text-gray-600">
-//               {item.name}
-//             </span>
-
-//             <span className=" w-14 text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
-//                <img src={up} size={12} />
-//               {item.val}
-//             </span>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Card 3 */}
-//       <div className="border border-gray-200 rounded-xl p-3 shadow-md">
-//         <p className="text-xs font-bold text-gray-800 mb-1">
-//           Risk Alerts
-//         </p>
-
-//         <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
-//           This Month
-//         </p>
-
-//         {riskAlerts.map((item) => (
-//           <div
-//             key={item.name}
-//             className="flex items-center justify-between py-1"
-//           >
-//             <span className="text-[10px] sm:text-xs text-gray-600 flex items-center gap-1">
-//                <img src={item.icon} />
-//               {item.name}
-//             </span>
-
-//             <span className=" w-14 text-[10px] sm:text-xs text-[#31FF07] font-medium flex items-center gap-1">
-//                <img src={up} size={12} />
-//               {item.val}
-//             </span>
-//           </div>
-//         ))}
-//       </div>
-
-//       {/* Card 4 */}
-//       <div className="border border-gray-200 rounded-xl p-3 shadow-md flex flex-col justify-between">
-//         <div>
-//           <p className="text-xs font-bold text-gray-800 mb-1">
-//             AI Recommendation
-//           </p>
-
-//           <p className="text-[10px] sm:text-xs text-gray-400 mb-2">
-//             For Your Business
-//           </p>
-
-//           <p className="text-[10px] sm:text-xs text-gray-600 mb-1">
-//             Increase imports from
-//           </p>
-
-//           <p className="text-xs font-semibold flex items-center gap-2 text-gray-800">
-//              <img src={vietnam} />
-//           <span>   Vietnam</span>
-//           </p>
-
-//           <p className="text-[10px] sm:text-xs text-gray-500 mt-2">
-//             Electronics demand is
-//           </p>
-
-//           <p className="text-sm lg:text-base font-semibold text-teal-600">
-//             29% this month
-//           </p>
-//         </div>
-
-//         <button className="mt-3 w-full bg-teal-50 hover:bg-teal-100 text-teal-600 text-xs font-semibold py-2 rounded-lg border border-teal-200 transition-colors">
-//           View Opportunities
-//         </button>
-//       </div>
-//     </div>
-//   </div>
-
-//   {/* RIGHT SIDE */}
-//   <div className="flex flex-col gap-4">
-
-//     {/* AI ASSISTANT */}
-//     <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-100">
-
-//       <div className="flex items-center justify-between mb-3">
-//         <div>
-//           <p className="text-sm font-bold text-gray-900">
-//             AI Trade Assistant
-//           </p>
-
-//           <p className="text-xs text-green-500 font-medium flex items-center gap-1">
-//             <span className="w-1.5 h-1.5 bg-green-500 rounded-full inline-block" />
-//             Online
-//           </p>
-//         </div>
-
-//         <FiMaximize2
-//           size={14}
-//           className="text-gray-400"
-//         />
-//       </div>
-
-//       <div className="space-y-2 mb-4">
-//         {[1, 2, 3].map((i) => (
-//           <div
-//             key={i}
-//             className="h-3 bg-gray-100 rounded-full w-full"
-//           />
-//         ))}
-//       </div>
-
-//       <div className="flex items-center gap-2 border border-gray-200 rounded-xl px-3 py-2">
-//         <input
-//           type="text"
-//           value={message}
-//           onChange={(e) => setMessage(e.target.value)}
-//           placeholder="Ask anything about trade..."
-//           className="flex-1 text-xs text-gray-600 placeholder-gray-400 outline-none bg-transparent"
-//         />
-
-//         <button className="bg-teal-500 hover:bg-teal-600 text-white p-2 rounded-lg transition-colors">
-//           <FiSend size={12} />
-//         </button>
-//       </div>
-//     </div>
-
-//     {/* NOTIFICATION */}
-//     <div className="bg-white rounded-2xl p-4 shadow-md border border-gray-100">
-
-//       <div className="flex items-center justify-between mb-4">
-//         <p className="text-sm font-bold text-gray-900">
-//           Notification
-//         </p>
-
-//         <button className="text-xs text-gray-500 flex items-center gap-1 hover:text-teal-600 transition-colors">
-//           View All
-//           <FiChevronRight size={12} />
-//         </button>
-//       </div>
-
-//       <div className="space-y-3">
-//         {notifications.map((n, i) => (
-//           <div
-//             key={i}
-//             className="flex items-start gap-3"
-//           >
-//             <div className="flex-1 min-w-0">
-//               <p className="text-xs font-semibold text-gray-800 break-words">
-//                 {n.title}
-//               </p>
-
-//               <p className="text-[10px] whitespace-nowrap sm:text-xs text-gray-400 break-words">
-//                 {n.sub}
-//               </p>
-//             </div>
-
-//             <span className="text-[10px] sm:text-xs text-gray-400 flex-shrink-0">
-//               {n.time}
-//             </span>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-
-//   </div>
-// </div>
-
-//       </div>
-//         {/* </div> */}
-
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default function UserDashboard() {
-//   const [sidebarOpen, setSidebarOpen] = useState(false);
-//   const [activeNav, setActiveNav] = useState("Dashboard");
-//   const [chatInput, setChatInput] = useState("");
-//   const riskColor = {
-//     Low: "bg-teal-100 text-teal-600",
-//     Medium: "bg-orange-100 text-orange-500",
-//     High: "bg-red-100 text-red-500",
-//   };
-
-//   return (
-//     <div className="flex h-screen bg-gray-100 overflow-hidden font-sans">
-//       {/* Overlay for mobile */}
-
-//       {sidebarOpen && (
-//         <div
-//           className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
-//           onClick={() => setSidebarOpen(false)}
-//         />
-//       )}
-
-//       {/* Sidebar */}
-//       <aside
-//         className={`
-//           fixed lg:static inset-y-0 left-0 z-30 w-52 xl:w-60
-//            bg-white text-white flex flex-col
-//           transform transition-transform duration-300 ease-in-out
-//           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
-//           lg:translate-x-0 flex-shrink-0
-//         `}
-//       >
-//         {/* Logo */}
-//         <div className="flex items-center  justify-center gap-2 px-4 py-2 border-b border-gray-700">
-//           <img src={logo} className="h-12" />
-//         </div>
-
-//         {/* Nav */}
-//         <nav className="flex-1 bg-gray-900 overflow-y-auto  pr-3 py-7 space-y-0.5">
-//           {navItems.map(({ icon: Icon, label }) => (
-//             <button
-//               key={label}
-//               onClick={() => {
-//                 setActiveNav(label);
-//                 setShowBot(false);
-//                 setSidebarOpen(false);
-//               }}
-//               className={`w-full flex items-center gap-2 pl-10 py-2 rounded-r-lg text-xs transition-colors text-left
-//                 ${
-//                   activeNav === label
-//                     ? "bg-teal-500 text-white"
-//                     : "text-gray-400 hover:bg-gray-700 hover:text-white"
-//                 }`}
-//             >
-//               {/* <Icon size={13} className="flex-shrink-0" /> */}
-//               <img src={Icon} />
-//               <span className="truncate text-[0.9rem] font-medium font-base ">{label}</span>
-//             </button>
-//           ))}
-//         </nav>
-//       </aside>
-
-//       <div className="flex-1 flex flex-col min-w-0 overflow-hidden  ">
-//         {/* Topbar */}
-//         <header className="bg-white border-b border-gray-200 px-3 sm:px-4 py-1 flex items-center gap-3 flex-shrink-0">
-//           <button
-//             className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
-//             onClick={() => setSidebarOpen(true)}
-//           >
-//             <FiMenu size={18} />
-//           </button>
-
-//           <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-md">
-//             <div className="relative">
-//               <FiSearch
-//                 className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400"
-//                 size={14}
-//               />
-//               <input
-//                 type="text"
-//                 placeholder="Search"
-//                 className="w-full pl-8 pr-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-teal-400"
-//               />
-//             </div>
-//           </div>
-
-//           <div className="flex items-center gap-1.5 ml-auto">
-//             <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600 relative">
-//               <FiBell size={16} />
-//               <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full" />
-//             </button>
-//             <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600">
-//               <FiMail size={16} />
-//             </button>
-//             <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600">
-//               <FiSun size={16} />
-//             </button>
-//             <div className="flex items-center gap-2 ml-1 pl-2 py-2 border-l border-gray-200">
-//               <div className="w-7 h-7 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
-//                 A
-//               </div>
-//               <div className="hidden sm:block leading-tight">
-//                 <p className="text-xs sm:text-sm font-semibold text-gray-800">
-//                   Abhishek
-//                 </p>
-//                 <p className="text-gray-400 text-xs sm:text-sm">
-//                  user@gmail.com
-//                 </p>
-//               </div>
-//             </div>
-//           </div>
-//         </header>
-
-//         {/* Page Content */}
-
-//         <main className="flex-1 overflow-y-auto bg-gray-50 p-3 sm:p-10 ">
-//           {activeNav === "Dashboard" && (
-//           <div> <Dashboard/> </div>
-//           )}
-
-//         </main>
-//       </div>
-//     </div>
-//   );
-// }
-
 import { useState } from "react";
 import logo from "../../assets/Images/logo.png";
 // import { FiAlertCircle } from "react-icons/fi";
@@ -1007,6 +41,314 @@ import { MdOutlineRocketLaunch } from "react-icons/md";
 import HSCodeLookup from "./HsCodeLookUp";
 import IncentiveChecker from "./IncentiveChecker";
 import ShipmentPlanning from "./ShipmentPlanning";
+import FreightCalculator from "./FreightCalculator";
+import AiCargoMateAssistant from "./AiCargoMateAssistant";
+import ShipmentTracking from "./ShipmentTracking";
+import robot from "../../assets/Images/png/Image.png";
+
+import {
+  MdMenu,
+  MdLocalShipping,
+  MdDescription,
+  MdPsychology,
+  MdPayments,
+  MdDoubleArrow,
+  MdBolt,
+  MdAdd,
+  MdForum,
+  MdCloudUpload,
+  MdMyLocation,
+  MdCalculate,
+  MdSavings,
+  MdHelp,
+  MdDownload,
+  MdTrendingFlat,
+  MdCheckCircle,
+  MdStorage,
+  MdApi,
+  MdSync,
+  MdDashboard,
+  MdSettings,
+  MdArrowUpward,
+  MdQrCode2,
+  MdCheckroom,
+  MdPerson,
+} from "react-icons/md";
+
+import { MdMonitor } from "react-icons/md";
+import { FiSearch, FiMail, FiSun } from "react-icons/fi";
+import SavedReports from "./SavedReport";
+import AuditLogs from "./AuditLogs";
+import AnalyticsTrends from "./Analysis&Trends";
+import VendorRecommendations from "./VendorRecommendations";
+import DocumentsCenter from "./DocumentsCenter";
+import MyShipment from "./MyShipments";
+import UpgradePlan from "./UpgradePlan";
+import Subscription from "./Subscription";
+import NotificationDashboard from "./Notification";
+import HelpSupportDashboard from "./Help&Support";
+import ProfileSettingsDashboard from "./ProfileSettings";
+
+const C = {
+  primary: "#00685f",
+  secondary: "#006398",
+  tertiary: "#a33900",
+  bg: "#f8f9ff",
+  surface: "#f8f9ff",
+  onSurface: "#0d1c2e",
+  onSurfaceVariant: "#3d4947",
+  outlineVariant: "#bcc9c6",
+  scLowest: "#ffffff",
+  scLow: "#eff4ff",
+  sc: "#e6eeff",
+  scHigh: "#dce9ff",
+  scHighest: "#d5e3fc",
+  error: "#ba1a1a",
+  errorContainer: "#ffdad6",
+  tertiaryFixed: "#ffdbce",
+  tertiaryContainer: "#cc4900",
+  primaryFixed: "#89f5e7",
+  secondaryFixed: "#cce5ff",
+};
+
+function StatCard({ label, value, change, iconBg, icon: Icon, iconColor }) {
+  return (
+    <div
+      className=" flex-1 min-w-0 p-3 rounded-xl border shadow-sm"
+      style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}
+    >
+      <div className="flex justify-between items-start mb-2">
+        <span
+          className="text-sm  font-semibold  leading-4"
+          // style={{ color: C.onSurfaceVariant }}
+        >
+          {label}
+        </span>
+      </div>
+      <div className="flex justify-between " style={{ color: C.onSurface }}>
+        <div className="text-2xl font-bold  "> {value}</div>
+        <div className="p-1 rounded-lg" style={{ backgroundColor: iconBg }}>
+          <Icon size={22} style={{ color: iconColor }} />
+        </div>
+      </div>
+      <div className="flex items-center gap-1 mt-1 text-[#00A63E]">
+        <MdArrowUpward size={10} className="" />
+        <span className="text-[10px] font-normal">{change}</span>
+      </div>
+    </div>
+  );
+}
+
+function QuickActionBtn({ icon: Icon, label, bgcolor, textColor }) {
+  return (
+    <button
+      className="flex flex-col items-center gap-1 group"
+      style={{ backgroundColor: bgcolor }}
+    >
+      <div className="w-full  aspect-square rounded-xl flex  flex-col items-center justify-center transition-colors">
+        <Icon size={24} style={{ color: textColor }} />
+        <span className="text-[10px] text-center font-bold px-2 py-1 rounded-md">
+          {label}
+        </span>
+      </div>
+    </button>
+  );
+}
+
+function ActivityItem({
+  dotColor,
+  iconBg,
+  icon: Icon,
+  iconColor,
+  title,
+  subtitle,
+  time,
+  tag,
+}) {
+  return (
+    <div
+      className="flex gap-4 pb-4 relative"
+      style={{ borderColor: C.outlineVariant }}
+    >
+      <div className="p-2 rounded-lg h-fit" style={{ backgroundColor: iconBg }}>
+        <Icon size={22} style={{ color: iconColor }} />
+      </div>
+      <div>
+        <div className="font-normal text-sm" style={{ color: C.onSurface }}>
+          {title}
+        </div>
+        {subtitle && (
+          <p className="text-[11px]" style={{ color: C.onSurfaceVariant }}>
+            {subtitle}
+          </p>
+        )}
+        <div className="text-[10px] mt-1" style={{ color: C.onSurfaceVariant }}>
+          {time}
+        </div>
+        {tag && (
+          <div className="flex items-center gap-1 mt-1 text-[10px] font-bold text-[#00A63E]">
+            <MdCheckCircle size={12} />
+            {tag}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function DetailCard({ tag, title, children }) {
+  return (
+    <div
+      className="p-4 rounded-xl border"
+      style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}
+    >
+      <div className="flex flex-col    mb-4">
+        <div className="flex ">
+          <h4 className="text-sm font-bold">{title}</h4>
+          <button className="text-[10px] font-bold uppercase text-[#00A896]">
+            View All
+          </button>
+        </div>
+        <div className="flex justify-start">
+          <span className="text-[10px] font-bold uppercase text-[#94A3B8]">
+            {tag}
+          </span>
+        </div>
+      </div>
+
+      {children}
+
+      <button className="w-full py-2 mb-2  font-bold rounded-lg text-[9px] text-white bg-[#0FB5A9]">
+        Create Shipment from this result
+      </button>
+      <button className="w-full text-xs flex items-center text-[#2563EB] justify-center gap-2 font-bold  ">
+        <MdDownload size={16} className="" /> Download Report (PDF)
+      </button>
+    </div>
+  );
+}
+
+
+const statCards = [
+  {
+    label: "Active Shipments",
+    value: "18",
+    change: "12% vs last month",
+    iconBg: C.scHigh,
+    icon: MdStorage,
+    iconColor: C.primary,
+  },
+  {
+    label: "Pending Documents",
+    value: "7",
+    change: "8% vs last month",
+    iconBg: C.secondaryFixed,
+    icon: MdDescription,
+    iconColor: C.secondary,
+  },
+  {
+    label: "AI Queries Left",
+    value: "42 /100",
+    change: "8% vs last month",
+    iconBg: C.primaryFixed,
+    icon: MdBolt,
+    iconColor: C.primary,
+  },
+  {
+    label: "Estimated Incentive Savings",
+    value: "₹86,420",
+    change: "10% vs last month",
+    iconBg: "#dcfce7",
+    icon: MdCheckCircle,
+    iconColor: "#00A63E",
+  },
+];
+
+const quickActions = [
+  {
+    icon: MdBolt,
+    label: "Create Shipment",
+    bgcolor: C.scHigh,
+    textColor: C.primary,
+  },
+  {
+    icon: MdPsychology,
+    label: "Ask CargoMate AI",
+    bgcolor: C.primaryFixed,
+    textColor: C.primary,
+  },
+  {
+    icon: MdDescription,
+    label: "Upload Documents",
+    bgcolor: C.secondaryFixed,
+    textColor: C.secondary,
+  },
+  {
+    icon: MdQrCode2,
+    label: "Track Shipment",
+    bgcolor: C.tertiaryFixed,
+    textColor: C.tertiary,
+  },
+  {
+    icon: MdTrendingFlat,
+    label: "Freight Calculator",
+    bgcolor: C.scHigh,
+    textColor: C.primary,
+  },
+  {
+    icon: MdCheckroom,
+    label: "Incentive Checker",
+    bgcolor: "#fce7f3",
+    textColor: "#be185d",
+  },
+];
+
+const shipments = [
+  {
+    id: "AS0-202$-104",
+    route: "Nhava Sheva - Dubai",
+    status: "Transit",
+    statusBg: "#dcfce7",
+    statusColor: "#15803d",
+    eta: "29 Apr 2025",
+    mode: "Sea",
+    vendor: "Oceanic Logistics",
+    amount: "₹1,24,860",
+  },
+  {
+    id: "A$D-202$-103",
+    route: "Delhi New York",
+    status: "Delayed",
+    statusBg: "#fee2e2",
+    statusColor: "#dc2626",
+    eta: "27 Apr 2025",
+    mode: "Air",
+    vendor: "SkyFreight Global",
+    amount: "₹2,48,600",
+  },
+  {
+    id: "A$D-202$-102",
+    route: "Mumbaia London",
+    status: "Pending",
+    statusBg: "#fef9c3",
+    statusColor: "#ca8a04",
+    eta: "30 Apr 2025",
+    mode: "Sea",
+    vendor: "SwiftLogix",
+    amount: "₹98,450",
+  },
+  {
+    id: "AS0-202$-101",
+    route: "Tirupur Sinpipore",
+    status: "Delivered",
+    statusBg: "#dcfce7",
+    statusColor: "#15803d",
+    eta: "20 Apr 2025",
+    mode: "Sea",
+    vendor: "Oceanic Logistics",
+    amount: "₹76,230",
+  },
+];
 
 const sidebarSections = [
   {
@@ -1071,235 +413,147 @@ const sidebarSections = [
   },
 ];
 
-const recCards = [
-  {
-    label: "HS Code",
-    main: "6109.10.00",
-    sub: "T-shirts, singlets and other vests, of cotton",
-    rows: [
-      ["IGST Rate (India)", "12%"],
-      ["UAE Customs Duty", "5%"],
-    ],
-    link: "View HS Code Details",
-  },
-  {
-    label: "Incentive (India)",
-    main: "₹8,420",
-    mainColor: "text-emerald-600",
-    sub: "Total Incentive Value",
-    rows: [
-      ["RoDTEP", "₹3,420"],
-      ["MEIS", "₹5,000"],
-      ["State Incentive (TN)", "₹0"],
-    ],
-    link: "View Incentive Details",
-  },
-  {
-    label: "Freight (Air)",
-    routeLabel: "Route",
-    route: "Tirupur → Dubai",
-    rows: [
-      ["Mode", "Air Freight"],
-      ["Est. Freight Cost", ""],
-    ],
-    freightCost: "₹24,860",
-    link: "View Freight Breakdown",
-  },
-  {
-    label: "Landed Cost (Est.)",
-    main: "₹1,24,680",
-    sub: "Total Landed Cost",
-    rows: [
-      ["Product Cost", "₹76,230"],
-      ["Freight & Insurance", "₹24,860"],
-      ["Duties & Taxes", "₹13,590"],
-      ["Other Charges", "₹9,99"],
-    ],
-    link: "View Cost Breakdown",
-  },
-];
-
-const analysisTabs = [
-  "HS Code Analysis",
-  "Incentive Analysis",
-  "Freight Analysis",
-  "Landed Cost Breakdown",
-  "Compliance & Documents",
-  "Market Insights",
-];
-
-const tabContent = {
-  "HS Code Analysis": {
-    left: [
-      ["HS Code", "6109.10.00"],
-      ["Description", "T-shirts, singlets and other vests, of cotton"],
-      ["Classification Basis", "Chapter 61, Note 7, Section XI"],
-      ["IGST (India)", "12%"],
-      ["UAE Customs Duty", "5%"],
-      ["Applicable Cess", "NA"],
-    ],
-    insight:
-      "This HS code covers cotton T-shirts. Ensure accurate declaration of fabric composition and HS classification to avoid customs delays.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-  "Incentive Analysis": {
-    left: [
-      ["RoDTEP", "₹3,420"],
-      ["MEIS", "₹5,000"],
-      ["State Incentive (TN)", "₹0"],
-      ["Total Incentive", "₹8,420"],
-    ],
-    insight:
-      "RoDTEP scheme replaces MEIS for most textile exports. Verify eligibility and current rates before filing.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-  "Freight Analysis": {
-    left: [
-      ["Route", "Tirupur → Dubai, UAE"],
-      ["Mode", "Air Freight"],
-      ["Est. Freight Cost", "₹24,860"],
-      ["Transit Time", "3–5 Days"],
-    ],
-    insight:
-      "Air freight is fastest but costlier. Consider sea freight for large volumes to reduce landed cost significantly.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-  "Landed Cost Breakdown": {
-    left: [
-      ["Product Cost", "₹76,230"],
-      ["Freight & Insurance", "₹24,860"],
-      ["Duties & Taxes", "₹13,590"],
-      ["Other Charges", "₹9,99"],
-      ["Total Landed Cost", "₹1,24,680"],
-    ],
-    insight:
-      "Total landed cost is ₹1,24,680. Duties and taxes account for ~11% of landed cost.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-  "Compliance & Documents": {
-    left: [
-      ["Certificate of Origin", "Required"],
-      ["GSP Form A", "Recommended"],
-      ["Packing List", "Required"],
-      ["Commercial Invoice", "Required"],
-      ["Airway Bill", "Required"],
-    ],
-    insight:
-      "Ensure all documents are prepared and verified before shipment to avoid customs clearance delays at Dubai port.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-  "Market Insights": {
-    left: [
-      ["UAE Market Demand", "High"],
-      ["Avg. Selling Price (UAE)", "AED 18–24 / piece"],
-      ["Key Competitors", "Bangladesh, China"],
-      ["India Market Share", "14.2%"],
-    ],
-    insight:
-      "India's textile exports to UAE are growing. Leverage FTA benefits and competitive pricing to gain market share.",
-    assumption:
-      "Product is 100% cotton, knitted. Shipment weight is 500kg. Prices and duties are based on current available data and may change.",
-    disclaimer:
-      "All results are for reference only. Please verify with official government and customs sources before making business decisions.",
-    tariffLink: "View Official Tariff Page",
-    buttonText: "Create Shipment from this Result",
-  },
-};
-
-const resultSummary = [
-  {
-    icon: BsAirplane,
-    label: "Best Mode",
-    value: "Air Freight",
-    iconColor: "text-teal-500",
-  },
-  {
-    icon: BsAirplane,
-    label: "Recommended Route",
-    value: "Tirupur, India → Dubai, UAE",
-    iconColor: "text-blue-500",
-    small: true,
-  },
-  {
-    icon: FiClock,
-    label: "Est. Transit Time",
-    value: "3 – 5 Days",
-    iconColor: "text-yellow-500",
-  },
-  {
-    icon: FiDollarSign,
-    label: "Total Landed Cost (Est.)",
-    value: "₹1,24,680",
-    iconColor: "text-red-500",
-  },
-  {
-    icon: FiGift,
-    label: "Total Incentive (Est.)",
-    value: "₹8,420",
-    iconColor: "text-emerald-500",
-    valueColor: "text-emerald-600",
-  },
-];
-
-const auditLog = [
-  {
-    color: "bg-teal-500",
-    time: "09:25 AM",
-    text: "Query Submitted by Arjun Soni",
-  },
-  { color: "bg-blue-500", time: "09:25 AM", text: "AI Processing Started" },
-  {
-    color: "bg-yellow-500",
-    time: "09:25 AM",
-    text: "HS Code Identified: 6109.10.00",
-  },
-  {
-    color: "bg-teal-500",
-    time: "09:26 AM",
-    text: "Incentives Calculated Successfully",
-  },
-  {
-    color: "bg-teal-500",
-    time: "09:26 AM",
-    text: "Freight Rates Fetched (Air)",
-  },
-  {
-    color: "bg-emerald-500",
-    time: "09:26 AM",
-    text: "Report Generated Successfully",
-  },
-];
+// <style>{`
+//   .hide-scrollbar::-webkit-scrollbar { display: none; }
+//   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+// `}</style>
 
 export default function UserDashboard() {
-  const [activeTab, setActiveTab] = useState("AI CargoMate Assistant");
+  const [activeTab, setActiveTab] = useState("Dashboard");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [analysisTab, setAnalysisTab] = useState("HS Code Analysis");
-  const content = tabContent[analysisTab];
+  // const content = tabContent[analysisTab];
+
+  const [activeNav, setActiveNav] = useState(0);
+
+  const navItems = [
+    { icon: MdDashboard, label: "Dashboard" },
+    { icon: MdLocalShipping, label: "Shipments" },
+    { icon: MdDescription, label: "Documents" },
+    { icon: MdMonitor, label: "Analytics" },
+    { icon: MdSettings, label: "Settings" },
+  ];
+
+  const statCards = [
+    {
+      label: "Active Shipments",
+      value: "18",
+      change: "12% vs last month",
+      iconBg: C.scHigh,
+      icon: MdLocalShipping,
+      iconColor: C.primary,
+    },
+    {
+      label: "Pending Docs",
+      value: "7",
+      change: "8% vs last month",
+      iconBg: C.tertiaryFixed,
+      icon: MdDescription,
+      iconColor: C.tertiary,
+    },
+    {
+      label: "AI Queries Left",
+      value: "42/100",
+      change: "8% vs last month",
+      iconBg: C.scHighest,
+      icon: MdPsychology,
+      iconColor: C.secondary,
+    },
+    {
+      label: "Incentives",
+      value: "₹86,420",
+      change: "10% vs last month",
+      iconBg: C.primaryFixed,
+      icon: MdPayments,
+      iconColor: C.primary,
+    },
+  ];
+
+  const quickActions = [
+    {
+      icon: MdAdd,
+      label: "Create Shipment",
+      bgcolor: "#F0FDFA",
+      textColor: "#00A896",
+    },
+    {
+      icon: MdForum,
+      label: "Ask CargoMate",
+      bgcolor: "#F0FDFA",
+      textColor: "#2563EB",
+    },
+    {
+      icon: MdCloudUpload,
+      label: "Upload Docs",
+      bgcolor: "#FFF7ED",
+      textColor: "#F97316",
+    },
+    {
+      icon: MdMyLocation,
+      label: "Track Shipment",
+      bgcolor: "#F0FDFA",
+      textColor: "#4F46E5",
+    },
+    {
+      icon: MdCalculate,
+      label: "Freight Calc",
+      bgcolor: "#F0FDFA",
+      textColor: "#0891B2",
+    },
+    {
+      icon: MdSavings,
+      label: "Incentives",
+      bgcolor: "#FDF2F8",
+      textColor: "#DB2777",
+    },
+  ];
+
+  const shipments = [
+    {
+      id: "AS0-2025-104",
+      route: "Nhava Sheva - Dubai",
+      status: "Transit",
+      statusBg: C.scHigh,
+      statusColor: C.secondary,
+      eta: "29 Apr 2025",
+      mode: "Sea",
+      vendor: "Oceanic Logistics",
+      amount: "₹1,24,860",
+    },
+    {
+      id: "ASD-2025-103",
+      route: "Delhi - New York",
+      status: "Delayed",
+      statusBg: C.errorContainer,
+      statusColor: C.error,
+      eta: "27 Apr 2025",
+      mode: "Air",
+      vendor: "SkyFreight Global",
+      amount: "₹2,48,600",
+    },
+    {
+      id: "ASD-2025-102",
+      route: "Mumbai - London",
+      status: "Pending",
+      statusBg: C.tertiaryFixed,
+      statusColor: C.tertiary,
+      eta: "30 Apr 2025",
+      mode: "Sea",
+      vendor: "SwiftLogix",
+      amount: "₹98,450",
+    },
+    {
+      id: "ASD-2025-101",
+      route: "Mumbai - London",
+      status: "Delivered",
+      statusBg: C.tertiaryFixed,
+      statusColor: C.tertiary,
+      eta: "30 Apr 2025",
+      mode: "Sea",
+      vendor: "SwiftLogix",
+      amount: "₹98,450",
+    },
+  ];
 
   return (
     <div className="flex h-screen bg-gray-100  font-sans">
@@ -1309,11 +563,10 @@ export default function UserDashboard() {
           onClick={() => setSidebarOpen(false)}
         />
       )}
-
       <aside
         className={`
-          fixed lg:static inset-y-0 left-0 z-30 w-52 xl:w-60
-           bg-white text-white flex flex-col
+          fixed lg:static inset-y-0 left-0 z-30 w-60 
+           bg-white text-white flex flex-col overflow-x-hidden
           transform transition-transform duration-300 ease-in-out
           ${sidebarOpen ? "translate-x-0" : "-translate-x-full"}
           lg:translate-x-0 flex-shrink-0
@@ -1323,36 +576,47 @@ export default function UserDashboard() {
           <img src={logo} className="h-10" />
         </div>
 
-        <nav className="flex-1 overflow-y-auto py-3 bg-gray-900">
+        <nav className="flex-1 overflow-y-auto py-3  bg-gray-900">
           {sidebarSections.map((section) => (
-            <div key={section.title}>
-              <p className="px-4 pt-3 pb-1 text-xs font-semibold uppercase tracking-widest text-[#4a6080]">
+            <div key={section.title} className="">
+              <p
+                onClick={() => {
+                  if (section.items.length === 0) {
+                    setActiveTab(section.title);
+                  }
+                }}
+                className={`px-4 py-2 text-[0.7rem] font-normal  uppercase tracking-widest
+                    ${section.items.length === 0 ? "cursor-pointer bg-teal-500 rounded-r-lg text-white" : "text-white hover:bg-teal-500 rounded-r-lg hover:text-white"}
+                  `}
+              >
                 {section.title}
               </p>
               {section.items.map(({ icon: Icon, label, badge, badgeColor }) => (
                 <button
                   key={label}
-                  className={`w-full flex items-center gap-2  px-4 py-2 text-xs text-left transition-colors
+                  className={`w-full flex items-center gap-2  rounded-r-lg text-xs text-left transition-colors
                     ${
                       activeTab === label
-                        ? "bg-teal-500 text-white"
-                        : "text-[#8aa0bc] hover:bg-teal-500 hover:text-white"
+                        ? "bg-teal-500 text-white rounded-r-lg "
+                        : "text-[#8aa0bc] hover:bg-teal-500 hover:text-white rounded-r-lg"
                     }`}
                 >
-                  <Icon className="text-base  flex-shrink-0" />
-                  <span
-                    onClick={() => setActiveTab(label)}
-                    className="flex-1 font-semibold text-sm truncate  "
-                  >
-                    {label}
-                  </span>
-                  {badge && (
+                  <div className=" flex gap-3 px-4 py-2">
+                    <Icon className="text-base  flex-shrink-0" />
                     <span
-                      className={`${badgeColor} text-white text-[9px] px-1.5 py-0.5 rounded-full font-semibold`}
+                      onClick={() => setActiveTab(label)}
+                      className="flex-1 font-normal text-xs  truncate  "
                     >
-                      {badge}
+                      {label}
                     </span>
-                  )}
+                    {badge && (
+                      <span
+                        className={`${badgeColor} text-white text-[9px] px-1.5 py-0.5 rounded-full font-normal`}
+                      >
+                        {badge}
+                      </span>
+                    )}
+                  </div>
                 </button>
               ))}
             </div>
@@ -1375,509 +639,1009 @@ export default function UserDashboard() {
               </p>
             </div>
 
-            <button className="mt-4 bg-teal-500 hover:bg-teal-600 text-white text-xs font-semibold py-2 rounded-lg">
+            <button
+              onClick={() => setActiveTab("UpgradePlan")}
+              className="mt-4 bg-teal-500 hover:bg-teal-600 text-white text-xs font-semibold py-2 rounded-lg"
+            >
               Upgrade Plan
             </button>
           </div>
         </nav>
       </aside>
 
-      {activeTab === "Dashboard" && <div> Dashboard </div>}
-      {activeTab === "AI CargoMate Assistant" && (
-        <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
-          <header className="bg-white border-b border-gray-200 px-4 py-2.5 flex items-center gap-3 flex-shrink-0">
-            <button
-              className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
-              onClick={() => setSidebarOpen(true)}
-            >
-              <FiSettings size={18} />
-            </button>
-            <div className="flex items-center gap-1.5 text-sm text-gray-500">
-              <span>Dashboard</span>
-              <FiChevronRight size={12} />
-              <span>AI CargoMate Assistant</span>
-              <FiChevronRight size={12} />
-              <span className="text-teal-500 font-medium">AI Result</span>
-            </div>
-          </header>
+      <main className=" w-full overflow-auto  ">
+        <header className="fixed top-0 w-full max-w-7xl z-20  bg-white border-b border-gray-200 px-3 sm:px-4 py-0 flex items-center gap-3  ">
+          <button
+            className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <MdMenu size={18} />
+          </button>
 
-          <main className="flex-1 overflow-y-auto bg-gray-50 p-3 sm:p-4 lg:p-5">
-            <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-              <div>
-                <div className="flex items-center gap-2 flex-wrap">
-                  <h1 className="text-lg sm:text-xl font-bold text-gray-900">
-                    AI CargoMate Assistant
-                  </h1>
-                  <span className="flex items-center gap-1 bg-yellow-50 text-yellow-800 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-yellow-200">
-                    <FiStar size={10} className="text-yellow-500" /> Core Module
-                  </span>
-                </div>
-                <p className="text-sm font-medium text-gray-500 mt-0.5">
-                  Your AI trade assistant for smarter decisions
+          <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-md">
+            <div className="relative">
+              <FiSearch
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-gray-400"
+                size={14}
+              />
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full pl-8 pr-3 py-1.5 bg-gray-50 border border-gray-200 rounded-lg text-xs focus:outline-none focus:ring-1 focus:ring-teal-400"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1.5 ml-auto">
+            <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600 relative">
+              <FiBell size={16} />
+              <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-red-500 rounded-full" />
+            </button>
+            <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600">
+              <FiMail size={16} />
+            </button>
+            <button className="p-1.5 rounded-full hover:bg-gray-100 text-gray-600">
+              <FiSun size={16} />
+            </button>
+            <div className="flex items-center gap-2 ml-1 pl-2 py-2 border-l border-gray-200">
+              <div className="hidden sm:block leading-tight">
+                <p className="text-xs sm:text-sm font-semibold text-gray-800">
+                  Arjun Soni
+                </p>
+                <p className="text-gray-400 text-xs sm:text-sm">
+                  Exporter go plan
                 </p>
               </div>
-              <div className="flex flex-wrap gap-2">
-                <button className="flex items-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm  font-medium px-3 py-1.5 rounded-lg hover:bg-gray-50">
-                  <FiArrowLeft size={13} /> New Query
-                </button>
-                <button className="flex items-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm f dium font-medium px-3 py-1.5 rounded-lg hover:bg-gray-50">
-                  <FiSave size={13} /> Save Report
-                </button>
-                <button className="flex items-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm   font-medium px-3 py-1.5 rounded-lg hover:bg-gray-50">
-                  <FiDownload size={13} /> Download Report (PDF)
-                </button>
-                <button className="flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white text-sm f  font-semibold px-3 py-1.5 rounded-lg">
-                  <FiPlus size={13} /> Create Shipment from this Result
-                </button>
+              <div className="w-10 h-10 bg-teal-500 rounded-full flex items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                A
               </div>
             </div>
+          </div>
+        </header>
 
-            <div className="flex items-start gap-2 bg-blue-50 border border-blue-200 rounded-lg px-3 py-2.5 mb-4 text-sm font-medium text-blue-800">
-              <FiInfo
-                size={14}
-                className="text-blue-500 flex-shrink-0 mt-0.5"
-              />
-              This result is AI-generated based on the data sources and
-              assumptions listed below. Please review before making any trade
-              decisions.
+        {activeTab === "Dashboard" && (
+          <div
+            className="relative flex-1 flex flex-col min-w-0 pb-5 pt-20  overflow-y-auto"
+            style={{
+              backgroundColor: C.bg,
+              color: C.onSurface,
+              fontFamily: "sans-serif",
+            }}
+          >
+            <div className="px-5 pb-4">
+              <button
+                className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
+                onClick={() => setSidebarOpen(true)}
+              >
+                <FiSettings size={18} />
+              </button>
+              <section className="space-y-1">
+                <h1 className="text-lg font-semibold text-black">
+                  Welcome back, Arjun!
+                </h1>
+                <p className="text-xs font-normal text-[#A2AABF]">
+                  Here's what's happening with your trade operations today.
+                </p>
+              </section>{" "}
             </div>
 
-            <div className="grid grid-cols-1 xl:grid-cols-[1fr_300px] gap-4">
-              <div className="flex flex-col gap-4">
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <p className="text-base font-medium text-gray-900 mb-3 flex items-center gap-2">
-                    <MdOutlineRocketLaunch className="text-teal-500 text-base" />{" "}
-                    Your Query
-                  </p>
-                  <div className="bg-gray-50 border border-gray-200 rounded-lg p-3">
-                    <div className="flex items-start gap-3">
-                      <div className="w-9 h-9 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-                        <FiMap className="text-blue-500 text-base" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-gray-800 leading-relaxed">
-                          Best shipment option for exporting 500kg of cotton
-                          t-shirt (100% cotton, knitted) from Tirupur, India to
-                          Dubai, UAE by air. Include HS code, duty, incentives,
-                          and total landed cost.
-                        </p>
-                        <div className="flex flex-wrap gap-x-3 gap-y-1 mt-2 text-xs font-medium  text-gray-400">
-                          <span>Query ID: AIQ-2025-04-24-000123</span>
-                          <span>• 24 Apr 2025, 09:25 AM</span>
-                          <span>• User: Arjun Soni</span>
-                        </div>
-                      </div>
-                      <button className="flex-shrink-0 flex items-center text-xs gap-1 border border-gray-200 bg-white text-gray-500 text-[10px] px-2 py-1 rounded-md hover:bg-gray-50">
-                        <FiCopy size={14} /> Copy Query
-                      </button>
-                    </div>
-                  </div>
-                </div>
+            <div className="flex xl:flex-row flex-col  ">
+              <div className="flex flex-col gap-5  px-4 ">
+                <div className="max-w-7xl w-full ">
+                  <section className="grid  grid-cols-2 md:grid-cols-4  w-full gap-4 pb-4 ">
+                    {statCards.map((card) => (
+                      <StatCard key={card.label} {...card} />
+                    ))}
+                  </section>
 
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-                    <p className="text-base sm:text-lg  font-bold text-gray-900 flex items-center gap-2">
-                      <FiStar className="text-teal-500 text-base" /> AI
-                      Recommended Summary
-                    </p>
-                    <div className="flex gap-3">
-                      <button className="flex items-center  gap-1 text-xs text-blue-500 font-medium">
-                        <FiDatabase size={12} /> Data Sources (6)
-                      </button>
-                      <button className="flex items-center gap-1 text-xs font-medium text-gray-400">
-                        <FiAlertCircle size={12} /> Disclaimer
-                      </button>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
-                    {recCards.map((card, i) => (
-                      <div
-                        key={i}
-                        className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex flex-col"
+                  <div className="flex lg:flex-row flex-col gap-5 ">
+                    <div className="lg:max-w-2xl flex flex-col gap-4 justify-between ">
+                      <section
+                        className="p-4 rounded-xl border relative overflow-hidden  "
+                        style={{
+                          backgroundColor: C.scLowest,
+                          borderColor: C.outlineVariant,
+                        }}
                       >
-                        <p className="text-sm text-gray-500 font-medium mb-1">
-                          {card.label}
-                        </p>
-                        {card.route ? (
-                          <>
-                            <p className="text-[11px] font-bold text-gray-800 mb-0.5">
-                              Route
-                            </p>
-                            <p className="text-sm font-bold text-gray-900 mb-2">
-                              {card.route}
-                            </p>
-                          </>
-                        ) : (
-                          <>
-                            <p
-                              className={`text-xl font-bold mb-1 ${
-                                card.mainColor || "text-gray-900"
-                              }`}
-                            >
-                              {card.main}
-                            </p>
-                            <p className="text-xs font-medium  text-gray-500 mb-2 leading-tight">
-                              {card.sub}
-                            </p>
-                          </>
-                        )}
-                        <div className="flex flex-col gap-1 flex-1">
-                          {card.rows.map(([k, v], j) => (
-                            <div
-                              key={j}
-                              className="flex justify-between text-[10px]"
-                            >
-                              <span className="text-gray-500 text-xs font-medium">
-                                {k}
+                        <div className="flex justify-between items-center mb-4   ">
+                          <div>
+                            <div className="flex items-center gap-2 flex-wrap">
+                              <h2 className="text-sm  font-semibold">
+                                AI CargoMate Assistant
+                              </h2>
+                              <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase text-white">
+                                Core Module
                               </span>
-                              <span className="text-gray-800   text-xs font-medium">
-                                {v}
+                            </div>
+                            <p className="text-xs font-normal text-[#64748B] mt-0.5">
+                              Your AI trade assistant for smarter decisions
+                            </p>
+                          </div>
+                          <div className="hidden sm:flex items-center gap-1 text-[#94A3B8] text-[10px]">
+                            <MdBolt size={14} />
+                            Powered by AI
+                          </div>
+                        </div>
+
+                        <div className="relative flex items-center mb-4 ">
+                          <input
+                            className="w-full h-10 pl-3 pr-10 rounded-lg border focus:outline-none focus:ring-2 text-sm"
+                            style={{
+                              borderColor: C.outlineVariant,
+                              backgroundColor: C.scLowest,
+                              color: C.onSurface,
+                            }}
+                            placeholder="Ask anything about HS code, freight, incentives..."
+                            type="text"
+                          />
+                          <button
+                            className="absolute right-1 w-8 h-8 rounded-lg flex items-center justify-center text-white"
+                            style={{ backgroundColor: C.primary }}
+                          >
+                            <MdDoubleArrow size={20} />
+                          </button>
+                        </div>
+
+                        <div className="flex lg:flex-row w-full justify-center sm:justify-between items-center gap-2 sm:gap-x-4">
+                          <div className="">
+                            <div>
+                              <span className="text-[#94A3B8] text-sm">
+                                {" "}
+                                Try asking{" "}
+                              </span>{" "}
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 my-4 ">
+                              <button
+                                className="flex items-center gap-4 p-2 w-full rounded-lg text-left border transition-colors hover:opacity-80"
+                                style={{
+                                  backgroundColor: C.scLowest,
+                                  borderColor: C.outlineVariant,
+                                }}
+                              >
+                                <MdBolt
+                                  size={22}
+                                  style={{ color: C.primary }}
+                                />
+                                <span className="text-sm">
+                                  Best shipment mode for UAE
+                                </span>
+                              </button>
+                              <button
+                                className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80"
+                                style={{
+                                  backgroundColor: C.scLowest,
+                                  borderColor: C.outlineVariant,
+                                }}
+                              >
+                                <MdCheckroom
+                                  size={22}
+                                  style={{ color: C.primary }}
+                                />
+                                <span
+                                  className="text-sm"
+                                  style={{ color: C.onSurface }}
+                                >
+                                  HS code for cotton t-shirt
+                                </span>
+                              </button>
+
+                              <button
+                                className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80"
+                                style={{
+                                  backgroundColor: C.scLowest,
+                                  borderColor: C.outlineVariant,
+                                }}
+                              >
+                                <MdBolt
+                                  size={22}
+                                  style={{ color: C.primary }}
+                                />
+                                <span className="text-sm">
+                                  RoDTEP benefit for textiles
+                                </span>
+                              </button>
+
+                              <button
+                                className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80"
+                                style={{
+                                  backgroundColor: C.scLowest,
+                                  borderColor: C.outlineVariant,
+                                }}
+                              >
+                                <MdBolt
+                                  size={22}
+                                  style={{ color: C.primary }}
+                                />
+                                <span className="text-sm">
+                                  Sea vs Air cost for 500kg
+                                </span>
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="hidden md:block">
+                            <img src={robot} />
+                          </div>
+                        </div>
+                        <div className="flex items-center justify-between ">
+                          <div className="flex flex-col text-[#64748B] font-normal">
+                            <span className="text-[10px]">
+                              ⓘ Data Sources: DGFT, ICEGATE, Shipping Lines,
+                              Customs, Trade APIs
+                            </span>
+                            <span className="text-[10px]">
+                              ⓘ Disclaimer: AI results are for reference only.
+                              Please verify before making decisions.
+                            </span>
+                          </div>
+                          <div className="">
+                            <button className="w-full  text-xs bg-[#00A896] px-4 py-3 rounded-lg text font-bold  text-white active:scale-95 transition-transform">
+                              Create Shipment from this Result
+                            </button>
+                          </div>
+                        </div>
+                      </section>
+
+                      <section className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <DetailCard title="HS Code Lookup" tag="HS CODE">
+                          <div className="flex flex-col justify-around">
+                            <div className="flex items-center gap-2 text-lg font-bold mb-1">
+                              6109.10.00
+                              <MdHelp size={18} />
+                            </div>
+                            <p className="text-[9px] italic mb-4">
+                              T-shirts, singlets and other vests, of cotton
+                            </p>
+                            <div className="grid grid-cols-2 gap-2 mb-4">
+                              <div>
+                                <div className="text-[8px] uppercase">
+                                  IGST Rate
+                                </div>
+                                <div className="font-bold text-sm">12%</div>
+                              </div>
+                              <div>
+                                <div className="text-[8px] uppercase">
+                                  Customs Duty
+                                </div>
+                                <div className="font-bold text-sm">10%</div>
+                              </div>
+                            </div>
+                          </div>
+                        </DetailCard>
+
+                        <DetailCard
+                          title="Incentive Checker"
+                          tag="TOTAL INCENTIVE"
+                        >
+                          <div className="text-xl font-bold mb-4">₹8,420</div>
+                          <div className="space-y-2 mb-4">
+                            {[
+                              { label: "RoDTEP", val: "3,420" },
+                              { label: "MEIS", val: "5,000" },
+                              { label: "State Incentive", val: "-" },
+                            ].map(({ label, val }) => (
+                              <div
+                                key={label}
+                                className="flex justify-between text-xs text-[#64748B]"
+                              >
+                                <span>{label}</span>
+                                <span className="font-bold">{val}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </DetailCard>
+
+                        <DetailCard title="Freight Calculator" tag="ROUTE">
+                          <div className="mb-2">
+                            <div className="text-sm font-bold flex items-center gap-2">
+                              Mumbai <MdTrendingFlat size={18} /> Dubai
+                            </div>
+                            <div className="text-[10px] uppercase mt-1 text-[#94A3B8]">
+                              MODE
+                            </div>
+                            <div className="font-bold text-sm">
+                              Sea Freight (FCL)
+                            </div>
+                          </div>
+                          <div className="text-[10px] uppercase mb-1 text-[#94A3B8] ">
+                            EST. FREIGHT
+                          </div>
+                          <div className="text-lg font-bold mb-4">₹24,860</div>
+                        </DetailCard>
+                      </section>
+                    </div>
+
+                    <div className="grid  grid-cols-1 sm:grid-cols-3 lg:grid-cols-1  lg:max-w-lg gap-6   h-full  ">
+                      <section
+                        className="p-4 rounded-xl border shadow-sm  "
+                        style={{
+                          backgroundColor: C.scLowest,
+                          borderColor: C.outlineVariant,
+                        }}
+                      >
+                        <div className="flex justify-between items-center mb-4">
+                          <h3 className="text-sm  font-semibold">
+                            Shipment Overview
+                          </h3>
+                          <button
+                            className="text-[10px] font-bold uppercase"
+                            style={{ color: C.primary }}
+                          >
+                            View All
+                          </button>
+                        </div>
+                        <div className="flex flex-col xl:flex-row items-center  gap-6 ">
+                          <div
+                            className="relative flex-shrink-0"
+                            style={{
+                              width: 120,
+                              height: 120,
+                              borderRadius: "50%",
+                              background: `conic-gradient(${C.secondary} 0% 44%, ${C.error} 44% 61%, ${C.tertiaryContainer} 61% 83%, ${C.primary} 83% 100%)`,
+                            }}
+                          >
+                            <div
+                              className="absolute flex flex-col items-center justify-center"
+                              style={{
+                                top: "20%",
+                                left: "20%",
+                                width: "60%",
+                                height: "60%",
+                                backgroundColor: C.scLowest,
+                                borderRadius: "50%",
+                                zIndex: 1,
+                              }}
+                            >
+                              <span
+                                className="text-2xl font-bold leading-none"
+                                style={{ color: C.onSurface }}
+                              >
+                                18
+                              </span>
+                              <span
+                                className="text-[10px] uppercase"
+                                style={{ color: C.onSurfaceVariant }}
+                              >
+                                Total
+                              </span>
+                            </div>
+                          </div>
+                          <div className="flex-1 w-full max-w-sm  space-y-2">
+                            {[
+                              {
+                                dot: C.secondary,
+                                label: "In Transit",
+                                val: "8 (44%)",
+                              },
+                              {
+                                dot: C.error,
+                                label: "Delayed",
+                                val: "3 (17%)",
+                              },
+                              {
+                                dot: C.tertiaryContainer,
+                                label: "Pending",
+                                val: "4 (22%)",
+                              },
+                              {
+                                dot: C.primary,
+                                label: "Delivered",
+                                val: "3 (17%)",
+                              },
+                            ].map(({ dot, label, val }) => (
+                              <div
+                                key={label}
+                                className="flex justify-between items-center"
+                              >
+                                <div className="flex items-center gap-2">
+                                  <span className="w-2 h-2 rounded-full" />
+                                  <span className="text-xs text-[#1E293B] font-medium">
+                                    {label}
+                                  </span>
+                                </div>
+                                <span
+                                  className="text-sm"
+                                  style={{ color: C.onSurfaceVariant }}
+                                >
+                                  {val}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </section>
+
+                      <section
+                        className="p-4 rounded-xl border shadow-sm  "
+                        style={{
+                          backgroundColor: C.scLowest,
+                          borderColor: C.outlineVariant,
+                        }}
+                      >
+                        <h3 className="text-sm  font-semibold mb-4">
+                          Quick Actions
+                        </h3>
+                        <div className="grid lg:grid-cols-3 grid-cols-2 gap-10 sm:gap-4 ">
+                          {quickActions.map((action) => (
+                            <QuickActionBtn key={action.label} {...action} />
+                          ))}
+                        </div>
+                      </section>
+
+                      <section
+                        className="p-4 rounded-xl border shadow-sm"
+                        style={{
+                          backgroundColor: C.scLowest,
+                          borderColor: C.outlineVariant,
+                        }}
+                      >
+                        <h3 className="text-xs font-bold mb-4">
+                          System Status
+                        </h3>
+                        <div className="space-y-1">
+                          {[
+                            {
+                              icon: MdStorage,
+                              label: "Database Connection",
+                              val: "Connected",
+                              valColor: C.primary,
+                            },
+                            {
+                              icon: MdApi,
+                              label: "API Services",
+                              val: "Operational",
+                              valColor: C.primary,
+                            },
+                            {
+                              icon: MdSync,
+                              label: "Last Data Sync",
+                              val: "24 Apr 2025, 09:30 AM",
+                              valColor: C.onSurfaceVariant,
+                            },
+                          ].map(({ icon: Icon, label, val, valColor }) => (
+                            <div
+                              key={label}
+                              className="flex justify-between items-center"
+                            >
+                              <div
+                                className="flex items-center gap-2"
+                                style={{ color: C.onSurfaceVariant }}
+                              >
+                                <Icon className="text-xs" />
+                                <span className="text-xs text-[#64748B]">
+                                  {label}
+                                </span>
+                              </div>
+                              <span className="font-bold text-xs text-[#10B981]">
+                                {val}
                               </span>
                             </div>
                           ))}
-                          {card.freightCost && (
-                            <p className="text-base font-bold text-gray-900 mt-1">
-                              {card.freightCost}
-                            </p>
-                          )}
                         </div>
-                        <button className="text-teal-500 text-xs sm:text-sm font-medium text-left mt-2 hover:underline">
-                          {card.link}
-                        </button>
-                        <button className="mt-2 w-full border border-teal-500 text-teal-500 text-xs    font-semibold py-1.5 rounded-lg hover:bg-teal-50">
-                          Create Shipment from this Result
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <p className="text-sm sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <FiClipboard className="text-teal-500 text-base" /> Detailed
-                    AI Analysis
-                  </p>
-
-                  <div className="flex overflow-x-auto border-b border-gray-200 mb-4 gap-1 pb-0">
-                    {analysisTabs.map((tab) => (
-                      <button
-                        key={tab}
-                        onClick={() => setAnalysisTab(tab)}
-                        className={`px-3 py-2 text-sm font-medium whitespace-nowrap border-b-2 -mb-px transition-colors
-                        ${
-                          analysisTab === tab
-                            ? "border-teal-500 text-teal-500"
-                            : "border-transparent text-gray-500 hover:text-gray-700"
-                        }`}
-                      >
-                        {tab}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    {content.left.map(([k, v], i) => (
-                      <div key={i} className="flex justify-between py-2 border-b border-gray-100 last:border-0 text-xs">
-                        <span className="text-gray-500">{k}</span>
-                        <span className={`font-medium text-right max-w-[55%] ${k === "Total Landed Cost" || k === "Total Incentive" ? "text-teal-600" : "text-gray-800"}`}>
-                          {v}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 h-fit">
-                    <p className="flex items-center gap-1.5 text-[11px] font-semibold text-yellow-800 mb-2">
-                      <FiStar size={12} className="text-yellow-500" /> AI Insight
-                    </p>
-                    <p className="text-xs text-yellow-900 leading-relaxed">{content.insight}</p>
-                  </div>
-                </div> */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      {content.left.map(([k, v], i) => (
-                        <div
-                          key={i}
-                          className="flex justify-between py-2 border-b border-gray-100 last:border-0 text-xs"
-                        >
-                          <span className="text-gray-500  font-medium text-sm">
-                            {k}
-                          </span>
-
-                          <span
-                            className={`font-medium text-sm  sm:text-sm text-right max-w-[55%] ${
-                              k === "Total Landed Cost" ||
-                              k === "Total Incentive"
-                                ? "text-teal-600"
-                                : "text-gray-800"
-                            }`}
-                          >
-                            {v}
-                          </span>
+                        <div className="mt-2 pt-1 flex items-center justify-center gap-2 text-xs font-bold text-[#10B981]">
+                          All modules are connected to live backend.
                         </div>
-                      ))}
-
-                      <button className="mt-3 font-xs font-semibold text-blue-600 hover:text-blue-700">
-                        {content.tariffLink}
-                      </button>
-
-                      <button className="mt-4 w-full border  border-gray-200 bg-white text-teal-600 text-sm font-semibold py-2.5 rounded-lg hover:bg-gray-50">
-                        {content.buttonText}
-                      </button>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
-                        <p className="flex items-center gap-1.5 text-sm font-semibold text-emerald-800 mb-2">
-                          <FiStar size={12} className="text-emerald-500" />
-                          AI Insight
-                        </p>
-
-                        <p className="text-sm font-medium text-emerald-900 leading-relaxed">
-                          {content.insight}
-                        </p>
-                      </div>
-
-                      <div className="bg-white border border-gray-200 rounded-lg p-3">
-                        <p className="flex items-center gap-1.5 t text-sm font-semibold text-gray-700 mb-2">
-                          <FiClipboard size={12} />
-                          Assumptions
-                        </p>
-
-                        <p className="text-sm font-medium text-gray-600 leading-relaxed">
-                          {content.assumption}
-                        </p>
-                      </div>
-
-                      <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                        <p className="flex items-center gap-1.5 text-sm font-semibold text-orange-700 mb-2">
-                          <FiAlertCircle size={12} />
-                          Disclaimer
-                        </p>
-
-                        <p className="text-sm font-medium text-orange-800 leading-relaxed">
-                          {content.disclaimer}
-                        </p>
-                      </div>
+                      </section>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex flex-col gap-4">
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <p className="text-sm sm:text-base font-bold text-gray-900 mb-3">
-                    Result Summary
-                  </p>
-                  {resultSummary.map(
-                    (
-                      {
-                        icon: Icon,
-                        label,
-                        value,
-                        iconColor,
-                        small,
-                        valueColor,
-                      },
-                      i
-                    ) => (
-                      <div
-                        key={i}
-                        className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0 text-xs font-medium"
-                      >
-                        <div
-                          className={`flex items-center text-sm font-medium gap-2 text-gray-500`}
-                        >
-                          <Icon size={14} className={iconColor} /> {label}
-                        </div>
-                        <span
-                          className={`font-medium text-right max-w-[50%] ${
-                            valueColor || "text-gray-900"
-                          } ${small ? "text-sm font-medium " : "text-sm font-medium"}`}
-                        >
-                          {value}
-                        </span>
-                      </div>
-                    )
-                  )}
-                  <button className="mt-3 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm   font-semibold py-2.5 rounded-xl">
-                    Create Shipment from this Result
-                  </button>
-                </div>
-
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <p className="text-sm sm:text-base font-bold   text-gray-900 mb-3">
-                    Report Information
-                  </p>
-                  {[
-                    ["Report ID", "AIR-2025-04-24-000123"],
-                    ["Generated On", "24 Apr 2025, 09:25 AM"],
-                    ["Generated By", "Arjun Soni"],
-                    ["Plan", "Pro Plan"],
-                    ["AI Model Version", "v2.1.0"],
-                  ].map(([k, v]) => (
-                    <div
-                      key={k}
-                      className="flex justify-between py-1.5 text-[11px]"
+                <section
+                  className="rounded-xl border shadow-sm overflow-hidden"
+                  style={{
+                    backgroundColor: C.scLowest,
+                    borderColor: C.outlineVariant,
+                  }}
+                >
+                  <div
+                    className="p-4 flex justify-between items-center border-b"
+                    style={{ borderColor: C.outlineVariant }}
+                  >
+                    <h3 className="text-sm lg:text-lg  font-bold">
+                      Recent Shipments
+                    </h3>
+                    <button
+                      className="text-[10px] font-bold uppercase"
+                      style={{ color: C.primary }}
                     >
-                      <span className="text-gray-500 text-sm  font-medium">
-                        {k}
-                      </span>
-                      <span className="text-gray-800  text-sm font-medium">
-                        {v}
-                      </span>
-                    </div>
-                  ))}
-                  <button className="mt-3 w-full flex items-center justify-center gap-2 border text-sm  border-gray-200 bg-white text-gray-700 t s font-medium py-2 rounded-lg hover:bg-gray-50">
-                    <FiDownload size={13} /> Download Report (PDF)
-                  </button>
-                </div>
-
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <p className="text-sm sm:text-base font-bold text-gray-900 mb-1">
-                    Save & Share
-                  </p>
-                  <p className="text-sm font-medium text-gray-500 mb-3">
-                    Save this report for future reference or share with your
-                    team.
-                  </p>
-                  <div className="grid grid-cols-1 gap-2 pz">
-                    <button className="flex items-center justify-center whitespace-nowrap  gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50">
-                      <FiBookmark size={16} /> Save to Saved Reports
-                    </button>
-                    <button className="flex items-center justify-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50">
-                      <FiShare2 size={16} /> Share Report
-                    </button>
-                  </div>
-                </div>
-
-                <div className="bg-white rounded-xl border border-gray-200 p-4">
-                  <div className="flex items-center justify-between mb-3">
-                    <p className="text-sm sm:text-base font-bold text-gray-900">
-                      Audit Log (This Query)
-                    </p>
-                    <button className="text-teal-500 text-sm font-medium hover:underline">
                       View All
                     </button>
                   </div>
-                  {auditLog.map((entry, i) => (
-                    <div
-                      key={i}
-                      className="flex items-start gap-2 py-1.5 border-b border-gray-100 last:border-0"
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-left min-w-[700px]">
+                      <thead>
+                        <tr style={{ backgroundColor: C.scLow }}>
+                          {[
+                            "Shipment ID",
+                            "Route",
+                            "Status",
+                            "ETA",
+                            "Mode",
+                            "Vendor",
+                            "Amount",
+                          ].map((h) => (
+                            <th
+                              key={h}
+                              className="px-4 py-2 text-sm  font-semibold"
+                            >
+                              {h}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {shipments.map((s) => (
+                          <tr
+                            key={s.id}
+                            className="border-t transition-colors hover:opacity-90"
+                          >
+                            <td className="px-4 py-3 font-normal text-sm">
+                              {s.id}
+                            </td>
+                            <td className="px-4 py-3 text-sm">{s.route}</td>
+                            <td className="px-4 py-3">
+                              <span
+                                className="px-2 py-1 rounded text-xs  "
+                                style={{
+                                  backgroundColor: s.statusBg,
+                                  color: s.statusColor,
+                                }}
+                              >
+                                {s.status}
+                              </span>
+                            </td>
+                            <td
+                              className="px-4 py-3 text-sm"
+                              style={{ color: C.onSurface }}
+                            >
+                              {s.eta}
+                            </td>
+                            <td
+                              className="px-4 py-3 text-sm"
+                              style={{ color: C.onSurface }}
+                            >
+                              {s.mode}
+                            </td>
+                            <td
+                              className="px-4 py-3 text-sm"
+                              style={{ color: C.onSurface }}
+                            >
+                              {s.vendor}
+                            </td>
+                            <td
+                              className="px-4 py-3 font-normal text-sm"
+                              style={{ color: C.onSurface }}
+                            >
+                              {s.amount}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+              </div>
+
+              <div className="flex flex-col sm:flex-row xl:flex-col gap-6 h-full items-start   ">
+                <section
+                  className="lg:col-span-3 p-4 rounded-xl border shadow-sm w-full "
+                  style={{
+                    backgroundColor: C.scLowest,
+                    borderColor: C.outlineVariant,
+                  }}
+                >
+                  <div className="flex justify-between items-center mb-4">
+                    <h3
+                      className="text-base font-semibold"
+                      style={{ color: C.onSurface }}
                     >
-                      <span
-                        className={`w-2 h-2 rounded-full ${entry.color} flex-shrink-0 mt-1`}
-                      />
-                      <span className="text-xs text-gray-400 whitespace-nowrap">
-                        {entry.time}
-                      </span>
-                      <span className="text-xs font-medium   text-gray-600">
-                        {entry.text}
-                      </span>
-                    </div>
-                  ))}
-                </div>
+                      Recent Activity & History
+                    </h3>
+                    <button className="text-[10px] font-bold uppercase text-[#00A896]">
+                      View All
+                    </button>
+                  </div>
+                  <div className="lg:space-y-2 xl:space-y-4  grid xl:grid-cols-1 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+                    <ActivityItem
+                      dotColor={C.primary}
+                      iconBg={C.scHigh}
+                      icon={MdPsychology}
+                      iconColor={C.primary}
+                      title="AI Query"
+                      subtitle="Best Shipment mode for UAE"
+                      time="24 Apr 2025, 09:42 AM"
+                      tag="Report Generated"
+                    />
+                    <ActivityItem
+                      dotColor={C.outlineVariant}
+                      iconBg={C.secondaryFixed}
+                      icon={MdDescription}
+                      iconColor={C.secondary}
+                      title="Report Generated"
+                      time="24 Apr 2025, 09:40 AM"
+                      tag="Report Generated"
+                    />
+                    <ActivityItem
+                      dotColor={C.outlineVariant}
+                      iconBg={C.tertiaryFixed}
+                      icon={MdQrCode2}
+                      iconColor={C.tertiary}
+                      title="HS Code Lookup"
+                      subtitle="6109.10.00"
+                      time="24 Apr 2025, 08:40 AM"
+                      tag="Report Generated"
+                    />
+                    <ActivityItem
+                      dotColor={C.outlineVariant}
+                      iconBg={C.tertiaryFixed}
+                      icon={MdQrCode2}
+                      iconColor={C.tertiary}
+                      title="Incentive Checker"
+                      subtitle="MEIS check done"
+                      time="24 Apr 2025, 08:40 AM"
+                      tag="Report Generated"
+                    />
+                    <ActivityItem
+                      dotColor={C.outlineVariant}
+                      iconBg={C.tertiaryFixed}
+                      icon={MdQrCode2}
+                      iconColor={C.tertiary}
+                      title="Frieght Calculator"
+                      subtitle="Mumbai -> dubai"
+                      time="24 Apr 2025, 08:40 AM"
+                      tag="Report Generated"
+                    />
+                    <ActivityItem
+                      dotColor={C.outlineVariant}
+                      iconBg={C.tertiaryFixed}
+                      icon={MdQrCode2}
+                      iconColor={C.tertiary}
+                      title="Shipment created"
+                      subtitle="ASD-2025-104"
+                      time="24 Apr 2025, 08:40 AM"
+                      tag="Report Generated"
+                    />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <button className="text-xs font-bold underline text-[#2563EB]">
+                      View All History & Audit Logs
+                    </button>
+                  </div>
+                </section>
+
+                <section
+                  className="p-4 rounded-xl shadow-sm border text-white "
+                  style={{
+                    backgroundColor: C.scLowest,
+                    borderColor: C.outlineVariant,
+                  }}
+                >
+                  <h3 className="text-sm font-bold mb-4 text-black">
+                    Why Choose ASD CargoMate?
+                  </h3>
+                  <ul className="space-y-4">
+                    {[
+                      "AI-Powered Trade Intelligence",
+                      "Real-time Data from Trusted Sources",
+                      "Compliant, Secure & Reliable",
+                      "Mobile, Tablet & Desktop Ready",
+                    ].map((item) => (
+                      <li key={item} className="flex items-start gap-2">
+                        <MdCheckCircle
+                          size={20}
+                          style={{ color: "#10B981", flexShrink: 0 }}
+                        />
+                        <span className="text-xs text-[#475569]">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
               </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-              <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-4">
-                  Data Sources Used
-                </h3>
+          </div>
 
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="flex items-center gap-2  text-gray-700">
-                    <FiDatabase size={14} />
-                    DGFT (India)
-                  </div>
+          //      <div className="flex-1 flex flex-col min-w-0 overflow-y-auto" style={{ backgroundColor: C.bg, color: C.onSurface, fontFamily: "sans-serif" }}>
 
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <FiDatabase size={14} />
-                    ICEGATE
-                  </div>
+          //   <div className="flex items-center gap-3 px-3 sm:px-5 pt-4 pb-2">
+          //     <button className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600" onClick={() => setSidebarOpen(true)}>
+          //       <FiSettings size={18} />
+          //     </button>
+          //     <section className="space-y-1">
+          //       <h1 className="text-lg font-semibold text-black">Welcome back, Arjun!</h1>
+          //       <p className="text-xs font-normal text-[#A2AABF]">Here's what's happening with your trade operations today.</p>
+          //     </section>
+          //   </div>
 
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <FiDatabase size={14} />
-                    Shipping Lines
-                  </div>
+          //   <div className="flex flex-col xl:flex-row gap-4 px-3 sm:px-5 pb-6">
 
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <FiDatabase size={14} />
-                    Customs (UAE)
-                  </div>
+          //     <div className="flex flex-col gap-4 flex-1 min-w-0">
 
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <FiDatabase size={14} />
-                    Trade APIs
-                  </div>
+          //       <section className="grid grid-cols-2 md:grid-cols-4 gap-3">
+          //         {statCards.map((card) => (
+          //           <StatCard key={card.label} {...card} />
+          //         ))}
+          //       </section>
 
-                  <div className="flex items-center gap-2 text-gray-700">
-                    <FiDatabase size={14} />
-                    Market Data
-                  </div>
-                </div>
+          //       <div className="flex flex-col lg:flex-row gap-4">
 
-                <button className="mt-4 text-teal-500 text-xs sm:text-sm font-medium hover:underline">
-                  View All Sources
-                </button>
-              </div>
+          //         <div className="flex flex-col gap-4 flex-1 min-w-0">
 
-              <div className="bg-white rounded-xl border border-gray-200 p-4">
-                <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-4">
-                  Connected To Live Data
-                </h3>
+          //           <section className="p-3 sm:p-4 rounded-xl border relative overflow-hidden" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //             <div className="flex justify-between items-center mb-3">
+          //               <div>
+          //                 <div className="flex items-center gap-2 flex-wrap">
+          //                   <h2 className="text-sm font-semibold">AI CargoMate Assistant</h2>
+          //                   <span className="text-[10px] px-2 py-0.5 rounded-full font-bold uppercase text-white" style={{ backgroundColor: C.primary }}>Core Module</span>
+          //                 </div>
+          //                 <p className="text-xs font-normal text-[#64748B] mt-0.5">Your AI trade assistant for smarter decisions</p>
+          //               </div>
+          //               <div className="hidden sm:flex items-center gap-1 text-[#94A3B8] text-[10px]">
+          //                 <MdBolt size={14} /> Powered by AI
+          //               </div>
+          //             </div>
 
-                <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-                  All modules are connected to backend systems and databases for
-                  real-time, accurate information.
-                </p>
+          //             <div className="relative flex items-center mb-3">
+          //               <input
+          //                 className="w-full h-10 pl-3 pr-10 rounded-lg border focus:outline-none focus:ring-2 text-sm"
+          //                 style={{ borderColor: C.outlineVariant, backgroundColor: C.scLowest, color: C.onSurface }}
+          //                 placeholder="Ask anything about HS code, freight, incentives..."
+          //                 type="text"
+          //               />
+          //               <button className="absolute right-1 w-8 h-8 rounded-lg flex items-center justify-center text-white" style={{ backgroundColor: C.primary }}>
+          //                 <MdDoubleArrow size={20} />
+          //               </button>
+          //             </div>
 
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span className="text-xs sm:text-sm font-medium text-emerald-700">
-                    Connected
-                  </span>
-                </div>
-              </div>
+          //             <div className="flex gap-4">
+          //               <div className="flex-1 min-w-0">
+          //                 <span className="text-[#94A3B8] text-sm">Try asking</span>
+          //                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+          //                   <button className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //                     <MdBolt size={22} style={{ color: C.primary }} />
+          //                     <span className="text-sm">Best shipment mode for UAE</span>
+          //                   </button>
+          //                   <button className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //                     <MdCheckroom size={22} style={{ color: C.primary }} />
+          //                     <span className="text-sm" style={{ color: C.onSurface }}>HS code for cotton t-shirt</span>
+          //                   </button>
+          //                   <button className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //                     <MdBolt size={22} style={{ color: C.primary }} />
+          //                     <span className="text-sm">RoDTEP benefit for textiles</span>
+          //                   </button>
+          //                   <button className="flex items-center gap-4 p-2 rounded-lg text-left border transition-colors hover:opacity-80" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //                     <MdBolt size={22} style={{ color: C.primary }} />
+          //                     <span className="text-sm">Sea vs Air cost for 500kg</span>
+          //                   </button>
+          //                 </div>
+          //               </div>
+          //               <div className="hidden sm:block flex-shrink-0">
+          //                 <img src={robot} alt="robot" />
+          //               </div>
+          //             </div>
 
-              <div className="bg-white  rounded-xl border border-gray-200 p-4">
-                <h3 className="text-sm  sm:text-base font-medium text-gray-900 mb-4">
-                  Need Help?
-                </h3>
+          //             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 mt-3">
+          //               <div className="flex flex-col text-[#64748B] font-normal">
+          //                 <span className="text-[10px]">ⓘ Data Sources: DGFT, ICEGATE, Shipping Lines, Customs, Trade APIs</span>
+          //                 <span className="text-[10px]">ⓘ Disclaimer: AI results are for reference only. Please verify before making decisions.</span>
+          //               </div>
+          //               <button className="w-full sm:w-auto text-xs bg-[#00A896] px-4 py-3 rounded-lg font-bold text-white active:scale-95 transition-transform whitespace-nowrap">
+          //                 Create Shipment from this Result
+          //               </button>
+          //             </div>
+          //           </section>
 
-                <p className="text-xs sm:text-sm font-medium text-gray-600 mb-4">
-                  Our trade experts are here to help you.
-                </p>
+          //           <section className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          //             <DetailCard title="HS Code Lookup" tag="HS CODE">
+          //               <div className="flex flex-col justify-around">
+          //                 <div className="flex items-center gap-2 text-lg font-bold mb-1">
+          //                   6109.10.00 <MdHelp size={18} />
+          //                 </div>
+          //                 <p className="text-[9px] italic mb-4">T-shirts, singlets and other vests, of cotton</p>
+          //                 <div className="grid grid-cols-2 gap-2 mb-4">
+          //                   <div>
+          //                     <div className="text-[8px] uppercase">IGST Rate</div>
+          //                     <div className="font-bold text-sm">12%</div>
+          //                   </div>
+          //                   <div>
+          //                     <div className="text-[8px] uppercase">Customs Duty</div>
+          //                     <div className="font-bold text-sm">10%</div>
+          //                   </div>
+          //                 </div>
+          //               </div>
+          //             </DetailCard>
 
-                <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 font-medium text-xs sm:text-sm text-gray-700">
-                    <FiPhone />
-                    +91 22 1234 5678
-                  </div>
+          //             <DetailCard title="Incentive Checker" tag="TOTAL INCENTIVE">
+          //               <div className="text-xl font-bold mb-4">₹8,420</div>
+          //               <div className="space-y-2 mb-4">
+          //                 {[{ label: "RoDTEP", val: "3,420" }, { label: "MEIS", val: "5,000" }, { label: "State Incentive", val: "-" }].map(({ label, val }) => (
+          //                   <div key={label} className="flex justify-between text-xs text-[#64748B]">
+          //                     <span>{label}</span>
+          //                     <span className="font-bold">{val}</span>
+          //                   </div>
+          //                 ))}
+          //               </div>
+          //             </DetailCard>
 
-                  <div className="flex items-center gap-2 font-medium text-xs sm:text-sm text-gray-700">
-                    <FiSend />
-                    support@asdcargomate.com
-                  </div>
-                </div>
-              </div>
+          //             <DetailCard title="Freight Calculator" tag="ROUTE">
+          //               <div className="mb-2">
+          //                 <div className="text-sm font-bold flex items-center gap-2">
+          //                   Mumbai <MdTrendingFlat size={18} /> Dubai
+          //                 </div>
+          //                 <div className="text-[10px] uppercase mt-1 text-[#94A3B8]">MODE</div>
+          //                 <div className="font-bold text-sm">Sea Freight (FCL)</div>
+          //               </div>
+          //               <div className="text-[10px] uppercase mb-1 text-[#94A3B8]">EST. FREIGHT</div>
+          //               <div className="text-lg font-bold mb-4">₹24,860</div>
+          //             </DetailCard>
+          //           </section>
 
-              <div className="flex justify-center">
-                <img
-                  src="/support-agent.png"
-                  alt="Support"
-                  className="h-24 object-contain"
-                />
-              </div>
-            </div>
-          </main>
-        </div>
-      )}
+          //         </div>
 
-      {activeTab === "HS Code Lookup" && <HSCodeLookup />}
-      {activeTab === "Incentive Checker" && <IncentiveChecker />}
-      {activeTab === "Shipment Planning" && <ShipmentPlanning />}
+          //         <div className="flex flex-col gap-4 w-full lg:w-72 xl:w-64 flex-shrink-0">
+
+          //           <section className="p-4 rounded-xl border shadow-sm" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //             <div className="flex justify-between items-center mb-4">
+          //               <h3 className="text-sm font-semibold">Shipment Overview</h3>
+          //               <button className="text-[10px] font-bold uppercase" style={{ color: C.primary }}>View All</button>
+          //             </div>
+          //             <div className="flex flex-col sm:flex-row lg:flex-col items-center gap-6">
+          //               <div className="relative flex-shrink-0" style={{ width: 120, height: 120, borderRadius: "50%", background: `conic-gradient(${C.secondary} 0% 44%, ${C.error} 44% 61%, ${C.tertiaryContainer} 61% 83%, ${C.primary} 83% 100%)` }}>
+          //                 <div className="absolute flex flex-col items-center justify-center" style={{ top: "20%", left: "20%", width: "60%", height: "60%", backgroundColor: C.scLowest, borderRadius: "50%", zIndex: 1 }}>
+          //                   <span className="text-2xl font-bold leading-none" style={{ color: C.onSurface }}>18</span>
+          //                   <span className="text-[10px] uppercase" style={{ color: C.onSurfaceVariant }}>Total</span>
+          //                 </div>
+          //               </div>
+          //               <div className="flex-1 w-full space-y-2">
+          //                 {[
+          //                   { dot: C.secondary, label: "In Transit", val: "8 (44%)" },
+          //                   { dot: C.error, label: "Delayed", val: "3 (17%)" },
+          //                   { dot: C.tertiaryContainer, label: "Pending", val: "4 (22%)" },
+          //                   { dot: C.primary, label: "Delivered", val: "3 (17%)" },
+          //                 ].map(({ dot, label, val }) => (
+          //                   <div key={label} className="flex justify-between items-center">
+          //                     <div className="flex items-center gap-2">
+          //                       <span className="w-2 h-2 rounded-full" style={{ backgroundColor: dot }} />
+          //                       <span className="text-xs text-[#1E293B] font-medium">{label}</span>
+          //                     </div>
+          //                     <span className="text-sm" style={{ color: C.onSurfaceVariant }}>{val}</span>
+          //                   </div>
+          //                 ))}
+          //               </div>
+          //             </div>
+          //           </section>
+
+          //           <section className="p-4 rounded-xl border shadow-sm" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //             <h3 className="text-sm font-semibold mb-4">Quick Actions</h3>
+          //             <div className="grid grid-cols-3 gap-3">
+          //               {quickActions.map((action) => (
+          //                 <QuickActionBtn key={action.label} {...action} />
+          //               ))}
+          //             </div>
+          //           </section>
+
+          //           <section className="p-4 rounded-xl border shadow-sm" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //             <h3 className="text-xs font-bold mb-4">System Status</h3>
+          //             <div className="space-y-1">
+          //               {[
+          //                 { icon: MdStorage, label: "Database Connection", val: "Connected" },
+          //                 { icon: MdApi, label: "API Services", val: "Operational" },
+          //                 { icon: MdSync, label: "Last Data Sync", val: "24 Apr 2025, 09:30 AM" },
+          //               ].map(({ icon: Icon, label, val }) => (
+          //                 <div key={label} className="flex justify-between items-center">
+          //                   <div className="flex items-center gap-2" style={{ color: C.onSurfaceVariant }}>
+          //                     <Icon className="text-xs" />
+          //                     <span className="text-xs text-[#64748B]">{label}</span>
+          //                   </div>
+          //                   <span className="font-bold text-xs text-[#10B981]">{val}</span>
+          //                 </div>
+          //               ))}
+          //             </div>
+          //             <div className="mt-2 pt-1 flex items-center justify-center gap-2 text-xs font-bold text-[#10B981]">
+          //               All modules are connected to live backend.
+          //             </div>
+          //           </section>
+
+          //         </div>
+          //       </div>
+
+          //       <section className="rounded-xl border shadow-sm overflow-hidden" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //         <div className="p-4 flex justify-between items-center border-b" style={{ borderColor: C.outlineVariant }}>
+          //           <h3 className="text-sm lg:text-lg font-bold">Recent Shipments</h3>
+          //           <button className="text-[10px] font-bold uppercase" style={{ color: C.primary }}>View All</button>
+          //         </div>
+          //         <div className="overflow-x-auto">
+          //           <table className="w-full text-left min-w-[700px]">
+          //             <thead>
+          //               <tr style={{ backgroundColor: C.scLow }}>
+          //                 {["Shipment ID", "Route", "Status", "ETA", "Mode", "Vendor", "Amount"].map((h) => (
+          //                   <th key={h} className="px-4 py-2 text-sm font-semibold">{h}</th>
+          //                 ))}
+          //               </tr>
+          //             </thead>
+          //             <tbody>
+          //               {shipments.map((s) => (
+          //                 <tr key={s.id} className="border-t transition-colors hover:opacity-90">
+          //                   <td className="px-4 py-3 font-normal text-sm">{s.id}</td>
+          //                   <td className="px-4 py-3 text-sm">{s.route}</td>
+          //                   <td className="px-4 py-3">
+          //                     <span className="px-2 py-1 rounded text-xs" style={{ backgroundColor: s.statusBg, color: s.statusColor }}>{s.status}</span>
+          //                   </td>
+          //                   <td className="px-4 py-3 text-sm" style={{ color: C.onSurface }}>{s.eta}</td>
+          //                   <td className="px-4 py-3 text-sm" style={{ color: C.onSurface }}>{s.mode}</td>
+          //                   <td className="px-4 py-3 text-sm" style={{ color: C.onSurface }}>{s.vendor}</td>
+          //                   <td className="px-4 py-3 font-normal text-sm" style={{ color: C.onSurface }}>{s.amount}</td>
+          //                 </tr>
+          //               ))}
+          //             </tbody>
+          //           </table>
+          //         </div>
+          //       </section>
+
+          //     </div>
+
+          //     <div className="flex flex-col gap-4 w-full xl:w-72 flex-shrink-0">
+
+          //       <section className="p-4 rounded-xl border shadow-sm" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //         <div className="flex justify-between items-center mb-4">
+          //           <h3 className="text-base font-semibold" style={{ color: C.onSurface }}>Recent Activity & History</h3>
+          //           <button className="text-[10px] font-bold uppercase text-[#00A896]">View All</button>
+          //         </div>
+          //         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-1 gap-4">
+          //           <ActivityItem dotColor={C.primary} iconBg={C.scHigh} icon={MdPsychology} iconColor={C.primary} title="AI Query" subtitle="Best Shipment mode for UAE" time="24 Apr 2025, 09:42 AM" tag="Report Generated" />
+          //           <ActivityItem dotColor={C.outlineVariant} iconBg={C.secondaryFixed} icon={MdDescription} iconColor={C.secondary} title="Report Generated" time="24 Apr 2025, 09:40 AM" tag="Report Generated" />
+          //           <ActivityItem dotColor={C.outlineVariant} iconBg={C.tertiaryFixed} icon={MdQrCode2} iconColor={C.tertiary} title="HS Code Lookup" subtitle="6109.10.00" time="24 Apr 2025, 08:40 AM" tag="Report Generated" />
+          //           <ActivityItem dotColor={C.outlineVariant} iconBg={C.tertiaryFixed} icon={MdQrCode2} iconColor={C.tertiary} title="Incentive Checker" subtitle="MEIS check done" time="24 Apr 2025, 08:40 AM" tag="Report Generated" />
+          //           <ActivityItem dotColor={C.outlineVariant} iconBg={C.tertiaryFixed} icon={MdQrCode2} iconColor={C.tertiary} title="Freight Calculator" subtitle="Mumbai -> Dubai" time="24 Apr 2025, 08:40 AM" tag="Report Generated" />
+          //           <ActivityItem dotColor={C.outlineVariant} iconBg={C.tertiaryFixed} icon={MdQrCode2} iconColor={C.tertiary} title="Shipment created" subtitle="ASD-2025-104" time="24 Apr 2025, 08:40 AM" tag="Report Generated" />
+          //         </div>
+          //         <div className="mt-4 text-center">
+          //           <button className="text-xs font-bold underline text-[#2563EB]">View All History & Audit Logs</button>
+          //         </div>
+          //       </section>
+
+          //       <section className="p-4 rounded-xl shadow-sm border" style={{ backgroundColor: C.scLowest, borderColor: C.outlineVariant }}>
+          //         <h3 className="text-sm font-bold mb-4 text-black">Why Choose ASD CargoMate?</h3>
+          //         <ul className="space-y-4">
+          //           {["AI-Powered Trade Intelligence", "Real-time Data from Trusted Sources", "Compliant, Secure & Reliable", "Mobile, Tablet & Desktop Ready"].map((item) => (
+          //             <li key={item} className="flex items-start gap-2">
+          //               <MdCheckCircle size={20} style={{ color: "#10B981", flexShrink: 0 }} />
+          //               <span className="text-xs text-[#475569]">{item}</span>
+          //             </li>
+          //           ))}
+          //         </ul>
+          //       </section>
+
+          //     </div>
+
+          //   </div>
+          // </div>
+        )}
+
+        {activeTab === "AI CargoMate Assistant" && <AiCargoMateAssistant />}
+
+        {activeTab === "HS Code Lookup" && <HSCodeLookup />}
+        {activeTab === "Incentive Checker" && <IncentiveChecker />}
+        {activeTab === "Shipment Planning" && <ShipmentPlanning />}
+        {activeTab === "Freight Calculator" && <FreightCalculator />}
+
+        {activeTab === "Saved Reports" && <SavedReports />}
+
+        {activeTab === "Audit Logs" && <AuditLogs />}
+        {activeTab === "Analytics & Trends" && <AnalyticsTrends />}
+
+        {activeTab === "My Shipments" && <MyShipment />}
+        {activeTab === "Shipment Tracking" && <ShipmentTracking />}
+        {activeTab === "Documents Center" && <DocumentsCenter />}
+        {activeTab === "Vendor Recommendations" && <VendorRecommendations />}
+
+        {activeTab === "Subscription" && <Subscription />}
+        {activeTab === "Notifications" && <NotificationDashboard />}
+        {activeTab === "Help & Support" && <HelpSupportDashboard />}
+        {activeTab === "Profile Settings" && <ProfileSettingsDashboard />}
+
+        {activeTab === "UpgradePlan" && <UpgradePlan />}
+      </main>
     </div>
   );
 }

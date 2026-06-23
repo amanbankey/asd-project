@@ -479,7 +479,7 @@ export default function AdminDashboard() {
 
       <div className="flex-1 flex flex-col w-full">
         {/* Topbar */}
-        <header className="bg-white border-b border-gray-200 px-3 sm:px-4 py-1 flex items-center gap-3 flex-shrink-0">
+        <header className="bg-white border-b border-gray-200  px-3 sm:px-4 py-1 flex items-center gap-3 flex-shrink-0">
           <button
             className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
             onClick={() => setSidebarOpen(true)}

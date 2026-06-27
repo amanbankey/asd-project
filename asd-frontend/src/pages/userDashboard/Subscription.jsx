@@ -2,10 +2,9 @@ import {
     Download, CreditCard, Phone, Mail, Crown, RefreshCcw, Ban, Wallet, CircleDollarSign, Package, FileText, Code2, ChevronRight, MessageCircle
 } from "lucide-react";
 
+import crown from "../../assets/Images/webp/crown.webp"
 
-
-export default function Subscription() {
-    const invoices = [
+   const invoices = [
         {
             id: "INV-2025-0425",
             date: "25 Apr 2025",
@@ -42,7 +41,8 @@ export default function Subscription() {
             payment: "VISA ••••4242"
         }
     ];
-    function ActionRow({ icon, label, danger = false }) {
+
+ function ActionRow({ icon, label, danger = false }) {
         return (
             <div className="flex items-center justify-between cursor-pointer">
                 <div className="flex items-center gap-4">
@@ -54,7 +54,7 @@ export default function Subscription() {
                     </div>
 
                     <span
-                        className={`text-lg font-medium ${danger ? "text-red-500" : "text-gray-700"
+                        className={`text-sm  font-medium ${danger ? "text-red-500" : "text-gray-700"
                             }`}
                     >
                         {label}
@@ -65,11 +65,12 @@ export default function Subscription() {
             </div>
         );
     }
+
     function InfoRow({ title, value }) {
         return (
             <div className="flex justify-between">
-                <span className="text-gray-500">{title}</span>
-                <span className="font-medium">{value}</span>
+                <span className="font-semibold text-xs ">{title}</span>
+                <span className="font-medium text-xs">{value}</span>
             </div>
         );
     }
@@ -82,8 +83,13 @@ export default function Subscription() {
             </div>
         );
     }
+    
+    
+    export default function Subscription() {
+
+   
     return (
-        <div className="min-h-screen bg-gray-50 p-6">
+        <div className="min-h-screen bg-gray-50 p-5 pt-20">
             {/* Header */}
             <nav className="flex items-center text-sm mb-2">
                 <span className="text-gray-400">Dashboard</span>
@@ -93,8 +99,8 @@ export default function Subscription() {
             
             <div className="flex justify-between items-center mt-4">
                 <div>
-                    <h1 className="text-3xl font-bold">Subscription</h1>
-                    <p className="text-gray-500 mt-2">
+                    <h1 className="text-xl font-bold">Subscription</h1>
+                    <p className="text-gray-500 font-xs  mt-2">
                         Manage your plan, billing and payment preferences.
                     </p>
                 </div>
@@ -109,33 +115,33 @@ export default function Subscription() {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
                 {/* Current Plan */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border-b-gray-800">
-                    <p className="font-semibold">Current Plan</p>
-                    <span className="bg-green-100 text-green-600 px-3 py-1 rounded text-sm inline-block mt-3">
+                    <p className="font-bold font-sm">Current Plan</p>
+                    <span className="bg-green-100 text-[#166534] px-3 py-1 rounded text-xs inline-block mt-3">
                         Pro Plan
                     </span>
 
                     <div className="flex justify-between items-center mt-6">
                         <div>
-                            <h2 className="text-4xl font-bold">₹24,860 <span className="text-gray-400 text-2xl font-medium">/ year</span></h2>
+                            <h2 className="text-3xl font-bold">₹24,860 <span className="text-gray-400 text-sm font-medium">/ year</span></h2>
 
                         </div>
 
                         <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center">
-                            <Crown className="text-blue-500" />
+                            <img src={crown} className="text-blue-500 text-4xl" />
                         </div>
                     </div>
 
                     <p className="mt-4 text-gray-400 text-sm">Renews on</p>
                     <p className="font-semibold">25 Apr 2026</p>
 
-                    <button className="mt-5 w-full bg-[#007d88] text-white py-3 rounded-lg">
+                    <button className="mt-5 w-full text-sm bg-[#007d88] text-white py-3 rounded-lg">
                         Manage Plan
                     </button>
                 </div>
 
                 {/* Usage */}
                 <div className="bg-white rounded-2xl p-6  shadow-sm border-b-gray-800" >
-                    <h3 className="font-semibold text-black-800 mb-6 gap-5">Usage Summary</h3>
+                    <h3 className="font-bold font-sm text-black-800 mb-6 gap-5">Usage Summary</h3>
 
                     {[
                         {
@@ -162,7 +168,7 @@ export default function Subscription() {
                                 {/* Left */}
                                 <div className="flex items-center gap-2 min-w-[110px]">
                                     {item.icon}
-                                    <span className="text-[13px] text-black-700">
+                                    <span className="text-[12px] text-black-700">
                                         {item.label}
                                     </span>
                                 </div>
@@ -182,7 +188,7 @@ export default function Subscription() {
                                 </div>
 
                                 {/* Percentage */}
-                                <span className="text-xs font-semibold text-black-700 w-8 text-right">
+                                <span className="text-xs font-bold text-black-700 w-8 text-right">
                                     {item.progress}%
                                 </span>
                             </div>
@@ -190,7 +196,7 @@ export default function Subscription() {
                     ))}
 
                     <div className="flex justify-center mt-8">
-                        <button className="flex items-center gap-1 text-l font-medium text-teal-600 hover:text-teal-700">
+                        <button className="flex items-center gap-1 text-l text-sm font-medium text-teal-600 hover:text-teal-700">
                             View Usage Details
                             <ChevronRight size={15} />
                         </button>
@@ -200,7 +206,7 @@ export default function Subscription() {
                 {/* Billing */}
                 <div className="bg-white rounded-2xl p-6 shadow-sm border-b-gray-800 ">
                     <div className="flex justify-between">
-                        <h3 className="font-semibold">Billing Information</h3>
+                        <h3 className="font-bold font-sm">Billing Information</h3>
                         <span className="bg-green-100 text-green-600 px-3 rounded-full text-sm">
                             Active
                         </span>
@@ -213,7 +219,7 @@ export default function Subscription() {
                         <InfoRow title="Payment Method" value="VISA ****4242" />
                     </div>
 
-                    <button className="w-full mt-8 border border-blue-700 text-blue-500 rounded-lg py-3 font-bold">
+                    <button className="w-full mt-10 border text-sm border-blue-700 text-blue-500 rounded-lg py-3 font-bold">
                         View Billing History
                         {/* <ChevronRight size={15} /> */}
                     </button>
@@ -226,48 +232,48 @@ export default function Subscription() {
                 {/* Invoices */}
                 <div className="lg:col-span-2 bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
                     <div className="px-6 py-5">
-                        <h3 className=" font-semibold text-gray-800">
+                        <h3 className=" font-bold text-sm text-gray-800">
                             Invoices
                         </h3>
                     </div>
                     <table className="w-full">
                         <thead className="bg-gray-50 border-y">
                             <tr className="text-left text-[18px] text-gray-600">
-                                <th className="px-6 py-4 font-medium">Invoice ID</th>
-                                <th className="py-4 font-medium">Date</th>
-                                <th className="py-4 font-medium">Amount (INR)</th>
-                                <th className="py-4 font-medium">Status</th>
-                                <th className="py-4 font-medium">Payment Method</th>
-                                <th className="py-4 font-medium">Download</th>
+                                <th className="px-6  py-4 text-xs font-semibold">Invoice ID</th>
+                                <th className="py-4 text-xs font-semibold">Date</th>
+                                <th className="py-4 text-xs font-semibold">Amount (INR)</th>
+                                <th className="py-4 text-xs font-semibold">Status</th>
+                                <th className="py-4 text-xs font-semibold">Payment Method</th>
+                                <th className="py-4 text-xs font-semibold">Download</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             {invoices.map((invoice, i) => (
                                 <tr key={i} className="border-b last:border-b-0">
-                                    <td className="px-6 py-5 font-semibold text-gray-700">
+                                    <td className="px-6 py-5 font-semibold text-xs text-gray-700">
                                         {invoice.id}
                                     </td>
 
-                                    <td className="text-gray-700">
+                                    <td className="text-gray-700 text-xs">
                                         {invoice.date}
                                     </td>
 
-                                    <td className="font-semibold text-gray-800">
+                                    <td className="font-semibold text-gray-800 text-xs">
                                         {invoice.amount}
                                     </td>
 
                                     <td>
-                                        <span className="bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm">
+                                        <span className="bg-green-100 text-green-700 text-xs px-4 py-1 rounded-full m">
                                             {invoice.status}
                                         </span>
                                     </td>
 
                                     <td>
-                                        <span className="text-blue-700 font-semibold text-sm">
+                                        <span className="text-blue-700 font-semibold text-xs">
                                             VISA
                                         </span>
-                                        <span className="ml-2 text-gray-700 font-semibold">
+                                        <span className="ml-2 text-gray-700 font-semibold text-xs">
                                             ••••4242
                                         </span>
                                     </td>
@@ -275,7 +281,7 @@ export default function Subscription() {
                                     <td>
                                         <Download
                                             size={18}
-                                            className="text-gray-400 cursor-pointer"
+                                            className="text-gray-400 cursor-pointer text-xs"
                                         />
                                     </td>
                                 </tr>
@@ -314,7 +320,7 @@ export default function Subscription() {
 
                                 {/* Card Info */}
                                 <div>
-                                    <p className="text-l font-semibold text-gray-800">
+                                    <p className="text-l font-bold text-sm text-gray-800">
                                         Visa ending in 4242
                                     </p>
                                     <p className="text-gray-400 text-l">
@@ -324,7 +330,7 @@ export default function Subscription() {
                             </div>
 
                             {/* Default Badge */}
-                            <span className="bg-green-100 text-green-600 px-4 py-2 rounded-md text-sm font-semibold">
+                            <span className="bg-green-100 text-green-600 px-4 py-2 rounded-md text-xs font-semibold">
                                 DEFAULT
                             </span>
                         </div>
@@ -359,7 +365,7 @@ export default function Subscription() {
 
             {/* Support */}
             <div className="bg-white border border-gray-200 rounded-2xl mt-6 px-7 py-7 shadow-sm">
-                <div className="flex flex-wrap items-center justify-between gap-6">
+                <div className="flex   flex-col md:flex-row items-center justify-between gap-6">
 
                     {/* Left Section */}
                     <div className="flex items-center gap-5">
@@ -368,28 +374,28 @@ export default function Subscription() {
                         </div>
 
                         <div>
-                            <h3 className=" text-gray-900 font-bold">
+                            <h3 className=" text-gray-900 font-bold text-sm">
                                 Need Help?
                             </h3>
-                            <p className="text-gray-400 text-base mt-1 ">
+                            <p className="text-gray-400 text-xs mt-1 ">
                                 Our support team is here to help you with any subscription related queries.
                             </p>
                         </div>
                     </div>
 
                     {/* Contact Info */}
-                    <div className="flex flex-wrap items-center gap-5 mt-5">
-                        <span className="flex items-center gap-3 text-gray-900 text-l">
+                    <div className="flex f  items-center gap-5 mt-5">
+                        <span className="flex items-center gap-3 text-sm font-medium whitespace-nowrap text-gray-900 text-l">
                             <Phone size={18} className="text-gray-400" />
                             +91 2212345678
                         </span>
 
-                        <span className="flex items-center gap-3 text-gray-900 text-l">
+                        <span className="flex items-center gap-3 text-sm font-medium text-gray-900 text-l">
                             <Mail size={20} className="text-gray-400" />
                             support@asdcargomate.com
                         </span>
                         {/* Button */}
-                        <button className="flex gap-3 border border-gray-200 rounded-xl px-8 py-4 text-l font-medium text-gray-900 hover:bg-gray-50">
+                        <button className="flex gap-3 border whitespace-nowrap text-sm border-gray-200 rounded-xl px-8 py-4 text-l font-medium text-gray-900 hover:bg-gray-50">
                             <MessageCircle size={14} className="mt-1" />
                             Contact Support
                         </button>

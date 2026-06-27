@@ -115,7 +115,7 @@ function Card({ children, className = "" }) {
 function CardHeader({ title, dropdown = true }) {
   return (
     <div className="flex items-center justify-between mb-3">
-      <h3 className="text-sm sm:text-[15px] font-bold text-gray-900">{title}</h3>
+      <h3 className="text-sm sm:text-[15px] font-bold text-[#0A2163]">{title}</h3>
       {dropdown && (
         <button className="flex items-center gap-1 text-xs text-gray-600 border border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50">
           Daily <FiChevronDown size={11} />
@@ -129,23 +129,23 @@ export default function AnalyticsTrends() {
   const [activeTab, setActiveTab] = useState("Overview");
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans pt-12">
       <div className="max-w-full mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
 
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
           <div>
-            <p className="text-xs text-gray-400 mb-1">Dashboard &rsaquo; Analytics &amp; Trends</p>
+            <p className="text-sm text-gray-400 mb-3">Dashboard &rsaquo; Analytics &amp; Trends</p>
             <p className="text-xs sm:text-sm text-gray-500 mb-1">Track performance, identify trends, and make data-driven logistics decisions.</p>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Analytics &amp; Trends</h1>
+            <h1 className="text-xl  font-bold text-gray-900">Analytics &amp; Trends</h1>
           </div>
           <div className="flex flex-wrap gap-2 items-start">
-            <button className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-2 bg-white hover:bg-gray-50 whitespace-nowrap">
+            <button className="flex items-center gap-1.5 text-xs  font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-2 bg-white hover:bg-gray-50 whitespace-nowrap">
               <MdOutlineInfo size={14} /> 25 Apr 2025 - 25 Apr 2025
             </button>
-            <button className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-2 bg-white hover:bg-gray-50">
+            <button className="flex items-center gap-1.5 text-xs  font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-2 bg-white hover:bg-gray-50">
               <FiFilter size={13} /> Filters
             </button>
-            <button className="flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-white bg-teal-500 hover:bg-teal-600 rounded-lg px-3 py-2 whitespace-nowrap">
+            <button className="flex items-center gap-1.5 text-xs  font-semibold text-white bg-teal-500 hover:bg-teal-600 rounded-lg px-3 py-2 whitespace-nowrap">
               <FiDownload size={13} /> Export Report
             </button>
           </div>
@@ -156,11 +156,12 @@ export default function AnalyticsTrends() {
             <Card key={i} className="p-3 sm:p-4">
               <div className={`w-8 h-8 rounded-lg ${s.bg} flex items-center justify-center mb-2`}>{s.icon}</div>
               <p className="text-xs text-gray-500 font-medium leading-tight mb-1">{s.label}</p>
-              <p className="text-lg sm:text-xl font-bold text-gray-900 leading-tight">{s.value}</p>
-              <div className="flex items-center gap-0.5 mt-0.5">
+              <div className="flex gap-2"> <p className="text-lg  font-bold text-gray-900 leading-tight">{s.value}</p>
+              <div className="flex items-center  gap-0.5 mt-0.5">
                 {s.up ? <BsArrowUpShort size={14} className={s.changeColor} /> : <BsArrowDownShort size={14} className={s.changeColor} />}
                 <span className={`text-xs font-semibold ${s.changeColor}`}>{s.change}</span>
-              </div>
+              </div> </div>
+             
               <p className="text-xs text-gray-400 mt-0.5">{s.sub}</p>
             </Card>
           ))}
@@ -221,7 +222,7 @@ export default function AnalyticsTrends() {
                 {modeData.map((d, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <BsCircleFill size={8} style={{ color: d.color }} className="flex-shrink-0" />
-                    <span className="text-xs text-gray-600">{d.name} {d.value}</span>
+                    <span className="text-xs font-medium text-gray-600">{d.name} {d.value}</span>
                   </div>
                 ))}
               </div>
@@ -231,7 +232,7 @@ export default function AnalyticsTrends() {
           <Card className="p-4">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-bold text-gray-900">Top Origins</h3>
-              <button className="flex items-center gap-1 text-xs text-gray-600 border border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50">By Shipments <FiChevronDown size={11} /></button>
+              <button className="flex items-center gap-1 text-xs font-medium text-gray-600 border border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50">By Shipments <FiChevronDown size={11} /></button>
             </div>
             <div className="space-y-3">
               {origins.map((o, i) => (
@@ -249,7 +250,7 @@ export default function AnalyticsTrends() {
           <Card className="p-4">
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-sm font-bold text-gray-900">Top Destinations</h3>
-              <button className="flex items-center gap-1 text-xs text-gray-600 border border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50">By Shipments <FiChevronDown size={11} /></button>
+              <button className="flex items-center gap-1 text-xs text-gray-600 border font-medium border-gray-200 rounded-lg px-2.5 py-1.5 hover:bg-gray-50">By Shipments <FiChevronDown size={11} /></button>
             </div>
             <div className="space-y-3">
               {destinations.map((d, i) => (
@@ -302,7 +303,7 @@ export default function AnalyticsTrends() {
                 {spendData.map((d, i) => (
                   <div key={i} className="flex items-center gap-2">
                     <BsCircleFill size={8} style={{ color: d.color }} className="flex-shrink-0" />
-                    <span className="text-xs text-gray-600">{d.name} ₹{d.value}L</span>
+                    <span className="text-xs font-medium text-gray-600">{d.name} ₹{d.value}L</span>
                   </div>
                 ))}
               </div>
@@ -338,26 +339,26 @@ export default function AnalyticsTrends() {
           </Card>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-5">
-          <Card className="p-4 lg:col-span-2">
+        <div className="grid grid-cols-1 sm:grid-cols-[2fr_1fr_1fr] gap-4 mb-5 ">
+          <Card className="p-4 ">
             <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-4">Performance by Carrier (Top 5)</h3>
             <div className="overflow-x-auto">
               <table className="w-full min-w-[520px]">
                 <thead>
                   <tr className="border-b border-gray-100">
                     {["CARRIER", "SHIPMENTS", "ON-TIME DELIVERY", "AVG TRANSIT (DAYS)", "COST PER SHIP (INR)"].map((h, i) => (
-                      <th key={i} className="text-left text-xs font-semibold text-gray-500 pb-2 pr-3 whitespace-nowrap">{h}</th>
+                      <th key={i} className="text-left text-[10px] font-bold text-[#6B7280] pb-2 pr-3 whitespace-nowrap">{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {carriers.map((c, i) => (
                     <tr key={i} className="border-b border-gray-50 hover:bg-gray-50 transition-colors">
-                      <td className="py-3 pr-3 text-xs text-gray-800 font-medium">{c.name}</td>
-                      <td className="py-3 pr-3 text-xs text-gray-700">{c.shipments}</td>
-                      <td className="py-3 pr-3 text-xs text-gray-700">{c.onTime}</td>
-                      <td className="py-3 pr-3 text-xs text-gray-700">{c.avgTransit}</td>
-                      <td className="py-3 text-xs text-gray-700">{c.costPerShip}</td>
+                      <td className="py-3 pr-3 text-xs  text-gray-800 font-medium">{c.name}</td>
+                      <td className="py-3 pr-3 text-xs text-center text-gray-700 font-semibold">{c.shipments}</td>
+                      <td className="py-3 pr-3 text-xs text-center text-gray-700 font-semibold">{c.onTime}</td>
+                      <td className="py-3 pr-3 text-xs text-center text-gray-700 font-semibold">{c.avgTransit}</td>
+                      <td className="py-3 text-xs text-center text-gray-700 font-semibold">{c.costPerShip}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -365,8 +366,8 @@ export default function AnalyticsTrends() {
             </div>
           </Card>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            <Card className="p-4">
+          {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4"> */}
+            <Card className="p-4  flex flex-col items-center justify-start gap-7">
               <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-3">Shipment Status Overview</h3>
               <div className="flex flex-col sm:flex-row lg:flex-col xl:flex-row items-center gap-4">
                 <div className="relative flex-shrink-0">
@@ -393,10 +394,11 @@ export default function AnalyticsTrends() {
                 </div>
               </div>
             </Card>
-
-            <Card className="p-4">
-              <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-3">Insights</h3>
-              <div className="space-y-3">
+           
+            <Card className="p-4  ">
+              <div className="flex flex-col gap-6">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-3">Insights</h3>
+              <div className="space-y-3 ">
                 {insights.map((ins, i) => (
                   <div key={i} className="flex items-start gap-2.5">
                     <div className={`w-7 h-7 rounded-full ${ins.color} ${ins.iconColor} flex items-center justify-center flex-shrink-0 mt-0.5`}>{ins.icon}</div>
@@ -407,9 +409,13 @@ export default function AnalyticsTrends() {
                   </div>
                 ))}
               </div>
-              <button className="mt-4 w-full border border-teal-500 text-teal-600 text-xs sm:text-sm font-semibold rounded-lg py-2.5 hover:bg-teal-50 transition-colors">View All Insights</button>
+              
+              <div>
+                 <button className="mt-4 w-full border border-teal-500 text-teal-600 text-xs  font-bold rounded-lg py-2.5 hover:bg-teal-50 transition-colors">View All Insights</button> </div>
+               </div>
+            
             </Card>
-          </div>
+          {/* </div> */}
         </div>
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 bg-white rounded-xl border border-gray-100 shadow-sm px-4 py-3">

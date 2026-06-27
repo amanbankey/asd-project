@@ -1,6 +1,10 @@
 import React from "react";
 
-// ─── Icon helper (inline SVGs) ───────────────────────────────────────────────
+import plane from "../../assets/Images/webp/plane.webp"
+import blueship from "../../assets/Images/webp/blueship.webp"
+import orangeship from "../../assets/Images/webp/orangeship.webp"
+import NeedHelp from "../../components/core/NeedHelp";
+
 
 const Icon = ({ d, d2, className = "w-4 h-4", viewBox = "0 0 24 24", fill = "none", stroke = "currentColor" }) => (
   <svg className={className} fill={fill} stroke={stroke} viewBox={viewBox}>
@@ -26,19 +30,19 @@ function Breadcrumb() {
 function HeaderActions() {
   return (
     <div className="flex flex-wrap gap-2">
-      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-gray-50">
+      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-xs font-bold flex items-center gap-2 hover:bg-gray-50">
         <Icon d="M10 19l-7-7m0 0l7-7m-7 7h18" />
         New Query
       </button>
-      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-gray-50">
+      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-xs font-bold flex items-center gap-2 hover:bg-gray-50">
         <Icon d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         Save Report
       </button>
-      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-sm font-medium flex items-center gap-2 hover:bg-gray-50">
+      <button className="px-4 py-2 bg-white border border-gray-200 rounded-md text-xs font-bold flex items-center gap-2 hover:bg-gray-50">
         <Icon d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
         Download Report (PDF)
       </button>
-      <button className="px-4 py-2 bg-teal-600 text-white rounded-md text-sm font-medium hover:bg-teal-700">
+      <button className="px-4 py-2 bg-teal-600 text-white rounded-md text-xs font-bold hover:bg-teal-700">
         Create Shipment from this Result
       </button>
     </div>
@@ -49,7 +53,7 @@ function AiBanner() {
   return (
     <div className="bg-teal-50 border border-teal-200 p-3 rounded-md flex items-center gap-3 mb-6">
       <Icon d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" className="w-5 h-5 text-teal-600" />
-      <p className="text-sm text-teal-700 font-medium">
+      <p className="text-xs text-teal-700 font-medium">
         This result is AI-generated based on the data sources and assumptions listed below. Please review before making any trade decisions.
       </p>
     </div>
@@ -63,22 +67,23 @@ function SearchSummary() {
     { label: "Shipment Type", value: "Air Freight" },
     { label: "Commodity", value: "T-shirt, 100% Cotton" },
     { label: "Weight / Volume", value: "500kg" },
+      { label: "Incotern", value: "FOB" },
   ];
 
   return (
     <section className="bg-white border border-gray-200 rounded-lg p-5">
       <div className="flex items-start justify-between">
-        <div className="flex gap-4">
-          <div className="p-3 bg-blue-50 rounded-lg">
+        <div className="flex gap-4 items-center ">
+          <div className="p-2 bg-blue-50 rounded-lg">
             <Icon d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" className="w-6 h-6 text-blue-600" />
           </div>
           <div>
-            <h3 className="font-bold text-lg">Your Search</h3>
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-y-4 gap-x-8 mt-4 text-sm">
+            <h3 className="font-bold text-sm">Your Search</h3>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-y-3 gap-x-4 mt-4 text-sm">
               {fields.map(({ label, value }) => (
                 <div key={label}>
-                  <p className="text-gray-500 uppercase text-[10px] font-bold tracking-wider mb-1">{label}</p>
-                  <p className="font-semibold">{value}</p>
+                  <p className="text-gray-500 uppercase text-[9px] font-bold tracking-wider mb-1">{label}</p>
+                  <p className="font-bold text-xs">{value}</p>
                 </div>
               ))}
             </div>
@@ -86,10 +91,10 @@ function SearchSummary() {
         </div>
       </div>
       <div className="mt-6 pt-4 border-t border-gray-200 flex flex-col md:flex-row md:items-center justify-between text-xs text-gray-500 gap-4">
-        <div className="flex gap-4">
-          <span>Search ID: <span className="font-mono">INC-2025-04-24-000123</span></span>
-          <span>• 24 Apr 2025, 09:25 AM</span>
-          <span>• User: Arjun Soni</span>
+        <div className="flex gap-4 text-[#94A3B8] text-xs">
+          <span className="text-xs">Search ID: <span className="font-mono">INC-2025-04-24-000123</span></span>
+          <span className="text-xs">• 24 Apr 2025, 09:25 AM</span>
+          <span className="text-xs">• User: Arjun Soni</span>
         </div>
         <button className="flex items-center gap-1 border border-gray-200 px-2 py-1 rounded hover:bg-gray-50">
           <Icon d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" className="w-3 h-3" />
@@ -102,23 +107,23 @@ function SearchSummary() {
 
 function FreightCard({ badge, badgeClass, outerBorderClass, iconBg, iconColor, iconD, title, subtitle, subtitleColor, price, priceColor, departure, arrival, viewBtnClass, viewBorderClass, viewHoverClass }) {
   return (
-    <div className={`border-2 rounded-xl p-5 relative ${outerBorderClass}`}>
-      <span className={`absolute top-3 right-3 text-[10px] font-bold px-2 py-1 rounded-full uppercase ${badgeClass}`}>{badge}</span>
+    <div className={`border-2 rounded-xl p-3 py-4 relative ${outerBorderClass}`}>
+      <span className={`absolute top-1 right-1   text-[10px] font-bold px-2 py-1 rounded-full uppercase ${badgeClass}`}>{badge}</span>
       <div className="flex items-center gap-3 mb-4">
         <div className={`w-12 h-12 rounded-full flex items-center justify-center border ${iconBg}`}>
-          <Icon d={iconD} className={`w-6 h-6 ${iconColor}`} />
+          <img src={iconD} />
         </div>
         <div>
-          <h4 className="font-bold text-lg">{title}</h4>
-          <p className={`text-xs font-medium ${subtitleColor}`}>{subtitle}</p>
+          <h4 className="font-bold text-sm">{title}</h4>
+          <p className={`text-[10px] font-medium ${subtitleColor}`}>{subtitle}</p>
         </div>
       </div>
-      <div className={`text-2xl font-bold mb-4 ${priceColor}`}>{price}</div>
+      <div className={`text-xl font-bold mb-4 ${priceColor}`}>{price}</div>
       <div className="grid grid-cols-3 gap-2 text-[10px] text-gray-500 mb-4">
         {[["Transit Time", "3 - 5 Days"], ["Est. Departure", departure], ["Est. Arrival", arrival]].map(([lbl, val]) => (
           <div key={lbl}>
-            <p className="uppercase font-bold mb-1">{lbl}</p>
-            <p className="text-gray-900 font-semibold">{val}</p>
+            <p className="uppercase text-[9px] font-bold mb-1">{lbl}</p>
+            <p className="text-gray-900 text-[9px] font-semibold">{val}</p>
           </div>
         ))}
       </div>
@@ -138,12 +143,12 @@ function FreightOptions() {
       outerBorderClass: "border-teal-200",
       iconBg: "bg-green-50 border-green-100",
       iconColor: "text-green-600",
-      iconD: "M12 19l9 2-9-18-9 18 9-2zm0 0v-8",
+      iconD: plane,
       title: "Air Freight",
       subtitle: "Fastest Delivery",
       subtitleColor: "text-green-600",
       price: "₹24,860",
-      priceColor: "text-teal-600",
+      priceColor: "text-green-600",
       departure: "26 Apr 2025",
       arrival: "30 Apr 2025",
       viewBtnClass: "text-teal-600",
@@ -156,7 +161,7 @@ function FreightOptions() {
       outerBorderClass: "border-gray-200",
       iconBg: "bg-blue-50 border-blue-100",
       iconColor: "text-blue-600",
-      iconD: "M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+      iconD: blueship,
       title: "Sea Freight (LCL)",
       subtitle: "Cost Effective",
       subtitleColor: "text-blue-600",
@@ -174,7 +179,7 @@ function FreightOptions() {
       outerBorderClass: "border-gray-200",
       iconBg: "bg-orange-50 border-orange-100",
       iconColor: "text-orange-600",
-      iconD: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+      iconD: orangeship,
       title: "Sea Freight (FCL)",
       subtitle: "Lowest Cost",
       subtitleColor: "text-orange-600",
@@ -192,9 +197,9 @@ function FreightOptions() {
     <section className="bg-white border border-gray-200 rounded-lg overflow-hidden">
       {/* Tabs */}
       <div className="flex border-b border-gray-200">
-        <button className="px-6 py-4 text-sm font-semibold text-teal-600 border-b-2 border-teal-600">Freight Options</button>
-        <button className="px-6 py-4 text-sm font-semibold text-gray-500 hover:text-gray-900">Cost Breakdown</button>
-        <button className="px-6 py-4 text-sm font-semibold text-gray-500 hover:text-gray-900">Transit Time Comparison</button>
+        <button className="px-6 py-4 text-xs font-semibold text-teal-600 border-b-2 border-teal-600">Freight Options</button>
+        <button className="px-6 py-4 text-xs font-semibold text-gray-500 hover:text-gray-900">Cost Breakdown</button>
+        <button className="px-6 py-4 text-xs font-semibold text-gray-500 hover:text-gray-900">Transit Time Comparison</button>
         <div className="ml-auto flex items-center pr-4">
           <span className="text-xs text-gray-500 mr-2">Currency:</span>
           <select className="text-xs font-bold border-gray-200 rounded px-2 py-1">
@@ -240,13 +245,13 @@ function CostBreakdown() {
         </div>
         {items.map(({ label, amount }, i) => (
           <div key={label} className={`flex justify-between text-xs font-medium ${i === 0 ? "border-t border-gray-100 pt-3" : ""}`}>
-            <span>{label}</span>
-            <span>{amount}</span>
+            <span className="text-[#475569] font-medium">{label}</span>
+            <span className="text-[#1E293B] font-semibold">{amount}</span>
           </div>
         ))}
         <div className="flex justify-between text-sm font-bold text-teal-600 border-t-2 border-teal-100 pt-3 mt-4">
-          <span>Total Estimated Cost</span>
-          <span>₹24,860</span>
+          <span className="text-[#059669] text-xs">Total Estimated Cost</span>
+          <span className="text-[#059669] text-xs">₹24,860</span>
         </div>
       </div>
     </div>
@@ -271,7 +276,7 @@ function KeyAssumptions() {
         {items.map((item) => (
           <li key={item} className="flex items-start gap-2 text-[10px] font-medium">
             <Icon d="M5 13l4 4L19 7" className="w-3 h-3 text-green-500 mt-0.5 shrink-0" />
-            <span>{item}</span>
+            <span className="text-[#475569]">{item}</span>
           </li>
         ))}
       </ul>
@@ -297,11 +302,11 @@ function DataSources() {
             <div className="w-8 h-8 bg-gray-100 rounded flex items-center justify-center">
               <Icon d={d} d2={d2} className="w-4 h-4 text-gray-500" />
             </div>
-            <span className="text-xs font-semibold">{label}</span>
+              <span className="text-xs  text-[#475569] font-semibold">{label}</span>
           </div>
         ))}
         <div className="mt-4">
-          <a href="#" className="text-teal-600 text-xs font-bold hover:underline">View All Sources</a>
+          <a href="#" className="text-[#059669] text-xs font-bold hover:underline">View All Sources</a>
         </div>
       </div>
     </div>
@@ -321,7 +326,7 @@ function ResultSummary() {
 
   return (
     <section className="bg-white border border-gray-200 rounded-lg p-5">
-      <h3 className="font-bold text-lg mb-6">Result Summary</h3>
+      <h3 className="font-bold text-sm mb-6">Result Summary</h3>
       <div className="space-y-4">
         {rows.map(({ iconD, iconColor, label, value }) => (
           <div key={label} className="flex items-center gap-3">
@@ -329,13 +334,13 @@ function ResultSummary() {
               <Icon d={iconD} className="w-5 h-5" />
             </div>
             <div className="flex-1 flex justify-between">
-              <span className="text-sm font-medium text-gray-500">{label}</span>
-              <span className="text-sm font-bold text-right">{value}</span>
+              <span className="text-xs font-medium text-gray-500">{label}</span>
+              <span className="text-xs font-bold text-right">{value}</span>
             </div>
           </div>
         ))}
       </div>
-      <button className="w-full bg-teal-600 text-white font-bold py-3 rounded-lg mt-6 hover:bg-teal-700">
+      <button className="w-full bg-teal-600 text-white font-bold py-3  text-xs rounded-lg mt-6 hover:bg-teal-700">
         Create Shipment from this Result
       </button>
     </section>
@@ -362,7 +367,8 @@ function ReportInformation() {
           </div>
         ))}
       </div>
-      <button className="w-full border border-teal-600 text-teal-600 font-bold py-2.5 rounded-lg mt-6 flex items-center justify-center gap-2 hover:bg-teal-50">
+      <button className="w-full border border-teal-600 text-teal-600 font-bold  text-xs
+      py-2.5 rounded-lg mt-6 flex items-center justify-center gap-2 hover:bg-teal-50">
         <Icon d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
         Download Report (PDF)
       </button>
@@ -422,81 +428,30 @@ function AuditLog() {
 
 function PageFooter() {
   return (
-    <footer className="mt-12 border-t border-gray-200 pt-8 pb-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <footer className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 ">
+      <div className=" bg-white border px-4 py-4 rounded-lg border-gray-200">
         <div>
           <h4 className="font-bold text-sm mb-2">Disclaimer</h4>
           <p className="text-xs text-gray-500 leading-relaxed max-w-lg">
             Freight rates are indicative and subject to change without prior notice. Please verify with shipping lines or freight forwarders before booking.
           </p>
           <a href="#" className="text-teal-600 text-xs font-bold mt-2 inline-block">Read Full Disclaimer</a>
-        </div>
-        <div className="flex flex-col md:items-end">
-          <div className="bg-gray-100 p-4 rounded-lg flex items-center gap-4">
-            <div className="text-teal-600">
-              <Icon
-                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
-                className="w-6 h-6"
-              />
-            </div>
-            <div>
-              <p className="text-xs font-bold">Need Help?</p>
-              <p className="text-[10px] text-gray-500">Our trade experts are here to help you.</p>
-              <p className="text-xs font-bold mt-1 text-teal-600">+91 22 12345678</p>
-            </div>
-          </div>
-        </div>
+        </div> 
       </div>
+
+       <div className="bg-white flex rounded-xl border border-gray-200 px-4">
+          <NeedHelp mobile={"+91 22 1234 5678"} para={" Our trade experts are here to help you."} heading={"Need help ?"}  />     
+        </div>
+
     </footer>
   );
 }
 
-function AiAssistantBar() {
-  return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-3xl bg-white shadow-2xl border border-gray-200 rounded-full py-3 px-6 flex items-center justify-between gap-4 z-50">
-      <div className="flex items-center gap-4">
-        {/* Send / plane icon */}
-        <button className="text-blue-500">
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-          </svg>
-        </button>
-        {/* Chat icon */}
-        <button className="text-gray-400">
-          <Icon d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" className="w-6 h-6" />
-        </button>
-        <div className="h-6 w-px bg-gray-200" />
-        <input
-          className="border-none focus:ring-0 text-sm w-full md:w-64 outline-none bg-transparent"
-          placeholder="Ask AI to edit or compare..."
-          type="text"
-        />
-      </div>
-      <div className="flex items-center gap-2">
-        <button className="bg-blue-600 text-white px-6 py-2 rounded-full text-sm font-bold whitespace-nowrap">
-          Ask to edit
-        </button>
-        <div className="h-6 w-px bg-gray-200 mx-2" />
-        <button className="text-gray-400">
-          <Icon d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" className="w-5 h-5" />
-        </button>
-        <button className="text-gray-400">
-          <Icon d="M4 6h16M4 12h16m-7 6h7" className="w-5 h-5" />
-        </button>
-        <button className="text-gray-400">
-          <Icon d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" className="w-5 h-5" />
-        </button>
-      </div>
-    </div>
-  );
-}
-
-// ─── Main Page ───────────────────────────────────────────────────────────────
 
 export default function FreightCalculatorResult() {
 
   return (
-    <div className="bg-gray-50 font-sans text-gray-900 antialiased overflow-y-auto">
+    <div className="bg-gray-50 font-sans text-gray-900 antialiased overflow-y-auto pt-10 ">
       <div className="max-w-[1440px] mx-auto p-4 md:p-6 lg:p-8">
 
         {/* Header */}
@@ -504,8 +459,8 @@ export default function FreightCalculatorResult() {
           <Breadcrumb />
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-gray-900">Freight Calculator</h1>
-              <p className="text-gray-500">Get accurate freight estimates and compare the best shipping options.</p>
+              <h1 className="text-xl font-bold text-gray-900">Freight Calculator</h1>
+              <p className="text-gray-500 text-xs ">Get accurate freight estimates and compare the best shipping options.</p>
             </div>
             <HeaderActions />
           </div>
@@ -540,11 +495,8 @@ export default function FreightCalculatorResult() {
 
         {/* Footer */}
         <PageFooter />
-
+         
       </div>
-
-      {/* Floating AI Bar */}
-      <AiAssistantBar />
     </div>
   );
 }

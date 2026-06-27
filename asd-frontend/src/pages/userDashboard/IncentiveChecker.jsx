@@ -90,7 +90,7 @@ export default function IncentiveChecker() {
   }
 
   return (
-    <div className=" bg-gray-50 font-sans flex-1 overflow-y-auto">
+    <div className=" bg-gray-50 font-sans flex-1 overflow-y-auto pt-14">
       <div className="bg-white border-b border-gray-200 px-4 sm:px-6 py-3">
         <div className="flex items-center gap-1.5 text-xs text-gray-500 mb-3">
           <span>Dashboard</span>
@@ -168,7 +168,7 @@ export default function IncentiveChecker() {
             <p className="text-sm font-semibold text-gray-800 mb-3">Estimated Total Incentive (INR)</p>
             <div className="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-4 items-center">
               <div>
-                <p className="text-3xl font-bold text-gray-900">₹8,420</p>
+                <p className="text-2xl font-bold text-gray-900">₹8,420</p>
                 <div className="mt-2 flex items-center gap-1.5">
                   <span className="text-[11px] text-gray-500 font-medium">Total Incentive Rate</span>
                   <span className="bg-teal-100 text-teal-700 text-[11px] font-semibold px-2 py-0.5 rounded-full">6.76%</span>
@@ -177,7 +177,7 @@ export default function IncentiveChecker() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="border border-gray-100 rounded-xl p-3 flex items-start gap-3">
                   <div className="w-9 h-9 bg-teal-50 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MdOutlineAccountBalance className="text-teal-500 text-lg" />
+                    <MdOutlineAccountBalance className="text-teal-500 text-2xl" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 font-medium">Central Incentives</p>
@@ -187,7 +187,7 @@ export default function IncentiveChecker() {
                 </div>
                 <div className="border border-gray-100 rounded-xl p-3 flex items-start gap-3">
                   <div className="w-9 h-9 bg-red-50 rounded-full flex items-center justify-center flex-shrink-0">
-                    <MdOutlineLocationOn className="text-red-400 text-lg" />
+                    <MdOutlineLocationOn className="text-red-400 text-2xl" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 font-medium">State Incentives</p>
@@ -197,7 +197,7 @@ export default function IncentiveChecker() {
                 </div>
                 <div className="border border-gray-100 rounded-xl p-3 flex items-start gap-3">
                   <div className="w-9 h-9 bg-blue-50 rounded-full flex items-center justify-center flex-shrink-0">
-                    <BsGraphUpArrow className="text-blue-400 text-lg" />
+                    <BsGraphUpArrow className="text-blue-400 text-2xl" />
                   </div>
                   <div>
                     <p className="text-[10px] text-gray-500 font-medium">Export Benefits</p>

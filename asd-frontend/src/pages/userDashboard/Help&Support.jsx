@@ -5,6 +5,8 @@ import {
   HelpCircle, ShieldCheck, FileText, Compass,
   Layers, Package, FileCode2, CircleDollarSign
 } from 'lucide-react';
+import { BookOpen, Phone, MessageSquareMore  } from 'lucide-react';
+
 import Swal from 'sweetalert2';
 
 export default function HelpSupportDashboard() {
@@ -82,7 +84,7 @@ export default function HelpSupportDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans p-6">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans p-6 pt-20">
       
       <div className="text-xs text-slate-400 mb-3 flex items-center gap-1.5 tracking-wide">
         <span>Dashboard</span>
@@ -94,12 +96,12 @@ export default function HelpSupportDashboard() {
         
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Help & Support</h1>
+            <h1 className="text-xl font-bold text-slate-900 tracking-tight">Help & Support</h1>
             <p className="text-xs text-slate-500 mt-0.5">How can we help you today?</p>
           </div>
           <button 
             onClick={handleCreateTicket}
-            className="flex items-center gap-2 px-4 py-2.5 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-all shadow-sm shrink-0"
+            className="flex items-center gap-2 px-4 py-2.5 text-xs font-bold text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-all shadow-sm shrink-0"
           >
             <Plus className="w-4 h-4" /> Create Support Ticket
           </button>
@@ -109,51 +111,53 @@ export default function HelpSupportDashboard() {
           <div className="bg-white border border-slate-100 rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between group">
             <div className="flex items-center gap-4">
               <div className="p-3.5 bg-teal-50 rounded-full text-teal-600 transition-colors">
-                <ShieldCheck className="w-6 h-6 stroke-[1.75]" />
+                <Phone  className="w-6 h-6 stroke-[1.75]" />
               </div>
               <div>
-                <span className="text-lg font-semibold text-slate-500 block">My Tickets</span>
-                <span className="text-2xl font-bold text-slate-900 block mt-0.5">{tickets.length}</span>
+                <span className="text-sm font-semibold text-slate-500 block">My Tickets</span>
+                <span className="text-xl font-bold text-slate-900 block mt-0.5">{tickets.length}</span>
                 <span className="text-[11px] text-slate-400 font-medium">Open Tickets</span>
-              </div>
-            </div>
-            <button onClick={() => Swal.fire({title:'Tickets', text:'Viewing filtered active list below.', icon:'info', confirmButtonColor:'#0f766e'})} className="text-l font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1">
+                  <button onClick={() => Swal.fire({title:'Tickets', text:'Viewing filtered active list below.', icon:'info', confirmButtonColor:'#0f766e'})} className="text-l text-xs font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1">
               View All Tickets <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
+              </div>
+            </div>
+          
           </div>
 
           <div className="bg-white border border-slate-100 rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between group">
             <div className="flex items-center gap-4">
               <div className="p-3.5 bg-purple-50 rounded-full text-purple-600">
-                <FileText className="w-6 h-6 stroke-[1.75]" />
+                <BookOpen className="w-6 h-6 stroke-[1.75]" />
               </div>
               <div>
-                <span className="text-lg font-semibold text-slate-500 block">Knowledge Base</span>
-                <span className="text-2xl font-bold text-slate-900 block mt-0.5">25</span>
+                <span className="text-sm font-semibold text-slate-500 block">Knowledge Base</span>
+                <span className="text-xl font-bold text-slate-900 block mt-0.5">25</span>
                 <span className="text-[11px] text-slate-400 font-medium">Help Articles</span>
-              </div>
-            </div>
-            <button onClick={() => Swal.fire({title:'Articles', text:'Redirecting to documentation portal.', icon:'success', confirmButtonColor:'#0f766e'})} className="text-l font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1">
+               <button onClick={() => Swal.fire({title:'Articles', text:'Redirecting to documentation portal.', icon:'success', confirmButtonColor:'#0f766e'})} className="text-l  text-xs font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1">
               Browse Articles <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
-            </button>
+            </button> </div>
+            </div>
+            
+          
           </div>
 
           <div className="bg-white border border-slate-100 rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex items-center justify-between group">
             <div className="flex items-center gap-4">
               <div className="p-3.5 bg-orange-50 rounded-full text-orange-500">
-                <MessageSquare className="w-6 h-6 stroke-[1.75]" />
+                <MessageSquareMore  ageSquare className="w-6 h-6 stroke-[1.75]" />
               </div>
               <div>
-                <span className="text-lg font-semibold text-slate-500 block">Live Support</span>
+                <span className="text-sm font-semibold text-slate-500 block">Live Support</span>
                 <span className="text-base font-bold text-emerald-600 block mt-1.5 flex items-center gap-1">
-                  <span className="h-2 w-2 rounded-full bg-emerald-500 inline-block animate-pulse"></span> Available
+                  <span className="h-2 w-2  text-lg rounded-full bg-emerald-500 inline-block animate-pulse"></span> Available
                 </span>
                 <span className="text-[11px] text-slate-400 font-medium mt-0.5 block">Mon - Sat | 9:00 AM - 6:00 PM</span>
-              </div>
-            </div>
-            <button onClick={handleLiveChat} className="text-l font-bold text-teal-700 hover:text-teal-800 flex items-center gap-1">
+            <button onClick={handleLiveChat} className="text-l font-bold text-xs text-teal-700 hover:text-teal-800 flex items-center gap-1">
               Start Live Chat <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
-            </button>
+            </button>  </div>
+            </div>
+            
           </div>
         </div>
 
@@ -176,14 +180,14 @@ export default function HelpSupportDashboard() {
             </div>
 
             <div className="space-y-3">
-              <span className="text-[15px] font-bold tracking-wider uppercase text-slate-900 block">Popular Topics</span>
+              <span className="text-xs font-bold tracking-wider uppercase text-slate-900 block">Popular Topics</span>
               <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
                 
                 <div onClick={() => Swal.fire({title:'Shipments Help', text:'Loading related queries...', timer:1000, showConfirmButton:false})} className="border border-slate-100 rounded-xl p-5 text-center flex flex-col items-center justify-center cursor-pointer hover:border-teal-500 hover:shadow-sm transition-all bg-white">
                   <div className="p-2.5 bg-emerald-50 text-emerald-600 rounded-lg mb-3">
                     <Package className="w-5 h-5 stroke-[2]" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800">Shipments</h4>
+                  <h4 className="text-xs font-bold text-slate-800">Shipments</h4>
                   <p className="text-[11px] text-slate-400 mt-1 leading-normal max-w-[140px]">Tracking, delays, delivery and status updates.</p>
                 </div>
 
@@ -191,7 +195,7 @@ export default function HelpSupportDashboard() {
                   <div className="p-2.5 bg-blue-50 text-blue-600 rounded-lg mb-3">
                     <FileText className="w-5 h-5 stroke-[2]" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800">Documents</h4>
+                  <h4 className="text-xs font-bold text-slate-800">Documents</h4>
                   <p className="text-[11px] text-slate-400 mt-1 leading-normal max-w-[140px]">Invoices, packing list, certificates & more.</p>
                 </div>
 
@@ -199,7 +203,7 @@ export default function HelpSupportDashboard() {
                   <div className="p-2.5 bg-orange-50 text-orange-500 rounded-lg mb-3">
                     <FileCode2 className="w-5 h-5 stroke-[2]" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-800">HS Codes</h4>
+                  <h4 className="text-xs font-bold text-slate-800">HS Codes</h4>
                   <p className="text-[11px] text-slate-400 mt-1 leading-normal max-w-[140px]">Classification, lookup and related queries.</p>
                 </div>
 
@@ -224,7 +228,7 @@ export default function HelpSupportDashboard() {
                   <PhoneCall className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-l font-semibold text-slate-700 block">Phone Support</span>
+                  <span className="text-sm font-bold text-slate-700 block">Phone Support</span>
                   <span className="text-xs text-slate-500 block mt-0.5 font-medium">+91 22 1234 5678</span>
                 </div>
               </div>
@@ -234,7 +238,7 @@ export default function HelpSupportDashboard() {
                   <Mail className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-l font-semibold text-slate-700 block">Email Support</span>
+                  <span className="text-sm font-bold text-slate-700 block">Email Support</span>
                   <span className="text-xs text-slate-500 block mt-0.5 font-medium">support@asdcargomate.com</span>
                 </div>
               </div>
@@ -244,7 +248,7 @@ export default function HelpSupportDashboard() {
                   <MessageSquare className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-l font-semibold text-slate-700 block">Live Chat</span>
+                  <span className="text-sm font-bold text-slate-700 block">Live Chat</span>
                   <span className="text-[11px] bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded font-bold mt-1 inline-block">Available Now</span>
                 </div>
               </div>
@@ -254,7 +258,7 @@ export default function HelpSupportDashboard() {
                   <Clock className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-l font-semibold text-slate-700 block">Working Hours</span>
+                  <span className="text-sm font-bold text-slate-700 block">Working Hours</span>
                   <span className="text-xs text-slate-500 block mt-0.5 font-medium">Mon - Sat | 9:00 AM - 6:00 PM</span>
                 </div>
               </div>
@@ -266,7 +270,7 @@ export default function HelpSupportDashboard() {
           
           <div className="lg:col-span-4 bg-white border border-slate-100 rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
             <div>
-              <h2 className="text-lg font-bold text-slate-900 mb-4">Recent Support Tickets</h2>
+              <h2 className="text-base font-bold text-slate-900 mb-4">Recent Support Tickets</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
@@ -308,14 +312,14 @@ export default function HelpSupportDashboard() {
               </div>
             </div>
             
-            <button onClick={() => Swal.fire({title:'All Tickets', text:'Paginated historical logs view initialized.', confirmButtonColor:'#0f766e'})} className="w-full text-center text-l font-bold text-teal-500 hover:text-teal-800 pt-4 mt-2 border-t border-slate-50 flex items-center justify-center gap-1">
+            <button onClick={() => Swal.fire({title:'All Tickets', text:'Paginated historical logs view initialized.', confirmButtonColor:'#0f766e'})} className="w-full text-center text-l text-xs font-bold text-teal-500 hover:text-teal-800 pt-4 mt-2 border-t border-slate-50 flex items-center justify-center gap-1">
               View All Tickets <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
           </div>
 
           <div className="lg:col-span-3 bg-white border border-slate-100 rounded-xl p-5 shadow-[0_2px_8px_rgba(0,0,0,0.02)] flex flex-col justify-between">
             <div>
-              <h2 className="text-lg font-bold text-slate-900 mb-3">Popular Help Articles</h2>
+              <h2 className="text-base font-bold text-slate-900 mb-3">Popular Help Articles</h2>
               
               <div className="divide-y divide-slate-50">
                 {[
@@ -336,7 +340,7 @@ export default function HelpSupportDashboard() {
               </div>
             </div>
 
-            <button onClick={() => Swal.fire({title:'Documentation Base', text:'Opening all 25 indexed learning modules.', confirmButtonColor:'#0f766e'})} className="w-full text-center text-l font-bold text-teal-500 hover:text-teal-800 pt-4 border-t border-slate-50 flex items-center justify-center gap-1">
+            <button onClick={() => Swal.fire({title:'Documentation Base', text:'Opening all 25 indexed learning modules.', confirmButtonColor:'#0f766e'})} className="w-full text-center text-l text-xs font-bold text-teal-500 hover:text-teal-800 pt-4 border-t border-slate-50 flex items-center justify-center gap-1">
               View All Articles <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
           </div>

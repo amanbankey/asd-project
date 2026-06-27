@@ -5,6 +5,7 @@ import {
   Info, ShieldAlert
 } from 'lucide-react';
 import Swal from 'sweetalert2';
+import world from "../../assets/Images/webp/world.webp"
 
 const INITIAL_ALERTS = [
   {
@@ -205,7 +206,7 @@ export default function NotificationDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-6">
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans p-6 pt-20">
       <div className="text-sm text-slate-500 mb-4 flex items-center gap-2">
         <span>Dashboard</span>
         <span>&gt;</span>
@@ -219,17 +220,17 @@ export default function NotificationDashboard() {
           {/* Header Section */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
-              <h1 className="text-2xl font-bold text-slate-900">Manage your alerts</h1>
-              <p className="text-sm text-slate-500 mt-1">System updates, task reminders, and operational milestones.</p>
+              <h1 className="text-xl font-bold text-slate-900">Manage your alerts</h1>
+              <p className="text-xs text-slate-500 mt-1">System updates, task reminders, and operational milestones.</p>
             </div>
             <div className="flex items-center gap-3">
               <button 
                 onClick={() => Swal.fire({ title: 'Settings', text: 'Notification configuration panel coming soon.', icon: 'info', confirmButtonColor: '#0f766e' })}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-slate-700 bg-white border border-slate-200 rounded-lg hover:bg-slate-50 transition-colors shadow-sm"
               >
                 <Settings className="w-4 h-4 text-slate-500" /> Notification Settings
               </button>
-              <button onClick={handleClearAll} className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-colors shadow-sm">
+              <button onClick={handleClearAll} className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-white bg-teal-700 hover:bg-teal-800 rounded-lg transition-colors shadow-sm">
                 <Trash2 className="w-4 h-4" /> Clear All
               </button>
             </div>
@@ -272,7 +273,7 @@ export default function NotificationDashboard() {
                       <div className="flex items-start justify-between gap-4">
                         <div>
                           <h3 className="font-bold text-slate-900 text-base">{alert.title}</h3>
-                          <p className="text-sm text-slate-600 mt-1">{alert.message}</p>
+                          <p className="text-xs text-slate-600 mt-1">{alert.message}</p>
                         </div>
                         <div className="flex items-center gap-2 shrink-0">
                           <span className="text-xs text-slate-400">{alert.time}</span>
@@ -281,7 +282,7 @@ export default function NotificationDashboard() {
                         </div>
                       </div>
                       <div className="flex items-center gap-4 mt-4">
-                        <button onClick={() => handleActionClick(alert)} className={`${colors.text} font-semibold text-sm flex items-center gap-1.5`}>
+                        <button onClick={() => handleActionClick(alert)} className={`${colors.text} font-semibold text-xs flex items-center gap-1.5`}>
                           {alert.urgency === 'critical' && <AlertTriangle className="w-4 h-4" />}
                           {alert.actionText} {alert.colorClass === 'teal' && '→'}
                         </button>
@@ -370,7 +371,7 @@ export default function NotificationDashboard() {
           <div className="bg-teal-50/50 border border-teal-100/60 rounded-xl p-5 shadow-sm space-y-4">
             <h2 className="text-xs font-bold uppercase tracking-wider text-slate-500">Automation</h2>
             <div>
-              <h3 className="font-bold text-teal-950 text-sm">Smart Digest</h3>
+              <h3 className="font-bold text-teal-700 text-sm">Smart Digest</h3>
               <p className="text-xs text-teal-800/80 mt-1 leading-relaxed">Get a daily summary of low-priority alerts at 8:00 AM.</p>
             </div>
             <button onClick={handleEnableDigest} className="w-full bg-teal-700 hover:bg-teal-800 text-white font-medium text-sm py-2.5 rounded-lg transition-colors shadow-sm">
@@ -379,40 +380,9 @@ export default function NotificationDashboard() {
           </div>
 
 
-          <div className="rounded-2xl overflow-hidden h-40 bg-[#06121a] border border-slate-100 shadow-sm relative flex items-center justify-center p-2">
-
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0c1e29] to-[#050f14]"></div>
-            <div className="absolute inset-0 opacity-10 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:8px_8px]"></div>
-
-
-            <svg 
-              className="w-full h-full text-cyan-600/70 drop-shadow-[0_0_8px_rgba(13,148,136,0.3)]" 
-              viewBox="0 0 1008 651" 
-              fill="currentColor" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M165,160 L180,150 L210,155 L225,170 L240,165 L260,180 L290,175 L305,190 L300,210 L280,225 L250,230 L235,250 L245,270 L260,275 L280,260 L295,275 L285,300 L260,315 L245,340 L250,360 L265,370 L260,390 L280,410 L295,440 L315,480 L320,520 L330,550 L345,580 L355,610 L350,625 L340,620 L330,590 L315,570 L300,550 L285,530 L280,500 L265,480 L250,460 L248,430 L255,400 L245,380 L230,370 L215,350 L200,345 L185,320 L190,300 L205,290 L210,270 L195,255 L175,250 L160,240 L150,225 L145,200 L140,180 Z" />
-              <path d="M420,310 L440,290 L465,280 L490,295 L520,310 L540,320 L555,340 L560,365 L575,390 L585,415 L580,430 L565,450 L560,480 L565,510 L575,540 L580,570 L585,600 L580,620 L570,630 L560,610 L555,580 L550,550 L545,520 L535,490 L520,470 L505,455 L485,450 L465,452 L445,455 L430,440 L425,415 L415,390 L408,370 L412,340 L410,325 Z" />
-              <path d="M430,270 L450,250 L470,230 L500,215 L530,220 L560,210 L590,205 L620,200 L660,195 L700,190 L740,200 L780,210 L820,215 L860,220 L895,230 L900,250 L870,265 L845,255 L820,270 L800,290 L815,315 L830,340 L845,365 L860,395 L845,410 L820,420 L800,435 L785,460 L790,480 L775,495 L760,475 L745,450 L725,445 L710,430 L695,410 L680,395 L650,390 L635,370 L610,365 L590,350 L570,340 L550,320 L530,300 L510,290 L485,285 L460,275 L445,280 Z" />
-              <path d="M750,510 L780,490 L810,495 L840,510 L860,530 L870,560 L855,590 L830,605 L805,610 L780,600 L765,580 L750,560 L745,535 Z" />
-              <path d="M720,465 Q725,460 730,468 T740,470" fill="none" stroke="currentColor" strokeWidth="12" strokeLinecap="round" />
-              <path d="M840,320 Q845,315 848,325" fill="none" stroke="currentColor" strokeWidth="10" strokeLinecap="round" />
-              <path d="M180,120 Q190,115 205,122" fill="none" stroke="currentColor" strokeWidth="8" strokeLinecap="round" />
-            </svg>
-
-            <div className="absolute top-[28%] left-[22%] z-10 group">
-              <span className="absolute inline-flex h-4 w-4 -top-1 -left-1 rounded-full bg-rose-500/40 animate-ping"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff1a4d] border border-white/30 shadow-[0_0_6px_#ff1a4d]"></span>
-            </div>
-            <div className="absolute top-[25%] left-[54%] z-10 group">
-              <span className="absolute inline-flex h-4 w-4 -top-1 -left-1 rounded-full bg-rose-500/40 animate-ping [animation-delay:0.3s]"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#ff1a4d] border border-white/30 shadow-[0_0_6px_#ff1a4d]"></span>
-            </div>
-            <div className="absolute top-[68%] left-[73%] z-10 group">
-              <span className="absolute inline-flex h-6 w-6 -top-2 -left-2 rounded-full bg-rose-500/30 animate-ping [animation-delay:0.6s]"></span>
-              <span className="absolute inline-flex h-4 w-4 -top-1 -left-1 rounded-full bg-rose-600/50"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#ff1a4d] border border-white/40 shadow-[0_0_8px_#ff1a4d]"></span>
-            </div>
+          <div className="rounded-2xl overflow-hidden object-cover  bg-[#06121a] border border-slate-100 shadow-sm  ">
+            <img src={world}  className='w-full'/>
+           
           </div>
 
         </div>

@@ -59,7 +59,7 @@ export default function ProfileSettingsDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans p-6">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-800 font-sans p-6 pt-20">
       
       <div className="text-xs text-slate-400 mb-3 flex items-center gap-1.5 tracking-wide">
         <span>Dashboard</span>
@@ -69,7 +69,7 @@ export default function ProfileSettingsDashboard() {
 
       <div className="max-w-10xl mx-auto space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">My Profile</h1>
+          <h1 className="text-xl font-bold text-slate-900 tracking-tight">My Profile</h1>
           <p className="text-xs text-slate-500 mt-0.5">Manage your personal information, account settings, and preferences.</p>
         </div>
 
@@ -98,7 +98,7 @@ export default function ProfileSettingsDashboard() {
               
               <form onSubmit={handleSaveChanges} className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 
-                <div className="flex flex-col items-center justify-start pt-2 text-center">
+                <div className="flex flex-col items-center justify-start pt-2 text-center ">
                   <div className="relative">
                     <div className="w-24 h-24 rounded-full bg-teal-600 text-white font-bold text-2xl flex items-center justify-center tracking-wider shadow-sm">
                       AS

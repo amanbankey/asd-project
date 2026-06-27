@@ -64,7 +64,7 @@ export default function SavedReports() {
   const [viewMode, setViewMode] = useState("list");
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans pt-14">
       <div className="max-w-screen-2xl mx-auto px-3 sm:px-4 md:px-6 py-4 md:py-6">
 
         <nav className="flex items-center gap-1 text-xs sm:text-sm text-gray-500 mb-3 md:mb-4">
@@ -75,19 +75,19 @@ export default function SavedReports() {
 
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 md:mb-6">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Saved Reports</h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">Create, manage, and share your saved reports and dashboards.</p>
+            <h1 className="text-xl  font-bold text-gray-900">Saved Reports</h1>
+            <p className="text-xs  text-[#213B82] mt-0.5">Create, manage, and share your saved reports and dashboards.</p>
           </div>
           <div className="flex items-center gap-2">
             <button className="flex items-center gap-1.5 border border-gray-300 bg-white text-gray-700 text-xs sm:text-sm font-medium px-3 py-2 rounded-lg hover:bg-gray-50 transition">
               <FiDownload className="text-sm" />
-              <span className="hidden xs:inline">Import Report</span>
-              <span className="xs:hidden">Import</span>
+              <span className="hidden sm:inline">Import Report</span>
+              <span className="sm:hidden">Import</span>
             </button>
             <button className="flex items-center gap-1.5 bg-teal-600 hover:bg-teal-700 text-white text-xs sm:text-sm font-medium px-3 py-2 rounded-lg transition">
               <FiPlus className="text-sm" />
-              <span className="hidden xs:inline">Create New Report</span>
-              <span className="xs:hidden">Create</span>
+              <span className="hidden sm:inline">Create New Report</span>
+              <span className="sm:hidden">Create</span>
             </button>
           </div>
         </div>
@@ -99,15 +99,16 @@ export default function SavedReports() {
                 <span className="text-lg sm:text-xl">{s.icon}</span>
               </div>
               <div className="min-w-0">
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">{s.value}</div>
+              
                 <div className="text-xs font-semibold text-gray-700 leading-tight">{s.label}</div>
+                  <div className="text-xl font-bold text-gray-900">{s.value}</div>
                 <div className="text-xs text-gray-400 mt-0.5 hidden sm:block">{s.sub}</div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mb-4 md:mb-6">
+        <div className="flex flex-col sm:flex-row items-end gap-2 sm:gap-3 mb-4 md:mb-6">
           <div className="relative flex-1">
             <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm" />
             <input
@@ -119,12 +120,15 @@ export default function SavedReports() {
           </div>
           <div className="flex gap-2 flex-wrap">
             {["Report Type", "Data Source", "Created By", "Last Modified"].map((f, i) => (
-              <select key={i} className="text-xs sm:text-sm border border-gray-200 rounded-lg bg-white px-2 sm:px-3 py-2 text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
+              <div className="flex flex-col gap-2 ">
+                <span className="text-xs font-normal ">{f}</span>
+              <select key={i} className="text-xs sm:text-sm border border-gray-200 placeholder:font-bold placeholder-text-xs rounded-lg bg-white px-2 sm:px-3 py-2 text-gray-600 focus:outline-none focus:ring-2 focus:ring-teal-500">
                 <option>{i === 0 ? "All Types" : i === 1 ? "All Sources" : i === 2 ? "All Users" : "Anytime"}</option>
               </select>
+               </div>
             ))}
-            <button className="text-xs sm:text-sm border border-gray-200 rounded-lg bg-white px-3 py-2 text-gray-600 hover:bg-gray-50">More Filters</button>
-            <button className="text-xs sm:text-sm text-teal-600 hover:underline px-1 py-2">Clear All</button>
+            <button className="text-xs sm:text-sm border font-bold border-gray-200 rounded-lg bg-white px-3  text-gray-600 hover:bg-gray-50">More Filters</button>
+            <button className="text-xs  font-bold text-[#0A2163] hover:underline px-1 py-2">Clear All</button>
           </div>
         </div>
 
@@ -138,10 +142,10 @@ export default function SavedReports() {
                   <button
                     key={i}
                     onClick={() => setActiveCategory(c.name)}
-                    className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-sm transition ${activeCategory === c.name ? "bg-teal-50 text-teal-700 font-semibold" : "text-gray-600 hover:bg-gray-50"}`}
+                    className={`w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-xs transition ${activeCategory === c.name ? "bg-teal-50 text-teal-700 font-bold" : "text-gray-600 hover:bg-gray-50"}`}
                   >
                     <span>{c.name}</span>
-                    <span className={`text-xs font-medium ${activeCategory === c.name ? "text-teal-600" : "text-gray-400"}`}>{c.count}</span>
+                    <span className={`text-xs  w-5 rounded-full flex items-center justify-center h-5 bg-[#F3F7FF] font-medium ${activeCategory === c.name ? "text-teal-600" : "text-gray-400"}`}>{c.count}</span>
                   </button>
                 ))}
               </div>
@@ -151,9 +155,9 @@ export default function SavedReports() {
               <h3 className="text-sm font-bold text-gray-800 mb-3">Quick Access</h3>
               <div className="space-y-0.5">
                 {quickAccess.map((q, i) => (
-                  <button key={i} className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-sm text-gray-600 hover:bg-gray-50 transition">
-                    <span className="flex items-center gap-2">{q.icon}{q.name}</span>
-                    <span className="text-xs text-gray-400">{q.count}</span>
+                  <button key={i} className="w-full flex items-center justify-between px-2 py-1.5 rounded-lg text-xs text-gray-600 hover:bg-gray-50 transition">
+                    <span className="flex font-bold items-center gap-2">{q.icon}{q.name}</span>
+                    <span className="text-xs  w-5 rounded-full flex items-center justify-center bg-[#F3F7FF] h-5 text-gray-400">{q.count}</span>
                   </button>
                 ))}
               </div>
@@ -186,7 +190,7 @@ export default function SavedReports() {
                 </div>
               </div>
 
-              <div className="hidden lg:grid grid-cols-[2fr_1.2fr_1fr_1fr_1fr_1fr] px-4 py-2 border-b border-gray-100 bg-gray-50 text-xs font-semibold text-blue-600 gap-2">
+              <div className="hidden lg:grid grid-cols-[2fr_1.2fr_1fr_1fr_1fr_1fr] px-4 py-2 border-b border-gray-100 bg-gray-50 text-xs font-bold text-[#20377A] gap-2">
                 <span>Report Name</span>
                 <span>Category</span>
                 <span>Data Source</span>
@@ -198,7 +202,7 @@ export default function SavedReports() {
                 </span>
               </div>
 
-              <div className="divide-y divide-gray-50">
+              <div className="divide-y divide-gray-50 font-bold">
                 {reports.map((r) => (
                   <div key={r.id} className="px-3 sm:px-4 py-3 hover:bg-gray-50 transition">
                     <div className="flex items-start gap-2 lg:grid lg:grid-cols-[2fr_1.2fr_1fr_1fr_1fr_1fr] lg:gap-2 lg:items-center">
@@ -209,7 +213,7 @@ export default function SavedReports() {
                           <BsFileEarmarkText className="text-blue-400 flex-shrink-0 mt-0.5 text-sm" />
                           <div className="min-w-0">
                             <div className="text-sm font-semibold text-gray-900 truncate">{r.name}</div>
-                            <div className="text-xs text-teal-600 truncate">{r.desc}</div>
+                            <div className="text-xs text-[#4F6295] font-semibold truncate">{r.desc}</div>
                             <div className="lg:hidden mt-1 flex flex-wrap gap-1.5 items-center">
                               <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${categoryBadgeColors[r.category] || "text-gray-600 bg-gray-100"}`}>{r.category}</span>
                               <span className="text-xs text-gray-500">{r.source}</span>
@@ -290,19 +294,20 @@ export default function SavedReports() {
               </div>
               <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 mt-3">
                 {scheduled.map((s, i) => (
-                  <div key={i} className="border border-gray-100 rounded-xl p-3 bg-gray-50">
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <div className="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div key={i} className="border flex items-center gap- border-gray-100 rounded-xl p-3 bg-gray-50">
+                    <div className="w-7 h-7 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                         <BsFileEarmarkText className="text-blue-500 text-sm" />
                       </div>
-                      <div className={`w-9 h-5 rounded-full flex items-center px-0.5 cursor-pointer transition-colors ${s.enabled ? "bg-teal-500 justify-end" : "bg-gray-300 justify-start"}`}>
+                    <div className="flex flex-col   gap-2 mb-1">
+                       <div className="text-xs font-semibold  leading-tight mb-0.">{s.name}</div>
+                    <div className="text-[10px] text-gray-500 mb-0.">{s.freq}</div>
+                    <div className="text-[10px] text-[#526796] mb-">{s.next}</div>
+                    <div className="text-[10px] text-[#526796] truncate">{s.email}</div>
+                    
+                    </div>
+                     <div className={`w-9 h-5 rounded-full flex items-center px-0.5 cursor-pointer transition-colors ${s.enabled ? "bg-teal-500 justify-end" : "bg-gray-300 justify-start"}`}>
                         <div className="w-4 h-4 bg-white rounded-full shadow-sm" />
                       </div>
-                    </div>
-                    <div className="text-xs font-semibold text-gray-800 leading-tight mb-0.5">{s.name}</div>
-                    <div className="text-xs text-gray-500 mb-0.5">{s.freq}</div>
-                    <div className="text-xs text-gray-400 mb-1">{s.next}</div>
-                    <div className="text-xs text-gray-400 truncate">{s.email}</div>
                   </div>
                 ))}
               </div>

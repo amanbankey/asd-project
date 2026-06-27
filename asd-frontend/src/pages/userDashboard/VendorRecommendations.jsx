@@ -6,12 +6,12 @@ import { FaPlane, FaTruck, FaFileAlt, FaLink, FaBox } from "react-icons/fa";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
 const stats = [
-  { label: "Total Documents", value: "128", sub: "All shipments", subColor: "text-teal-600" },
-  { label: "Required", value: "86", sub: "Pending / Required", subColor: "text-teal-600" },
-  { label: "If Applicable", value: "18", sub: "Conditional", subColor: "text-teal-600" },
-  { label: "Not Required", value: "24", sub: "Not needed", subColor: "text-teal-600" },
-  { label: "Expiring Soon", value: "5", sub: "Within 15 days", subColor: "text-teal-600" },
-  { label: "Uploaded This Month", value: "32", sub: "↑ 12% vs last month", subColor: "text-teal-600" },
+{ label: "Total Documents", value: "128", sub: "All shipments", subColor: "text-[#7B88A8]" },
+{ label: "Required", value: "86", sub: "Pending / Required", subColor: "text-[#7B88A8]" },
+{ label: "If Applicable", value: "18", sub: "Conditional", subColor: "text-[#7B88A8]" },
+{ label: "Not Required", value: "24", sub: "Not needed", subColor: "text-[#7B88A8]" },
+{ label: "Expiring Soon", value: "5", sub: "Within 15 days", subColor: "text-[#7B88A8]" },
+{ label: "Uploaded This Month", value: "32", sub: "↑ 12% vs last month", subColor: "text-[#7B88A8]" },
 ];
 
 const vendors = [
@@ -111,14 +111,14 @@ export default function VendorRecommendations() {
   const [responseFilters, setResponseFilters] = useState({ r2: false, r6: false, r24: false, anytime: false });
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans">
+    <div className="min-h-screen bg-gray-50 font-sans pt-14">
       <div className="max-w-[1400px] mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6">
 
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-5">
           <div>
             <p className="text-xs text-gray-400 mb-1">Dashboard &gt; Vendor Recommendations</p>
             <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Vendor Recommendations</h1>
-            <p className="text-xs sm:text-sm text-gray-500 mt-0.5">Manage, view, and organize all your shipment documents in one place.</p>
+            <p className="text-xs  text-gray-500 mt-0.5">Manage, view, and organize all your shipment documents in one place.</p>
           </div>
           <div className="flex flex-wrap gap-2">
             <button className="flex items-center gap-1.5 text-xs sm:text-sm font-medium text-gray-700 border border-gray-300 rounded-lg px-3 py-2 bg-white hover:bg-gray-50 whitespace-nowrap">
@@ -133,11 +133,11 @@ export default function VendorRecommendations() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-0 mb-5 bg-white rounded-xl border-2 border-blue-400 overflow-hidden shadow-sm">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-0 mb-5 bg-white rounded-xl border  overflow-hidden shadow-sm">
           {stats.map((s, i) => (
             <div key={i} className={`p-3 sm:p-4 ${i < stats.length - 1 ? "border-r border-gray-100" : ""}`}>
-              <p className="text-xs text-gray-500 font-medium mb-1">{s.label}</p>
-              <p className="text-2xl sm:text-3xl font-bold text-gray-900 leading-tight">{s.value}</p>
+              <p className="text-xs text-[#16213E] font-medium mb-1">{s.label}</p>
+              <p className="text-lg font-bold text-[#16213E] leading-tight">{s.value}</p>
               <p className={`text-xs font-medium mt-1 ${s.subColor}`}>{s.sub}</p>
             </div>
           ))}
@@ -312,35 +312,35 @@ export default function VendorRecommendations() {
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5">
             <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-1">Cost Comparison</h3>
             <p className="text-xs text-gray-500 mb-3">Average Estimated Cost (INR)</p>
-            <p className="text-2xl sm:text-3xl font-bold text-teal-600 mb-4">₹24,860</p>
-            <div className="flex justify-between mb-4">
+            <p className="text-sm font-bold text-teal-600 mb-4">₹24,860</p>
+            <div className="flex justify-between mb-12">
               <div>
                 <p className="text-[10px] text-gray-400 font-semibold mb-1">LOWEST</p>
-                <p className="text-lg font-bold text-teal-600">₹22,400</p>
+                <p className="text-sm font-bold text-teal-600">₹22,400</p>
               </div>
               <div className="text-right">
                 <p className="text-[10px] text-gray-400 font-semibold mb-1">HIGHEST</p>
-                <p className="text-lg font-bold text-red-500">₹31,200</p>
+                <p className="text-sm font-bold text-red-500">₹31,200</p>
               </div>
             </div>
-            <button className="w-full text-center text-xs sm:text-sm font-semibold text-teal-600 hover:text-teal-700 pt-2 border-t border-gray-100">View Detailed Comparison</button>
+            <button className="w-full text-center text-sm font-semibold text-teal-600 hover:text-teal-700 pt-2 border-t border-gray-100">View Detailed Comparison</button>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5">
             <h3 className="text-sm sm:text-[15px] font-bold text-gray-900 mb-1">Transit Time Comparison</h3>
             <p className="text-xs text-gray-500 mb-3">Average Transit Time</p>
-            <p className="text-2xl sm:text-3xl font-bold text-teal-600 mb-4">3 - 5 Days</p>
-            <div className="flex justify-between mb-4">
+            <p className="text-sm font-bold text-teal-600 mb-4">3 - 5 Days</p>
+            <div className="flex justify-between mb-12 flex-1 ">
               <div>
                 <p className="text-[10px] text-gray-400 font-semibold mb-1">FASTEST</p>
-                <p className="text-lg font-bold text-teal-600">2 - 3 Days</p>
+                <p className="text-sm font-bold text-teal-600">2 - 3 Days</p>
               </div>
               <div className="text-right">
                 <p className="text-[10px] text-gray-400 font-semibold mb-1">SLOWEST</p>
-                <p className="text-lg font-bold text-red-500">5 - 7 Days</p>
+                <p className="text-sm font-bold text-red-500">5 - 7 Days</p>
               </div>
             </div>
-            <button className="w-full text-center text-xs sm:text-sm font-semibold text-teal-600 hover:text-teal-700 pt-2 border-t border-gray-100">View Detailed Comparison</button>
+            <button className="w-full text-center text-sm font-semibold text-teal-600 hover:text-teal-700 pt-2 border-t border-gray-100">View Detailed Comparison</button>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5">
@@ -360,14 +360,14 @@ export default function VendorRecommendations() {
                   <div key={i} className="flex items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                       <BsCircleFill size={7} style={{ color: d.color }} />
-                      <span className="text-xs text-gray-600">{d.name}</span>
+                      <span className="text-xs  text-[#64748B]">{d.name}</span>
                     </div>
                     <span className="text-xs font-semibold text-gray-700 whitespace-nowrap">{d.value} ({d.pct})</span>
                   </div>
                 ))}
               </div>
             </div>
-            <button className="w-full text-center text-xs sm:text-sm font-semibold text-teal-600 hover:text-teal-700 pt-3 mt-3 border-t border-gray-100">View All Insights</button>
+            <button className="w-full text-center text-sm font-semibold text-teal-600 hover:text-teal-700 pt-3 mt-3 border-t border-gray-100">View All Insights</button>
           </div>
 
           <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 sm:p-5">

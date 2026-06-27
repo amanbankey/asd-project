@@ -36,6 +36,8 @@ import {
 import { FiPhone } from "react-icons/fi";
 import { BsAirplane } from "react-icons/bs";
 import { MdOutlineRocketLaunch } from "react-icons/md";
+import NeedHelp from '../../components/core/NeedHelp';
+import chat from '../../assets/Images/webp/chat.webp';
 
 const recCards = [
   {
@@ -270,7 +272,7 @@ const AiCargoMateAssistant = () => {
     const content = tabContent[analysisTab];
 
   return (
-     <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+     <div className="flex-1 flex flex-col min-w-0 overflow-hidden pt-14">
               <header className="bg-white border-b border-gray-200 px-4 py-2.5 flex items-center gap-3 flex-shrink-0">
                 {/* <button
                   className="lg:hidden p-1.5 rounded-md hover:bg-gray-100 text-gray-600"
@@ -283,7 +285,7 @@ const AiCargoMateAssistant = () => {
                   <FiChevronRight size={12} />
                   <h1 className="">AI CargoMate Assistant</h1>
                   <FiChevronRight size={12} />
-                  <span className="text-teal-500 font-medium">AI Result</span>
+                  <span className=" font-medium">AI Result</span>
                 </div>
               </header>
     
@@ -294,8 +296,8 @@ const AiCargoMateAssistant = () => {
                       <h1 className="text-sm sm:text-lg font-bold text-gray-900">
                         AI CargoMate Assistant
                       </h1>
-                      <span className="flex items-center gap-1 bg-yellow-50 text-yellow-800 text-[10px] font-semibold px-2 py-0.5 rounded-full border border-yellow-200">
-                        <FiStar size={10} className="text-yellow-500" /> Core Module
+                      <span className="flex items-center gap-1 bg-[#EEF2FF] text-[#4338CA] text-[10px] font-semibold px-2 py-0.5 rounded-full border border-[#EEF2FF]">
+                        <FiStar size={10} className="text-[#4338CA]" /> Core Module
                       </span>
                     </div>
                     <p className="text-xs font-normal  text-gray-500 mt-0.5">
@@ -312,7 +314,7 @@ const AiCargoMateAssistant = () => {
                     <button className="flex items-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-xs  font-bold  px-3 py-1.5 rounded-lg hover:bg-gray-50">
                       <FiDownload size={13} /> Download Report (PDF)
                     </button>
-                    <button className="flex items-center gap-1.5 bg-teal-500 hover:bg-teal-600 text-white text-xs  font-bold px-3 py-1.5 rounded-lg">
+                    <button className="flex items-center gap-1.5 bg-[#0D9488] text-white text-xs  font-bold px-3 py-1.5 rounded-lg">
                       <FiPlus size={13} /> Create Shipment from this Result
                     </button>
                   </div>
@@ -367,9 +369,8 @@ const AiCargoMateAssistant = () => {
     
                     <div className="bg-white rounded-xl border border-gray-200 p-4">
                       <div className="flex items-center justify-between mb-3 flex-wrap gap-2">
-                        <p className="text-base sm:text-lg  font-bold text-gray-900 flex items-center gap-2">
-                          <FiStar className="text-teal-500 text-base" /> AI
-                          Recommended Summary
+                        <p className="text-xs sm:text-sm  font-bold text-gray-900 flex items-center gap-2">
+                          <FiStar className="text-teal-500 text-base" /> AI Recommended Summary
                         </p>
                         <div className="flex gap-3">
                           <button className="flex items-center  gap-1 text-xs text-blue-500 font-medium">
@@ -387,7 +388,7 @@ const AiCargoMateAssistant = () => {
                             key={i}
                             className="bg-gray-50 border border-gray-200 rounded-xl p-3 flex flex-col"
                           >
-                            <p className="text-sm text-gray-500 font-medium mb-1">
+                            <p className="text-xs text-[#222222] font-medium mb-1">
                               {card.label}
                             </p>
                             {card.route ? (
@@ -402,7 +403,7 @@ const AiCargoMateAssistant = () => {
                             ) : (
                               <>
                                 <p
-                                  className={`text-xl font-bold mb-1 ${
+                                  className={`text-base font-bold mb-1 ${
                                     card.mainColor || "text-gray-900"
                                   }`}
                                 >
@@ -417,7 +418,7 @@ const AiCargoMateAssistant = () => {
                               {card.rows.map(([k, v], j) => (
                                 <div
                                   key={j}
-                                  className="flex justify-between text-[10px]"
+                                  className="flex justify-between text-xs"
                                 >
                                   <span className="text-gray-500 text-xs font-medium">
                                     {k}
@@ -433,7 +434,7 @@ const AiCargoMateAssistant = () => {
                                 </p>
                               )}
                             </div>
-                            <button className="text-teal-500 text-xs sm:text-sm font-medium text-left mt-2 hover:underline">
+                            <button className="text-teal-500 text-xs  font-medium text-left mt-2 hover:underline">
                               {card.link}
                             </button>
                             <button className="mt-2 w-full border border-teal-500 text-teal-500 text-xs    font-semibold py-1.5 rounded-lg hover:bg-teal-50">
@@ -445,17 +446,16 @@ const AiCargoMateAssistant = () => {
                     </div>
     
                     <div className="bg-white rounded-xl border border-gray-200 p-4">
-                      <p className="text-sm sm:text-lg font-bold text-gray-900 mb-3 flex items-center gap-2">
-                        <FiClipboard className="text-teal-500 text-base" /> Detailed
-                        AI Analysis
+                      <p className="text-sm  font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <FiClipboard className="text-teal-500 text-base" /> Detailed AI Analysis
                       </p>
     
-                      <div className="flex overflow-x-auto border-b border-gray-200 mb-4 gap-1 pb-0">
+                      <div className="flex overflow-x-auto border-b border-gray-200 mb-5 sm:mb-8 gap-1 pb-0">
                         {analysisTabs.map((tab) => (
                           <button
                             key={tab}
                             onClick={() => setAnalysisTab(tab)}
-                            className={`px-3 py-2 text-sm font-medium whitespace-nowrap border-b-2 -mb-px transition-colors
+                            className={`px-3 py-2 text-xs font-bold  whitespace-nowrap border-b-2 -mb-px transition-colors
                             ${
                               analysisTab === tab
                                 ? "border-teal-500 text-teal-500"
@@ -466,38 +466,20 @@ const AiCargoMateAssistant = () => {
                           </button>
                         ))}
                       </div>
-    
-                      {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        {content.left.map(([k, v], i) => (
-                          <div key={i} className="flex justify-between py-2 border-b border-gray-100 last:border-0 text-xs">
-                            <span className="text-gray-500">{k}</span>
-                            <span className={`font-medium text-right max-w-[55%] ${k === "Total Landed Cost" || k === "Total Incentive" ? "text-teal-600" : "text-gray-800"}`}>
-                              {v}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3 h-fit">
-                        <p className="flex items-center gap-1.5 text-[11px] font-semibold text-yellow-800 mb-2">
-                          <FiStar size={12} className="text-yellow-500" /> AI Insight
-                        </p>
-                        <p className="text-xs text-yellow-900 leading-relaxed">{content.insight}</p>
-                      </div>
-                    </div> */}
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+  
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                         <div>
                           {content.left.map(([k, v], i) => (
                             <div
                               key={i}
-                              className="flex justify-between py-2 border-b border-gray-100 last:border-0 text-xs"
+                              className="flex justify-between space-y-2 py-2 border-b border-gray-100 last:border-0 text-xs"
                             >
-                              <span className="text-gray-500  font-medium text-sm">
+                              <span className="text-gray-500  font-medium text-xs">
                                 {k}
                               </span>
     
                               <span
-                                className={`font-medium text-sm  sm:text-sm text-right max-w-[55%] ${
+                                className={`font-medium text-xs text-right max-w-[55%] ${
                                   k === "Total Landed Cost" ||
                                   k === "Total Incentive"
                                     ? "text-teal-600"
@@ -509,45 +491,43 @@ const AiCargoMateAssistant = () => {
                             </div>
                           ))}
     
-                          <button className="mt-3 font-xs font-semibold text-blue-600 hover:text-blue-700">
+                          <button className="mt-3 xl:mb-16 text-xs font-semibold text-blue-600 hover:text-blue-700">
                             {content.tariffLink}
                           </button>
     
-                          <button className="mt-4 w-full border  border-gray-200 bg-white text-teal-600 text-sm font-semibold py-2.5 rounded-lg hover:bg-gray-50">
-                            {content.buttonText}
-                          </button>
+                        
                         </div>
     
-                        <div className="space-y-3">
+                        <div className="space-y-5">
                           <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-3">
-                            <p className="flex items-center gap-1.5 text-sm font-semibold text-emerald-800 mb-2">
+                            <p className="flex items-center gap-1.5 text-sm font-bold text-emerald-800 mb-2">
                               <FiStar size={12} className="text-emerald-500" />
                               AI Insight
                             </p>
     
-                            <p className="text-sm font-medium text-emerald-900 leading-relaxed">
+                            <p className="text-xs font-normal text-emerald-900 leading-relaxed">
                               {content.insight}
                             </p>
                           </div>
     
-                          <div className="bg-white border border-gray-200 rounded-lg p-3">
-                            <p className="flex items-center gap-1.5 t text-sm font-semibold text-gray-700 mb-2">
+                          <div className="bg-[#DBDBDB] border border-gray-200 rounded-lg p-3">
+                            <p className="flex items-center gap-1.5 t text-sm font-bold text-gray-700 mb-2">
                               <FiClipboard size={12} />
                               Assumptions
                             </p>
     
-                            <p className="text-sm font-medium text-gray-600 leading-relaxed">
+                            <p className="text-xs font-normal text-gray-600 leading-relaxed">
                               {content.assumption}
                             </p>
                           </div>
     
                           <div className="bg-orange-50 border border-orange-200 rounded-lg p-3">
-                            <p className="flex items-center gap-1.5 text-sm font-semibold text-orange-700 mb-2">
+                            <p className="flex items-center gap-1.5 text-sm font-bold text-orange-700 mb-2">
                               <FiAlertCircle size={12} />
                               Disclaimer
                             </p>
     
-                            <p className="text-sm font-medium text-orange-800 leading-relaxed">
+                            <p className="text-xs font-normal text-orange-800 leading-relaxed">
                               {content.disclaimer}
                             </p>
                           </div>
@@ -578,27 +558,27 @@ const AiCargoMateAssistant = () => {
                             className="flex items-center justify-between py-2 border-b border-gray-100 last:border-0 text-xs font-medium"
                           >
                             <div
-                              className={`flex items-center text-sm font-medium gap-2 text-gray-500`}
+                              className={`flex items-center text-xs font-medium gap-2 text-gray-500`}
                             >
                               <Icon size={14} className={iconColor} /> {label}
                             </div>
                             <span
                               className={`font-medium text-right max-w-[50%] ${
                                 valueColor || "text-gray-900"
-                              } ${small ? "text-sm font-medium " : "text-sm font-medium"}`}
+                              } ${small ? "text-xs font-medium " : "text-xs font-medium"}`}
                             >
                               {value}
                             </span>
                           </div>
                         ),
                       )}
-                      <button className="mt-3 w-full bg-teal-500 hover:bg-teal-600 text-white text-sm   font-semibold py-2.5 rounded-xl">
+                      <button className="mt-3 w-full bg-[#0D9488] text-white text-sm   font-semibold py-2.5 rounded-xl">
                         Create Shipment from this Result
                       </button>
                     </div>
     
                     <div className="bg-white rounded-xl border border-gray-200 p-4">
-                      <p className="text-sm sm:text-base font-bold   text-gray-900 mb-3">
+                      <p className="text-sm  font-bold   text-gray-900 mb-3">
                         Report Information
                       </p>
                       {[
@@ -612,10 +592,10 @@ const AiCargoMateAssistant = () => {
                           key={k}
                           className="flex justify-between py-1.5 text-[11px]"
                         >
-                          <span className="text-gray-500 text-sm  font-medium">
+                          <span className="text-gray-500 text-xs  font-medium">
                             {k}
                           </span>
-                          <span className="text-gray-800  text-sm font-medium">
+                          <span className="text-gray-800  text-xs font-medium">
                             {v}
                           </span>
                         </div>
@@ -626,58 +606,62 @@ const AiCargoMateAssistant = () => {
                     </div>
     
                     <div className="bg-white rounded-xl border border-gray-200 p-4">
-                      <p className="text-sm sm:text-base font-bold text-gray-900 mb-1">
+                      <p className="text-sm font-bold text-gray-900 mb-3">
                         Save & Share
                       </p>
-                      <p className="text-sm font-medium text-gray-500 mb-3">
-                        Save this report for future reference or share with your
-                        team.
-                      </p>
                       <div className="grid grid-cols-1 gap-2 pz">
-                        <button className="flex items-center justify-center whitespace-nowrap  gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50">
-                          <FiBookmark size={16} /> Save to Saved Reports
-                        </button>
+                       
                         <button className="flex items-center justify-center gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50">
                           <FiShare2 size={16} /> Share Report
+                        </button>
+                         <button className="flex items-center justify-center whitespace-nowrap  gap-1.5 border border-gray-200 bg-white text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-50">
+                          <FiBookmark size={16} /> Save  Reports
                         </button>
                       </div>
                     </div>
     
                     <div className="bg-white rounded-xl border border-gray-200 p-4">
                       <div className="flex items-center justify-between mb-3">
-                        <p className="text-sm sm:text-base font-bold text-gray-900">
+                        <p className="text-sm  font-bold text-gray-900">
                           Audit Log (This Query)
                         </p>
-                        <button className="text-teal-500 text-sm font-medium hover:underline">
+                        <button className="text-teal-500 text-xs font-medium hover:underline">
                           View All
                         </button>
                       </div>
                       {auditLog.map((entry, i) => (
                         <div
                           key={i}
-                          className="flex items-start gap-2 py-1.5 border-b border-gray-100 last:border-0"
+                          className="flex  gap-2 py-1.5 border-b border-gray-100 last:border-0"
                         >
                           <span
-                            className={`w-2 h-2 rounded-full ${entry.color} flex-shrink-0 mt-1`}
+                            className={`w-2 h-2 rounded-full bg-green-500 flex-shrink-0 mt-1`}
                           />
-                          <span className="text-xs text-gray-400 whitespace-nowrap">
-                            {entry.time}
-                          </span>
-                          <span className="text-xs font-medium   text-gray-600">
+                          
+                          <span className=" flex-1 text-xs font-medium   text-gray-600">
                             {entry.text}
+                          </span>
+                          <span className="text-xs text-left text-gray-400 whitespace-nowrap">
+                            {entry.time}
                           </span>
                         </div>
                       ))}
                     </div>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
-                  <div className="bg-white rounded-xl border border-gray-200 p-4">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-3">
+                  <div className="bg-white  flex flex-col justify-center gap-10 rounded-xl border border-gray-200  px-3 py-4">
+                    <div className=' flex flex-row items-center justify-between'>
+                       <h3 className="text-xs  font-bold text-gray-900 ">
                       Data Sources Used
                     </h3>
+                      <button className=" text-teal-500 text-xs  font-medium hover:underline">
+                      View All Sources
+                    </button>
+                   </div>
+                   
     
-                    <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-xs">
                       <div className="flex items-center gap-2  text-gray-700">
                         <FiDatabase size={14} />
                         DGFT (India)
@@ -709,22 +693,20 @@ const AiCargoMateAssistant = () => {
                       </div>
                     </div>
     
-                    <button className="mt-4 text-teal-500 text-xs sm:text-sm font-medium hover:underline">
-                      View All Sources
-                    </button>
+                  
                   </div>
     
                   <div className="bg-white rounded-xl border border-gray-200 p-4">
-                    <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-4">
+                    <h3 className="text-xs  font-bold text-gray-900 mb-4">
                       Connected To Live Data
                     </h3>
     
-                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
+                    <p className="text-xs  text-[#64748B] leading-relaxed mb-4">
                       All modules are connected to backend systems and databases for
                       real-time, accurate information.
                     </p>
     
-                    <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5    b0">
                       <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                       <span className="text-xs sm:text-sm font-medium text-emerald-700">
                         Connected
@@ -732,38 +714,19 @@ const AiCargoMateAssistant = () => {
                     </div>
                   </div>
     
-                  <div className="bg-white  rounded-xl border border-gray-200 p-4">
-                    <h3 className="text-sm  sm:text-base font-medium text-gray-900 mb-4">
-                      Need Help?
-                    </h3>
-    
-                    <p className="text-xs sm:text-sm font-medium text-gray-600 mb-4">
-                      Our trade experts are here to help you.
-                    </p>
-    
-                    <div className="space-y-2 mb-4">
-                      <div className="flex items-center gap-2 font-medium text-xs sm:text-sm text-gray-700">
-                        <FiPhone />
-                        +91 22 1234 5678
-                      </div>
-    
-                      <div className="flex items-center gap-2 font-medium text-xs sm:text-sm text-gray-700">
-                        <FiSend />
-                        support@asdcargomate.com
-                      </div>
-                    </div>
+                  <div className="bg-white flex rounded-xl border border-gray-200 px-4">
+
+                    <NeedHelp mobile={"+91 22 1234 5678"} para={" Our trade experts are here to help you."} heading={"Need help ?"}  />
+                  
                   </div>
-    
-                  <div className="flex justify-center">
-                    <img
-                      src="/support-agent.png"
-                      alt="Support"
-                      className="h-24 object-contain"
-                    />
-                  </div>
+                
                 </div>
               </main>
-            </div>
+
+               <div className='] fixed right-5 bottom-5'>
+                 <img src={chat} />
+               </div>
+       </div>
   )
 }
 

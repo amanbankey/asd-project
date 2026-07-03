@@ -29,6 +29,9 @@ function HeroSection() {
                  B2b Dashboard </button>
               <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
                onClick={() => navigate("/user-dashboard")}> User Dashboard</button>
+
+               <button className="bg-gray-900 hover:bg-gray-800 text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors"
+               onClick={() => navigate("/chatbot")}> chatbot</button>
              
              </div>
           

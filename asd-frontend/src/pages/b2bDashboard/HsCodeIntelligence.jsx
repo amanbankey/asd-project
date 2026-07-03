@@ -31,6 +31,18 @@ import {
 // ==========================================
 // STATIC RAW DATA (As per Image {2BE9DE08-E6B8-4112-B604-497638DB5188}.png)
 // ==========================================
+
+const tabs = [
+  "Overview",
+  "HS Code List",
+  "Trade Flow",
+  "Top Products",
+  "Countries",
+  "Importers",
+  "Exporters",
+  "Trends & Insights",
+];
+
 const INITIAL_STATS = [
   { title: "Total Export Shipments", value: "8,742", change: "▲ 16.8% vs last month", icon: Package, color: "text-blue-500", bg: "bg-blue-50", isUp: true },
   { title: "Total Export Value (INR)", value: "₹1,245.80 Cr", change: "▲ 18.6% vs last month", icon: IndianRupee, color: "text-green-500", bg: "bg-green-50", isUp: true },
@@ -136,7 +148,7 @@ export default function HSCodeIntelligence() {
   }, [filters]);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] p-5 font-sans text-slate-600 antialiased flex flex-col justify-between pt-14">
+    <div className="overflow-y-auto bg-[#f8fafc] p-5 font-sans text-slate-600 antialiased flex flex-col justify-between pt-14">
       
       {/* TOP HEADER */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-5">
@@ -175,7 +187,7 @@ export default function HSCodeIntelligence() {
 
       {/* SEARCH AND FILTERS PANEL */}
       <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-sm mb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-7 gap-3 items-end">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-3 items-end">
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase">HS Code / Product</label>
             <input
@@ -242,6 +254,17 @@ export default function HSCodeIntelligence() {
               <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+          
+           <div className="relative">
+                      <select className="w-full bg-slate-50/60 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs text-slate-600 appearance-none focus:outline-none focus:border-blue-500">
+                        <option>More Filters</option>
+                      </select>
+                      <ChevronDown
+                        size={14}
+                        className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+                      />
+            </div>
+          
           <div className="flex gap-2 w-full">
             <button onClick={handleApply} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium text-xs rounded-xl py-2 transition shadow-sm">Apply Filters</button>
             <button onClick={handleReset} className="text-slate-400 hover:text-slate-600 text-xs font-semibold px-2 border border-slate-200 rounded-xl bg-white">Reset</button>
@@ -264,6 +287,33 @@ export default function HSCodeIntelligence() {
           </button>
         ))}
       </div>
+
+   
+    <section className="w-full border-b border-gray-200 bg-white rounded-xl shadow-sm mb-3 px-2">
+      <div className="mx-auto max-w-7xl">
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex min-w-max items-center gap-7 sm:gap-9 md:gap-10 px-4 sm:px-6 lg:px-0">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative whitespace-nowrap py-5 text-xs sm:text-sm font-semibold transition-colors duration-200 ${
+                  activeTab === tab
+                    ? "text-[#33cc99]"
+                    : "text-[#071A5B] hover:text-[#33cc99]"
+                }`}
+              >
+                {tab}
+
+                {activeTab === tab && (
+                  <span className="absolute left-0 bottom-0 h-[3px] w-full rounded-full bg-[#33cc99]" />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* CORE CHARTS QUAD GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
@@ -448,7 +498,7 @@ export default function HSCodeIntelligence() {
       </div>
 
       {/* DYNAMIC METADATA GRID DATA TABLE */}
-      <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-sm ">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
           <h3 className="font-bold text-sm text-slate-800">HS Code Details</h3>
           <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">

@@ -172,7 +172,7 @@ export default function SupplierDiscovery() {
   }, [appliedFilters]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-5 text-slate-600 font-sans antialiased selection:bg-blue-500 selection:text-white pt-14">
+    <div className="overflow-y-auto bg-[#F8FAFC] p-5 text-slate-600 font-sans antialiased selection:bg-blue-500 selection:text-white pt-14">
       
       {/* HEADER SECTION */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-5">
@@ -215,7 +215,7 @@ export default function SupplierDiscovery() {
 
       {/* FILTERS BAR */}
       <div className="bg-white border border-slate-100 rounded-2xl p-3 shadow-2xs mb-5">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-2.5 items-end">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-2.5 items-end">
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">HS Code / Product</label>
             <div className="relative">
@@ -229,6 +229,7 @@ export default function SupplierDiscovery() {
               <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2 text-slate-400" />
             </div>
           </div>
+
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">Country</label>
             <div className="relative">
@@ -243,6 +244,7 @@ export default function SupplierDiscovery() {
               <ChevronDown size={13} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">Minimum Shipment</label>
             <div className="relative">
@@ -250,6 +252,7 @@ export default function SupplierDiscovery() {
               <ChevronDown size={13} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">Minimum Trade Value(INR)</label>
             <div className="relative">
@@ -257,6 +260,7 @@ export default function SupplierDiscovery() {
               <ChevronDown size={13} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">Supplier Type</label>
             <div className="relative">
@@ -269,6 +273,7 @@ export default function SupplierDiscovery() {
               <ChevronDown size={13} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+
           <div>
             <label className="text-[10px] text-slate-400 font-bold block mb-1 uppercase tracking-wider">Certification</label>
             <div className="relative">
@@ -276,11 +281,19 @@ export default function SupplierDiscovery() {
               <ChevronDown size={13} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
             </div>
           </div>
+
+             <div className="relative">
+                                 <select className="w-full bg-slate-50/60 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs text-slate-600 appearance-none focus:outline-none focus:border-blue-500">
+                                   <option>More Filters</option>
+                                 </select>
+                                 <ChevronDown
+                                   size={14}
+                                   className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
+                                 />
+                       </div>
           <div className="flex gap-1.5">
-            <button className="flex-1 bg-slate-50 border border-slate-200 text-slate-600 rounded-xl py-1.5 text-xs font-semibold flex items-center justify-center gap-1 hover:bg-slate-100 transition">
-              <SlidersHorizontal size={12} /> More Filters
-            </button>
-            <button onClick={handleApplyFilters} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-3 py-1.5 rounded-xl transition shadow-2xs">
+          
+            <button onClick={handleApplyFilters} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs px-3 py-2 rounded-lg transition shadow-2xs">
               Apply Filters
             </button>
             <button onClick={handleReset} className="text-slate-400 hover:text-slate-600 text-xs font-medium px-1">
@@ -402,7 +415,7 @@ export default function SupplierDiscovery() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 mb-5">
         
         {/* LEFT COLUMN: Top Suppliers Live DataGrid (7 Cols) */}
-        <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-2xs lg:col-span-7 overflow-hidden flex flex-col justify-between">
+        <div className="bg-white border border-slate-100 rounded-2xl p-4 shadow-2xs lg:col-span-7  flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-center mb-3">
               <h3 className="font-bold text-sm text-slate-900">Top Suppliers</h3>

@@ -37,6 +37,18 @@ import {
 // ==========================================
 // 1. RAW DATA (Directly Mapped from {8ABBEB5E-27BB-4C42-A081-1CA877D4B260}.png)
 // ==========================================
+
+const tabs = [
+  "Overview",
+  "HS Code List",
+  "Trade Flow",
+  "Top Products",
+  "Countries",
+  "Importers",
+  "Exporters",
+  "Trends & Insights",
+];
+
 const KPI_STATS = [
   { title: "Total Buyers", value: "8,742", change: "▲ 16.8% vs last month", isUp: true, color: "text-blue-600", bg: "bg-blue-50", icon: Users },
   { title: "Active Buyers", value: "12,245", change: "▲ 13.6% vs last month", isUp: true, color: "text-emerald-600", bg: "bg-emerald-50", icon: Activity },
@@ -128,7 +140,7 @@ export default function BuyerIntelligence() {
   }, [appliedFilters]);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] p-6 text-slate-600 font-sans antialiased flex flex-col justify-between pt-14">
+    <div className="overflow-y-auto bg-[#F8FAFC] p-6 text-slate-600 font-sans antialiased flex flex-col justify-between pt-14">
       
       {/* HEADER SECTION */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
@@ -262,6 +274,31 @@ export default function BuyerIntelligence() {
           </button>
         ))}
       </div>
+
+
+        <section className="w-full border-b border-gray-200 bg-white rounded-xl shadow-sm mb-3 px-2">
+      <div className="mx-auto max-w-7xl">
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex min-w-max items-center gap-7 sm:gap-9 md:gap-10 px-4 sm:px-6 lg:px-0">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`relative whitespace-nowrap py-5 text-xs sm:text-sm font-semibold transition-colors duration-200 ${
+                  activeTab === tab
+                    ? "text-[#2563EB] border-b-2 border-[#2563EB]"
+                    : "text-[#071A5B] hover:text-[#2563EB]"
+                }`}
+              >
+                {tab}
+
+               
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
 
       {/* GRAPH CHART SECTION GRID 1 */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
@@ -484,7 +521,7 @@ export default function BuyerIntelligence() {
       </div>
 
       {/* CORE RECENT SHIPMENTS DETAILS DATAGRID */}
-      <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-xs overflow-hidden">
+      <div className="bg-white rounded-2xl border border-slate-100 p-4 shadow-xs ">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-extrabold text-sm text-slate-800 flex items-center gap-2">
             <Anchor size={15} className="text-blue-600" /> Recent Shipments by Buyers

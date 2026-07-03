@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { GiCutDiamond } from "react-icons/gi";
 import {
   FiMenu,
   FiSearch,
@@ -61,7 +61,7 @@ import {
   FaRobot,
   FaAngleUp 
 } from "react-icons/fa6";
-
+import { TbContract } from "react-icons/tb";
 import {
   FiEdit,
   FiTrash2,
@@ -117,14 +117,15 @@ import {
   Users,
   MessageSquare,
   TrendingUp,
-  Clock3,
+  Clock3,Lightbulb ,ChartNoAxesCombined  , SquareChartGantt ,Binoculars 
 } from "lucide-react";
 
+import { LuChartNoAxesCombined, LuLightbulb ,  } from "react-icons/lu";
   import { MapContainer, TileLayer, CircleMarker } from "react-leaflet";
 
 
 import { RxCross1 } from "react-icons/rx";
-import { FaAngleRight, FaCalendarAlt, FaTimes } from "react-icons/fa";
+import { FaAngleRight, FaCalendarAlt, FaTimes  } from "react-icons/fa";
 import up from "../../assets/icon/up.png"
 
 import logo from "../../assets/Images/logo.png";
@@ -177,6 +178,29 @@ import android from '../../assets/icon/android.png'
 import BuyerIntelligence from "./BuyerIntelligence";
 import HSCodeIntelligence from "./HsCodeIntelligence";
 import SupplierDiscovery from "./SupplierDiscovery";
+import TradeMap from "./TradeMap";
+import MarketTrends from "./MarketTrends";
+import CompetitorTracking from "./CompetitorTracking";
+import CompanyIntelligence from "./CompanyIntelligence";
+import TradeOpportunity from "./TradeOpportunity";
+// import RiskAnalysis from "./RiskAnalysis";
+// import AiInsight from "./AiInsight";
+// import TradeOpportunity from "./TradeOpportunity";
+// import TradeOpportunity from "./TradeOpportunity";
+// import TradeOpportunity from "./TradeOpportunity";
+
+
+
+
+
+const iconMap = {
+  shipment: Package,
+  trade: IndianRupee,
+  partner: Users,
+  inquiry: MessageSquare,
+  avgVal: TrendingUp,
+  leadTime: Clock3,
+};
 
 const trendingProducts = [
   { name: "Electronics", pct: "38.4%" },
@@ -272,17 +296,17 @@ const sidebarSections = [
         badgeColor: "bg-teal-500",
       },
       { icon: FiHash, label: "Export Intelligence" },
-      { icon: FiTruck, label: "HS code Intelligence" },
+      { icon: SquareChartGantt , label: "HS code Intelligence" },
       { icon: FiMap, label: "Shipment Database" },
-         { icon: FiHash, label: "Supplier Discovery" },
-      { icon: FiTruck, label: "Buyer Intelligence" },
+         { icon: FiTruck, label: "Supplier Discovery" },
+      { icon: FaUsers, label: "Buyer Intelligence" },
       { icon: FiMap, label: "Trade Map" },
-         { icon: FiHash, label: "Market Trends" },
-      { icon: FiTruck, label: "Competitor Tracking" ,  badge: "",},
-      { icon: FiMap, label: "Company Intelligence",  badge: "", },
-         { icon: FiHash, label: "Trade Opportunity Engine",  badge: "", },
+         { icon: LuChartNoAxesCombined , label: "Market Trends" },
+      { icon: Binoculars , label: "Competitor Tracking" ,  badge: "New", badgeColor: "bg-[#7C3AED]", },
+      { icon: FiMap, label: "Company Intelligence",  badge: "New", badgeColor: "bg-[#7C3AED]", },
+         { icon: LuLightbulb  , label: "Trade Opportunity Engine",  badge: "New", badgeColor: "bg-[#7C3AED]", },
       { icon: FiTruck, label: "Risk Analysis" },
-      { icon: FiMap, label: "Ai Insight" },
+      { icon: FaRobot , label: "Ai Insight" },
     ],
   },
   {
@@ -292,7 +316,7 @@ const sidebarSections = [
       { icon: FiRadio, label: "Supplier" },
       { icon: FiFileText, label: "Documents" },
       { icon: FiUsers, label: "Buyers" },
-           { icon: FiRadio, label: "Contacts" },
+           { icon: TbContract, label: "Contacts" },
       { icon: FiFileText, label: "Invoices" },
     
     ],
@@ -331,23 +355,6 @@ const sidebarSections = [
   },
 ];
 
-
-// const navItems = [
-//   { icon: home, label: "Dashboard",subTab:[],    },
-//   { icon: globe, label: "Global Search",subTab:[],    },
- 
-//   { icon: graph, label: "Trade Intelligence", subTab:[{label: "Import Intelligence"},{label: "Export Intelligence"}, {label: "Shipment Database"},  {label: "HS Code"},] },
-//  { icon: discovery, label: "Discovery",subTab:[],    },
-//  { icon: compass, label: "Market Intelligence",subTab:[],    },
-
-//   { icon: settings, label: "AI Intelligence" , subTab:[]},
-//   { icon: report, label: "Analytics" , subTab:[]},
-//   { icon: alert, label: "Alert & Monitoring" , subTab:[]},
-
-//   { icon: insight, label: "Integration" , subTab:[]},
-//   { icon:  file, label: "Reports" , subTab:[]},
-//   { icon: android, label: "Settings" , subTab:[]},
-// ];
 
 const statCards = [
   { label: "Global Trade Volume", value: "12,450", change: "28.4%" },
@@ -480,8 +487,7 @@ export default function B2BDashboard() {
              <nav className="flex-1 overflow-y-auto py-3  bg-gray-900 pr-2">
                {sidebarSections.map((section) => (
                  <div key={section.title} className="  ">
-                   <p
-                     onClick={() => {
+                   <p  onClick={() => {
                        if (section.items.length === 0) {
                          setActiveTab(section.title);
                        }
@@ -526,7 +532,7 @@ export default function B2BDashboard() {
                  </div>
                ))}
                <div className="bg-[##152A4E] rounded-xl p-4 text-white flex flex-col">
-                 <h3 className="text-sm font-semibold mb-4">AI Queries Left</h3>
+              
      
                  {/* <div className="flex-1 flex items-center justify-center rounded-lg bg-[#15253d] min-h-[100px]">
                    <img
@@ -536,19 +542,22 @@ export default function B2BDashboard() {
                    />
                  </div> */}
      
-                 <div className="text-center mt-4">
+                 <div className="text-center mt-4 bg-[#0B48B2] rounded-lg p-3">
+                   <GiCutDiamond className="text-2xl mx-auto mb-2" />
                    <p className="text-sm font-bold"> Enterprise plan </p>
                    <p className="text-xs text-slate-300 mt-1">
-                     Monthly Queries Remaining
+                    Valid till 24 may 26
                    </p>
-                 </div>
-     
-                 <button
+
+                     <button
                    onClick={() => setActiveTab("UpgradePlan")}
-                   className="mt-4 bg-teal-500 hover:bg-teal-600 text-white text-xs font-semibold py-2 rounded-lg"
+                   className="mt-4 bg-white text-[#073D89] text-xs px-5 font-semibold py-2 rounded-lg"
                  >
                    View plan details
                  </button>
+                 </div>
+     
+               
                </div>
              </nav>
            </aside>
@@ -584,8 +593,43 @@ export default function B2BDashboard() {
 
           {activeTab === "Buyer Intelligence" && (
                       <BuyerIntelligence />
-                    )}
+            )}
 
+
+            {activeTab === "Trade Map" && (
+              <TradeMap />
+            )}
+
+                {activeTab === "Market Trends" && (
+                <MarketTrends />
+              )}
+
+
+            {activeTab === "Competitor Tracking" && (
+              <CompetitorTracking />
+            )}
+
+             {activeTab === "Company Intelligence" && (
+              <CompanyIntelligence />
+            )}
+
+             {activeTab === "Trade Opportunity Engine" && (
+              <TradeOpportunity />
+            )}
+
+             {/* {activeTab === "Risk Analysis" && (
+              <RiskAnalysis />
+            )} */}
+
+             {/* {activeTab === "Company Intelligence" && (
+              <CompanyIntelligence />
+            )} */}
+
+             {/* {activeTab === "Company Intelligence" && (
+              <CompanyIntelligence />
+            )} */}
+
+            
       </div>
     </div>
   );
@@ -593,31 +637,6 @@ export default function B2BDashboard() {
 
 
 
-
-
-
-
-// import React, { useState } from "react";
-
-
-
-// // import {
-// //   ComposableMap,
-// //   Geographies,
-// //   Geography,
-// //   Marker,
-// // } from "react-simple-maps";
-
-
-
-const iconMap = {
-  shipment: Package,
-  trade: IndianRupee,
-  partner: Users,
-  inquiry: MessageSquare,
-  avgVal: TrendingUp,
-  leadTime: Clock3,
-};
 
 const mockData = {
     userName: "Abhishek",

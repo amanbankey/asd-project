@@ -11,12 +11,14 @@ const Layout = () => {
   const hideNavbar = 
   location.pathname === "/admin-dashboard" ||
   location.pathname === "/b2b-dashboard" ||
-  location.pathname ===  '/user-dashboard' 
+  location.pathname ===  '/user-dashboard' || 
+  location.pathname === "/chatbot" 
 
 
 
   const hideFooter = location.pathname === '/admin-dashboard' ||
-  location.pathname === "/b2b-dashboard" || location.pathname === "/user-dashboard"  ;
+  location.pathname === "/b2b-dashboard" || location.pathname === "/user-dashboard" ||
+  location.pathname === "/chatbot" 
 
   return (
     <>

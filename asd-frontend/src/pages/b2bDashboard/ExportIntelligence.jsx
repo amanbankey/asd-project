@@ -1004,7 +1004,7 @@ export default function ExportIntelligenceDashboard() {
   }, [appliedFilters.country]);
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] p-6 text-slate-700 antialiased font-sans flex flex-col justify-between pt-14">
+    <div className="min-h-screen  overflow-y-auto bg-[#f8fafc] p-6 text-slate-700 antialiased font-sans flex flex-col justify-between pt-14">
       <div>
         {/* HEADER */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-6">
@@ -1261,6 +1261,10 @@ export default function ExportIntelligenceDashboard() {
                 </div>
               ))}
             </div>
+            <div className="text-center ">
+             <button className="text-blue-600 text-xs font-semibold text-center mt-4 pt-2 border-t border-slate-50">View All Exporters →</button>
+           </div>
+
           </div>
 
           {/* Top Buyers */}
@@ -1283,6 +1287,9 @@ export default function ExportIntelligenceDashboard() {
                 </div>
               ))}
             </div>
+            <div className="text-center ">
+             <button className="text-blue-600 text-xs font-semibold text-center mt-4 pt-2 border-t border-slate-50">View All Buyers →</button>
+           </div>
           </div>
 
           {/* Exports by Port of Arrival */}
@@ -1305,6 +1312,9 @@ export default function ExportIntelligenceDashboard() {
                 </div>
               ))}
             </div>
+            <div className="text-center ">
+             <button className="text-blue-600 text-xs font-semibold text-center mt-4 pt-2 border-t border-slate-50">View All Ports →</button>
+           </div>
           </div>
         </div>
 
@@ -1373,7 +1383,7 @@ export default function ExportIntelligenceDashboard() {
       </div>
 
       {/* FOOTER TIMESTAMPS BAR */}
-      <div className="mt-6 pt-4 border-t border-slate-200/60 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-2">
+      <div className="mt-6 pt-4 mb-10 border-t border-slate-200/60 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 gap-2">
         <div className="flex items-center gap-1.5">
           <Clock size={14} className="text-slate-300" />
           <span>All data is updated daily. Last updated on 24 Apr 2025, 09:30 AM</span>

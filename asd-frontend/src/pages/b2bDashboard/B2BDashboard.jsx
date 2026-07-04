@@ -183,10 +183,12 @@ import MarketTrends from "./MarketTrends";
 import CompetitorTracking from "./CompetitorTracking";
 import CompanyIntelligence from "./CompanyIntelligence";
 import TradeOpportunity from "./TradeOpportunity";
-// import RiskAnalysis from "./RiskAnalysis";
-// import AiInsight from "./AiInsight";
-// import TradeOpportunity from "./TradeOpportunity";
-// import TradeOpportunity from "./TradeOpportunity";
+import RiskAnalysis from "./RiskAnalysis";
+import AiInsight from "./AiInsight";
+import Shipment from "./Shipment";
+import Documents from "./Documents";
+
+import Supplier from "./Suppliers";
 // import TradeOpportunity from "./TradeOpportunity";
 
 
@@ -617,18 +619,41 @@ export default function B2BDashboard() {
               <TradeOpportunity />
             )}
 
-             {/* {activeTab === "Risk Analysis" && (
+             {activeTab === "Risk Analysis" && (
               <RiskAnalysis />
+            )}
+
+             {activeTab === "Ai Insight" && (
+              <AiInsight />
+            )}
+
+
+             {activeTab === "Shipments" && (
+              <Shipment />
+            )}
+
+             {activeTab === "Documents" && (
+              <Documents />
+            )}
+
+             {activeTab === "Supplier" && (
+              <Supplier />
+            )}
+
+
+           {/* supplier k baad k remaining h  */}
+          {/*    {activeTab === "Buyers" && (
+              <Shipment />
+            )}
+
+             {activeTab === "Contrasts" && (
+              <Shipment />
             )} */}
 
-             {/* {activeTab === "Company Intelligence" && (
-              <CompanyIntelligence />
-            )} */}
 
-             {/* {activeTab === "Company Intelligence" && (
-              <CompanyIntelligence />
-            )} */}
-
+             {/* {activeTab === "Invoices" && (
+              <Shipment />
+            )}  */}
             
       </div>
     </div>

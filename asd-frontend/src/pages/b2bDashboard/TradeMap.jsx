@@ -45,14 +45,14 @@ const KPI_STATS = [
 const TABS = ["Trade Flow", "Country Analysis", "Product Analysis"];
 
 const TRADE_ROUTES = [
-  { from: "China", to: "USA", fFlag: "🇨🇳", tFlag: "🇺🇸", value: "₹185.45 Cr", share: "14.9%", width: "70%" },
-  { from: "India", to: "UAE", fFlag: "🇮🇳", tFlag: "🇦🇪", value: "₹96.30 Cr", share: "7.7%", width: "38%" },
-  { from: "Germany", to: "USA", fFlag: "🇩🇪", tFlag: "🇺🇸", value: "₹74.20 Cr", share: "6.0%", width: "30%" },
-  { from: "China", to: "India", fFlag: "🇨🇳", tFlag: "🇮🇳", value: "₹63.45 Cr", share: "5.1%", width: "26%" },
-  { from: "USA", to: "Germany", fFlag: "🇺🇸", tFlag: "🇩🇪", value: "₹52.18 Cr", share: "4.2%", width: "21%" },
-  { from: "UAE", to: "India", fFlag: "🇦🇪", tFlag: "🇮🇳", value: "₹41.75 Cr", share: "3.4%", width: "17%" },
-  { from: "Netherlands", to: "Germany", fFlag: "🇳🇱", tFlag: "🇩🇪", value: "₹38.60 Cr", share: "3.1%", width: "15%" },
-  { from: "South Korea", to: "USA", fFlag: "🇰🇷", tFlag: "🇺🇸", value: "₹34.25 Cr", share: "2.8%", width: "13%" },
+  { from: "China", to: "USA", fFlag: "CN", tFlag: "US", value: "₹185.45 Cr", share: "14.9%", width: "70%" },
+  { from: "India", to: "UAE", fFlag: "IN", tFlag: "AE", value: "₹96.30 Cr", share: "7.7%", width: "38%" },
+  { from: "Germany", to: "USA", fFlag: "DE", tFlag: "US", value: "₹74.20 Cr", share: "6.0%", width: "30%" },
+  { from: "China", to: "India", fFlag: "CN", tFlag: "IN", value: "₹63.45 Cr", share: "5.1%", width: "26%" },
+  { from: "USA", to: "Germany", fFlag: "US", tFlag: "DE", value: "₹52.18 Cr", share: "4.2%", width: "21%" },
+  { from: "UAE", to: "India", fFlag: "AE", tFlag: "IN", value: "₹41.75 Cr", share: "3.4%", width: "17%" },
+  { from: "Netherlands", to: "Germany", fFlag: "NL", tFlag: "DE", value: "₹38.60 Cr", share: "3.1%", width: "15%" },
+  { from: "South Korea", to: "USA", fFlag: "KR", tFlag: "US", value: "₹34.25 Cr", share: "2.8%", width: "13%" },
 ];
 
 const TOP_COUNTRIES = [
@@ -114,7 +114,7 @@ export default function TradeMapDashboard() {
   const totalRegionValue = REGION_DATA.reduce((a, b) => a + b.value, 0).toFixed(2);
 
   return (
-    <div className="h-screen w-full bg-[#F8FAFC] text-slate-600 font-sans antialiased overflow-y-auto">
+    <div className="h-screen w-full bg-[#F8FAFC] text-slate-600 font-sans antialiased overflow-y-auto py-5">
       <div className="max-w-[1400px] mx-auto p-3 sm:p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mb-4">
           <div>
@@ -152,7 +152,7 @@ export default function TradeMapDashboard() {
                   </div>
                 </div>
                 <div className="mt-2.5">
-                  <h4 className="text-sm sm:text-base font-extrabold text-slate-800 tracking-tight">
+                  <h4 className="text-sm sm:text-base font-extrabold text-[#07156B] tracking-tight">
                     {stat.value}
                   </h4>
                   <span
@@ -188,9 +188,9 @@ export default function TradeMapDashboard() {
         </div>
 
         <SectionCard className="mb-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 items-end">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-5 items-end">
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Trade Type</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Trade Type</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All (Import/Export)</option>
@@ -201,7 +201,7 @@ export default function TradeMapDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Time Period</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Time Period</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>This Month</option>
@@ -212,7 +212,7 @@ export default function TradeMapDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">From Country</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">From Country</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All Countries</option>
@@ -221,7 +221,7 @@ export default function TradeMapDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">To Country</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">To Country</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All Countries</option>
@@ -230,7 +230,7 @@ export default function TradeMapDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Product / HS Code</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Product / HS Code</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All Products</option>
@@ -238,14 +238,22 @@ export default function TradeMapDashboard() {
                 <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
               </div>
             </div>
-            <div className="flex gap-2">
-              <button className="flex items-center justify-center gap-1.5 bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 px-3 text-xs font-semibold hover:bg-slate-100 transition whitespace-nowrap">
-                <Sliders size={13} className="text-slate-400" /> More Filters
+
+              <div>
+                 <button className="flex items-center justify-center gap-1.5 bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 px-3 text-xs font-semibold hover:bg-slate-100 transition whitespace-nowrap">
+                 More Filters  <ChevronDown size={16} className="text-slate-400" /> 
               </button>
+              </div>
+
+             {/* <button className="w-full bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 text-xs font-semibold flex items-center justify-between px-3 hover:bg-slate-100 transition">
+                  <span className="flex items-center gap-1.5"><Sliders size={13} className="text-slate-400" /> More Filters</span> <ChevronDown size={13} className="text-slate-400" />
+             </button> */}
+             
+            <div className="flex gap-5 items-center justify-between ">
               <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl py-2 px-3 transition shadow-xs whitespace-nowrap">
                 Apply Filters
               </button>
-              <button className="text-slate-400 hover:text-slate-600 text-xs font-medium px-1 whitespace-nowrap">
+              <button className="text-slate-400 hover:text-slate-600 text-xs font-medium px-3 whitespace-nowrap">
                 Reset
               </button>
             </div>
@@ -255,7 +263,7 @@ export default function TradeMapDashboard() {
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-5 mb-5">
           <SectionCard className="xl:col-span-2">
             <div className="flex justify-between items-center mb-3">
-              <h3 className="font-bold text-sm text-slate-800">Global Trade Flow</h3>
+              <h3 className="font-bold text-sm text-[#07156B]">Global Trade Flow</h3>
               <button className="flex items-center gap-1 bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-[11px] font-semibold text-slate-600">
                 World Map <ChevronDown size={12} className="text-slate-400" />
               </button>
@@ -332,7 +340,7 @@ export default function TradeMapDashboard() {
 
           <SectionCard>
             <div className="flex justify-between items-center mb-3">
-              <h3 className="font-bold text-sm text-slate-800">Top Trade Routes <span className="text-slate-400 font-normal text-xs">(by Trade Value)</span></h3>
+              <h3 className="font-bold text-sm text-[#07156B]">Top Trade Routes <span className="text-slate-400 font-normal text-xs">(by Trade Value)</span></h3>
               <button className="text-blue-600 text-[11px] font-bold shrink-0">View All</button>
             </div>
             <div className="overflow-x-auto">
@@ -348,8 +356,12 @@ export default function TradeMapDashboard() {
                 <tbody className="divide-y divide-slate-50">
                   {TRADE_ROUTES.map((r, i) => (
                     <tr key={i}>
-                      <td className="py-2 font-semibold text-slate-700 whitespace-nowrap">{r.fFlag} {r.from}</td>
-                      <td className="py-2 font-semibold text-slate-700 whitespace-nowrap">{r.tFlag} {r.to}</td>
+                      <td className="py-2 font-semibold text-slate-700 whitespace-nowrap flex items-center gap-1">
+                          <ReactCountryFlag countryCode={r.fFlag} svg style={{ width: "14px", height: "14px" }} />
+                        {r.from}</td>
+                      <td className="py-2 font-semibold text-slate-700 whitespace-nowrap ">
+                          <ReactCountryFlag countryCode={r.tFlag} svg style={{ width: "14px", height: "14px" }} />
+                       {r.to}</td>
                       <td className="py-2 text-right font-bold text-slate-800 whitespace-nowrap">{r.value}</td>
                       <td className="py-2 text-right w-20">
                         <div className="flex items-center justify-end gap-1.5">
@@ -375,7 +387,7 @@ export default function TradeMapDashboard() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-5">
           <SectionCard>
             <div className="flex justify-between items-center mb-3">
-              <h3 className="font-bold text-xs text-slate-800">Top Countries by Trade Value</h3>
+              <h3 className="font-bold text-sm text-[#07156B]">Top Countries by Trade Value</h3>
               <button className="text-blue-600 text-[10px] font-bold">View All</button>
             </div>
             <div className="space-y-2.5">
@@ -405,14 +417,14 @@ export default function TradeMapDashboard() {
 
           <SectionCard>
             <div className="flex justify-between items-center mb-3">
-              <h3 className="font-bold text-xs text-slate-800">Trade Value by Region</h3>
+              <h3 className="font-bold text-sm text-[#07156B]">Trade Value by Region</h3>
               <button className="text-blue-600 text-[10px] font-bold">View All</button>
             </div>
             <div className="flex items-center gap-3">
               <div className="relative w-[110px] h-[110px] shrink-0">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie data={REGION_DATA} innerRadius={32} outerRadius={50} dataKey="value" stroke="none">
+                    <Pie data={REGION_DATA} innerRadius={32} outerRadius={50}    dataKey="value" stroke="none">
                       {REGION_DATA.map((entry, index) => (
                         <Cell key={index} fill={entry.color} />
                       ))}
@@ -424,10 +436,10 @@ export default function TradeMapDashboard() {
                   <span className="font-black text-[10px] text-slate-800 mt-0.5">₹{totalRegionValue} Cr</span>
                 </div>
               </div>
-              <div className="space-y-1.5 flex-1 text-[10px]">
+              <div className="space-y-8 flex-1 text-[10px] ">
                 {REGION_DATA.map((r, i) => (
-                  <div key={i} className="flex items-center justify-between">
-                    <div className="flex items-center gap-1.5">
+                  <div key={i} className="flex items-center justify-between  ">
+                    <div className="flex items-center gap-1.5 ">
                       <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: r.color }} />
                       <span className="text-slate-600 font-semibold">{r.name}</span>
                     </div>
@@ -441,35 +453,45 @@ export default function TradeMapDashboard() {
           </SectionCard>
 
           <SectionCard>
-            <h3 className="font-bold text-xs text-slate-800 mb-3">Trade Flow Summary</h3>
+            <h3 className="font-bold text-sm text-[#07156B] mb-3">Trade Flow Summary</h3>
             <div className="grid grid-cols-2 gap-2.5">
-              <div className="bg-slate-50/60 border border-slate-100 rounded-xl p-2.5">
-                <div className="flex items-center gap-1 text-[9px] text-slate-400 font-bold uppercase mb-1">
+              <div className="bg-slate-50/60 border flex flex-col space-y-3 border-slate-100 rounded-xl p-2.5">
+                <div className="flex items-center gap-1 text-[9px] text-[#07156B] font-bold uppercase mb-1">
                   <Link2 size={10} /> Inter-Regional Trade
                 </div>
-                <div className="text-sm font-black text-slate-800">₹845.60 Cr</div>
-                <div className="text-[10px] text-slate-400 font-semibold">67.9%</div>
+                <div className="text-base font-black text-[#07156B]">₹845.60 Cr</div>
+                <div className="text-[10px] text-[#07156B] font-semibold">67.9%</div>
               </div>
-              <div className="bg-slate-50/60 border border-slate-100 rounded-xl p-2.5">
-                <div className="flex items-center gap-1 text-[9px] text-slate-400 font-bold uppercase mb-1">
+              <div className="bg-slate-50/60 flex flex-col space-y-3 border border-slate-100 rounded-xl p-2.5">
+                <div className="flex items-center gap-1 text-[9px] text-[#07156B] font-bold uppercase mb-1">
                   <Building2 size={10} /> Intra-Regional Trade
                 </div>
-                <div className="text-sm font-black text-slate-800">₹400.20 Cr</div>
-                <div className="text-[10px] text-slate-400 font-semibold">32.1%</div>
+                <div className="text-base font-black text-[#07156B]">₹400.20 Cr</div>
+                <div className="text-[10px] text-[#07156B] font-semibold">32.1%</div>
               </div>
-              <div className="bg-slate-50/60 border border-slate-100 rounded-xl p-2.5">
-                <div className="flex items-center gap-1 text-[9px] text-slate-400 font-bold uppercase mb-1">
+              <div className="bg-slate-50/60 flex flex-col space-y-3 border border-slate-100 rounded-xl p-2.5">
+                <div className="flex items-center gap-1 text-[9px] text-[#07156B] font-bold uppercase mb-1">
                   <TrendingUp size={10} /> Top Growing Route
                 </div>
-                <div className="text-[11px] font-bold text-slate-800">India → 🇺🇸 USA <span className="text-emerald-500">▲ 32.6%</span></div>
-                <div className="text-[10px] text-slate-400 font-semibold">Trade Value: ₹28.60 Cr</div>
+                <div className="text-[11px] flex items-center justify-between font-bold text-slate-800">India →  <ReactCountryFlag
+                            countryCode={"US"}
+                            svg
+                            style={{ width: "12px", height: "12px" }}
+                            /> USA <span className="text-emerald-500">▲ 32.6%</span></div>
+                <div className="text-[10px] text-[#07156B] font-semibold">Trade Value: ₹28.60 Cr</div>
               </div>
-              <div className="bg-slate-50/60 border border-slate-100 rounded-xl p-2.5">
-                <div className="flex items-center gap-1 text-[9px] text-slate-400 font-bold uppercase mb-1">
+              <div className="bg-slate-50/60 flex flex-col space-y-3 border border-slate-100 rounded-xl p-2.5">
+                <div className="flex items-center gap-1 text-[9px] text-[#07156B] font-bold uppercase mb-1">
                   <PlusCircle size={10} /> New Trade Route Added
                 </div>
-                <div className="text-[11px] font-bold text-slate-800">Brazil → 🇮🇳 India</div>
-                <div className="text-[10px] text-slate-400 font-semibold">Trade Value: ₹2.35 Cr</div>
+                <div className="text-[11px]  flex  items-center justify-between font-bold text-slate-800">Brazil →
+                         <ReactCountryFlag
+                            countryCode={"IN"}
+                            svg
+                            style={{ width: "12px", height: "12px" }}
+                            />
+                             India</div>
+                <div className="text-[10px] text-[#07156B] font-semibold">Trade Value: ₹2.35 Cr</div>
               </div>
             </div>
           </SectionCard>
@@ -477,27 +499,27 @@ export default function TradeMapDashboard() {
 
         <SectionCard className="mb-4">
           <div className="flex justify-between items-center mb-3">
-            <h3 className="font-bold text-sm text-slate-800">Country to Country Trade Overview</h3>
+            <h3 className="font-bold text-sm text-[#07156B]">Country to Country Trade Overview</h3>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-[11px] min-w-[760px]">
               <thead>
-                <tr className="text-[9px] text-slate-400 uppercase font-bold border-b border-slate-100">
+                <tr className="text-[10px] text-[#07156B]  uppercase font-bold border-b border-slate-100">
                   <th className="text-left py-2 font-bold">From Country</th>
                   <th className="text-left py-2 font-bold">To Country</th>
                   <th className="text-left py-2 font-bold">Trade Type</th>
-                  <th className="text-right py-2 font-bold">Trade Value (INR)</th>
-                  <th className="text-right py-2 font-bold">Shipments</th>
-                  <th className="text-left py-2 font-bold">Top Product</th>
-                  <th className="text-right py-2 font-bold">Growth</th>
-                  <th className="text-right py-2 font-bold">Share</th>
+                  <th className="text-center py-2  font-bold">Trade Value (INR)</th>
+                  <th className="text-center py-2 font-bold">Shipments</th>
+                  <th className="text-center py-2 font-bold">Top Product</th>
+                  <th className="text-left py-2 font-bold">Growth</th>
+                  <th className="text-left py-2 font-bold">Share</th>
                   <th className="text-right py-2 font-bold">Trend</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-50">
+              <tbody className="divide-y divide-slate-50  ">
                 {TRADE_OVERVIEW.map((r, i) => (
                   <tr key={i}>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap flex items-center gap-1">
+                    <td className="py-2.5 font-semibold text-[#07156B] whitespace-nowrap flex items-center gap-1">
                           <div className="flex items-center gap-1">
                             <ReactCountryFlag
                             countryCode={r.fFlag}
@@ -506,7 +528,7 @@ export default function TradeMapDashboard() {
                             />
                             <span>{r.from}</span>
                     </div> </td>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap  ">
+                    <td className="py-2.5 font-semibold text-[#07156B] whitespace-nowrap  ">
                           <div className="flex items-center gap-1">
                             <ReactCountryFlag
                             countryCode={r.tFlag}
@@ -516,12 +538,12 @@ export default function TradeMapDashboard() {
                             <span>{r.to}</span>
                         </div>
                     </td>
-                    <td className="py-2.5 text-slate-500 whitespace-nowrap">{r.type}</td>
-                    <td className="py-2.5 text-right font-bold text-slate-800 whitespace-nowrap">{r.value}</td>
-                    <td className="py-2.5 text-right text-slate-600 whitespace-nowrap">{r.shipments}</td>
-                    <td className="py-2.5 text-slate-600 whitespace-nowrap">{r.product}</td>
-                    <td className="py-2.5 text-right font-bold text-emerald-500 whitespace-nowrap">▲ {r.growth}</td>
-                    <td className="py-2.5 text-right font-semibold text-slate-500 whitespace-nowrap">{r.share}</td>
+                    <td className="py-2.5 text-[#07156B] whitespace-nowrap">{r.type}</td>
+                    <td className="py-2.5 text-center font-bold text-[#07156B] whitespace-nowrap">{r.value}</td>
+                    <td className="py-2.5 text-center text-[#07156B] whitespace-nowrap">{r.shipments}</td>
+                    <td className="py-2.5  text-center text-[#07156B] whitespace-nowrap">{r.product}</td>
+                    <td className="py-2.5 text-left font-bold text-emerald-500 whitespace-nowrap">▲ {r.growth}</td>
+                    <td className="py-2.5 text-left font-semibold text-[#07156B] whitespace-nowrap">{r.share}</td>
                     <td className="py-2.5 w-20 h-8">
                       <ResponsiveContainer width="100%" height={24}>
                         <LineChart data={r.trend.map((v) => ({ v }))}>
@@ -540,10 +562,10 @@ export default function TradeMapDashboard() {
         </SectionCard>
 
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-t border-slate-200 pt-3 pb-2">
-          <span className="flex items-center gap-1.5 text-[10px] text-slate-400 font-medium">
+          <span className="flex items-center gap-1.5 text-xs text-slate-400 font-medium">
             <Info size={12} /> All data is updated daily. Last updated on 24 Apr 2025, 09:30 AM
           </span>
-          <span className="flex items-center gap-1.5 text-[10px] text-slate-500 font-semibold cursor-pointer">
+          <span className="flex items-center gap-1.5 text-xs text-slate-500 font-semibold cursor-pointer">
             <HelpCircle size={12} /> Help Center
           </span>
         </div>

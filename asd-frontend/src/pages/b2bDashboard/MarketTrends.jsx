@@ -31,6 +31,7 @@ import {
   Tooltip,
 } from "recharts";
 
+import ReactCountryFlag from "react-country-flag";
 const KPI_STATS = [
   { title: "Total Trade Value (INR)", value: "₹1,245.80 Cr", change: "▲ 16.6% vs last month", icon: IndianRupee, bg: "bg-teal-50", color: "text-teal-600", up: true },
   { title: "Total Shipments", value: "8,742", change: "▲ 16.8% vs last month", icon: Package, bg: "bg-slate-100", color: "text-slate-500", up: true },
@@ -72,19 +73,19 @@ const TOP_GROWING_CATEGORIES = [
 ];
 
 const TOP_GROWING_COUNTRIES = [
-  { name: "USA", flag: "🇺🇸", value: "₹185.45 Cr", growth: "32.6%" },
-  { name: "UAE", flag: "🇦🇪", value: "₹96.30 Cr", growth: "24.7%" },
-  { name: "Germany", flag: "🇩🇪", value: "₹74.20 Cr", growth: "21.5%" },
-  { name: "India", flag: "🇮🇳", value: "₹79.45 Cr", growth: "18.9%" },
-  { name: "Netherlands", flag: "🇳🇱", value: "₹52.18 Cr", growth: "15.8%" },
+  { name: "USA", flag: "US", value: "₹185.45 Cr", growth: "32.6%" },
+  { name: "UAE", flag: "AE", value: "₹96.30 Cr", growth: "24.7%" },
+  { name: "Germany", flag: "DE", value: "₹74.20 Cr", growth: "21.5%" },
+  { name: "India", flag: "IN", value: "₹79.45 Cr", growth: "18.9%" },
+  { name: "Netherlands", flag: "NL", value: "₹52.18 Cr", growth: "15.8%" },
 ];
 
 const TOP_DECLINING_COUNTRIES = [
-  { name: "China", flag: "🇨🇳", value: "₹63.45 Cr", decline: "-12.4%" },
-  { name: "UK", flag: "🇬🇧", value: "₹38.20 Cr", decline: "-9.6%" },
-  { name: "Japan", flag: "🇯🇵", value: "₹26.10 Cr", decline: "-7.8%" },
-  { name: "Russia", flag: "🇷🇺", value: "₹18.35 Cr", decline: "-6.4%" },
-  { name: "South Korea", flag: "🇰🇷", value: "₹14.80 Cr", decline: "-5.7%" },
+  { name: "China", flag: "CN", value: "₹63.45 Cr", decline: "-12.4%" },
+  { name: "UK", flag: "GB", value: "₹38.20 Cr", decline: "-9.6%" },
+  { name: "Japan", flag: "JP", value: "₹26.10 Cr", decline: "-7.8%" },
+  { name: "Russia", flag: "RU", value: "₹18.35 Cr", decline: "-6.4%" },
+  { name: "South Korea", flag: "KR", value: "₹14.80 Cr", decline: "-5.7%" },
 ];
 
 const TOP_RISING_HS = [
@@ -130,7 +131,7 @@ function SectionCard({ children, className = "" }) {
 function ViewAllHeader({ title }) {
   return (
     <div className="flex justify-between items-center mb-3">
-      <h3 className="font-bold text-xs text-slate-800">{title}</h3>
+      <h3 className="font-bold text-sm text-[#07156B]">{title}</h3>
       <button className="text-blue-600 text-[11px] font-bold shrink-0">View All</button>
     </div>
   );
@@ -141,7 +142,7 @@ export default function MarketTrendsDashboard() {
   const totalTypeValue = TYPE_DATA.reduce((a, b) => a + b.value, 0).toFixed(2);
 
   return (
-    <div className="overflow-y-auto w-full bg-[#F8FAFC] text-slate-600 font-sans antialiased ">
+    <div className="overflow-y-auto w-full bg-[#F8FAFC] text-slate-600 font-sans antialiased pt-5 ">
       <div className="max-w-[1400px] mx-auto p-3 sm:p-4 md:p-6">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-3 mb-4">
           <div>
@@ -171,7 +172,7 @@ export default function MarketTrendsDashboard() {
                 className="bg-white border border-slate-100 p-3 sm:p-3.5 rounded-2xl shadow-xs flex flex-col justify-between hover:shadow-md transition duration-200"
               >
                 <div className="flex justify-between items-start gap-2">
-                  <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 leading-tight">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-[#07156B] leading-tight">
                     {stat.title}
                   </span>
                   <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${stat.bg} ${stat.color}`}>
@@ -192,9 +193,9 @@ export default function MarketTrendsDashboard() {
         </div>
 
         <SectionCard className="mb-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-3 items-end">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3 items-end">
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Time Period</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Time Period</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>This Month</option>
@@ -203,7 +204,7 @@ export default function MarketTrendsDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Compare With</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Compare With</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>Last Month</option>
@@ -212,7 +213,7 @@ export default function MarketTrendsDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Trade Type</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Trade Type</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All ( Import/Export)</option>
@@ -221,7 +222,7 @@ export default function MarketTrendsDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Country</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Country</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All Countries</option>
@@ -230,7 +231,7 @@ export default function MarketTrendsDashboard() {
               </div>
             </div>
             <div>
-              <label className="text-[10px] text-slate-400 font-bold block mb-1.5 uppercase">Product / HS Code</label>
+              <label className="text-[10px] text-[#07156B] font-bold block mb-1.5 uppercase">Product / HS Code</label>
               <div className="relative">
                 <select className="w-full bg-slate-50/70 border border-slate-200 rounded-xl py-2 pl-3 pr-8 text-xs appearance-none focus:outline-none">
                   <option>All Products</option>
@@ -238,11 +239,18 @@ export default function MarketTrendsDashboard() {
                 <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
               </div>
             </div>
+
+             <div>
+                  <button className="flex items-center justify-center gap-1.5 bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 px-3 text-xs font-semibold hover:bg-slate-100 transition whitespace-nowrap">
+                 More Filters  <ChevronDown size={16} className="text-slate-400" /> 
+                </button>
+            </div>
+
             <div className="flex gap-2">
-              <button className="flex items-center justify-center gap-1.5 bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 px-3 text-xs font-semibold hover:bg-slate-100 transition whitespace-nowrap">
+              {/* <button className="flex items-center justify-center gap-1.5 bg-slate-50/80 border border-slate-200 text-slate-600 rounded-xl py-2 px-3 text-xs font-semibold hover:bg-slate-100 transition whitespace-nowrap">
                 <Sliders size={13} className="text-slate-400" /> More Filters
-              </button>
-              <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl py-2 px-3 transition shadow-xs whitespace-nowrap">
+              </button> */}
+         <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs rounded-xl py-2 px-3 transition shadow-xs whitespace-nowrap">
                 Apply Filters
               </button>
               <button className="text-slate-400 hover:text-slate-600 text-xs font-medium px-1 whitespace-nowrap">
@@ -259,7 +267,7 @@ export default function MarketTrendsDashboard() {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`pb-2.5 text-xs sm:text-sm font-semibold whitespace-nowrap transition-colors relative ${
-                  activeTab === tab ? "text-blue-600" : "text-slate-500 hover:text-slate-700"
+                  activeTab === tab ? "text-blue-600" : "text-[#07156B] "
                 }`}
               >
                 {tab}
@@ -274,7 +282,7 @@ export default function MarketTrendsDashboard() {
         <div className="border-2 border-blue-500 rounded-2xl p-4 mb-5 bg-white">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
             <div className="lg:pr-4 lg:border-r border-slate-100">
-              <h3 className="font-bold text-xs text-slate-800 mb-1">Trade Value Trend (INR)</h3>
+              <h3 className="font-bold text-sm text-[#07156B] mb-1">Trade Value Trend (INR)</h3>
               <div className="mb-2">
                 <span className="text-lg font-black text-slate-800">₹1,245.80 Cr</span>
                 <span className="text-[10px] text-green-500 font-bold ml-2">↑ 16.6% vs last month</span>
@@ -304,7 +312,7 @@ export default function MarketTrendsDashboard() {
             </div>
 
             <div className="lg:pr-4 lg:border-r border-slate-100">
-              <h3 className="font-bold text-xs text-slate-800 mb-3">Trade Value by Type</h3>
+              <h3 className="font-bold text-sm text-[#07156B] mb-3">Trade Value by Type</h3>
               <div className="relative w-[140px] h-[140px] mx-auto">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
@@ -336,7 +344,7 @@ export default function MarketTrendsDashboard() {
             </div>
 
             <div className="lg:pr-4 lg:border-r border-slate-100">
-              <h3 className="font-bold text-xs text-slate-800 mb-3">Market Trend Summary</h3>
+              <h3 className="font-bold text-sm text-[#07156B] mb-3">Market Trend Summary</h3>
               <div className="space-y-2.5">
                 {SUMMARY_INSIGHTS.map((s, i) => {
                   const Icon = s.icon;
@@ -345,7 +353,7 @@ export default function MarketTrendsDashboard() {
                       <div className={`w-8 h-8 rounded-lg flex items-center justify-center shrink-0 ${s.bg} ${s.color}`}>
                         <Icon size={15} />
                       </div>
-                      <p className="text-[11px] text-slate-600 font-medium leading-snug flex-1">{s.text}</p>
+                      <p className="text-[11px] text-[#07156B] font-medium leading-snug flex-1">{s.text}</p>
                       <ChevronRight size={14} className="text-slate-300 shrink-0" />
                     </div>
                   );
@@ -357,17 +365,17 @@ export default function MarketTrendsDashboard() {
               <ViewAllHeader title="Top Growing Categories" />
               <table className="w-full text-[11px]">
                 <thead>
-                  <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                    <th className="text-left pb-2 font-bold">Category</th>
-                    <th className="text-left pb-2 font-bold">TradeValue (INR)</th>
-                    <th className="text-right pb-2 font-bold">Growth</th>
+                  <tr className="text-[9px] text-[#07156B] uppercase font-bold">
+                    <th className="text-left  text-[#07156B] pb-2 font-bold">Category</th>
+                    <th className="text-left text-[#07156B] pb-2 font-bold">TradeValue (INR)</th>
+                    <th className="text-right text-[#07156B] pb-2 font-bold">Growth</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-50">
                   {TOP_GROWING_CATEGORIES.map((c, i) => (
                     <tr key={i}>
-                      <td className="py-2.5 font-semibold text-slate-700">{c.name}</td>
-                      <td className="py-2.5 font-bold text-slate-800 whitespace-nowrap">{c.value}</td>
+                      <td className="py-2.5 font-semibold text-[#07156B]">{c.name}</td>
+                      <td className="py-2.5 font-bold text-[#07156B] whitespace-nowrap">{c.value}</td>
                       <td className="py-2.5 text-right font-bold text-emerald-500 whitespace-nowrap">▲ {c.growth}</td>
                     </tr>
                   ))}
@@ -383,16 +391,18 @@ export default function MarketTrendsDashboard() {
             <table className="w-full text-[11px]">
               <thead>
                 <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                  <th className="text-left pb-2 font-bold">Country</th>
-                  <th className="text-left pb-2 font-bold">Trade Value</th>
-                  <th className="text-right pb-2 font-bold">Growth</th>
+                  <th className="text-left text-[#07156B] pb-2 font-bold">Country</th>
+                  <th className="text-left text-[#07156B] pb-2 font-bold">Trade Value</th>
+                  <th className="text-right text-[#07156B] pb-2 font-bold">Growth</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {TOP_GROWING_COUNTRIES.map((c, i) => (
                   <tr key={i}>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">{c.flag} {c.name}</td>
-                    <td className="py-2.5 font-bold text-slate-800 whitespace-nowrap">{c.value}</td>
+                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">
+                        <ReactCountryFlag countryCode={c.flag}  svg style={{ width: "14px", height: "14px" }} />
+                       {c.name}</td>
+                    <td className="py-2.5 font-bold text-[#07156B] whitespace-nowrap">{c.value}</td>
                     <td className="py-2.5 text-right font-bold text-emerald-500 whitespace-nowrap">▲ {c.growth}</td>
                   </tr>
                 ))}
@@ -404,17 +414,18 @@ export default function MarketTrendsDashboard() {
             <ViewAllHeader title="Top Declining Countries" />
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                  <th className="text-left pb-2 font-bold">Country</th>
-                  <th className="text-left pb-2 font-bold">Trade Value</th>
-                  <th className="text-right pb-2 font-bold">Decline</th>
+                <tr className="text-[9px] text-[#07156B] uppercase font-bold">
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">Country</th>
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">Trade Value</th>
+                  <th className="text-right  text-[#07156B] pb-2 font-bold">Decline</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {TOP_DECLINING_COUNTRIES.map((c, i) => (
                   <tr key={i}>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">{c.flag} {c.name}</td>
-                    <td className="py-2.5 font-bold text-slate-800 whitespace-nowrap">{c.value}</td>
+                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">
+                   <ReactCountryFlag countryCode={c.flag} svg style={{ width: "14px", height: "14px" }} /> {c.name}</td>
+                    <td className="py-2.5 font-bold text-[#07156B] whitespace-nowrap">{c.value}</td>
                     <td className="py-2.5 text-right font-bold text-rose-500 whitespace-nowrap">▼ {c.decline}</td>
                   </tr>
                 ))}
@@ -426,17 +437,17 @@ export default function MarketTrendsDashboard() {
             <ViewAllHeader title="Top Rising HS Codes" />
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                  <th className="text-left pb-2 font-bold">HS Code</th>
-                  <th className="text-left pb-2 font-bold">Description</th>
-                  <th className="text-right pb-2 font-bold">Growth</th>
+                <tr className="text-[9px] text-[#07156B] uppercase font-bold">
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">HS Code</th>
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">Description</th>
+                  <th className="text-right  text-[#07156B] pb-2 font-bold">Growth</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {TOP_RISING_HS.map((c, i) => (
                   <tr key={i}>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">{c.code}</td>
-                    <td className="py-2.5 text-slate-600">{c.desc}</td>
+                    <td className="py-2.5 font-semibold text-[#07156B] whitespace-nowrap">{c.code}</td>
+                    <td className="py-2.5 text-[#07156B]">{c.desc}</td>
                     <td className="py-2.5 text-right font-bold text-emerald-500 whitespace-nowrap">▲ {c.growth}</td>
                   </tr>
                 ))}
@@ -448,17 +459,17 @@ export default function MarketTrendsDashboard() {
             <ViewAllHeader title="Top Declining HS Codes" />
             <table className="w-full text-[11px]">
               <thead>
-                <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                  <th className="text-left pb-2 font-bold">HS Code</th>
-                  <th className="text-left pb-2 font-bold">Description</th>
-                  <th className="text-right pb-2 font-bold">Decline</th>
+                <tr className="text-[9px] text-[#07156B] uppercase font-bold">
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">HS Code</th>
+                  <th className="text-left  text-[#07156B] pb-2 font-bold">Description</th>
+                  <th className="text-right  text-[#07156B] pb-2 font-bold">Decline</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-50">
                 {TOP_DECLINING_HS.map((c, i) => (
                   <tr key={i}>
-                    <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">{c.code}</td>
-                    <td className="py-2.5 text-slate-600">{c.desc}</td>
+                    <td className="py-2.5 font-semibold text-[#07156B] whitespace-nowrap">{c.code}</td>
+                    <td className="py-2.5 text-[#07156B]">{c.desc}</td>
                     <td className="py-2.5 text-right font-bold text-rose-500 whitespace-nowrap">▼ {c.decline}</td>
                   </tr>
                 ))}
@@ -469,7 +480,7 @@ export default function MarketTrendsDashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mb-4">
           <SectionCard>
-            <h3 className="font-bold text-sm text-slate-800 mb-3">Market Trend Insights</h3>
+            <h3 className="font-bold text-sm text-[#07156B] mb-3">Market Trend Insights</h3>
             <div className="space-y-2.5">
               {INSIGHTS.map((s, i) => {
                 const Icon = s.icon;
@@ -488,22 +499,22 @@ export default function MarketTrendsDashboard() {
             <div className="overflow-x-auto">
               <table className="w-full text-[11px] min-w-[560px]">
                 <thead>
-                  <tr className="text-[9px] text-slate-400 uppercase font-bold">
-                    <th className="text-left pb-2 font-bold">HS Code</th>
-                    <th className="text-left pb-2 font-bold">Product Description</th>
-                    <th className="text-left pb-2 font-bold">Top Growing Markets</th>
-                    <th className="text-right pb-2 font-bold">Trade Value</th>
-                    <th className="text-right pb-2 font-bold">Growth</th>
-                    <th className="text-right pb-2 font-bold">Score</th>
+                  <tr className="text-[9px] text-[#07156B] uppercase font-bold">
+                    <th className="text-left  text-[#07156B] pb-2 font-bold">HS Code</th>
+                    <th className="text-left  text-[#07156B] pb-2 font-bold">Product Description</th>
+                    <th className="text-left  text-[#07156B] pb-2 font-bold">Top Growing Markets</th>
+                    <th className="text-right  text-[#07156B] pb-2 font-bold">Trade Value</th>
+                    <th className="text-right  text-[#07156B] pb-2 font-bold">Growth</th>
+                    <th className="text-right  text-[#07156B] pb-2 font-bold">Score</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-50">
                   {OPPORTUNITIES.map((o, i) => (
                     <tr key={i}>
-                      <td className="py-2.5 font-semibold text-slate-700 whitespace-nowrap">{o.code}</td>
-                      <td className="py-2.5 text-slate-600 whitespace-nowrap">{o.desc}</td>
-                      <td className="py-2.5 text-slate-500 whitespace-nowrap">{o.markets}</td>
-                      <td className="py-2.5 text-right font-bold text-slate-800 whitespace-nowrap">{o.value}</td>
+                      <td className="py-2.5 font-semibold text-[#07156B] whitespace-nowrap">{o.code}</td>
+                      <td className="py-2.5 text-[#07156B] whitespace-nowrap">{o.desc}</td>
+                      <td className="py-2.5 text-[#07156B] whitespace-nowrap">{o.markets}</td>
+                      <td className="py-2.5 text-right font-bold text-[#07156B] whitespace-nowrap">{o.value}</td>
                       <td className="py-2.5 text-right font-bold text-emerald-500 whitespace-nowrap">▲ {o.growth}</td>
                       <td className="py-2.5 text-right">
                         <span className="bg-emerald-100 text-emerald-700 font-bold text-[10px] px-2 py-0.5 rounded-full">
